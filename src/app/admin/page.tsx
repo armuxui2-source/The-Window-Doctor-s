@@ -988,7 +988,7 @@ export default function EnterpriseAdminSuite() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("live-traffic")}
-                  className="btn-cta py-2.5 px-5 rounded-xl font-bold text-xs whitespace-nowrap flex items-center gap-2 shadow-xs shrink-0 self-start md:self-auto"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl text-xs whitespace-nowrap flex items-center gap-1.5 shadow-xs shrink-0 self-start md:self-auto transition-all active:scale-95 border border-secondary/40 font-label"
                 >
                   <span>Open Live Command Center</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -1195,7 +1195,7 @@ export default function EnterpriseAdminSuite() {
 
                   <button
                     onClick={() => setLeadModal({ isOpen: true, mode: "create", data: {} })}
-                    className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold whitespace-nowrap shadow-sm"
+                    className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                   >
                     <PlusCircle className="w-3.5 h-3.5" />
                     <span>Add Quote Lead</span>
@@ -1296,7 +1296,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setServiceModal({ isOpen: true, mode: "create", data: {} })}
-                  className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Service</span>
@@ -1359,7 +1359,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setProjectModal({ isOpen: true, mode: "create", data: {} })}
-                  className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>New Case Study</span>
@@ -1415,7 +1415,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setReviewModal({ isOpen: true, mode: "create", data: {} })}
-                  className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Review</span>
@@ -1475,7 +1475,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setAreaModal({ isOpen: true, mode: "create", data: {} })}
-                  className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm"
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Postcode Area</span>
@@ -1575,7 +1575,7 @@ export default function EnterpriseAdminSuite() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setBlogModal({ isOpen: true, mode: "create", data: {} })}
-                      className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm"
+                      className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                     >
                       <PlusCircle className="w-3.5 h-3.5" />
                       <span>Add Article</span>
@@ -1656,7 +1656,7 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Hero Slider & Banner Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage homepage hero slides — images, headlines, CTAs, and stat badges</p>
                 </div>
-                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm">
+                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Hero Slide</span>
                 </button>
               </div>
@@ -1705,7 +1705,7 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">FAQ & SEO Schema Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage FAQ questions — auto-generates JSON-LD FAQPage schema for Google rich snippets</p>
                 </div>
-                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm">
+                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add FAQ</span>
                 </button>
               </div>
@@ -1746,7 +1746,7 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Comparison Matrix Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Edit the "Why Replace The Whole Window?" comparison table on the homepage</p>
                 </div>
-                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm">
+                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Row</span>
                 </button>
               </div>
@@ -1791,7 +1791,7 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">4-Stage Process Journey Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Manage the "Our Seamless 4-Stage Precision Process" section on the homepage</p>
                 </div>
-                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="btn-cta text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-sm">
+                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Step</span>
                 </button>
               </div>
@@ -1829,7 +1829,7 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Global Site Settings</h2>
                   <p className="text-xs text-slate-500 font-label">Business contact info, address, FENSA number, opening hours — used across Navbar, Footer, Schema, and all pages</p>
                 </div>
-                <button onClick={handleSaveSettings} className={cn("text-xs py-2 px-5 rounded-xl flex items-center gap-1.5 font-bold shadow-sm transition-all", settingsSaved ? "bg-emerald-600 text-white" : "btn-cta")}>
+                <button onClick={handleSaveSettings} className={cn("text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-secondary hover:bg-secondary/90 text-primary font-extrabold border border-secondary/40")}>
                   {settingsSaved ? <><Check className="w-3.5 h-3.5" /><span>Saved & Synced!</span></> : <><Save className="w-3.5 h-3.5" /><span>Save All Settings</span></>}
                 </button>
               </div>
@@ -2055,7 +2055,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveLead(e as any);
                 triggerToast("Customer lead updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {leadModal.mode === "create" ? "Create Lead" : "Save Changes"}
             </button>
@@ -2182,7 +2182,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveService(e as any);
                 triggerToast("Service catalog updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {serviceModal.mode === "create" ? "Create Service" : "Save Changes"}
             </button>
@@ -2274,7 +2274,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveProject(e as any);
                 triggerToast("Case study updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {projectModal.mode === "create" ? "Add Case Study" : "Save Changes"}
             </button>
@@ -2372,7 +2372,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveReview(e as any);
                 triggerToast("Customer review updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {reviewModal.mode === "create" ? "Add Review" : "Save Changes"}
             </button>
@@ -2454,7 +2454,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveArea(e as any);
                 triggerToast("Service area coverage updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {areaModal.mode === "create" ? "Add Area" : "Save Changes"}
             </button>
@@ -2523,7 +2523,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveBlog(e as any);
                 triggerToast("SEO article saved successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {blogModal.mode === "create" ? "Add Article" : "Save Changes"}
             </button>
@@ -2579,7 +2579,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveHero(e as any);
                 triggerToast("Hero slide banner updated successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {heroModal.mode === "create" ? "Add Slide" : "Save Changes"}
             </button>
@@ -2634,7 +2634,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveFaq(e as any);
                 triggerToast("FAQ question & answer saved successfully!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {faqModal.mode === "create" ? "Add FAQ" : "Save Changes"}
             </button>
@@ -2670,7 +2670,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveComp(e as any);
                 triggerToast("Comparison matrix row saved!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {compModal.mode === "create" ? "Add Row" : "Save Changes"}
             </button>
@@ -2707,7 +2707,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveStep(e as any);
                 triggerToast("Process step updated!");
               }}
-              className="btn-cta py-2 px-5 rounded-xl font-bold shadow-sm whitespace-nowrap text-xs font-label"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {stepModal.mode === "create" ? "Add Step" : "Save Changes"}
             </button>

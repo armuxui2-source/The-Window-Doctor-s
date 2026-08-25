@@ -426,7 +426,7 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
             <button
               type="button"
               onClick={handleInstallClick}
-              className="btn-cta py-2.5 px-6 rounded-xl font-bold shadow-md whitespace-nowrap text-xs font-label flex items-center gap-2"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-5 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label flex items-center gap-1.5 transition-all active:scale-95 border border-secondary/40"
             >
               <Download className="w-4 h-4 shrink-0" />
               <span>Install App to PC</span>

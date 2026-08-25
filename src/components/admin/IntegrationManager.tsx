@@ -695,7 +695,7 @@ export default function IntegrationManager() {
                   <button
                     onClick={() => handleSave(item.provider)}
                     disabled={isSaving}
-                    className="btn-cta text-xs py-1.5 px-3.5 rounded-xl flex items-center gap-1.5 font-bold shadow-xs disabled:opacity-50 font-label"
+                    className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-1.5 px-3.5 rounded-xl flex items-center gap-1.5 font-bold shadow-xs disabled:opacity-50 font-label transition-all active:scale-95 border border-secondary/40"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>{isSaving ? "Saving..." : "Save & Activate"}</span>
