@@ -56,7 +56,11 @@ import {
   Award,
   Palette,
   Calculator,
-  Download
+  Download,
+  PanelLeftClose,
+  PanelLeftOpen,
+  ChevronLeft,
+  LayoutDashboard
 } from "lucide-react";
 import { 
   GOOGLE_REVIEWS, 
@@ -686,193 +690,338 @@ export default function EnterpriseAdminSuite() {
     }
   };
 
-  const NAVIGATION_ITEMS = [
-    { id: "dashboard", label: "Executive Dashboard", icon: BarChart3, badge: "Live" },
-    { id: "live-traffic", label: "Real-Time Traffic Monitor", icon: Radio, badge: "LIVE" },
-    { id: "crm", label: "CRM & Quote Leads", icon: Users, badge: `${leads.length}` },
-    { id: "media", label: "Media Library & Photos", icon: FolderPlus, badge: "5 Assets" },
-    { id: "heroSlider", label: "Hero Slider & Banners", icon: ImageIcon, badge: `${heroSlides.length}` },
-    { id: "services", label: "Services & Pricing", icon: Sliders, badge: `${services.length}` },
-    { id: "projects", label: "Case Studies CMS", icon: Layers, badge: `${projects.length}` },
-    { id: "reviews", label: "Customer Reviews", icon: Star, badge: `${reviews.length}` },
-    { id: "trustPillars", label: "Trust Badges & Heritage", icon: ShieldCheck, badge: `${trustPillars.length}` },
-    { id: "frameColors", label: "Frame Colors & RAL", icon: Palette, badge: `${frameColors.length}` },
-    { id: "energyRates", label: "Energy Rates & ROI", icon: Zap, badge: `${energyRates.length}` },
-    { id: "comparison", label: "Comparison Table", icon: ArrowDownUp, badge: `${comparisonRows.length}` },
-    { id: "processSteps", label: "Process Steps", icon: GripVertical, badge: `${processSteps.length}` },
-    { id: "faqs", label: "FAQs & Schema", icon: HelpCircle, badge: `${faqs.length}` },
-    { id: "areas", label: "Coverage & Postcodes", icon: MapPin, badge: `${areas.length}` },
-    { id: "seo", label: "Google SEO & Marketing", icon: Target, badge: "Score 98" },
-    { id: "integrations", label: "Integration Settings", icon: Settings },
-    { id: "siteSettings", label: "Site Settings", icon: Building2 },
+  // ---------------------------------------------------------------------------
+  // 12. NAVIGATION GROUPS & COLLAPSIBLE SIDEBAR
+  // ---------------------------------------------------------------------------
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const NAVIGATION_GROUPS = [
+    {
+      title: "Analytics & Telemetry",
+      items: [
+        { id: "dashboard", label: "Executive Dashboard", icon: BarChart3, badge: "Live" },
+        { id: "live-traffic", label: "Real-Time Traffic", icon: Radio, badge: "LIVE" },
+      ]
+    },
+    {
+      title: "CRM & Operations",
+      items: [
+        { id: "crm", label: "CRM & Quote Leads", icon: Users, badge: `${leads.length}` },
+        { id: "areas", label: "Coverage & Postcodes", icon: MapPin, badge: `${areas.length}` },
+      ]
+    },
+    {
+      title: "Glazing & Content CMS",
+      items: [
+        { id: "heroSlider", label: "Hero Slider & Banners", icon: ImageIcon, badge: `${heroSlides.length}` },
+        { id: "services", label: "Services & Pricing", icon: Sliders, badge: `${services.length}` },
+        { id: "projects", label: "Case Studies CMS", icon: Layers, badge: `${projects.length}` },
+        { id: "reviews", label: "Customer Reviews", icon: Star, badge: `${reviews.length}` },
+        { id: "trustPillars", label: "Trust & Heritage", icon: ShieldCheck, badge: `${trustPillars.length}` },
+        { id: "frameColors", label: "Frame Colors & RAL", icon: Palette, badge: `${frameColors.length}` },
+        { id: "energyRates", label: "Energy Rates & ROI", icon: Zap, badge: `${energyRates.length}` },
+        { id: "comparison", label: "Comparison Table", icon: ArrowDownUp, badge: `${comparisonRows.length}` },
+        { id: "processSteps", label: "Process Steps", icon: GripVertical, badge: `${processSteps.length}` },
+        { id: "faqs", label: "FAQs & Schema", icon: HelpCircle, badge: `${faqs.length}` },
+      ]
+    },
+    {
+      title: "Growth & Settings",
+      items: [
+        { id: "seo", label: "Google SEO & Guides", icon: Target, badge: "Score 98" },
+        { id: "media", label: "Media Library", icon: FolderPlus, badge: "5 Assets" },
+        { id: "integrations", label: "Integration Settings", icon: Settings },
+        { id: "siteSettings", label: "Site Settings", icon: Building2 },
+      ]
+    }
   ];
+
+  const allNavItems = NAVIGATION_GROUPS.flatMap((g) => g.items);
+  const currentNav = allNavItems.find((n) => n.id === activeTab);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col md:flex-row antialiased font-body">
       
       {/* ========================================================================= */}
-      {/* 1. CLEAN WHITE/SLATE LEFT SIDEBAR (แถบเมนูหลักฝั่งซ้ายมือ)                      */}
+      {/* 1. COLLAPSIBLE ENTERPRISE SIDEBAR (พับได้อัตโนมัติ/สลับโหมด 260px / 70px)     */}
       {/* ========================================================================= */}
       <aside className={cn(
-        "w-72 bg-white border-r border-slate-200 flex flex-col justify-between flex-shrink-0 z-40 transition-all duration-300 shadow-sm",
+        "bg-white border-r border-slate-200/80 flex flex-col justify-between flex-shrink-0 z-40 transition-all duration-300 ease-in-out shadow-xs",
         "fixed md:sticky top-0 h-screen",
+        sidebarCollapsed ? "w-[72px]" : "w-[264px]",
         sidebarOpen ? "left-0" : "-left-72 md:left-0"
       )}>
         {/* Sidebar Header */}
-        <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-white">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden border border-slate-200 flex-shrink-0 bg-white shadow-sm">
+        <div className={cn(
+          "h-16 border-b border-slate-100 flex items-center justify-between bg-white px-4 transition-all",
+          sidebarCollapsed && "px-3 justify-center"
+        )}>
+          <div className="flex items-center gap-3 overflow-hidden">
+            <Link href="/admin" className="relative w-9 h-9 rounded-xl overflow-hidden border border-slate-200/90 flex-shrink-0 bg-white shadow-2xs hover:opacity-90 transition-opacity">
               <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
-            </div>
-            <div>
-              <span className="font-headline font-extrabold text-sm text-primary tracking-tight block">
-                The Window Doctor
-              </span>
-              <span className="text-[10px] text-secondary font-bold font-label uppercase tracking-wider">
-                Enterprise Admin Suite
-              </span>
-            </div>
+            </Link>
+            {!sidebarCollapsed && (
+              <div className="min-w-0 transition-opacity duration-200">
+                <span className="font-headline font-bold text-sm text-slate-900 tracking-tight block truncate">
+                  The Window Doctor
+                </span>
+                <span className="text-[10px] text-slate-600 font-bold font-label tracking-wider uppercase block">
+                  Enterprise Suite
+                </span>
+              </div>
+            )}
           </div>
 
+          {/* Desktop Collapse Toggle Button */}
+          {!sidebarCollapsed && (
+            <button
+              type="button"
+              onClick={() => setSidebarCollapsed(true)}
+              className="hidden md:flex p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+              title="Collapse sidebar"
+            >
+              <PanelLeftClose className="w-4 h-4" />
+            </button>
+          )}
+
+          {/* Mobile Close Button */}
           <button
+            type="button"
             onClick={() => setSidebarOpen(false)}
-            className="md:hidden p-2 rounded-xl text-slate-400 hover:text-slate-700"
+            className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-700"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Sidebar Navigation Links */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-1.5 font-label">
-          <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 py-2">
-            System Modules
+        {/* Collapsed Expand Quick Button */}
+        {sidebarCollapsed && (
+          <div className="hidden md:flex justify-center pt-2 pb-1">
+            <button
+              type="button"
+              onClick={() => setSidebarCollapsed(false)}
+              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shadow-2xs"
+              title="Expand sidebar (Full Menu)"
+            >
+              <PanelLeftOpen className="w-4 h-4" />
+            </button>
           </div>
+        )}
 
-          {NAVIGATION_ITEMS.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            return (
-              <button
-                key={item.id}
-                onClick={() => {
-                  setActiveTab(item.id as typeof activeTab);
-                  setSidebarOpen(false);
-                }}
-                className={cn(
-                  "w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all text-left",
-                  isActive
-                    ? "bg-primary text-secondary-container font-extrabold shadow-sm"
-                    : "text-slate-600 hover:bg-slate-100 hover:text-primary"
-                )}
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className={cn("w-4 h-4", isActive ? "text-secondary-container" : "text-secondary")} />
-                  <span>{item.label}</span>
+        {/* Sidebar Navigation Links (Categorized) */}
+        <div className={cn(
+          "flex-1 overflow-y-auto overflow-x-hidden p-3 space-y-4 font-label",
+          sidebarCollapsed && "p-2 space-y-2"
+        )}>
+          {NAVIGATION_GROUPS.map((group, gIdx) => (
+            <div key={group.title} className="space-y-1">
+              {!sidebarCollapsed ? (
+                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-2.5 pt-1.5 pb-1">
+                  {group.title}
                 </div>
-                {item.badge && (
-                  <span className={cn(
-                    "text-[10px] px-2 py-0.5 rounded-full font-extrabold font-mono",
-                    isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
-                  )}>
-                    {item.badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+              ) : gIdx > 0 ? (
+                <div className="h-px bg-slate-100 my-2 mx-1" />
+              ) : null}
+
+              {group.items.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeTab === item.id;
+
+                if (sidebarCollapsed) {
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        setActiveTab(item.id as typeof activeTab);
+                        setSidebarOpen(false);
+                      }}
+                      className={cn(
+                        "w-11 h-10 mx-auto rounded-xl flex items-center justify-center relative group transition-all",
+                        isActive
+                          ? "bg-slate-900 text-white shadow-sm font-bold"
+                          : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                      )}
+                      title={item.label}
+                    >
+                      <Icon className={cn("w-4 h-4", isActive ? "text-white" : "text-slate-500 group-hover:text-slate-800")} />
+                      
+                      {/* Hover Flyout Floating Tooltip */}
+                      <div className="absolute left-full ml-3 px-2.5 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-xl opacity-0 group-hover:opacity-100 group-hover:visible pointer-events-none transition-all duration-150 z-50 whitespace-nowrap flex items-center gap-2 border border-slate-700">
+                        <span>{item.label}</span>
+                        {item.badge && (
+                          <span className="text-[10px] px-1.5 py-0.2 rounded bg-white/20 text-white font-mono">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                    </button>
+                  );
+                }
+
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setActiveTab(item.id as typeof activeTab);
+                      setSidebarOpen(false);
+                    }}
+                    className={cn(
+                      "w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all text-left group",
+                      isActive
+                        ? "bg-slate-900 text-white font-bold shadow-xs"
+                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                    )}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <Icon className={cn("w-4 h-4 shrink-0", isActive ? "text-white" : "text-slate-400 group-hover:text-slate-700")} />
+                      <span className="truncate">{item.label}</span>
+                    </div>
+                    {item.badge && (
+                      <span className={cn(
+                        "text-[10px] px-1.5 py-0.5 rounded-md font-bold font-mono shrink-0 ml-1.5",
+                        isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-500"
+                      )}>
+                        {item.badge}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </div>
 
-        {/* Sidebar Footer (Live Cloud Status) */}
-        <div className="p-4 border-t border-slate-100 bg-slate-50/80 space-y-3 font-label">
-          <div className="p-3 rounded-2xl bg-white border border-slate-200 flex items-center justify-between text-xs shadow-xs">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-slate-600 text-[11px] font-medium">Supabase Cloud</span>
+        {/* Sidebar Footer (Live Cloud Status & Actions) */}
+        <div className={cn(
+          "p-3 border-t border-slate-100 bg-slate-50/60 space-y-2 font-label transition-all",
+          sidebarCollapsed && "p-2 space-y-1.5"
+        )}>
+          {!sidebarCollapsed ? (
+            <>
+              <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 flex items-center justify-between text-xs shadow-2xs">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-slate-600 text-[11px] font-medium">Supabase Cloud</span>
+                </div>
+                <span className="text-[10px] text-emerald-700 font-bold font-mono">ONLINE</span>
+              </div>
+
+              <div className="grid grid-cols-2 gap-1.5 pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowInstallModal(true);
+                    setSidebarOpen(false);
+                  }}
+                  className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
+                  title="Install Desktop PWA"
+                >
+                  <Download className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Install App</span>
+                </button>
+
+                <Link
+                  href="/"
+                  target="_blank"
+                  className="w-full flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
+                  title="View Public Website"
+                >
+                  <span>Website</span>
+                  <ExternalLink className="w-3 h-3 text-slate-400" />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="flex flex-col items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setShowInstallModal(true)}
+                className="w-10 h-10 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
+                title="Install Desktop PWA"
+              >
+                <Download className="w-4 h-4 text-slate-600" />
+                <div className="absolute left-full ml-3 px-2 py-1 bg-slate-900 text-white text-[11px] font-semibold rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:visible pointer-events-none transition-all duration-150 z-50 whitespace-nowrap">
+                  Install App
+                </div>
+              </button>
+
+              <Link
+                href="/"
+                target="_blank"
+                className="w-10 h-10 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
+                title="View Public Website"
+              >
+                <ExternalLink className="w-4 h-4 text-slate-600" />
+                <div className="absolute left-full ml-3 px-2 py-1 bg-slate-900 text-white text-[11px] font-semibold rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:visible pointer-events-none transition-all duration-150 z-50 whitespace-nowrap">
+                  View Website
+                </div>
+              </Link>
             </div>
-            <span className="text-[10px] text-emerald-700 font-bold font-mono">LIVE SYNC</span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => {
-              setShowInstallModal(true);
-              setSidebarOpen(false);
-            }}
-            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100 transition-colors shadow-xs"
-          >
-            <Download className="w-4 h-4 text-amber-700 shrink-0" />
-            <span>Install Desktop App</span>
-          </button>
-
-          <Link
-            href="/"
-            target="_blank"
-            className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold bg-primary text-white hover:bg-primary/90 transition-colors shadow-sm"
-          >
-            <span>View Live Website</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </Link>
+          )}
         </div>
       </aside>
 
       {/* Mobile Backdrop */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 md:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-xs z-30 md:hidden animate-fade-in"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* ========================================================================= */}
-      {/* 2. MAIN ADMIN CONTENT WORKSPACE (WHITE/CLEAN THEME)                       */}
+      {/* 2. MAIN ADMIN CONTENT WORKSPACE (MINIMALIST & AIRY)                       */}
       {/* ========================================================================= */}
       <main className="flex-1 flex flex-col min-w-0 bg-slate-50">
         
-        {/* Top Header Bar */}
-        <header className="h-16 bg-white border-b border-slate-200 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-20 shadow-xs">
+        {/* Top Header Bar (Ultra-Minimalist) */}
+        <header className="h-15 bg-white border-b border-slate-200/80 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-20 shadow-2xs">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(true)}
               className="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700"
             >
-              <Menu className="w-5 h-5" />
+              <Menu className="w-4 h-4" />
             </button>
-            <div>
-              <h1 className="font-headline font-extrabold text-base sm:text-lg text-primary">
-                {NAVIGATION_ITEMS.find((n) => n.id === activeTab)?.label}
+
+            {/* Sidebar Toggle for Desktop */}
+            <button
+              type="button"
+              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              className="hidden md:flex p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+              title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+            >
+              {sidebarCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+            </button>
+
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-slate-400 font-label hidden sm:inline">Admin /</span>
+              <h1 className="font-headline font-bold text-sm sm:text-base text-slate-900">
+                {currentNav?.label || "Admin Console"}
               </h1>
             </div>
           </div>
 
-          {/* Quick Metrics Badges & Actions */}
-          <div className="flex items-center gap-2 sm:gap-3 text-xs font-label">
-            <button
-              type="button"
-              onClick={() => setShowInstallModal(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100 font-bold transition-all shadow-xs"
-              title="Install Desktop / Mobile App"
-            >
-              <Download className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-              <span className="hidden lg:inline whitespace-nowrap">Install App</span>
-            </button>
-
+          {/* Quick Metrics Badges & Minimal Actions */}
+          <div className="flex items-center gap-2 text-xs font-label">
             <button
               onClick={handleSyncToSupabase}
               disabled={isSeeding}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-primary text-secondary-container hover:bg-primary/90 font-bold transition-all shadow-xs disabled:opacity-50"
+              className="flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold transition-all shadow-2xs disabled:opacity-50 text-xs"
               title="Push 100% real website content to Supabase database"
             >
-              <RefreshCw className={cn("w-3.5 h-3.5", isSeeding && "animate-spin")} />
-              <span className="hidden md:inline">{isSeeding ? "Syncing to Cloud..." : "Sync All to Supabase"}</span>
-              <span className="md:hidden">Sync</span>
+              <RefreshCw className={cn("w-3 h-3", isSeeding && "animate-spin text-amber-300")} />
+              <span className="hidden sm:inline">{isSeeding ? "Syncing..." : "Sync Supabase"}</span>
+              <span className="sm:hidden">Sync</span>
             </button>
 
-            <div className="hidden sm:flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-1.5 rounded-xl">
+            <div className="hidden md:flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-600 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>FENSA Certified #28491</span>
+              <span>FENSA #28491</span>
             </div>
-            <div className="hidden xl:flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-3 py-1.5 rounded-xl font-bold">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+
+            <div className="hidden lg:flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold font-mono">
+              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               <span>Pipeline: {formatCurrency(totalPipelineRevenue)}</span>
             </div>
           </div>
@@ -881,17 +1030,17 @@ export default function EnterpriseAdminSuite() {
         {/* Sync Feedback Toast Alert */}
         {seedResult && (
           <div className={cn(
-            "mx-4 sm:mx-8 mt-4 p-4 rounded-2xl border text-xs font-label flex items-center justify-between animate-fade-in",
+            "mx-4 sm:mx-8 mt-4 p-3.5 rounded-xl border text-xs font-label flex items-center justify-between animate-fade-in shadow-xs",
             seedResult.type === "success" 
               ? "bg-emerald-50 border-emerald-200 text-emerald-800"
               : "bg-blue-50 border-blue-200 text-blue-800"
           )}>
-            <div className="flex items-center gap-2 font-bold">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <div className="flex items-center gap-2 font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>{seedResult.message}</span>
             </div>
             <button onClick={() => setSeedResult(null)} className="text-slate-400 hover:text-slate-700">
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5" />
             </button>
           </div>
         )}
@@ -905,81 +1054,81 @@ export default function EnterpriseAdminSuite() {
           {activeTab === "dashboard" && (
             <div className="space-y-8 animate-fade-in">
               
-              {/* Top 4 KPI Metric Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-2">
+              {/* Top 4 Minimalist KPI Metric Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
-                    <span>Weekly Traffic</span>
-                    <div className="p-2 rounded-xl bg-blue-50 text-blue-600">
-                      <Users className="w-4 h-4" />
+                    <span className="font-medium">Weekly Traffic</span>
+                    <div className="p-1.5 rounded-lg bg-blue-50 text-blue-600">
+                      <Users className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <div className="font-headline font-extrabold text-3xl text-primary">1,482</div>
-                  <div className="text-xs text-emerald-600 font-bold flex items-center gap-1 font-label">
-                    <TrendingUp className="w-3.5 h-3.5" />
+                  <div className="font-headline font-bold text-2xl text-slate-900">1,482</div>
+                  <div className="text-xs text-emerald-600 font-medium flex items-center gap-1 font-label">
+                    <TrendingUp className="w-3 h-3" />
                     <span>+18.4% vs last week</span>
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-2">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
-                    <span>Quotes Received</span>
-                    <div className="p-2 rounded-xl bg-amber-50 text-amber-600">
-                      <FileText className="w-4 h-4" />
+                    <span className="font-medium">Quotes Received</span>
+                    <div className="p-1.5 rounded-lg bg-amber-50 text-amber-600">
+                      <FileText className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <div className="font-headline font-extrabold text-3xl text-secondary">38</div>
-                  <div className="text-xs text-emerald-600 font-bold flex items-center gap-1 font-label">
-                    <TrendingUp className="w-3.5 h-3.5" />
+                  <div className="font-headline font-bold text-2xl text-slate-900">38</div>
+                  <div className="text-xs text-emerald-600 font-medium flex items-center gap-1 font-label">
+                    <TrendingUp className="w-3 h-3" />
                     <span>14.8% Conversion Rate</span>
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-2">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
-                    <span>Active Revenue Pipeline</span>
-                    <div className="p-2 rounded-xl bg-emerald-50 text-emerald-600">
-                      <DollarSign className="w-4 h-4" />
+                    <span className="font-medium">Active Revenue Pipeline</span>
+                    <div className="p-1.5 rounded-lg bg-emerald-50 text-emerald-600">
+                      <DollarSign className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <div className="font-headline font-extrabold text-3xl text-primary">
+                  <div className="font-headline font-bold text-2xl text-slate-900">
                     {formatCurrency(totalPipelineRevenue)}
                   </div>
-                  <div className="text-xs text-slate-500 font-label">
-                    Avg. £3,327 / Job Booking
+                  <div className="text-xs text-slate-400 font-label">
+                    Avg. £3,327 / Booking
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-2">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
-                    <span>Google SEO Score</span>
-                    <div className="p-2 rounded-xl bg-purple-50 text-purple-600">
-                      <Target className="w-4 h-4" />
+                    <span className="font-medium">Google SEO Score</span>
+                    <div className="p-1.5 rounded-lg bg-purple-50 text-purple-600">
+                      <Target className="w-3.5 h-3.5" />
                     </div>
                   </div>
-                  <div className="font-headline font-extrabold text-3xl text-purple-700">98 / 100</div>
-                  <div className="text-xs text-emerald-600 font-bold font-label">
-                    ✓ #1 For "Misted Glass Bicester"
+                  <div className="font-headline font-bold text-2xl text-purple-700">98 / 100</div>
+                  <div className="text-xs text-emerald-600 font-medium font-label">
+                    ✓ #1 "Misted Glass Bicester"
                   </div>
                 </div>
               </div>
 
-              {/* Live Telemetry Radar Quick Access Banner */}
-              <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary p-6 rounded-[24px] text-white shadow-md border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              {/* Live Telemetry Radar Minimalist Dark Banner */}
+              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
-                    <Radio className="w-6 h-6 animate-pulse" />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                    <Radio className="w-5 h-5 animate-pulse" />
                   </div>
                   <div className="space-y-0.5">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-headline font-extrabold text-base text-white">
+                      <span className="font-headline font-bold text-sm sm:text-base text-white">
                         Real-Time Live Traffic & Telemetry Monitor
                       </span>
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-mono font-bold whitespace-nowrap">
-                        14 Active Visitors Online
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 text-[10px] font-mono font-semibold whitespace-nowrap">
+                        14 Visitors Online
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300 font-label">
+                    <p className="text-xs text-slate-400 font-label">
                       Live visitor locations across Bicester & Oxfordshire, interactive quote calculations, and marketing pixel streams.
                     </p>
                   </div>
@@ -988,10 +1137,10 @@ export default function EnterpriseAdminSuite() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("live-traffic")}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl text-xs whitespace-nowrap flex items-center gap-1.5 shadow-xs shrink-0 self-start md:self-auto transition-all active:scale-95 border border-secondary/40 font-label"
+                  className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-2 px-3.5 rounded-xl text-xs whitespace-nowrap flex items-center gap-1.5 shadow-2xs shrink-0 self-start md:self-auto transition-all active:scale-95 font-label"
                 >
-                  <span>Open Live Command Center</span>
-                  <ArrowUpRight className="w-4 h-4" />
+                  <span>Open Live Monitor</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
 

@@ -305,44 +305,38 @@ export default function LiveTrafficCommandCenter() {
   return (
     <div className="space-y-6 font-body text-slate-800 animate-fade-in">
       
-      {/* ======================================================================= */}
-      {/* 1. TOP TELEMETRY CONTROL HEADER                                         */}
-      {/* ======================================================================= */}
-      <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden border border-white/10">
+      {/* 1. TOP TELEMETRY CONTROL HEADER (Minimalist Dark Slate) */}
+      <div className="bg-slate-900 rounded-2xl p-6 text-white shadow-sm relative overflow-hidden border border-slate-800">
         
-        {/* Glowing Radar Background Effect */}
-        <div className="absolute top-1/2 -right-16 -translate-y-1/2 w-80 h-80 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -top-16 left-1/3 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
             <div className="flex items-center gap-2.5 flex-wrap">
-              <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-400 text-xs font-bold font-mono flex items-center gap-2 shadow-xs whitespace-nowrap">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping shrink-0" />
-                <span>LIVE TELEMETRY STREAM ACTIVE</span>
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold font-mono flex items-center gap-1.5 shadow-2xs whitespace-nowrap">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping shrink-0" />
+                <span>LIVE TELEMETRY STREAM</span>
               </span>
-              <span className="px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-mono whitespace-nowrap">
+              <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-slate-300 text-[11px] font-mono whitespace-nowrap">
                 Heartbeat: {lastHeartbeat}
               </span>
             </div>
 
-            <h2 className="font-headline font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
+            <h2 className="font-headline font-bold text-xl sm:text-2xl text-white tracking-tight">
               Real-Time Traffic & Visitor Analytics
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-label max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-400 font-label max-w-2xl leading-relaxed">
               Live monitoring of active visitors across Oxfordshire, interactive quote calculations, phone conversions, and real-time marketing pixel telemetry.
             </p>
           </div>
 
           {/* Stream Controls */}
-          <div className="flex items-center gap-2.5 flex-wrap self-start lg:self-center bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
+          <div className="flex items-center gap-2 self-start lg:self-center bg-white/5 p-1.5 rounded-xl border border-white/10">
             <button
               type="button"
               onClick={() => setIsSimulating(!isSimulating)}
               className={cn(
-                "px-4 py-2 rounded-xl text-xs font-bold font-label flex items-center gap-2 transition-all whitespace-nowrap shadow-xs",
+                "px-3.5 py-1.5 rounded-lg text-xs font-semibold font-label flex items-center gap-1.5 transition-all whitespace-nowrap shadow-2xs",
                 isSimulating
-                  ? "bg-emerald-500 text-primary hover:bg-emerald-400"
+                  ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400"
                   : "bg-amber-500 text-white hover:bg-amber-400"
               )}
             >
@@ -362,68 +356,68 @@ export default function LiveTrafficCommandCenter() {
             <button
               type="button"
               onClick={() => setEvents([])}
-              className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-colors"
               title="Clear Event Log"
             >
-              <Trash2 className="w-4 h-4" />
+              <Trash2 className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
         {/* Live Metrics Ribbon */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/10">
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-xs space-y-1">
-            <span className="text-[11px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 pt-5 border-t border-white/10">
+          <div className="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+            <span className="text-[10px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
               Active Visitors Now
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="font-headline font-extrabold text-2xl sm:text-3xl text-white font-mono">
+              <span className="font-headline font-bold text-2xl text-white font-mono">
                 {activeCount}
               </span>
-              <span className="text-xs text-emerald-400 font-bold font-mono whitespace-nowrap">
-                +4 from Oxfordshire
+              <span className="text-[11px] text-emerald-400 font-semibold font-mono whitespace-nowrap">
+                +4 Oxfordshire
               </span>
             </div>
           </div>
 
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-xs space-y-1">
-            <span className="text-[11px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
+          <div className="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+            <span className="text-[10px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
               Live Pageviews
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="font-headline font-extrabold text-2xl sm:text-3xl text-secondary font-mono">
+              <span className="font-headline font-bold text-2xl text-amber-300 font-mono">
                 {pageviewsPerMin}
               </span>
-              <span className="text-xs text-slate-400 font-label whitespace-nowrap">
-                per minute
+              <span className="text-[11px] text-slate-400 font-label whitespace-nowrap">
+                / min
               </span>
             </div>
           </div>
 
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-xs space-y-1">
-            <span className="text-[11px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
+          <div className="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+            <span className="text-[10px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
               Active Quote Engine
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="font-headline font-extrabold text-2xl sm:text-3xl text-emerald-400 font-mono">
+              <span className="font-headline font-bold text-2xl text-emerald-400 font-mono">
                 5
               </span>
-              <span className="text-xs text-slate-300 font-label whitespace-nowrap">
+              <span className="text-[11px] text-slate-400 font-label whitespace-nowrap">
                 in progress
               </span>
             </div>
           </div>
 
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10 backdrop-blur-xs space-y-1">
-            <span className="text-[11px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
+          <div className="bg-white/5 p-3.5 rounded-xl border border-white/10 space-y-1">
+            <span className="text-[10px] font-bold text-slate-400 font-label uppercase tracking-wider whitespace-nowrap">
               Top Regional Hub
             </span>
             <div className="flex items-baseline gap-2">
-              <span className="font-headline font-extrabold text-lg sm:text-xl text-white whitespace-nowrap truncate">
+              <span className="font-headline font-bold text-base text-white whitespace-nowrap truncate">
                 Bicester
               </span>
-              <span className="text-xs text-secondary font-mono whitespace-nowrap">
-                44% traffic
+              <span className="text-[11px] text-amber-300 font-mono whitespace-nowrap">
+                44%
               </span>
             </div>
           </div>
