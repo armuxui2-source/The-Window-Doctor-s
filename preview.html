@@ -1925,21 +1925,404 @@
       startGoogleReviewsTimer();
     }
 
-    function toggleSwitcherBar() {
-      const bar = document.getElementById('dev-switcher-bar');
-      const floatBtn = document.getElementById('floating-switcher-toggle');
-      if (bar.classList.contains('hidden')) {
-        bar.classList.remove('hidden');
-        floatBtn.classList.add('hidden');
+    function navigateTo(pageId) {
+      if (pageId === 'page-admin') {
+        const adminModal = document.getElementById('preview-admin-modal');
+        if (adminModal) {
+          adminModal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
       } else {
-        bar.classList.add('hidden');
-        floatBtn.classList.remove('hidden');
+        closeAdminModal();
+        const el = document.getElementById(pageId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       }
+    }
+
+    function closeAdminModal() {
+      const adminModal = document.getElementById('preview-admin-modal');
+      if (adminModal) {
+        adminModal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function switchAdminTab(tabId) {
+      ['overview', 'leads', 'services', 'integrations'].forEach(t => {
+        const panel = document.getElementById(`admin-tab-${t}`);
+        const btn = document.getElementById(`admin-btn-${t}`);
+        if (panel) panel.classList.add('hidden');
+        if (btn) btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap";
+      });
+
+      const activePanel = document.getElementById(`admin-tab-${tabId}`);
+      const activeBtn = document.getElementById(`admin-btn-${tabId}`);
+      if (activePanel) activePanel.classList.remove('hidden');
+      if (activeBtn) activeBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold bg-secondary-container text-primary shadow-sm whitespace-nowrap";
+    }
+
+    function testIntegration(provider) {
+      const statusEl = document.getElementById(`status-${provider}`);
+      if (!statusEl) return;
+      statusEl.innerHTML = `<span class="animate-spin inline-block mr-1">⏳</span> Testing...`;
+      setTimeout(() => {
+        statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block mr-1"></span> 🟢 Connected`;
+        statusEl.className = "px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200";
+      }, 700);
+    }
+
+    function toggleSecret(id) {
+      const input = document.getElementById(id);
+      if (!input) return;
+      if (input.type === "password") {
+        input.type = "text";
+      } else {
+        input.type = "password";
+      }
+    }
+
+    function saveIntegration(provider) {
+      const btn = document.getElementById(`save-btn-${provider}`);
+      if (!btn) return;
+      const oldText = btn.innerHTML;
+      btn.innerHTML = `✓ Saved & Active!`;
+      btn.classList.add('bg-emerald-600');
+      setTimeout(() => {
+        btn.innerHTML = oldText;
+        btn.classList.remove('bg-emerald-600');
+      }, 2000);
     }
 
     // Initial render
     renderGoogleReviews();
     startGoogleReviewsTimer();
   </script>
+
+  <!-- ========================================================================= -->
+  <!-- ENTERPRISE ADMIN SUITE MODAL (FULL OVERLAY)                               -->
+  <!-- ========================================================================= -->
+  <div id="preview-admin-modal" class="fixed inset-0 z-[100] bg-slate-900/95 backdrop-blur-xl overflow-y-auto hidden">
+    <div class="min-h-screen bg-background text-on-surface">
+      
+      <!-- Top Admin Header -->
+      <div class="bg-primary text-white border-b border-white/10 sticky top-0 z-30 shadow-md">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full overflow-hidden border border-secondary bg-white flex items-center justify-center">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFxaFTFI_dtbr-MLywoV8UD0O1nAMr3GXLlVThzWrpWWQqIHKwoyCSeA4sL2dXsbSeGh_clm5M5bB54o3vK1reO_t133chDpVrz0gzj1IGdmMy61pV69kRg1ca7JB0XystRT0ViJ5Um_9x2sEyKad1X6SbD6jZTN8jHuPt28s09M2toEcatTt2HiStYgzn5e4ahVX-jIk6-rXOTJCUSJevc6_59n293IOiYJlA6P5weGyNA0mxie0TjvP_O_TGyyBJw" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <span class="font-headline font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                <span>The Window Doctor Staff Admin HUD</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-primary font-label">PROD v2.4</span>
+              </span>
+              <span class="text-[10px] text-slate-300 font-label">Master Glaziers Since 1983 • Bicester, Oxford & Oxfordshire</span>
+            </div>
+          </div>
+
+          <button onclick="closeAdminModal()" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold flex items-center gap-1">
+            <span>✕ กลับหน้าเว็บหลัก</span>
+          </button>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center gap-1 overflow-x-auto border-t border-white/10 pt-1 pb-1">
+          <button id="admin-btn-overview" onclick="switchAdminTab('overview')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-secondary-container text-primary shadow-sm whitespace-nowrap">
+            📊 Overview & Analytics
+          </button>
+          <button id="admin-btn-leads" onclick="switchAdminTab('leads')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
+            📋 Quote Pipeline (4)
+          </button>
+          <button id="admin-btn-services" onclick="switchAdminTab('services')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
+            🛠️ Services Catalog
+          </button>
+          <button id="admin-btn-integrations" onclick="switchAdminTab('integrations')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
+            ⚙️ Integration Settings
+          </button>
+        </div>
+      </div>
+
+      <!-- Content Panels -->
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8">
+        
+        <!-- 1. OVERVIEW TAB -->
+        <div id="admin-tab-overview" class="space-y-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white shadow-sm space-y-2">
+              <div class="text-slate-500 text-xs font-label">Weekly Website Visitors</div>
+              <div class="font-headline font-extrabold text-3xl text-primary">1,482</div>
+              <div class="text-xs text-emerald-600 font-bold">▲ +18.4% vs last week</div>
+            </div>
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white shadow-sm space-y-2">
+              <div class="text-slate-500 text-xs font-label">Quotes Generated</div>
+              <div class="font-headline font-extrabold text-3xl text-secondary">38</div>
+              <div class="text-xs text-emerald-600 font-bold">14.8% conversion rate</div>
+            </div>
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white shadow-sm space-y-2">
+              <div class="text-slate-500 text-xs font-label">Active Quote Pipeline</div>
+              <div class="font-headline font-extrabold text-3xl text-primary">£42,850</div>
+              <div class="text-xs text-slate-500 font-label">Avg. £3,327 per booking</div>
+            </div>
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white shadow-sm space-y-2">
+              <div class="text-slate-500 text-xs font-label">Customer Rating</div>
+              <div class="font-headline font-extrabold text-3xl text-primary">4.9 / 5.0</div>
+              <div class="text-xs text-slate-500 font-label">Based on 128 Google reviews</div>
+            </div>
+          </div>
+
+          <!-- Charts -->
+          <div class="p-6 sm:p-8 rounded-[24px] border border-slate-200 bg-white space-y-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="font-headline font-bold text-lg text-primary">Daily Website Traffic & Inquiries</h3>
+                <p className="text-xs text-slate-500 font-label">Daily pageviews across Bicester & Oxford</p>
+              </div>
+              <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                🟢 Live Telemetry
+              </span>
+            </div>
+
+            <div class="grid grid-cols-7 gap-3 sm:gap-4 items-end h-48 pt-6 border-b border-slate-200 pb-3">
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 65%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Wed</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 75%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Thu</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 88%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Fri</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 70%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Sat</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 55%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Sun</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 100%;"></div>
+                <span class="text-[11px] font-bold text-slate-500">Mon</span>
+              </div>
+              <div class="flex flex-col items-center gap-2 h-full justify-end">
+                <div class="w-full max-w-[38px] bg-gradient-to-t from-primary to-secondary rounded-t-xl" style="height: 74%;"></div>
+                <span class="text-[11px] font-bold text-primary font-bold">Tue (Today)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. LEADS TAB -->
+        <div id="admin-tab-leads" class="space-y-6 hidden">
+          <div class="rounded-[22px] border border-slate-200 bg-white overflow-hidden shadow-sm">
+            <table class="w-full text-left text-xs font-label">
+              <thead class="bg-slate-50 border-b border-slate-200 text-slate-500">
+                <tr>
+                  <th class="py-3 px-4">Ref & Customer</th>
+                  <th class="py-3 px-4">Service & Units</th>
+                  <th class="py-3 px-4">Location</th>
+                  <th class="py-3 px-4">Est. Total</th>
+                  <th class="py-3 px-4">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="py-3.5 px-4"><strong class="text-primary block font-headline">Mrs. Eleanor Vance</strong><span class="text-slate-400">TWD-2026-8812 • 10 mins ago</span></td>
+                  <td class="py-3.5 px-4 font-semibold">Misted Glass & Seal Failure (6 units)</td>
+                  <td class="py-3.5 px-4">OX2 6NN (North Oxford)</td>
+                  <td class="py-3.5 px-4 font-extrabold text-primary text-sm">£570.00</td>
+                  <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-700 font-bold border border-amber-200">PENDING</span></td>
+                </tr>
+                <tr>
+                  <td class="py-3.5 px-4"><strong class="text-primary block font-headline">James Bellingham</strong><span class="text-slate-400">TWD-2026-4421 • 2 hours ago</span></td>
+                  <td class="py-3.5 px-4 font-semibold">Anthracite Bi-fold Doors (1 unit)</td>
+                  <td class="py-3.5 px-4">OX26 1AB (Bicester)</td>
+                  <td class="py-3.5 px-4 font-extrabold text-primary text-sm">£3,200.00</td>
+                  <td class="py-3.5 px-4"><span class="px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 font-bold border border-blue-200">SURVEY SCHEDULED</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. SERVICES TAB -->
+        <div id="admin-tab-services" class="grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+          <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-3">
+            <span class="px-2.5 py-0.5 rounded-md bg-secondary-container text-primary font-bold text-[11px]">10-Yr Guarantee</span>
+            <h4 class="font-headline font-bold text-base text-primary">Misted Glass Repair</h4>
+            <p class="text-xs text-slate-500">Argon Low-E glass sealed unit replacements in under 45 mins.</p>
+            <div class="pt-2 font-bold text-primary font-headline text-lg">From £95 / unit</div>
+          </div>
+          <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-3">
+            <span class="px-2.5 py-0.5 rounded-md bg-secondary-container text-primary font-bold text-[11px]">10-Yr Guarantee</span>
+            <h4 class="font-headline font-bold text-base text-primary">Bespoke Doors</h4>
+            <p class="text-xs text-slate-500">48mm solid composite doors & aluminium bi-fold systems.</p>
+            <div class="pt-2 font-bold text-primary font-headline text-lg">From £750 / door</div>
+          </div>
+          <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-3">
+            <span class="px-2.5 py-0.5 rounded-md bg-secondary-container text-primary font-bold text-[11px]">10-Yr Guarantee</span>
+            <h4 class="font-headline font-bold text-base text-primary">Warm Roof Conservatories</h4>
+            <p class="text-xs text-slate-500">Lightweight tiled warm roof conversions for all-season living.</p>
+            <div class="pt-2 font-bold text-primary font-headline text-lg">From £2,500 / room</div>
+          </div>
+        </div>
+
+        <!-- 4. INTEGRATION SETTINGS TAB -->
+        <div id="admin-tab-integrations" class="space-y-8 hidden">
+          
+          <!-- Banner -->
+          <div class="bg-gradient-to-r from-primary to-primary-container p-6 sm:p-8 rounded-[24px] text-white shadow-xl space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary-container/40 text-secondary-container text-xs font-bold uppercase font-label">
+              <span>⚡ Turn-Key Integration Manager</span>
+            </div>
+            <h2 class="font-headline font-extrabold text-2xl sm:text-3xl text-white">Marketing & Tracking Integrations</h2>
+            <p class="text-sm text-slate-200 max-w-2xl">
+              Configure Google Analytics 4, Tag Manager, Search Console, Meta Pixel, and APIs in one place.
+              Credentials are validated and stored in Supabase with server-side encryption.
+            </p>
+          </div>
+
+          <!-- Integrations Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- GA4 Card -->
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-4 shadow-sm flex flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-headline font-bold text-base text-primary">Google Analytics 4</h4>
+                  <span class="text-[11px] text-slate-400 font-label">MEASUREMENT ID</span>
+                </div>
+                <div id="status-ga4" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse inline-block mr-1"></span> Connected
+                </div>
+              </div>
+              <div class="space-y-1 text-xs font-label">
+                <label class="block font-bold text-slate-700">Measurement ID (e.g. G-XXXXXXXXXX)</label>
+                <input type="text" id="input-ga4" value="G-4KW89PL200" placeholder="G-XXXXXXXXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 font-mono text-xs focus:border-secondary">
+              </div>
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                <button onclick="testIntegration('ga4')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-primary transition-colors">
+                  Test Connection
+                </button>
+                <button id="save-btn-ga4" onclick="saveIntegration('ga4')" class="btn-cta text-xs py-2 px-4 rounded-xl font-bold">
+                  Save & Activate
+                </button>
+              </div>
+            </div>
+
+            <!-- GTM Card -->
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-4 shadow-sm flex flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-headline font-bold text-base text-primary">Google Tag Manager</h4>
+                  <span class="text-[11px] text-slate-400 font-label">CONTAINER ID</span>
+                </div>
+                <div id="status-gtm" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                  Not Configured
+                </div>
+              </div>
+              <div class="space-y-1 text-xs font-label">
+                <label class="block font-bold text-slate-700">Container ID (e.g. GTM-XXXXXXX)</label>
+                <input type="text" id="input-gtm" placeholder="GTM-XXXXXXX" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 font-mono text-xs focus:border-secondary">
+              </div>
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                <button onclick="testIntegration('gtm')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-primary transition-colors">
+                  Test Connection
+                </button>
+                <button id="save-btn-gtm" onclick="saveIntegration('gtm')" class="btn-cta text-xs py-2 px-4 rounded-xl font-bold">
+                  Save & Activate
+                </button>
+              </div>
+            </div>
+
+            <!-- Google Search Console Card -->
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-4 shadow-sm flex flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-headline font-bold text-base text-primary">Google Search Console</h4>
+                  <span class="text-[11px] text-slate-400 font-label">VERIFICATION TAG</span>
+                </div>
+                <div id="status-gsc" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                  Not Configured
+                </div>
+              </div>
+              <div class="space-y-1 text-xs font-label">
+                <label class="block font-bold text-slate-700">Verification Token / Meta Content</label>
+                <input type="text" id="input-gsc" placeholder="google-site-verification token" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 font-mono text-xs focus:border-secondary">
+              </div>
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                <button onclick="testIntegration('gsc')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-primary transition-colors">
+                  Test Connection
+                </button>
+                <button id="save-btn-gsc" onclick="saveIntegration('gsc')" class="btn-cta text-xs py-2 px-4 rounded-xl font-bold">
+                  Save & Activate
+                </button>
+              </div>
+            </div>
+
+            <!-- Meta Pixel & CAPI Card -->
+            <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-4 shadow-sm flex flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h4 class="font-headline font-bold text-base text-primary">Meta Pixel (Facebook)</h4>
+                  <span class="text-[11px] text-slate-400 font-label">PIXEL ID & SERVER CAPI</span>
+                </div>
+                <div id="status-meta" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                  Not Configured
+                </div>
+              </div>
+              <div class="space-y-2 text-xs font-label">
+                <div>
+                  <label class="block font-bold text-slate-700">Pixel ID (Public)</label>
+                  <input type="text" id="input-meta" placeholder="123456789012345" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 font-mono text-xs focus:border-secondary">
+                </div>
+                <div>
+                  <div class="flex items-center justify-between">
+                    <label class="font-bold text-slate-700">Server Access Token (Secret)</label>
+                    <button onclick="toggleSecret('secret-meta')" class="text-[10px] text-secondary hover:underline">Reveal / Mask</button>
+                  </div>
+                  <input type="password" id="secret-meta" value="EAAGm0PXq784BAZ" placeholder="EAA..." class="w-full px-3.5 py-2 rounded-xl border border-slate-200 font-mono text-xs focus:border-secondary">
+                </div>
+              </div>
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                <button onclick="testIntegration('meta')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-primary transition-colors">
+                  Test Connection
+                </button>
+                <button id="save-btn-meta" onclick="saveIntegration('meta')" class="btn-cta text-xs py-2 px-4 rounded-xl font-bold">
+                  Save & Activate
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Audit Trail -->
+          <div class="p-6 rounded-[22px] border border-slate-200 bg-white space-y-3">
+            <h4 class="font-headline font-bold text-sm text-primary">Integration Activity & Audit Trail</h4>
+            <div class="text-xs font-mono text-slate-600 space-y-1.5">
+              <div class="flex items-center justify-between py-1 border-b border-slate-100">
+                <span>[2026-08-26 00:30] UPDATE_INTEGRATION: GA4 activated</span>
+                <span class="text-emerald-600 font-bold">✓ Logged (Admin)</span>
+              </div>
+              <div class="flex items-center justify-between py-1 border-b border-slate-100">
+                <span>[2026-08-26 00:15] SYSTEM_INIT: Supabase vault connection established</span>
+                <span class="text-emerald-600 font-bold">✓ Logged (Daemon)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
