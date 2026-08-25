@@ -37,7 +37,7 @@
   justify-content: center;
   background-color: #00081e;
   color: #ffffff;
-  border-radius: 0.375rem; /* 6px crisp */
+  border-radius: 0.5rem; /* 8px minimal */
   padding: 0.75rem 1.5rem;
   font-weight: 700;
   font-size: 0.9375rem;
@@ -56,7 +56,7 @@
   justify-content: center;
   background-color: #ffffff;
   color: #00081e;
-  border-radius: 0.375rem; /* 6px crisp */
+  border-radius: 0.5rem; /* 8px minimal */
   padding: 0.75rem 1.5rem;
   font-weight: 600;
   font-size: 0.9375rem;
@@ -74,7 +74,7 @@
   justify-content: center;
   background-color: #fed488;
   color: #00081e;
-  border-radius: 0.375rem; /* 6px crisp */
+  border-radius: 0.5rem; /* 8px minimal */
   padding: 0.75rem 1.5rem;
   font-weight: 800;
   font-size: 0.9375rem;
@@ -92,7 +92,7 @@
 .card-structural {
   background-color: #ffffff;
   border: 1px solid #c5c6cf;
-  border-radius: 0.5rem; /* 8px crisp */
+  border-radius: 0.75rem; /* 12px minimal */
   transition: all 0.2s ease;
 }
 

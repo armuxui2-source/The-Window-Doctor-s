@@ -92,6 +92,18 @@ const config: Config = {
         "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
         "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
       },
+      borderRadius: {
+        none: "0px",
+        xs: "4px",
+        sm: "6px",
+        md: "8px",
+        DEFAULT: "10px",
+        lg: "12px",
+        xl: "14px",
+        "2xl": "16px",
+        "3xl": "20px",
+        full: "9999px",
+      },
       spacing: {
         base: "8px",
         gutter: "24px",
