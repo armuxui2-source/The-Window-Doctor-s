@@ -144,7 +144,74 @@ CREATE TABLE IF NOT EXISTS leads (
 );
 
 -- ------------------------------------------------------------------------------
--- 7. ENABLE ROW LEVEL SECURITY (RLS) & POLICIES
+-- 7. INTEGRATION CONFIGURATIONS (Integration Manager)
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS integration_configs (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    provider VARCHAR(64) UNIQUE NOT NULL, -- 'ga4', 'gtm', 'gsc', 'gads', 'meta_pixel', 'meta_capi', 'line_api', 'google_maps'
+    display_name VARCHAR(128) NOT NULL,
+    category VARCHAR(64) DEFAULT 'analytics', -- 'analytics', 'marketing', 'communications', 'maps'
+    public_id VARCHAR(255),
+    secret_value TEXT, -- Encrypted / Server-side only
+    is_active BOOLEAN DEFAULT FALSE,
+    last_tested_at TIMESTAMPTZ,
+    test_status VARCHAR(32) DEFAULT 'untested', -- 'connected', 'error', 'untested'
+    config_metadata JSONB DEFAULT '{}'::jsonb,
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ------------------------------------------------------------------------------
+-- 8. AUDIT LOGS
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS audit_logs (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_email VARCHAR(255) DEFAULT 'admin@thewindowdoctors.co.uk',
+    action VARCHAR(64) NOT NULL,
+    entity_type VARCHAR(64) NOT NULL,
+    entity_id VARCHAR(128),
+    details JSONB DEFAULT '{}'::jsonb,
+    ip_address VARCHAR(45),
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ------------------------------------------------------------------------------
+-- 9. BLOG & OXFORDSHIRE SEO ARTICLES
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS blog_posts (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    excerpt TEXT NOT NULL,
+    content TEXT NOT NULL,
+    target_keywords TEXT[] DEFAULT '{}',
+    seo_title VARCHAR(255),
+    seo_description TEXT,
+    featured_image_url TEXT,
+    author_name VARCHAR(128) DEFAULT 'Master Glazier Sean',
+    reading_time_mins INT DEFAULT 5,
+    is_published BOOLEAN DEFAULT TRUE,
+    published_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- ------------------------------------------------------------------------------
+-- 10. SITE ANALYTICS & TELEMETRY
+-- ------------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS site_analytics (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    event_date DATE DEFAULT CURRENT_DATE,
+    pageviews INT DEFAULT 0,
+    unique_visitors INT DEFAULT 0,
+    quote_starts INT DEFAULT 0,
+    quote_completions INT DEFAULT 0,
+    phone_clicks INT DEFAULT 0,
+    top_services JSONB DEFAULT '[]'::jsonb,
+    top_areas JSONB DEFAULT '[]'::jsonb,
+    UNIQUE(event_date)
+);
+
+-- ------------------------------------------------------------------------------
+-- 11. ENABLE ROW LEVEL SECURITY (RLS) & POLICIES
 -- ------------------------------------------------------------------------------
 ALTER TABLE service_categories ENABLE ROW LEVEL SECURITY;
 ALTER TABLE services ENABLE ROW LEVEL SECURITY;
@@ -154,6 +221,10 @@ ALTER TABLE quote_requests ENABLE ROW LEVEL SECURITY;
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE customer_reviews ENABLE ROW LEVEL SECURITY;
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+ALTER TABLE integration_configs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE audit_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE blog_posts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE site_analytics ENABLE ROW LEVEL SECURITY;
 
 -- Public read permissions
 CREATE POLICY "Public read for service_categories" ON service_categories FOR SELECT USING (true);
@@ -162,17 +233,25 @@ CREATE POLICY "Public read for service_areas" ON service_areas FOR SELECT USING 
 CREATE POLICY "Public read for postcodes" ON postcodes FOR SELECT USING (true);
 CREATE POLICY "Public read for projects" ON projects FOR SELECT USING (true);
 CREATE POLICY "Public read for customer_reviews" ON customer_reviews FOR SELECT USING (true);
+CREATE POLICY "Public read for blog_posts" ON blog_posts FOR SELECT USING (is_published = true);
 
 -- Public create quotes & leads
 CREATE POLICY "Public create quote_requests" ON quote_requests FOR INSERT WITH CHECK (true);
 CREATE POLICY "Public create leads" ON leads FOR INSERT WITH CHECK (true);
 
--- Staff admin full access
+-- Public read active public integration IDs (excludes secret_value)
+CREATE POLICY "Public read active integration public IDs" ON integration_configs FOR SELECT USING (is_active = true);
+
+-- Staff admin full access (via Service Role)
 CREATE POLICY "Service role full access quote_requests" ON quote_requests FOR ALL USING (true);
 CREATE POLICY "Service role full access leads" ON leads FOR ALL USING (true);
+CREATE POLICY "Service role full access integration_configs" ON integration_configs FOR ALL USING (true);
+CREATE POLICY "Service role full access audit_logs" ON audit_logs FOR ALL USING (true);
+CREATE POLICY "Service role full access blog_posts" ON blog_posts FOR ALL USING (true);
+CREATE POLICY "Service role full access site_analytics" ON site_analytics FOR ALL USING (true);
 
 -- ------------------------------------------------------------------------------
--- 8. INITIAL SEED DATA
+-- 12. INITIAL SEED DATA
 -- ------------------------------------------------------------------------------
 INSERT INTO service_categories (id, slug, name_en, name_th, description, icon_name, sort_order) VALUES
 ('11111111-1111-1111-1111-111111111111', 'glass-repairs', 'Glass & Glazing Repairs', 'งานซ่อมกระจกและซีลยาง', 'Misted glass, broken pane replacements, draughts & lock repair', 'Sparkles', 1),
@@ -187,3 +266,22 @@ INSERT INTO services (id, category_id, slug, title, headline, short_description,
 ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '22222222-2222-2222-2222-222222222222', 'modern-windows', 'Modern Energy-Efficient Windows', 'Architectural Elegance with A++ Thermal Performance', 'Precision-crafted uPVC and slimline aluminium windows designed to keep your home warm, quiet, and secure.', 'Upgrade your property with our bespoke window collection.', 'https://lh3.googleusercontent.com/aida-public/AB6AXuB9Fjn6wLLJZk7YeTa18NvqtxVCAuCLsPnhE3EOon6a9RSl8DqWeJ6DGpPN3B6yXvnBbK_8OP57skrmnRE00KFwtYNY4-Po01ZpW2IZL8dhW-KTZEIwNqYHLH2ZMj0dT9_rIRZNzmVr41RmOTyB57SKAxZYM20vaj7zwWoJac6g65mlm_vIk0VGIAHhRm2i2Cl3os08pjvua_ekNlYnUBydzWripfsDHkuMnFFqvYRAnr3YkGB7oUYnD2ugQDdU-jkp1w', '["A++ Energy Efficiency Ratings", "Secured by Design PAS 24 multi-point locks", "Sound reduction up to 42dB", "Dual-colour frame options (Anthracite, Heritage Cream, Oak)", "FENSA Certified with 10-Year Insurance Guarantee"]'::jsonb, '{"frame_material": "uPVC & Slimline Aluminium", "security_standard": "PAS 24 / Secured by Design", "noise_reduction": "Up to 42dB", "glazing_options": "Double (28mm) or Triple (44mm)"}'::jsonb, 380.00, 'per window', 10, true),
 ('cccccccc-cccc-cccc-cccc-cccccccccccc', '33333333-3333-3333-3333-333333333333', 'stylish-doors', 'Bespoke Composite & Bi-fold Doors', 'Make a Grand Entrance with Uncompromising Security', 'Premium composite front doors and seamless panoramic bi-fold patio doors engineered for British weather.', 'Transform your living space with our premium door collection.', 'https://lh3.googleusercontent.com/aida-public/AB6AXuCbFijkuiNQPNPRi1odFsC7paCR0AXJXuNyP_Cb-JqkwnbIBuxNVG_Mr4zRuk1fFgPRzkjXxUQDu1iwIRZwDTi_kG3eU_TAx1phbyAir4OMCgkYVrb2Ra6IqO5hZ4FWoxvajQ6TOXNO4G06w-YMm3WsfPJLn7rQcPSbwLR58mHGQMfgkDOb03V4gE6s7NnXR-Rvv2O19FLhqGQ2VYKhJiLmetWImwmvPyDc9o1FRF1oczJR0EkIlBkf', '["48mm Solid timber core composite doors", "3-Star Ultion diamond security cylinders", "Smooth glide stainless steel bi-fold rollers", "Low-threshold options for wheelchair accessibility", "Weather-tested against gale-force British storms"]'::jsonb, '{"core_thickness": "48mm solid timber core", "lock_rating": "3-Star Ultion Diamond", "weather_resistance": "BS 6375-1 passed", "finish": "Scratch-resistant GRP skin"}'::jsonb, 750.00, 'per door', 10, true)
 ON CONFLICT (slug) DO NOTHING;
+
+-- Seed Default Integrations
+INSERT INTO integration_configs (provider, display_name, category, public_id, is_active, test_status) VALUES
+('ga4', 'Google Analytics 4', 'analytics', '', false, 'untested'),
+('gtm', 'Google Tag Manager', 'analytics', '', false, 'untested'),
+('gsc', 'Google Search Console', 'analytics', '', false, 'untested'),
+('gads', 'Google Ads Conversion', 'marketing', '', false, 'untested'),
+('meta_pixel', 'Meta Pixel (Facebook)', 'marketing', '', false, 'untested'),
+('meta_capi', 'Meta Conversions API (CAPI)', 'marketing', '', false, 'untested'),
+('line_api', 'LINE Messaging API', 'communications', '', false, 'untested'),
+('google_maps', 'Google Maps Platform', 'maps', '', false, 'untested')
+ON CONFLICT (provider) DO NOTHING;
+
+-- Seed Default SEO Blog Articles for Oxfordshire
+INSERT INTO blog_posts (slug, title, excerpt, content, target_keywords, seo_title, seo_description, featured_image_url) VALUES
+('misted-double-glazing-repair-guide-oxfordshire', 'Why Does Double Glazing Mist Up? The Oxfordshire Homeowner’s Guide', 'Discover why double glazed windows fail, why you do NOT need new frames, and how to save up to 70% in Bicester and Oxford.', 'Double glazing seal failure is one of the most common issues facing homeowners across Oxfordshire...', ARRAY['misted double glazing bicester', 'window repair oxford', 'failed glass unit replacement'], 'Misted Double Glazing Repair Guide | Save 70% in Oxfordshire', 'Learn why double glazing windows mist up and how replacing only the sealed glass unit saves thousands compared to full window replacements.', 'https://lh3.googleusercontent.com/aida-public/AB6AXuB4PgLGqLJswj_yOE9Fp-h7Bh-0gB3SEGKW6wM__fhYsI1vcAZwqvKhgzpVL7CPX7XDHfvLEFLucGEy4uNrBRgE-6Ygcy_HksxKYiVtZxOFrjkRG5UiALFDyTnqEFSdiMMHVQtQIoDIgwDQLyuJAjYBogUwBNPAh0jSMBy_zkHmL9gRXfOW6qtVeyd7XAcVNUXYynC-N2W5g5e1oWBK8e7f5qY9lqco1Xmr5MekrfBHfzcqTU0EIh2I'),
+('conservatory-warm-roof-conversion-benefits', 'Transforming Unusable Conservatories with Tiled Warm Roofs in 2026', 'Is your conservatory freezing in winter and boiling in summer? Discover how insulated lightweight warm roofs add year-round living space.', 'For decades, Victorian and Edwardian style conservatories with polycarbonate or uninsulated glass roofs have plagued UK homeowners with extreme temperature swings...', ARRAY['conservatory warm roof banbury', 'tiled conservatory roof bicester', 'guardian warm roof oxford'], 'Conservatory Warm Roof Conversion Guide | The Window Doctor', 'Discover how converting your conservatory to an insulated warm tiled roof creates comfortable year-round living space and adds property value.', 'https://lh3.googleusercontent.com/aida-public/AB6AXuAdSS54BVNywAzc2drXm8lpbf3ejgZnJuorHF2zutpWgeU-WjL7BoblsJC6BrHP_MMpZyVJS8sYowpwc6vB88RJKY07OaIowHYaXRt3taDsUTBEGvNMkBh-p5iTaNGdytFUq_xQw_gC0RFrA12lNjifzHp_lniKbIf5FPS6gho2pTO30rM6Yqu69LfqFcyk1HMUNFQfPFZA3x5Lfz-cRe6t5qzqt9FayyTAV5sqGd1CDNkei9d8AfNq')
+ON CONFLICT (slug) DO NOTHING;
+

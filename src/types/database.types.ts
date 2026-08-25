@@ -234,6 +234,118 @@ export interface Database {
         };
         Update: Partial<Database['public']['Tables']['customer_reviews']['Insert']>;
       };
+      integration_configs: {
+        Row: {
+          id: string;
+          provider: string;
+          display_name: string;
+          category: string;
+          public_id: string | null;
+          secret_value: string | null;
+          is_active: boolean;
+          last_tested_at: string | null;
+          test_status: string;
+          config_metadata: Json;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          provider: string;
+          display_name: string;
+          category?: string;
+          public_id?: string | null;
+          secret_value?: string | null;
+          is_active?: boolean;
+          last_tested_at?: string | null;
+          test_status?: string;
+          config_metadata?: Json;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['integration_configs']['Insert']>;
+      };
+      audit_logs: {
+        Row: {
+          id: string;
+          user_email: string;
+          action: string;
+          entity_type: string;
+          entity_id: string | null;
+          details: Json;
+          ip_address: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_email?: string;
+          action: string;
+          entity_type: string;
+          entity_id?: string | null;
+          details?: Json;
+          ip_address?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['audit_logs']['Insert']>;
+      };
+      blog_posts: {
+        Row: {
+          id: string;
+          slug: string;
+          title: string;
+          excerpt: string;
+          content: string;
+          target_keywords: string[];
+          seo_title: string | null;
+          seo_description: string | null;
+          featured_image_url: string | null;
+          author_name: string;
+          reading_time_mins: number;
+          is_published: boolean;
+          published_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          slug: string;
+          title: string;
+          excerpt: string;
+          content: string;
+          target_keywords?: string[];
+          seo_title?: string | null;
+          seo_description?: string | null;
+          featured_image_url?: string | null;
+          author_name?: string;
+          reading_time_mins?: number;
+          is_published?: boolean;
+          published_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['blog_posts']['Insert']>;
+      };
+      site_analytics: {
+        Row: {
+          id: string;
+          event_date: string;
+          pageviews: number;
+          unique_visitors: number;
+          quote_starts: number;
+          quote_completions: number;
+          phone_clicks: number;
+          top_services: Json;
+          top_areas: Json;
+        };
+        Insert: {
+          id?: string;
+          event_date?: string;
+          pageviews?: number;
+          unique_visitors?: number;
+          quote_starts?: number;
+          quote_completions?: number;
+          phone_clicks?: number;
+          top_services?: Json;
+          top_areas?: Json;
+        };
+        Update: Partial<Database['public']['Tables']['site_analytics']['Insert']>;
+      };
     };
   };
 }

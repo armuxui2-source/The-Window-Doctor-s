@@ -78,6 +78,8 @@ export const metadata: Metadata = {
 };
 
 
+import DynamicIntegrationsLoader from "@/components/providers/DynamicIntegrationsLoader";
+
 export default function RootLayout({
   children,
 }: {
@@ -88,6 +90,9 @@ export default function RootLayout({
       lang="en" 
       className={`${hankenGrotesk.variable} ${workSans.variable} ${promptFont.variable} scroll-smooth`}
     >
+      <head>
+        <DynamicIntegrationsLoader />
+      </head>
       <body className="bg-background text-on-surface font-body min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-on-secondary-container">
         <Navbar />
         <main className="flex-1 w-full relative">{children}</main>
