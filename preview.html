@@ -1952,17 +1952,17 @@
     }
 
     function switchAdminTab(tabId) {
-      ['overview', 'leads', 'services', 'integrations'].forEach(t => {
+      ['dashboard', 'crm', 'services', 'projects', 'reviews', 'areas', 'seo', 'integrations'].forEach(t => {
         const panel = document.getElementById(`admin-tab-${t}`);
         const btn = document.getElementById(`admin-btn-${t}`);
         if (panel) panel.classList.add('hidden');
-        if (btn) btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap";
+        if (btn) btn.className = "w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left";
       });
 
       const activePanel = document.getElementById(`admin-tab-${tabId}`);
       const activeBtn = document.getElementById(`admin-btn-${tabId}`);
       if (activePanel) activePanel.classList.remove('hidden');
-      if (activeBtn) activeBtn.className = "px-3.5 py-2 rounded-xl text-xs font-bold bg-secondary-container text-primary shadow-sm whitespace-nowrap";
+      if (activeBtn) activeBtn.className = "w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-extrabold bg-secondary text-primary shadow-lg text-left";
     }
 
     function testIntegration(provider) {
@@ -2009,48 +2009,84 @@
     <div class="min-h-screen bg-background text-on-surface">
       
       <!-- Top Admin Header -->
-      <div class="bg-primary text-white border-b border-white/10 sticky top-0 z-30 shadow-md">
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="bg-slate-950 text-white border-b border-white/10 sticky top-0 z-30 shadow-md">
+        <div class="max-w-full mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
           <div class="flex items-center gap-3">
             <div class="w-8 h-8 rounded-full overflow-hidden border border-secondary bg-white flex items-center justify-center">
               <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgFxaFTFI_dtbr-MLywoV8UD0O1nAMr3GXLlVThzWrpWWQqIHKwoyCSeA4sL2dXsbSeGh_clm5M5bB54o3vK1reO_t133chDpVrz0gzj1IGdmMy61pV69kRg1ca7JB0XystRT0ViJ5Um_9x2sEyKad1X6SbD6jZTN8jHuPt28s09M2toEcatTt2HiStYgzn5e4ahVX-jIk6-rXOTJCUSJevc6_59n293IOiYJlA6P5weGyNA0mxie0TjvP_O_TGyyBJw" class="w-full h-full object-cover">
             </div>
             <div>
               <span class="font-headline font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
-                <span>The Window Doctor Staff Admin HUD</span>
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-container text-primary font-label">PROD v2.4</span>
+                <span>The Window Doctor Enterprise Admin Suite</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary text-primary font-label">PROD v2.5</span>
               </span>
-              <span class="text-[10px] text-slate-300 font-label">Master Glaziers Since 1983 • Bicester, Oxford & Oxfordshire</span>
+              <span class="text-[10px] text-slate-400 font-label">Master Glaziers Since 1983 • Bicester & Oxfordshire CRM & CMS Command Center</span>
             </div>
           </div>
 
-          <button onclick="closeAdminModal()" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold flex items-center gap-1">
-            <span>✕ กลับหน้าเว็บหลัก</span>
-          </button>
-        </div>
-
-        <!-- Navigation Tabs -->
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center gap-1 overflow-x-auto border-t border-white/10 pt-1 pb-1">
-          <button id="admin-btn-overview" onclick="switchAdminTab('overview')" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-secondary-container text-primary shadow-sm whitespace-nowrap">
-            📊 Overview & Analytics
-          </button>
-          <button id="admin-btn-leads" onclick="switchAdminTab('leads')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
-            📋 Quote Pipeline (4)
-          </button>
-          <button id="admin-btn-services" onclick="switchAdminTab('services')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
-            🛠️ Services Catalog
-          </button>
-          <button id="admin-btn-integrations" onclick="switchAdminTab('integrations')" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/10 hover:text-white whitespace-nowrap">
-            ⚙️ Integration Settings
-          </button>
+          <div class="flex items-center gap-3">
+            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1 rounded-xl">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Supabase Cloud Sync: Connected</span>
+            </span>
+            <button onclick="closeAdminModal()" class="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold flex items-center gap-1">
+              <span>✕ ปิดหน้า Admin</span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Content Panels -->
-      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 py-8">
+      <!-- Main Layout: Left Sidebar + Content Area -->
+      <div class="flex min-h-[calc(100vh-60px)]">
         
-        <!-- 1. OVERVIEW TAB -->
-        <div id="admin-tab-overview" class="space-y-8">
+        <!-- LEFT SIDEBAR -->
+        <aside class="w-72 bg-slate-950 border-r border-white/10 p-4 space-y-1.5 font-label flex-shrink-0">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-500 px-3 py-2">
+            Admin Modules
+          </div>
+
+          <button id="admin-btn-dashboard" onclick="switchAdminTab('dashboard')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-extrabold bg-secondary text-primary shadow-lg text-left">
+            <span class="flex items-center gap-2.5">📊 <span>Executive Dashboard</span></span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-primary text-secondary font-mono">Live</span>
+          </button>
+
+          <button id="admin-btn-crm" onclick="switchAdminTab('crm')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">👥 <span>CRM & Quote Leads</span></span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-slate-300 font-mono">4</span>
+          </button>
+
+          <button id="admin-btn-services" onclick="switchAdminTab('services')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">🛠️ <span>Services & Pricing</span></span>
+          </button>
+
+          <button id="admin-btn-projects" onclick="switchAdminTab('projects')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">📁 <span>Case Studies CMS</span></span>
+          </button>
+
+          <button id="admin-btn-reviews" onclick="switchAdminTab('reviews')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">⭐ <span>Customer Reviews</span></span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-amber-300 font-mono">4.9 ★</span>
+          </button>
+
+          <button id="admin-btn-areas" onclick="switchAdminTab('areas')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">📍 <span>Coverage & Postcodes</span></span>
+          </button>
+
+          <button id="admin-btn-seo" onclick="switchAdminTab('seo')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">🎯 <span>Google SEO & Ads</span></span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono">98/100</span>
+          </button>
+
+          <button id="admin-btn-integrations" onclick="switchAdminTab('integrations')" class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-slate-300 hover:bg-white/5 hover:text-white transition-all text-left">
+            <span class="flex items-center gap-2.5">⚙️ <span>Integration Settings</span></span>
+          </button>
+        </aside>
+
+        <!-- MAIN WORKSPACE -->
+        <main class="flex-1 p-6 sm:p-8 bg-slate-900 overflow-y-auto">
+          
+          <!-- 1. DASHBOARD OVERVIEW -->
+          <div id="admin-tab-dashboard" class="space-y-8">
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <div class="p-6 rounded-[22px] border border-slate-200 bg-white shadow-sm space-y-2">
               <div class="text-slate-500 text-xs font-label">Weekly Website Visitors</div>
