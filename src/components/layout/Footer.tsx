@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -24,8 +24,8 @@ export default function Footer() {
         
         {/* Top Trust Badges Strip */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pb-12 border-b border-white/10">
-          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="w-10 h-10 rounded-xl bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
+          <div className="flex items-center gap-3 p-3.5 rounded-md bg-white/[0.03] border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
@@ -34,8 +34,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="w-10 h-10 rounded-xl bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
+          <div className="flex items-center gap-3 p-3.5 rounded-md bg-white/[0.03] border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
               <Award className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
@@ -44,8 +44,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="w-10 h-10 rounded-xl bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
+          <div className="flex items-center gap-3 p-3.5 rounded-md bg-white/[0.03] border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
               <CheckCircle className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
@@ -54,8 +54,8 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.03] border border-white/10">
-            <div className="w-10 h-10 rounded-xl bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
+          <div className="flex items-center gap-3 p-3.5 rounded-md bg-white/[0.03] border border-white/10">
+            <div className="w-10 h-10 rounded-md bg-secondary-container/10 border border-secondary-container/20 flex items-center justify-center text-secondary-container flex-shrink-0">
               <Clock className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
@@ -90,7 +90,7 @@ export default function Footer() {
             </p>
 
             <div className="pt-2">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/10 border border-secondary-container/20 text-secondary-container text-xs font-medium font-label">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded bg-secondary-container/10 border border-secondary-container/20 text-secondary-container text-xs font-medium font-label">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Accepting Free Survey Bookings Across Oxfordshire</span>
               </span>

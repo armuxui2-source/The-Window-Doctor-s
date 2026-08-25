@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
@@ -85,7 +85,7 @@ export default function BeforeAfterSlider({
 
       <div
         ref={containerRef}
-        className="relative w-full h-[340px] sm:h-[420px] md:h-[480px] rounded-2xl overflow-hidden select-none cursor-ew-resize border border-white/[0.1] shadow-2xl glass-card-dark"
+        className="relative w-full h-[340px] sm:h-[420px] md:h-[480px] rounded-md overflow-hidden select-none cursor-ew-resize border border-white/[0.1] shadow-2xl glass-card-dark"
         onMouseDown={() => setIsDragging(true)}
         onTouchStart={() => setIsDragging(true)}
       >
@@ -98,7 +98,7 @@ export default function BeforeAfterSlider({
             className="object-cover"
             priority
           />
-          <div className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full bg-brand-navy/90 backdrop-blur-md border border-brand-gold/40 text-brand-gold text-xs font-bold flex items-center gap-1.5 shadow-lg">
+          <div className="absolute top-4 right-4 z-10 px-3 py-1.5 rounded bg-brand-navy/90 backdrop-blur-md border border-brand-gold/40 text-brand-gold text-xs font-bold flex items-center gap-1.5 shadow-lg">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{afterLabel}</span>
           </div>
@@ -116,7 +116,7 @@ export default function BeforeAfterSlider({
             className="object-cover brightness-90 contrast-95"
             priority
           />
-          <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-brand-navy/90 backdrop-blur-md border border-white/[0.2] text-slate-300 text-xs font-bold shadow-lg">
+          <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded bg-brand-navy/90 backdrop-blur-md border border-white/[0.2] text-slate-300 text-xs font-bold shadow-lg">
             <span>{beforeLabel}</span>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function BeforeAfterSlider({
         </div>
 
         {/* Drag Helper Hint */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 rounded-full bg-brand-navy/80 backdrop-blur-md border border-white/[0.08] text-[11px] text-slate-300 pointer-events-none flex items-center gap-1.5">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 px-4 py-1.5 rounded bg-brand-navy/80 backdrop-blur-md border border-white/[0.08] text-[11px] text-slate-300 pointer-events-none flex items-center gap-1.5">
           <MoveHorizontal className="w-3.5 h-3.5 text-brand-gold" />
           <span>Drag slider left/right to compare</span>
         </div>

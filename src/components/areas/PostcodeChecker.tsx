@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { Search, MapPin, CheckCircle, AlertCircle, Clock, ShieldCheck } from "lucide-react";
@@ -41,7 +41,7 @@ export default function PostcodeChecker() {
   };
 
   return (
-    <div className="bg-surface-container-lowest rounded-[24px] p-6 sm:p-8 border border-outline-variant shadow-card space-y-6">
+    <div className="bg-surface-container-lowest rounded-lg p-6 sm:p-8 border border-outline-variant shadow-card space-y-6">
       <div className="space-y-2">
         <span className="text-xs font-bold text-secondary uppercase tracking-wider font-label">
           Instant Postcode Coverage Tool
@@ -62,13 +62,13 @@ export default function PostcodeChecker() {
               setSearched(false);
             }}
             placeholder="e.g. OX26 6HT, Bicester, Oxford..."
-            className="w-full px-4 py-3 pl-10 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-primary text-sm focus:outline-none focus:border-primary uppercase font-mono placeholder:normal-case placeholder:font-body placeholder:text-on-surface-variant/50"
+            className="w-full px-4 py-3 pl-10 rounded-md bg-surface-container-lowest border border-outline-variant text-primary text-sm focus:outline-none focus:border-primary uppercase font-mono placeholder:normal-case placeholder:font-body placeholder:text-on-surface-variant/50"
           />
           <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-on-surface-variant" />
         </div>
         <button
           type="submit"
-          className="btn-cta text-sm py-3 px-6 rounded-[16px]"
+          className="btn-cta text-sm py-3 px-6 rounded-md"
         >
           Check Area
         </button>
@@ -78,7 +78,7 @@ export default function PostcodeChecker() {
       {searched && (
         <div className="animate-fade-in">
           {matchedItem ? (
-            <div className="p-4.5 rounded-[16px] bg-emerald-50 border border-emerald-200 space-y-3">
+            <div className="p-4.5 rounded-md bg-emerald-50 border border-emerald-200 space-y-3">
               <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm">
                 <CheckCircle className="w-5 h-5 text-emerald-600" />
                 <span>Coverage Confirmed — {matchedItem.town}</span>
@@ -98,7 +98,7 @@ export default function PostcodeChecker() {
               </div>
             </div>
           ) : (
-            <div className="p-4.5 rounded-[16px] bg-amber-50 border border-amber-200 space-y-2">
+            <div className="p-4.5 rounded-md bg-amber-50 border border-amber-200 space-y-2">
               <div className="flex items-center gap-2 text-amber-900 font-bold text-sm">
                 <AlertCircle className="w-5 h-5 text-amber-700" />
                 <span>Extended Area Inquiry</span>

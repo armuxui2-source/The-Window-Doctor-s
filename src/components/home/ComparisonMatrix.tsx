@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Check, X, ShieldCheck, TrendingDown, Clock, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { DEFAULT_COMPARISON_ROWS, ComparisonItem } from "@/lib/supabase/mock-data";
@@ -13,7 +13,7 @@ export default function ComparisonMatrix({ rows = DEFAULT_COMPARISON_ROWS }: Com
   return (
     <div className="space-y-8">
       <div className="text-center space-y-3 max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <TrendingDown className="w-3.5 h-3.5" />
           <span>Honest Price & Disruption Comparison</span>
         </div>
@@ -27,7 +27,7 @@ export default function ComparisonMatrix({ rows = DEFAULT_COMPARISON_ROWS }: Com
 
       {/* Comparison Table / Cards */}
       <div className="overflow-x-auto">
-        <div className="min-w-[640px] rounded-[24px] overflow-hidden border border-outline-variant shadow-card bg-surface-container-lowest">
+        <div className="min-w-[640px] rounded-lg overflow-hidden border border-outline-variant shadow-card bg-surface-container-lowest">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="border-b border-outline-variant">
@@ -79,7 +79,7 @@ export default function ComparisonMatrix({ rows = DEFAULT_COMPARISON_ROWS }: Com
       <div className="text-center pt-2">
         <Link
           href="/quote"
-          className="btn-cta text-sm py-3.5 px-8 rounded-[16px] inline-flex items-center gap-2"
+          className="btn-cta text-sm py-3.5 px-8 rounded-md inline-flex items-center gap-2"
         >
           <span>Calculate How Much You Can Save</span>
         </Link>

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <Wrench className="w-3.5 h-3.5" />
           <span>Bicester & Oxfordshire Glazing Catalog</span>
         </div>
@@ -56,7 +56,7 @@ export default function ServicesPage() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-[12px] bg-primary/80 backdrop-blur-md text-white text-[11px] font-bold font-label">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-primary/80 backdrop-blur-md text-white text-[11px] font-bold font-label">
                   From £{srv.base_price_estimate} {srv.price_unit}
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
             <div className="p-6 pt-0">
               <Link
                 href={`/services/${srv.slug}`}
-                className="btn-primary w-full text-xs py-3 rounded-[16px]"
+                className="btn-primary w-full text-xs py-3 rounded-md"
               >
                 <span>View Full Specifications</span>
                 <ChevronRight className="w-4 h-4 ml-1.5 inline" />
@@ -103,17 +103,17 @@ export default function ServicesPage() {
       </div>
 
       {/* CTA Bottom Banner */}
-      <div className="bg-primary text-white rounded-[24px] p-8 sm:p-12 text-center space-y-6 shadow-lg">
+      <div className="bg-primary text-white rounded-lg p-8 sm:p-12 text-center space-y-6 shadow-lg">
         <h2 className="font-headline font-bold text-2xl sm:text-headline-lg text-white">Need a Custom Glazing Solution?</h2>
         <p className="font-body text-body-md text-slate-300 max-w-xl mx-auto">
           Our surveyors can visit your property for a free, comprehensive inspection and precise measurements.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/quote" className="btn-cta text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
+          <Link href="/quote" className="btn-cta text-sm py-3.5 px-8 rounded-md w-full sm:w-auto">
             <span>Book Free On-Site Survey</span>
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
-          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
+          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-md w-full sm:w-auto">
             <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
             <span>{site.phone}</span>
           </a>

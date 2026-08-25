@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export default function ProjectGallery() {
         <button
           onClick={() => setSelectedCategory("all")}
           className={cn(
-            "px-4 py-2 rounded-[16px] text-xs font-bold transition-all font-label",
+            "px-4 py-2 rounded-md text-xs font-bold transition-all font-label",
             selectedCategory === "all"
               ? "bg-primary text-secondary-container shadow-sm"
               : "bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low"
@@ -41,7 +41,7 @@ export default function ProjectGallery() {
             key={cat.id}
             onClick={() => setSelectedCategory(cat.slug)}
             className={cn(
-              "px-4 py-2 rounded-[16px] text-xs font-bold transition-all font-label",
+              "px-4 py-2 rounded-md text-xs font-bold transition-all font-label",
               selectedCategory === cat.slug
                 ? "bg-primary text-secondary-container shadow-sm"
                 : "bg-surface-container-lowest text-on-surface border border-outline-variant hover:bg-surface-container-low"
@@ -67,7 +67,7 @@ export default function ProjectGallery() {
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               
-              <div className="absolute top-3 left-3 px-3 py-1 rounded-[12px] bg-primary/90 text-secondary-container text-[11px] font-bold flex items-center gap-1 font-label backdrop-blur-sm">
+              <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-primary/90 text-secondary-container text-[11px] font-bold flex items-center gap-1 font-label backdrop-blur-sm">
                 <MapPin className="w-3 h-3" />
                 <span>{project.location_city}</span>
               </div>
@@ -75,7 +75,7 @@ export default function ProjectGallery() {
               {project.before_image_url && (
                 <button
                   onClick={() => setActiveProjectForModal(project)}
-                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-[12px] bg-primary/90 text-white hover:text-secondary-container text-xs font-bold flex items-center gap-1.5 transition-all shadow-md backdrop-blur-sm"
+                  className="absolute bottom-3 right-3 px-3 py-1.5 rounded-md bg-primary/90 text-white hover:text-secondary-container text-xs font-bold flex items-center gap-1.5 transition-all shadow-md backdrop-blur-sm"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-secondary-container" />
                   <span>View Before & After</span>
@@ -114,7 +114,7 @@ export default function ProjectGallery() {
       {/* Modal Dialog for Before/After Slider */}
       {activeProjectForModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/70 backdrop-blur-md animate-fade-in">
-          <div className="bg-surface-container-lowest rounded-[24px] p-6 sm:p-8 max-w-4xl w-full border border-outline-variant shadow-2xl space-y-6">
+          <div className="bg-surface-container-lowest rounded-lg p-6 sm:p-8 max-w-4xl w-full border border-outline-variant shadow-2xl space-y-6">
             <div className="flex items-center justify-between border-b border-outline-variant pb-4">
               <div>
                 <span className="text-xs font-bold text-secondary uppercase tracking-wider font-label">
@@ -126,7 +126,7 @@ export default function ProjectGallery() {
               </div>
               <button
                 onClick={() => setActiveProjectForModal(null)}
-                className="p-2 rounded-[12px] bg-surface-container-low hover:bg-surface-container text-primary transition-colors"
+                className="p-2 rounded-md bg-surface-container-low hover:bg-surface-container text-primary transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -141,11 +141,11 @@ export default function ProjectGallery() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-body">
-              <div className="p-4 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
+              <div className="p-4 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
                 <strong className="text-secondary font-bold font-label block">The Challenge:</strong>
                 <p className="text-on-surface-variant leading-relaxed">{activeProjectForModal.challenge_description}</p>
               </div>
-              <div className="p-4 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
+              <div className="p-4 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
                 <strong className="text-emerald-700 font-bold font-label block">The Window Doctor Solution:</strong>
                 <p className="text-on-surface-variant leading-relaxed">{activeProjectForModal.solution_description}</p>
               </div>
@@ -154,7 +154,7 @@ export default function ProjectGallery() {
             <div className="text-center pt-2">
               <button
                 onClick={() => setActiveProjectForModal(null)}
-                className="btn-secondary text-xs py-2 px-6 rounded-[16px]"
+                className="btn-secondary text-xs py-2 px-6 rounded-md"
               >
                 Close Case Study
               </button>

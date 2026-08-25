@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
@@ -65,7 +65,7 @@ export default function BlogListingPage() {
           </div>
 
           <div className="max-w-3xl space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider font-label">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-surface-container text-secondary text-xs font-bold uppercase tracking-wider font-label">
               <BookOpen className="w-3.5 h-3.5" />
               <span>Oxfordshire Master Glazier Knowledge Base</span>
             </div>
@@ -83,7 +83,7 @@ export default function BlogListingPage() {
           {BLOG_ARTICLES.map((article) => (
             <article 
               key={article.slug}
-              className="glass-card rounded-[24px] overflow-hidden border border-outline-variant hover:border-secondary/40 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl"
+              className="glass-card rounded-lg overflow-hidden border border-outline-variant hover:border-secondary/40 transition-all duration-300 flex flex-col justify-between group shadow-sm hover:shadow-xl"
             >
               {/* Image Banner */}
               <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-100">
@@ -94,7 +94,7 @@ export default function BlogListingPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-primary/90 text-secondary-container text-xs font-bold backdrop-blur-md">
+                  <span className="px-3 py-1 rounded bg-primary/90 text-secondary-container text-xs font-bold backdrop-blur-md">
                     {article.category}
                   </span>
                 </div>
@@ -151,7 +151,7 @@ export default function BlogListingPage() {
         </div>
 
         {/* Free Survey CTA Card */}
-        <div className="bg-primary text-white p-8 sm:p-10 rounded-[24px] shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="bg-primary text-white p-8 sm:p-10 rounded-lg shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
             <h3 className="font-headline font-bold text-xl sm:text-2xl text-white">
               Have a Misted Window or Draughty Door in Oxfordshire?
@@ -164,7 +164,7 @@ export default function BlogListingPage() {
           <div className="flex items-center gap-3 flex-shrink-0">
             <Link
               href="/quote"
-              className="btn-cta text-xs sm:text-sm py-3 px-6 rounded-xl font-bold"
+              className="btn-cta text-xs sm:text-sm py-3 px-6 rounded-md font-bold"
             >
               Instant Price Calculator
             </Link>

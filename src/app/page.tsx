@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { 
   ShieldCheck, 
@@ -159,7 +159,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="card-structural p-6 space-y-3 shadow-card">
-            <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center">
               <Clock className="w-5 h-5" />
             </div>
             <h3 className="font-headline font-bold text-base text-primary">Est. 1983 Heritage</h3>
@@ -169,7 +169,7 @@ export default function HomePage() {
           </div>
 
           <div className="card-structural p-6 space-y-3 shadow-card">
-            <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="font-headline font-bold text-base text-primary">FENSA Certified</h3>
@@ -179,7 +179,7 @@ export default function HomePage() {
           </div>
 
           <div className="card-structural p-6 space-y-3 shadow-card">
-            <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center">
               <FileCheck2 className="w-5 h-5" />
             </div>
             <h3 className="font-headline font-bold text-base text-primary">10-Year Guarantee</h3>
@@ -189,7 +189,7 @@ export default function HomePage() {
           </div>
 
           <div className="card-structural p-6 space-y-3 shadow-card">
-            <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center">
+            <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center">
               <ThumbsUp className="w-5 h-5" />
             </div>
             <h3 className="font-headline font-bold text-base text-primary">No High-Pressure Sales</h3>
@@ -202,10 +202,10 @@ export default function HomePage() {
 
       {/* 10. SERVICE AREA & POSTCODE COVERAGE (Local SEO Proof) */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-surface-container rounded-[24px] p-6 sm:p-12 border border-outline-variant">
+        <div className="bg-surface-container rounded-lg p-6 sm:p-12 border border-outline-variant">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
                 <MapPin className="w-4 h-4" />
                 <span>Oxfordshire & Surrounding Borders</span>
               </div>
@@ -280,7 +280,7 @@ export default function HomePage() {
                   <span className="font-bold text-primary block">{review.customer_name}</span>
                   <span className="text-on-surface-variant">{review.customer_location}</span>
                 </div>
-                <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded-[8px] border border-emerald-200">
+                <span className="text-[10px] text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                   Verified
                 </span>
               </div>
@@ -317,7 +317,7 @@ export default function HomePage() {
 
       {/* 13. FINAL ACTION BANNER (Deep Navy Accent Container) */}
       <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-primary text-white rounded-[24px] p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-lg">
+        <div className="bg-primary text-white rounded-lg p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-lg">
           <div className="space-y-2 max-w-2xl mx-auto">
             <span className="text-xs font-bold text-secondary-container uppercase tracking-wider font-label">
               Ready for Crystal Clear Views & Lower Energy Bills?
@@ -333,14 +333,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               href="/quote"
-              className="btn-cta text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
+              className="btn-cta text-sm py-3.5 px-8 rounded-md w-full sm:w-auto"
             >
               <span>Request Free Survey</span>
               <ArrowRight className="w-4 h-4 ml-1.5 inline" />
             </Link>
             <a
               href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
-              className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
+              className="btn-secondary text-sm py-3.5 px-8 rounded-md w-full sm:w-auto"
             >
               <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
               <span>{site.phone}</span>

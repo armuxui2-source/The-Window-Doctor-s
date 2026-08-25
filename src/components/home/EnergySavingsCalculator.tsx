@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { Zap, TrendingDown, ShieldCheck, ArrowRight, Gauge, PoundSterling } from "lucide-react";
@@ -63,11 +63,11 @@ export default function EnergySavingsCalculator() {
   const calculatedCO2 = Math.round((selectedHouse.co2ReductionKg / selectedHouse.avgWindows) * windowCount);
 
   return (
-    <div className="bg-primary text-white rounded-[24px] p-6 sm:p-12 relative overflow-hidden shadow-2xl space-y-8">
+    <div className="bg-primary text-white rounded-lg p-6 sm:p-12 relative overflow-hidden shadow-2xl space-y-8">
       
       {/* Header */}
       <div className="text-center space-y-3 max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-white/10 border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-white/10 border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase font-label">
           <Zap className="w-3.5 h-3.5" />
           <span>UK Energy Rating & Cost Simulator</span>
         </div>
@@ -93,7 +93,7 @@ export default function EnergySavingsCalculator() {
                 <button
                   key={h.id}
                   onClick={() => handleHouseChange(h)}
-                  className={`p-3.5 rounded-[16px] text-left transition-all border ${
+                  className={`p-3.5 rounded-md text-left transition-all border ${
                     selectedHouse.id === h.id
                       ? "bg-secondary-container text-primary font-bold border-secondary-container shadow-glow"
                       : "bg-white/5 text-slate-300 border-white/10 hover:bg-white/10"
@@ -133,7 +133,7 @@ export default function EnergySavingsCalculator() {
 
         {/* Right: Dynamic Calculation Result HUD */}
         <div className="lg:col-span-6">
-          <div className="bg-surface-container-lowest text-primary rounded-[24px] p-6 sm:p-8 space-y-6 shadow-2xl border border-white/20">
+          <div className="bg-surface-container-lowest text-primary rounded-lg p-6 sm:p-8 space-y-6 shadow-2xl border border-white/20">
             <div className="flex items-center justify-between border-b border-outline-variant pb-4">
               <div>
                 <span className="text-[11px] font-bold text-secondary uppercase font-label block">
@@ -143,20 +143,20 @@ export default function EnergySavingsCalculator() {
                   Pilkington A+ Thermal Upgrade
                 </h4>
               </div>
-              <span className="px-3 py-1 rounded-[12px] bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200 font-label">
+              <span className="px-3 py-1 rounded-md bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200 font-label">
                 U-Value: 1.1 W/m²K
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="p-4 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
+              <div className="p-4 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
                 <span className="text-xs text-on-surface-variant block font-label">Annual Savings:</span>
                 <div className="font-headline font-extrabold text-3xl text-emerald-700">
                   £{calculatedSaving}
                   <span className="text-xs font-normal text-on-surface-variant">/year</span>
                 </div>
               </div>
-              <div className="p-4 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
+              <div className="p-4 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
                 <span className="text-xs text-on-surface-variant block font-label">10-Year Total:</span>
                 <div className="font-headline font-extrabold text-3xl text-secondary">
                   £{tenYearSaving.toLocaleString()}
@@ -164,14 +164,14 @@ export default function EnergySavingsCalculator() {
               </div>
             </div>
 
-            <div className="p-3.5 rounded-[12px] bg-surface-container border border-outline-variant flex items-center justify-between text-xs font-label">
+            <div className="p-3.5 rounded-md bg-surface-container border border-outline-variant flex items-center justify-between text-xs font-label">
               <span className="text-on-surface-variant">Carbon Footprint Reduction:</span>
               <strong className="text-primary font-bold">~{calculatedCO2} kg CO₂ / yr</strong>
             </div>
 
             <Link
               href="/quote"
-              className="btn-primary w-full text-xs py-3.5 rounded-[16px] text-center block"
+              className="btn-primary w-full text-xs py-3.5 rounded-md text-center block"
             >
               <span>Lock In Your Free Survey Slot</span>
             </Link>

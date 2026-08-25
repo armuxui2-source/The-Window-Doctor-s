@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
@@ -129,13 +129,13 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
         
         {/* Top Heritage Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase tracking-wider font-label animate-fade-in shadow-sm whitespace-nowrap">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-surface-container-lowest/10 backdrop-blur-md border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase tracking-wider font-label animate-fade-in shadow-sm whitespace-nowrap">
             <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse flex-shrink-0" />
             <span className="whitespace-nowrap">{activeSlide.tag}</span>
           </div>
 
           {/* Slide Pill Value Proposition Badge */}
-          <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/80 backdrop-blur-md border border-secondary/30 text-xs font-semibold text-slate-200 whitespace-nowrap">
+          <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded bg-primary/80 backdrop-blur-md border border-secondary/30 text-xs font-semibold text-slate-200 whitespace-nowrap">
             <Sparkles className="w-3.5 h-3.5 text-secondary-container flex-shrink-0" />
             <span className="whitespace-nowrap">{activeSlide.badgeText}</span>
           </div>
@@ -168,7 +168,7 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 href={activeSlide.primaryCtaLink}
-                className="btn-cta text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-[16px] shadow-gold-glow flex items-center justify-center gap-2 group transition-all duration-300 whitespace-nowrap"
+                className="btn-cta text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-md shadow-gold-glow flex items-center justify-center gap-2 group transition-all duration-300 whitespace-nowrap"
               >
                 <span className="whitespace-nowrap font-bold">{activeSlide.primaryCtaText}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
@@ -176,7 +176,7 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
 
               <a
                 href={activeSlide.secondaryCtaLink}
-                className="btn-secondary text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-[16px] bg-white/10 text-white hover:bg-white/20 border-white/20 backdrop-blur-md flex items-center justify-center gap-2 transition-all duration-300 whitespace-nowrap"
+                className="btn-secondary text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-md bg-white/10 text-white hover:bg-white/20 border-white/20 backdrop-blur-md flex items-center justify-center gap-2 transition-all duration-300 whitespace-nowrap"
               >
                 <Phone className="w-4 h-4 text-secondary-container flex-shrink-0" />
                 <span className="whitespace-nowrap font-bold">{activeSlide.secondaryCtaText}</span>
@@ -186,7 +186,7 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
             {/* Slide Specific Metrics / Key Stats */}
             <div className="pt-4 grid grid-cols-3 gap-2.5 sm:gap-4 max-w-xl">
               {activeSlide.stats.map((stat, i) => (
-                <div key={i} className="glass-card-dark rounded-[14px] px-3 py-3 sm:px-4 sm:py-3.5 text-left border border-white/10 flex flex-col justify-center">
+                <div key={i} className="glass-card-dark rounded-md px-3 py-3 sm:px-4 sm:py-3.5 text-left border border-white/10 flex flex-col justify-center">
                   <div className="font-headline font-extrabold text-base sm:text-xl md:text-2xl text-secondary-container leading-tight whitespace-nowrap">
                     {stat.value}
                   </div>
@@ -201,9 +201,9 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
 
           {/* Right Side: Quick Diagnostic Card */}
           <div className="lg:col-span-4 hidden lg:block">
-            <div className="glass-card-dark rounded-[20px] p-6 border border-secondary/30 shadow-2xl space-y-4">
+            <div className="glass-card-dark rounded-lg p-6 border border-secondary/30 shadow-2xl space-y-4">
               <div className="flex items-center gap-2.5 pb-3 border-b border-white/10">
-                <div className="w-9 h-9 rounded-xl bg-secondary-container text-primary flex items-center justify-center font-bold">
+                <div className="w-9 h-9 rounded-md bg-secondary-container text-primary flex items-center justify-center font-bold">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
@@ -229,7 +229,7 @@ export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
 
               <Link
                 href="/quote"
-                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-secondary-container to-amber-300 text-primary font-bold text-xs flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
+                className="w-full py-2.5 px-4 rounded-md bg-gradient-to-r from-secondary-container to-amber-300 text-primary font-bold text-xs flex items-center justify-center gap-2 hover:opacity-95 transition-opacity"
               >
                 <span>Calculate My Repair / Project Price</span>
                 <ChevronRight className="w-3.5 h-3.5" />

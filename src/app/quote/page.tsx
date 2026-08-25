@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import QuoteWizard from "@/components/quote/QuoteWizard";
 import { Calculator, ShieldCheck, Clock, CheckCircle, Phone, MapPin, Mail, Sparkles } from "lucide-react";
 import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
@@ -15,7 +15,7 @@ export default function QuotePage() {
       
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <Calculator className="w-3.5 h-3.5" />
           <span>No Obligation • Free Home Survey</span>
         </div>
@@ -40,7 +40,7 @@ export default function QuotePage() {
 
             <div className="space-y-4 text-sm font-body">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
@@ -50,7 +50,7 @@ export default function QuotePage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
@@ -62,7 +62,7 @@ export default function QuotePage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-md bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>

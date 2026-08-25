@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useRef, ChangeEvent, DragEvent } from "react";
 import Image from "next/image";
@@ -175,7 +175,7 @@ export default function ImageUploadField({
       {value ? (
         <div className="space-y-2">
           <div className={cn(
-            "relative w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 group shadow-sm",
+            "relative w-full rounded-md overflow-hidden border border-slate-200 bg-slate-900 group shadow-sm",
             aspectClass
           )}>
             <Image
@@ -200,7 +200,7 @@ export default function ImageUploadField({
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="px-3.5 py-2 rounded-xl bg-white text-slate-900 font-bold hover:bg-slate-100 shadow-md flex items-center gap-1.5 text-xs whitespace-nowrap transition-transform active:scale-95"
+                className="px-3.5 py-2 rounded-md bg-white text-slate-900 font-bold hover:bg-slate-100 shadow-md flex items-center gap-1.5 text-xs whitespace-nowrap transition-transform active:scale-95"
               >
                 <RefreshCw className="w-3.5 h-3.5 text-secondary shrink-0" />
                 <span>Replace from PC</span>
@@ -208,7 +208,7 @@ export default function ImageUploadField({
               <button
                 type="button"
                 onClick={handleRemove}
-                className="px-3.5 py-2 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 shadow-md flex items-center gap-1.5 text-xs whitespace-nowrap transition-transform active:scale-95"
+                className="px-3.5 py-2 rounded-md bg-red-600 text-white font-bold hover:bg-red-700 shadow-md flex items-center gap-1.5 text-xs whitespace-nowrap transition-transform active:scale-95"
               >
                 <Trash2 className="w-3.5 h-3.5 shrink-0" />
                 <span>Remove</span>
@@ -234,13 +234,13 @@ export default function ImageUploadField({
           onDrop={handleDrop}
           onClick={() => fileInputRef.current?.click()}
           className={cn(
-            "p-6 rounded-2xl border-2 border-dashed transition-all cursor-pointer text-center space-y-2 flex flex-col items-center justify-center",
+            "p-6 rounded-md border-2 border-dashed transition-all cursor-pointer text-center space-y-2 flex flex-col items-center justify-center",
             isDragging
               ? "border-secondary bg-secondary/10 shadow-inner"
               : "border-slate-300 bg-slate-50/70 hover:bg-white hover:border-secondary hover:shadow-xs"
           )}
         >
-          <div className="w-12 h-12 rounded-2xl bg-amber-50 text-secondary border border-amber-200 flex items-center justify-center shadow-xs">
+          <div className="w-12 h-12 rounded-md bg-amber-50 text-secondary border border-amber-200 flex items-center justify-center shadow-xs">
             {isProcessing ? (
               <RefreshCw className="w-6 h-6 animate-spin text-secondary" />
             ) : (
@@ -255,7 +255,7 @@ export default function ImageUploadField({
           </div>
           <button
             type="button"
-            className="mt-1 px-4 py-1.5 rounded-xl bg-primary text-secondary-container text-[11px] font-bold shadow-xs whitespace-nowrap hover:bg-primary/90 transition-colors"
+            className="mt-1 px-4 py-1.5 rounded-md bg-primary text-secondary-container text-[11px] font-bold shadow-xs whitespace-nowrap hover:bg-primary/90 transition-colors"
           >
             Select File from PC
           </button>
@@ -267,7 +267,7 @@ export default function ImageUploadField({
             value={value}
             onChange={(e) => onChange(e.target.value)}
             placeholder={placeholder}
-            className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono text-[11px]"
+            className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono text-[11px]"
           />
           <p className="text-[11px] text-slate-500">{helpText}</p>
         </div>

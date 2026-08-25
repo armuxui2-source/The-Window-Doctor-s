@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -67,12 +67,12 @@ export default function FrameColorConfigurator() {
   const [selectedColor, setSelectedColor] = useState<ColorOption>(COLOR_OPTIONS[0]);
 
   return (
-    <div className="bg-surface-container-low rounded-[24px] p-6 sm:p-10 border border-outline-variant shadow-card space-y-8">
+    <div className="bg-surface-container-low rounded-lg p-6 sm:p-10 border border-outline-variant shadow-card space-y-8">
       
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Material Visualiser</span>
           </div>
@@ -107,7 +107,7 @@ export default function FrameColorConfigurator() {
                   <button
                     key={c.id}
                     onClick={() => setSelectedColor(c)}
-                    className={`p-3 rounded-[16px] border text-left transition-all flex items-center gap-3 ${
+                    className={`p-3 rounded-md border text-left transition-all flex items-center gap-3 ${
                       isSelected
                         ? "bg-surface-container-lowest border-primary ring-2 ring-primary shadow-sm"
                         : "bg-surface-container-lowest/60 border-outline-variant hover:bg-surface-container-lowest"
@@ -136,10 +136,10 @@ export default function FrameColorConfigurator() {
           </div>
 
           {/* Color Details Box */}
-          <div className="p-5 rounded-[16px] bg-surface-container-lowest border border-outline-variant space-y-3 shadow-sm">
+          <div className="p-5 rounded-md bg-surface-container-lowest border border-outline-variant space-y-3 shadow-sm">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-secondary font-label">Architectural Profile:</span>
-              <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-[8px] border border-emerald-200">
+              <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-200">
                 {selectedColor.popularFor}
               </span>
             </div>
@@ -161,7 +161,7 @@ export default function FrameColorConfigurator() {
           <div className="pt-2">
             <Link
               href="/quote"
-              className="btn-cta text-xs py-3 px-6 rounded-[16px] inline-flex items-center gap-2"
+              className="btn-cta text-xs py-3 px-6 rounded-md inline-flex items-center gap-2"
             >
               <span>Request Free Swatch Sample Pack</span>
               <ArrowRight className="w-4 h-4" />
@@ -171,7 +171,7 @@ export default function FrameColorConfigurator() {
 
         {/* Right: Live Preview Image */}
         <div className="lg:col-span-6">
-          <div className="relative h-72 sm:h-96 w-full rounded-[24px] overflow-hidden border border-outline-variant shadow-card group">
+          <div className="relative h-72 sm:h-96 w-full rounded-lg overflow-hidden border border-outline-variant shadow-card group">
             <Image
               src={selectedColor.imageUrl}
               alt={`${selectedColor.name} Window & Door Installation`}
@@ -180,7 +180,7 @@ export default function FrameColorConfigurator() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
             
-            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-[16px] bg-surface-container-lowest/95 backdrop-blur-md border border-outline-variant flex items-center justify-between shadow-lg">
+            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-md bg-surface-container-lowest/95 backdrop-blur-md border border-outline-variant flex items-center justify-between shadow-lg">
               <div>
                 <span className="text-[11px] text-secondary font-bold font-label block uppercase">
                   Live Visual Sample
@@ -189,7 +189,7 @@ export default function FrameColorConfigurator() {
                   {selectedColor.name} ({selectedColor.ralCode})
                 </h4>
               </div>
-              <span className="text-xs font-bold text-primary px-3 py-1.5 rounded-[12px] bg-surface-container-low border border-outline-variant font-label">
+              <span className="text-xs font-bold text-primary px-3 py-1.5 rounded-md bg-surface-container-low border border-outline-variant font-label">
                 FENSA Approved
               </span>
             </div>

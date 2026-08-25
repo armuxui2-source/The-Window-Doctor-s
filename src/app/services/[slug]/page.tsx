@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -52,11 +52,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       </div>
 
       {/* Hero Header */}
-      <div className="bg-surface-container-low rounded-[24px] p-8 sm:p-12 border border-outline-variant shadow-card relative overflow-hidden">
+      <div className="bg-surface-container-low rounded-lg p-8 sm:p-12 border border-outline-variant shadow-card relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container-lowest border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
               <Wrench className="w-3.5 h-3.5" />
               <span>FENSA Certified Service</span>
             </div>
@@ -75,15 +75,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <div className="px-4 py-2.5 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-xs">
+              <div className="px-4 py-2.5 rounded-md bg-surface-container-lowest border border-outline-variant text-xs">
                 <span className="text-on-surface-variant block text-[11px] font-label">Warranty:</span>
                 <strong className="text-secondary font-bold">{service.warranty_years}-Year Guarantee</strong>
               </div>
-              <div className="px-4 py-2.5 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-xs">
+              <div className="px-4 py-2.5 rounded-md bg-surface-container-lowest border border-outline-variant text-xs">
                 <span className="text-on-surface-variant block text-[11px] font-label">Pricing Guide:</span>
                 <strong className="text-primary font-bold">From £{service.base_price_estimate} {service.price_unit}</strong>
               </div>
-              <div className="px-4 py-2.5 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-xs">
+              <div className="px-4 py-2.5 rounded-md bg-surface-container-lowest border border-outline-variant text-xs">
                 <span className="text-on-surface-variant block text-[11px] font-label">Standards:</span>
                 <strong className="text-emerald-700 font-bold">PAS 24 / BS 6180</strong>
               </div>
@@ -92,14 +92,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <a
                 href="#quote-wizard"
-                className="btn-cta text-sm py-3 px-6 rounded-[16px]"
+                className="btn-cta text-sm py-3 px-6 rounded-md"
               >
                 <span>Calculate Free Estimate</span>
                 <ArrowRight className="w-4 h-4 ml-1.5 inline" />
               </a>
               <a
                 href="tel:01869572206"
-                className="btn-secondary text-sm py-3 px-6 rounded-[16px]"
+                className="btn-secondary text-sm py-3 px-6 rounded-md"
               >
                 <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
                 <span>01869 572206</span>
@@ -107,7 +107,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-80 sm:h-96 rounded-[24px] overflow-hidden border border-outline-variant shadow-card">
+          <div className="lg:col-span-5 relative h-80 sm:h-96 rounded-lg overflow-hidden border border-outline-variant shadow-card">
             <Image
               src={service.hero_image_url || "https://lh3.googleusercontent.com/aida-public/AB6AXuB4PgLGqLJswj_yOE9Fp-h7Bh-0gB3SEGKW6wM__fhYsI1vcAZwqvKhgzpVL7CPX7XDHfvLEFLucGEy4uNrBRgE-6Ygcy_HksxKYiVtZxOFrjkRG5UiALFDyTnqEFSdiMMHVQtQIoDIgwDQLyuJAjYBogUwBNPAh0jSMBy_zkHmL9gRXfOW6qtVeyd7XAcVNUXYynC-N2W5g5e1oWBK8e7f5qY9lqco1Xmr5MekrfBHfzcqTU0EIh2I"}
               alt={service.title}
@@ -124,11 +124,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Features List */}
-        <div className="lg:col-span-7 bg-surface-container-lowest rounded-[24px] p-8 border border-outline-variant shadow-card space-y-6">
+        <div className="lg:col-span-7 bg-surface-container-lowest rounded-lg p-8 border border-outline-variant shadow-card space-y-6">
           <h3 className="font-headline font-bold text-xl text-primary">Why Choose Our {service.title}</h3>
           <div className="space-y-3">
             {service.features.map((feature, idx) => (
-              <div key={idx} className="p-3.5 rounded-[16px] bg-surface-container-low border border-outline-variant flex items-start gap-3">
+              <div key={idx} className="p-3.5 rounded-md bg-surface-container-low border border-outline-variant flex items-start gap-3">
                 <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                 <span className="font-body text-sm font-medium text-primary">{feature}</span>
               </div>
@@ -137,7 +137,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </div>
 
         {/* Technical Specs Box */}
-        <div className="lg:col-span-5 bg-surface-container rounded-[24px] p-8 border border-outline-variant space-y-6">
+        <div className="lg:col-span-5 bg-surface-container rounded-lg p-8 border border-outline-variant space-y-6">
           <h3 className="font-headline font-bold text-xl text-primary">Technical Specifications</h3>
           <div className="space-y-3 text-xs">
             {Object.entries(service.specifications).map(([key, val]) => (
@@ -147,7 +147,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
               </div>
             ))}
           </div>
-          <div className="p-4 rounded-[16px] bg-surface-container-lowest border border-outline-variant text-xs text-primary font-body leading-relaxed">
+          <div className="p-4 rounded-md bg-surface-container-lowest border border-outline-variant text-xs text-primary font-body leading-relaxed">
             All installations are registered with FENSA and covered by an Insurance-Backed 10-Year Guarantee.
           </div>
         </div>

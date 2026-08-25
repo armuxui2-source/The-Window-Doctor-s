@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -83,11 +83,11 @@ export default function GoogleReviewsSlider({ reviews = GOOGLE_REVIEWS }: Google
     >
       
       {/* Header & Google Trust Summary */}
-      <div className="bg-primary text-white rounded-[28px] p-6 sm:p-10 border border-secondary/30 shadow-2xl relative overflow-hidden space-y-6">
+      <div className="bg-primary text-white rounded-lg p-6 sm:p-10 border border-secondary/30 shadow-2xl relative overflow-hidden space-y-6">
         
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/10 border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase font-label">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary-container/10 border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase font-label">
               <Sparkles className="w-3.5 h-3.5" />
               <span>100% Verified Customer Feedback</span>
             </div>
@@ -100,8 +100,8 @@ export default function GoogleReviewsSlider({ reviews = GOOGLE_REVIEWS }: Google
           </div>
 
           {/* Google Verified Score Card */}
-          <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md p-4 rounded-2xl border border-white/10 flex-shrink-0">
-            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md flex-shrink-0">
+          <div className="flex items-center gap-4 bg-white/5 backdrop-blur-md p-4 rounded-md border border-white/10 flex-shrink-0">
+            <div className="w-12 h-12 rounded-md bg-white flex items-center justify-center shadow-md flex-shrink-0">
               {/* Google G Logo SVG */}
               <svg className="w-7 h-7" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -137,7 +137,7 @@ export default function GoogleReviewsSlider({ reviews = GOOGLE_REVIEWS }: Google
               <button
                 key={cat.id}
                 onClick={() => handleFilterChange(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap font-label ${
+                className={`px-4 py-2 rounded text-xs font-bold transition-all whitespace-nowrap font-label ${
                   selectedCategory === cat.id
                     ? "bg-secondary-container text-primary shadow-gold-glow"
                     : "bg-white/5 text-slate-200 hover:bg-white/15 border border-white/10"
@@ -238,7 +238,7 @@ export default function GoogleReviewsSlider({ reviews = GOOGLE_REVIEWS }: Google
                   <span className="text-[11px] text-on-surface-variant font-mono">{rev.time_ago}</span>
                 </div>
 
-                <div className="inline-block px-2.5 py-0.5 rounded-[8px] bg-surface-container-low border border-outline-variant text-[11px] font-bold text-secondary font-label">
+                <div className="inline-block px-2.5 py-0.5 rounded bg-surface-container-low border border-outline-variant text-[11px] font-bold text-secondary font-label">
                   {rev.service_category}
                 </div>
               </div>

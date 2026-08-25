@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
@@ -54,7 +54,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
       {/* Header & Controls */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="space-y-3 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[16px] bg-secondary-container/30 border border-secondary/20 text-secondary text-xs font-bold uppercase font-label">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-secondary-container/30 border border-secondary/20 text-secondary text-xs font-bold uppercase font-label">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Engineered Products & Glazing Catalogue</span>
           </div>
@@ -95,7 +95,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
               className={cn(
-                "px-4 py-2.5 rounded-full text-xs font-bold font-label transition-all duration-200 whitespace-nowrap flex items-center gap-2 border",
+                "px-4 py-2.5 rounded text-xs font-bold font-label transition-all duration-200 whitespace-nowrap flex items-center gap-2 border",
                 isActive
                   ? "bg-primary text-secondary-container border-primary shadow-md scale-105"
                   : "bg-surface-container-lowest text-on-surface hover:bg-surface-container border-outline-variant"
@@ -116,7 +116,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
         {filteredServices.map((service: Service) => (
           <div
             key={service.id}
-            className="min-w-[320px] sm:min-w-[380px] lg:min-w-[400px] max-w-[420px] bg-surface-container-lowest border border-outline-variant rounded-[20px] overflow-hidden flex flex-col justify-between group hover:border-primary transition-all duration-300 hover:shadow-xl snap-start"
+            className="min-w-[320px] sm:min-w-[380px] lg:min-w-[400px] max-w-[420px] bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden flex flex-col justify-between group hover:border-primary transition-all duration-300 hover:shadow-xl snap-start"
           >
             {/* Image Header with Badge Overlay */}
             <div className="relative h-56 w-full overflow-hidden bg-slate-900">
@@ -130,7 +130,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
               
               {/* Category Icon Badge */}
-              <div className="absolute top-4 left-4 w-10 h-10 rounded-[12px] bg-primary/90 backdrop-blur-md text-secondary-container flex items-center justify-center border border-secondary/30 shadow-md">
+              <div className="absolute top-4 left-4 w-10 h-10 rounded-md bg-primary/90 backdrop-blur-md text-secondary-container flex items-center justify-center border border-secondary/30 shadow-md">
                 {service.slug === "misted-glass-repair" && <Sparkles className="w-5 h-5" />}
                 {service.slug === "modern-windows" && <Grid className="w-5 h-5" />}
                 {service.slug === "stylish-doors" && <DoorClosed className="w-5 h-5" />}
@@ -139,7 +139,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
               </div>
 
               {/* Warranty / Guarantee Pill */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-primary/90 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold font-label flex items-center gap-1 shadow-md">
+              <div className="absolute top-4 right-4 px-3 py-1 rounded bg-primary/90 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold font-label flex items-center gap-1 shadow-md">
                 <ShieldCheck className="w-3.5 h-3.5 text-secondary-container" />
                 <span>{service.warranty_years}-Year Guarantee</span>
               </div>
@@ -195,7 +195,7 @@ export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: Prod
 
                 <Link
                   href={`/services/${service.slug}`}
-                  className="btn-primary text-xs py-2.5 px-4 rounded-[12px] group-hover:bg-secondary group-hover:text-primary transition-colors flex items-center gap-1 font-bold"
+                  className="btn-primary text-xs py-2.5 px-4 rounded-md group-hover:bg-secondary group-hover:text-primary transition-colors flex items-center gap-1 font-bold"
                 >
                   <span>Explore Specs</span>
                   <ArrowRight className="w-3.5 h-3.5" />
