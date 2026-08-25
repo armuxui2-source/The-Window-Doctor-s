@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -2023,7 +2023,16 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Hero Slider & Banner Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage homepage hero slides — images, headlines, CTAs, and stat badges</p>
                 </div>
-                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-md flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label              <div className="space-y-4">
+                <button
+                  onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })}
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                >
+                  <PlusCircle className="w-3.5 h-3.5" />
+                  <span>Add New Slide</span>
+                </button>
+              </div>
+
+              <div className="space-y-4">
                 {heroSlides.map((slide, idx) => (
                   <div key={slide.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-3.5">
                     <div className="flex items-start justify-between gap-4">
