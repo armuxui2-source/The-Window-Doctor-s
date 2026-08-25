@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Stylish Doors Collection | The Window Doctor</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Design System -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-container": "#0a1f44",
+                "tertiary-fixed-dim": "#c5c7c8",
+                "primary-fixed-dim": "#b4c6f4",
+                "tertiary-fixed": "#e1e3e4",
+                "on-surface": "#121c2c",
+                "surface-bright": "#f9f9ff",
+                "primary-fixed": "#d9e2ff",
+                "on-primary-fixed": "#041a3f",
+                "primary": "#00081e",
+                "surface-tint": "#4c5e86",
+                "on-tertiary-fixed": "#191c1d",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#44464e",
+                "surface-container": "#e7eeff",
+                "on-primary-fixed-variant": "#34466d",
+                "tertiary": "#070a0a",
+                "outline-variant": "#c5c6cf",
+                "on-background": "#121c2c",
+                "inverse-on-surface": "#ebf1ff",
+                "surface-dim": "#d0daf0",
+                "on-tertiary": "#ffffff",
+                "surface-container-low": "#f0f3ff",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "surface-variant": "#d9e3f9",
+                "background": "#f9f9ff",
+                "secondary-fixed-dim": "#e9c176",
+                "inverse-surface": "#273141",
+                "on-primary-container": "#7687b2",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#fed488",
+                "surface": "#f9f9ff",
+                "inverse-primary": "#b4c6f4",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#785a1a",
+                "on-primary": "#ffffff",
+                "secondary": "#775a19",
+                "on-secondary-fixed": "#261900",
+                "on-secondary-fixed-variant": "#5d4201",
+                "tertiary-container": "#1e2122",
+                "surface-container-highest": "#d9e3f9",
+                "surface-container-high": "#dee8ff",
+                "secondary-fixed": "#ffdea5",
+                "on-tertiary-container": "#868889",
+                "on-tertiary-fixed-variant": "#454748",
+                "error-container": "#ffdad6",
+                "outline": "#75777f"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+            "gutter": "24px",
+            "margin-mobile": "16px",
+            "base": "8px",
+            "section-gap": "120px",
+            "margin-desktop": "80px"
+        },
+        "fontFamily": {
+                "headline": [
+                        "Hanken Grotesk"
+                ],
+                "display": [
+                        "Hanken Grotesk"
+                ],
+                "body": [
+                        "Work Sans"
+                ],
+                "label": [
+                        "Work Sans"
+                ],
+                "headline-sm": ["Hanken Grotesk"],
+                "headline-lg": ["Hanken Grotesk"],
+                "label-bold": ["Work Sans"],
+                "body-lg": ["Work Sans"],
+                "headline-xl": ["Hanken Grotesk"],
+                "body-md": ["Work Sans"],
+                "headline-md": ["Hanken Grotesk"],
+                "headline-lg-mobile": ["Hanken Grotesk"]
+        },
+        "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+            "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Custom Utilities for Design System specifics */
+        .glass-window {
+            backdrop-filter: blur(4px);
+            background-color: rgba(0, 8, 30, 0.9); /* Deep Navy at 90% */
+        }
+        .btn-primary {
+            @apply bg-primary text-on-primary rounded-full px-6 py-3 font-label-bold text-label-bold transition-all border-2 border-transparent hover:border-secondary;
+        }
+        .btn-secondary {
+            @apply bg-surface-container-lowest text-primary border border-primary rounded-full px-6 py-3 font-label-bold text-label-bold transition-colors hover:bg-surface-container-low;
+        }
+        .btn-cta {
+            @apply bg-secondary text-on-secondary rounded-full px-6 py-3 font-label-bold text-label-bold transition-all shadow-[2px_2px_0px_0px_rgba(0,8,30,0.2)] hover:opacity-90;
+        }
+        .card-structural {
+            @apply border border-outline-variant rounded-DEFAULT bg-surface-container-lowest overflow-hidden flex flex-col;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<!-- Brand Logo -->
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                The Window Doctor
+            </div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Windows</a>
+<a class="text-primary font-bold border-b-2 border-secondary font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 opacity-80" href="#">Doors</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Glass Repairs</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Contact</a>
+</nav>
+<!-- Actions -->
+<div class="hidden lg:flex items-center gap-4">
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="tel:01869572206">01869 572206</a>
+<button class="btn-cta hover:opacity-90 transition-all duration-200 active:scale-95">Get a Quote</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="w-full px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-5 flex flex-col gap-6">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-xl md:text-headline-xl text-primary">
+                    Stylish Doors Collection
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    ต้อนรับผู้มาเยือนอย่างมีสไตล์ ด้วยประตูที่แข็งแรง ปลอดภัย และประหยัดพลังงาน
+                </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="btn-primary hover:opacity-90 transition-all duration-200 active:scale-95">Explore Collection</button>
+<button class="btn-secondary hover:opacity-90 transition-all duration-200 active:scale-95">Design Your Door</button>
+</div>
+</div>
+<div class="lg:col-span-7 rounded-DEFAULT overflow-hidden h-[400px] lg:h-[600px] bg-surface-container-low border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A highly detailed, professional architectural photograph of a premium, modern composite front door installed in a contemporary brick home. The door is a deep, rich navy blue with sleek, brushed steel hardware and a long vertical frosted glass panel. The setting is bathed in bright, natural daytime lighting, emphasizing the solid, secure construction and pristine finish. The aesthetic is clean, high-end, and structurally precise, reflecting top-tier British craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaY0GcI9mgRMDOcLXlLeOiKF67cgt1-nE2DNRefCQQvFuhtAI_P4gagq5x5vL97eg0oPF32a-Ipc2Rokvu2VF1U9ZS4awb-BpG6aBoGdM2jcqav6FiDGhy4vhzyk_OqjxAmiu_cykKYctstgDn-M3uBxnBSfu7ANp2rU8ZUr8AUEXAC5OySbgeNZld5Dt0b29K8qaE8vhmcbK4jyhTM9EkvIo8D3ssn-as4wZE8j9lnvcTVrc3AjO1D4we9w5quyZk0A">
+</div>
+</div>
+</section>
+<!-- Features Section -->
+<section class="bg-surface-container-low border-y border-outline-variant w-full">
+<div class="px-margin-mobile md:px-margin-desktop py-16 max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="flex flex-col gap-4">
+<div class="w-16 h-16 rounded-DEFAULT bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'wght' 300;">shield_lock</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Uncompromising Security</h3>
+<p class="text-on-surface-variant">Multi-point locking systems and reinforced frames designed to keep your home safe and provide ultimate peace of mind.</p>
+</div>
+<!-- Feature 2 -->
+<div class="flex flex-col gap-4">
+<div class="w-16 h-16 rounded-DEFAULT bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'wght' 300;">thermostat</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Thermal Efficiency</h3>
+<p class="text-on-surface-variant">Advanced insulation technology prevents heat loss, reducing your energy bills while keeping your home comfortable year-round.</p>
+</div>
+<!-- Feature 3 -->
+<div class="flex flex-col gap-4">
+<div class="w-16 h-16 rounded-DEFAULT bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'wght' 300;">palette</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Bespoke Aesthetics</h3>
+<p class="text-on-surface-variant">Tailor-made designs with a vast range of colors, finishes, and hardware to perfectly complement your home's unique character.</p>
+</div>
+</div>
+</section>
+<!-- Collections Bento Grid -->
+<section class="w-full px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Our Signature Range</h2>
+<p class="text-on-surface-variant max-w-2xl">Discover our meticulously engineered selection of doors, crafted for longevity and performance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-[300px]">
+<!-- Composite (Large) -->
+<div class="md:col-span-8 row-span-2 card-structural relative group hover:shadow-lg transition-all duration-300">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A bright, wide-angle architectural photo showing an array of premium composite doors in various heritage colors (sage green, slate grey, duck egg blue) installed in a sleek, minimalist showroom setting. The lighting is crisp and even, highlighting the realistic woodgrain texture and robust construction of the panels. The scene feels modern, structured, and highly professional, communicating reliability and high-end manufacturing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC40MF7mWHPY3IGfSBPvAYT2r-GQWUJMMsOW1SE17NRUhmFOqkbW2rL7b-5y_1f9MVDPWUVCbBfSdt-oOq60FNKrLMPwYUK9eRxmG2ObGp1WKOlD0_CLzWUhG3UmLAJenjAFE3_-sCwM9_yOE5-crBkK9WU4ATeM71fJ_ygsY0E7U_EyKPsDIq0oX3pBaajxi_6flmfme0H1oPAr9KLG4eBClpfhZb4-7h8xF7fG6jVOUN9wmyo5gEQ">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex items-end p-8">
+<div class="text-surface-container-lowest">
+<h3 class="font-headline-lg text-headline-lg mb-2">Composite Doors</h3>
+<p class="font-body-md text-body-md opacity-90 max-w-md">The ultimate combination of traditional timber aesthetics and modern low-maintenance materials.</p>
+</div>
+</div>
+</div>
+<!-- Spitfire (Tall) -->
+<div class="md:col-span-4 row-span-2 card-structural relative group hover:shadow-lg transition-all duration-300">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A close-up, dramatic shot of a luxury Spitfire aluminum front door. The door features a striking matte black finish with an integrated biometric fingerprint scanner and a full-length architectural stainless steel pull handle. The lighting is moody and focused on the technological hardware, emphasizing high security, precision engineering, and ultra-modern corporate aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTlBxkx02ZTD46vfss1FocPslJlVOzYAMcNgm6RV2UtHWjNeMxY80PYkFa43xvBG9OawLvBib07hMUpTtXmUJjyKI5UhQCdM3XB_RXsxru8uDrO2DhrnD8eiB-x9SrwssQo9Y4YSgmgjvyiLFrCE1ANE_LPojrXBjT55MDvppgJoDiesuHRfuZLZ60w4tS9syiMVW05BwePxqBB-4E8Z3YGBJJ8jEXdsQBfiEYIpIWsoJuEPsWmeHu">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex items-end p-8">
+<div class="text-surface-container-lowest">
+<h3 class="font-headline-md text-headline-md mb-2">Spitfire Doors</h3>
+<p class="font-body-md text-body-md opacity-90">Luxury aluminium entrance doors.</p>
+</div>
+</div>
+</div>
+<!-- Bi-fold -->
+<div class="md:col-span-4 row-span-1 card-structural relative group hover:shadow-lg transition-all duration-300">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A stunning view from inside a modern kitchen looking out through fully opened bi-fold doors into a landscaped garden. The slimline anthracite grey aluminum frames fold neatly to the side, creating a seamless transition between indoor and outdoor living. Bright natural sunlight floods the room. The composition is clean, airy, and geometrically precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLpksSd7VnyXMXWrau-C3KCdx_1yIN9UpYTsMTvnnuJ9JgsqcJqWwhRrEpw1rHf1S0de6HQm9P02ySO7zbzgluCw8UUW2S3fhwRw-DYzpofSlz0L46csOMRlhMx4kEGTt3OKcSKdX4WWuaaCRqjOpQ-wR0ImrI6iLHYCiGU1YrisR7YIY4lB_ZymHBtpbjk41xGJr--lYhHyN-NsoD71V6Y-dD4q2KTnywrXOKvHTdx2Vq1W14kgCx">
+<div class="absolute inset-0 glass-window opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+<h3 class="font-headline-md text-headline-md text-surface-container-lowest mb-2">Bi-fold Doors</h3>
+<p class="text-surface-variant font-label-bold text-label-bold">Seamless transitions</p>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-surface-container-lowest p-4 group-hover:opacity-0 transition-opacity duration-300">
+<h3 class="font-headline-sm text-headline-sm text-primary">Bi-fold Doors</h3>
+</div>
+</div>
+<!-- French -->
+<div class="md:col-span-4 row-span-1 card-structural relative group hover:shadow-lg transition-all duration-300">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A classic yet modernized set of white uPVC French doors opening outwards onto a paved patio. The doors feature elegant internal Georgian bars within the double glazing. The photo is taken straight-on, emphasizing symmetry and structural alignment against a neat brick wall. The lighting is soft and inviting, suggesting timeless reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlvVhThdsB_vEhn76iQhB74MUp3KDp7_J5UuFsDoPbWtVN2lXAUZVqXOzrLt7WgmOkGU-JU6Yk_xPh8rbVsattjfcN5qDqsZpAX6QXhy1iYOKYmZb5ordt_gMG52IrNYDcen2A7p7b81WTE52tj9Nw9I72GXjh_yV69dSZPSf2mu8m5LvunxYv26_9uTaJqDTy-ceJakO44p0SX1JKP6Czf1EdBkjs8hcbt02x3lbyvRMyKKzzsUiN">
+<div class="absolute inset-0 glass-window opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+<h3 class="font-headline-md text-headline-md text-surface-container-lowest mb-2">French Doors</h3>
+<p class="text-surface-variant font-label-bold text-label-bold">Classic elegance</p>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-surface-container-lowest p-4 group-hover:opacity-0 transition-opacity duration-300">
+<h3 class="font-headline-sm text-headline-sm text-primary">French Doors</h3>
+</div>
+</div>
+<!-- Patio -->
+<div class="md:col-span-4 row-span-1 card-structural relative group hover:shadow-lg transition-all duration-300">
+<img class="w-full h-full object-cover absolute inset-0" data-alt="A sleek, modern sliding patio door with large expanses of uninterrupted glass, housed in minimal black frames. The door slides effortlessly on its track, revealing a bright conservatory setting. The focus is on the vast amount of light permitted by the minimal structural sightlines, embodying a clean, contemporary design ethos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqLpYQfTC48J_LWE733MeLfiN1R8lz1OmBfjWOOHorRbL-OiceLo-fBL7FA5zQIVGApxGd9lzUe_sknZvEQ7xmUUf7Yu6HBz7huCmLd01ojDE6pzSiqIc9QoW3gnyZkjyjwBVJZArQB4PU62wHahDFC_mov05Go2X8eJuKK2mp6YyQ4II_WYgcn3Xzt9-a4mwTHGti6_T1ttHmsM7Zfe7fhRLFd4c9XWC0XCr0P57d6L_sRzDEmARj">
+<div class="absolute inset-0 glass-window opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+<h3 class="font-headline-md text-headline-md text-surface-container-lowest mb-2">Patio Doors</h3>
+<p class="text-surface-variant font-label-bold text-label-bold">Maximum light</p>
+</div>
+<div class="absolute bottom-0 left-0 right-0 bg-surface-container-lowest p-4 group-hover:opacity-0 transition-opacity duration-300">
+<h3 class="font-headline-sm text-headline-sm text-primary">Patio Doors</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="flex flex-col gap-4 md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">
+                    The Window Doctor
+                </div>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                    Expertise, Reliability, and Longevity since 1983.
+                </p>
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<a class="text-on-surface font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary" href="#">Home</a>
+<a class="text-on-surface font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary" href="#">Service Areas</a>
+<a class="text-on-surface font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary" href="#">FENSA Certified</a>
+<a class="text-on-surface font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary" href="#">British Standards</a>
+<a class="text-on-surface font-label-bold text-label-bold hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-4 md:col-span-1 text-on-surface-variant font-body-md text-body-md">
+                 © 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.
+            </div>
+</div>
+</footer>
+
+
+</body></html>

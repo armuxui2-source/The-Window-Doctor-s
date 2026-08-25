@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 249 249 255;
+    --foreground: 18 28 44;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #f9f9ff;
+    color: #121c2c;
+    font-family: var(--font-work-sans), var(--font-prompt), sans-serif;
+    overflow-x: hidden;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-hanken), var(--font-prompt), sans-serif;
+    color: #00081e;
+  }
+}
+
+/* Heritage Precision Button System */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00081e;
+  color: #ffffff;
+  border-radius: 1rem; /* 16px */
+  padding: 0.875rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  border-color: #fed488;
+  box-shadow: 2px 2px 0px 0px rgba(0, 8, 30, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #00081e;
+  border-radius: 1rem; /* 16px */
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 1px solid #00081e;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f3ff;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fed488;
+  color: #00081e;
+  border-radius: 1rem; /* 16px */
+  padding: 0.875rem 1.75rem;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+}
+
+.btn-cta:hover {
+  background-color: #fbd077;
+  box-shadow: 2px 2px 0px 0px rgba(119, 90, 25, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Heritage Architectural Cards */
+.card-structural {
+  background-color: #ffffff;
+  border: 1px solid #c5c6cf;
+  border-radius: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card-structural:hover {
+  border-color: #00081e;
+}
+
+/* Glass Window Blur Effect */
+.glass-window-overlay {
+  background-color: rgba(0, 8, 30, 0.88);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.glass-card-dark {
+  background: rgba(0, 8, 30, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(254, 212, 136, 0.2);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 198, 207, 0.5);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 0 25px -5px rgba(254, 212, 136, 0.35);
+}
+
+.shadow-navy-glow {
+  box-shadow: 0 20px 40px -15px rgba(0, 8, 30, 0.4);
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f3ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c6cf;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #75777f;
+}
+
+

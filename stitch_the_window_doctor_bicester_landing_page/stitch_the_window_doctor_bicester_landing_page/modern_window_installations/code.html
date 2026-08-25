@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Window Installations | The Window Doctor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b4c6f4",
+                        "surface-variant": "#d9e3f9",
+                        "tertiary": "#070a0a",
+                        "surface-tint": "#4c5e86",
+                        "primary-fixed-dim": "#b4c6f4",
+                        "outline-variant": "#c5c6cf",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "primary-container": "#0a1f44",
+                        "surface-container-high": "#dee8ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#1e2122",
+                        "surface": "#f9f9ff",
+                        "primary-fixed": "#d9e2ff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#785a1a",
+                        "on-surface-variant": "#44464e",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-tertiary-container": "#868889",
+                        "primary": "#00081e",
+                        "surface-dim": "#d0daf0",
+                        "background": "#f9f9ff",
+                        "tertiary-fixed": "#e1e3e4",
+                        "surface-container-highest": "#d9e3f9",
+                        "on-primary-container": "#7687b2",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-background": "#121c2c",
+                        "outline": "#75777f",
+                        "on-surface": "#121c2c",
+                        "secondary-fixed-dim": "#e9c176",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#34466d",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-container": "#fed488",
+                        "on-primary-fixed": "#041a3f",
+                        "secondary": "#775a19",
+                        "surface-container": "#e7eeff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#ffdea5",
+                        "on-secondary-fixed": "#261900",
+                        "inverse-on-surface": "#ebf1ff",
+                        "inverse-surface": "#273141"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-bold": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "body-md": ["Work Sans"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-primary border-b border-outline-variant dark:border-outline sticky top-0 z-50 w-full">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                The Window Doctor
+            </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-secondary pb-1" href="#">Windows</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Doors</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Glass Repairs</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200" href="#">Contact</a>
+</nav>
+<div class="hidden md:flex items-center gap-gutter">
+<span class="font-label-bold text-label-bold text-primary">01869 572206</span>
+<a class="bg-secondary text-primary font-label-bold text-label-bold px-6 py-2 rounded-DEFAULT hover:bg-secondary-container transition-colors" href="#">Get a Quote</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-section-gap pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 z-10 space-y-6">
+<h1 class="font-headline-xl text-headline-xl text-primary leading-tight">
+                Modern Window Installations
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                เปิดรับแสงธรรมชาติ เพิ่มมุมมองที่กว้างขึ้น พร้อมการติดตั้งระดับมาตรฐาน FENSA Expertly crafted uPVC, Energy Efficient, and Triple Glazing solutions for your home.
+            </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-primary text-on-primary font-label-bold text-label-bold px-8 py-3 rounded-DEFAULT border-2 border-transparent hover:border-secondary transition-all">
+                    Explore Options
+                </button>
+<button class="bg-surface-container-lowest text-primary border border-outline font-label-bold text-label-bold px-8 py-3 rounded-DEFAULT hover:border-primary transition-all">
+                    Our Gallery
+                </button>
+</div>
+</div>
+<div class="md:col-span-6 relative">
+<img class="rounded-lg object-cover w-full h-[500px] shadow-sm border border-outline-variant" data-alt="A modern, high-end residential house exterior showcasing sleek, newly installed large uPVC triple-glazed windows. The home features contemporary architectural lines, neutral light gray tones with deep navy structural accents. Bright, natural daylight reflects off the pristine glass, highlighting the quality craftsmanship. The scene is shot from a slight angle to emphasize the clean, flat architectural surfaces and the sense of modern energy efficiency. The overall mood is reliable, premium, and structurally precise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmgdWz7c1uQ5ToMogZjQ7FvBjKS8xMT0pxMFkFperozadU-YAB2ojgNBGsTP4OeusE8czuTdN8cS38J0HVF_GcAZYdWZR7bEPBZ49VlaUEFelngHm-lYYeEV-SaM3QH68TkwacDi02sI2wduq0iiGuboopKDTAceoJaG1Wr_owen6ZiywCkgbLNzGc8iomH51Jo9ikVsdpKfAwt9rRNk1HqFAeUf11nZyyZ6GOCqjoDNcaFsqMsJdj"/>
+<!-- Glass effect overlay badge -->
+<div class="absolute bottom-6 left-6 bg-primary/90 backdrop-blur-sm rounded-DEFAULT p-4 border border-outline-variant flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-lowest rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined icon-fill">verified</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-primary">FENSA Certified</p>
+<p class="font-body-md text-body-md text-surface-variant text-sm">Professional Installation</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Benefits (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest border-y border-outline-variant">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary md:font-headline-lg font-headline-lg-mobile">Engineered for Excellence</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl mx-auto">Our modern window systems provide unparalleled security, acoustic insulation, and thermal efficiency.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Security Card -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT border border-outline-variant flex flex-col items-start gap-4">
+<div class="w-16 h-16 bg-primary rounded-DEFAULT flex items-center justify-center text-on-primary mb-2">
+<span class="material-symbols-outlined icon-fill text-3xl">lock</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Multi-Point Security</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Advanced locking mechanisms integrated into the frame, ensuring maximum protection for your family and home.</p>
+</div>
+<!-- Noise Card -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT border border-outline-variant flex flex-col items-start gap-4">
+<div class="w-16 h-16 bg-primary rounded-DEFAULT flex items-center justify-center text-on-primary mb-2">
+<span class="material-symbols-outlined icon-fill text-3xl">volume_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Acoustic Reduction</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium triple glazing technology significantly reduces external noise, creating a peaceful interior environment.</p>
+</div>
+<!-- Thermal Card -->
+<div class="bg-surface-container-low p-8 rounded-DEFAULT border border-outline-variant flex flex-col items-start gap-4">
+<div class="w-16 h-16 bg-primary rounded-DEFAULT flex items-center justify-center text-on-primary mb-2">
+<span class="material-symbols-outlined icon-fill text-3xl">thermostat</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Thermal Efficiency</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Energy-efficient uPVC frames and modern glazing techniques trap warmth inside, reducing heating costs.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-tertiary-container border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed mb-4">
+                    The Window Doctor
+                </div>
+<p class="font-body-md text-body-md text-on-surface dark:text-on-tertiary-container">
+                    © 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-8 justify-start md:justify-end">
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 hover:underline decoration-secondary" href="#">Home</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 hover:underline decoration-secondary" href="#">Service Areas</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 hover:underline decoration-secondary" href="#">FENSA Certified</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 hover:underline decoration-secondary" href="#">British Standards</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 hover:underline decoration-secondary" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Our Service Areas - The Window Doctor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#4c5e86",
+                      "secondary-container": "#fed488",
+                      "tertiary-fixed-dim": "#c5c7c8",
+                      "surface-container-highest": "#d9e3f9",
+                      "secondary-fixed": "#ffdea5",
+                      "surface-container-high": "#dee8ff",
+                      "on-tertiary-container": "#868889",
+                      "surface-container": "#e7eeff",
+                      "on-surface": "#121c2c",
+                      "on-tertiary-fixed": "#191c1d",
+                      "on-secondary-container": "#785a1a",
+                      "on-background": "#121c2c",
+                      "outline-variant": "#c5c6cf",
+                      "surface": "#f9f9ff",
+                      "on-primary-fixed-variant": "#34466d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f0f3ff",
+                      "primary-fixed-dim": "#b4c6f4",
+                      "on-secondary-fixed": "#261900",
+                      "primary-fixed": "#d9e2ff",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#00081e",
+                      "surface-variant": "#d9e3f9",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#454748",
+                      "outline": "#75777f",
+                      "tertiary-container": "#1e2122",
+                      "secondary": "#775a19",
+                      "primary-container": "#0a1f44",
+                      "on-surface-variant": "#44464e",
+                      "background": "#f9f9ff",
+                      "surface-dim": "#d0daf0",
+                      "inverse-primary": "#b4c6f4",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9f9ff",
+                      "on-primary-fixed": "#041a3f",
+                      "secondary-fixed-dim": "#e9c176",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "on-primary-container": "#7687b2",
+                      "tertiary-fixed": "#e1e3e4",
+                      "inverse-on-surface": "#ebf1ff",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#070a0a",
+                      "inverse-surface": "#273141",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                  "base": "8px",
+                  "gutter": "24px",
+                  "margin-mobile": "16px",
+                  "margin-desktop": "80px",
+                  "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "headline": [
+                              "Hanken Grotesk"
+                      ],
+                      "display": [
+                              "Hanken Grotesk"
+                      ],
+                      "body": [
+                              "Work Sans"
+                      ],
+                      "label": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {
+                  "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                  "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                  "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                  "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                  "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                  "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                  "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
+                  "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Hanken Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Hidden on Mobile per rules, but included for web structural completeness if needed, although prompt says Mobile version. We will hide it on md:hidden if following strict mobile app shell, but for a responsive web page we render the responsive header. The prompt says "Mobile version", so we focus on mobile layout.) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile py-4 max-w-[1280px] mx-auto md:px-margin-desktop">
+<div class="font-headline font-headline-md text-primary font-bold">
+                The Window Doctor
+            </div>
+<!-- Mobile Menu Toggle (Simplified) -->
+<button aria-label="Open menu" class="md:hidden text-primary p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex space-x-6 items-center">
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Windows</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Doors</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Glass Repairs</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-bold text-label-bold hover:text-secondary transition-colors duration-200" href="#">Contact</a>
+<div class="flex items-center ml-4 space-x-4 border-l border-outline-variant pl-4">
+<span class="text-primary font-label-bold text-label-bold">01869 572206</span>
+<a class="bg-secondary text-primary font-label-bold text-label-bold py-2 px-4 rounded-[16px] hover:opacity-90 transition-opacity" href="#">Get a Quote</a>
+</div>
+</nav>
+</div>
+</header>
+<main class="flex-grow flex flex-col w-full">
+<!-- Hero Section -->
+<section class="w-full px-margin-mobile py-12 md:py-24 bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-bold text-label-bold text-secondary uppercase tracking-wider mb-4 block">Local Experts Since 1983</span>
+<h1 class="font-headline font-headline-lg-mobile md:font-headline-xl text-primary mb-6 max-w-2xl">
+                Serving Oxfordshire With Structural Precision
+            </h1>
+<p class="font-body text-body-lg text-on-surface-variant max-w-xl mb-8">
+                The Window Doctor provides premium window, door, and glass repair services across Bicester, Bucknell, and the wider Oxfordshire region.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="bg-primary text-on-primary font-label-bold text-label-bold py-4 px-8 rounded-[16px] hover:border-secondary hover:border-2 transition-all w-full sm:w-auto flex items-center justify-center gap-2 active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="location_on">location_on</span>
+                    Find Your Area
+                </a>
+<a class="bg-surface-container-lowest text-primary border border-primary font-label-bold text-label-bold py-4 px-8 rounded-[16px] hover:bg-surface-container transition-all w-full sm:w-auto flex items-center justify-center active:scale-95 transition-transform duration-100" href="#">
+                    01869 572206
+                </a>
+</div>
+</section>
+<!-- Main Areas Bento Grid -->
+<section class="w-full px-margin-mobile py-12 md:py-section-gap max-w-[1280px] mx-auto">
+<div class="mb-10 text-center md:text-left">
+<h2 class="font-headline font-headline-md text-primary mb-2">Our Core Service Areas</h2>
+<p class="font-body text-body-md text-on-surface-variant">Rapid response engineering for local homes and businesses.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter auto-rows-min">
+<!-- Bicester Card (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-[16px] border border-outline-variant overflow-hidden flex flex-col md:flex-row group cursor-pointer hover:border-secondary transition-colors">
+<div class="w-full md:w-1/2 h-48 md:h-auto bg-surface-dim relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A bright, high-quality architectural photograph of modern residential homes in Bicester, Oxfordshire. The image showcases pristine double-glazed windows and sleek composite doors in a suburban setting under clear blue skies. The lighting is natural and crisp, highlighting the structural precision of the installations. The overall aesthetic is professional, clean, and modern corporate, utilizing a color palette dominated by slate grays, deep navies, and bright whites to convey reliability and heritage expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGdWKRYkZVRy3TReUMrwB6VQwor_9PZtU5SGVn8OqxZssFc8_Ca7LDIXfGQrTgXoe1ai3f-O41PDYPRLX66reTER_m-0j9imSNC6a0xGBEy-3TSGTJf6Px-w4R_608k_NFUabgLQzAgIrNyjYNknIP-ZrwYcANDRcDV9aMJR_EIKam5v6oPc-YLFct7MXbdr3_W7z6-7C6pJl-Q1iAm5w7iDIDsBsoCd-Gr0GA1JKrLxerIqsiIqnR">
+</div>
+<div class="p-6 md:p-8 flex flex-col justify-center w-full md:w-1/2">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-secondary" data-icon="home_pin">home_pin</span>
+<span class="font-label-bold text-label-bold text-primary">Headquarters</span>
+</div>
+<h3 class="font-headline font-headline-md text-primary mb-3">Bicester</h3>
+<p class="font-body text-body-md text-on-surface-variant mb-6">
+                            Our central hub. We offer complete installation and rapid emergency repair services for all residential and commercial properties in the Bicester area.
+                        </p>
+<a class="text-secondary font-label-bold text-label-bold flex items-center gap-1 group-hover:gap-2 transition-all" href="#">
+                            View Bicester Services <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Bucknell Card -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-[16px] border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:border-secondary transition-colors">
+<div class="w-full h-48 bg-surface-dim relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-end architectural photo of a heritage property in Bucknell, Oxfordshire, featuring newly installed energy-efficient casement windows that respect the traditional stone aesthetic. The scene is bathed in warm, soft sunlight, emphasizing the structural integrity and professional craftsmanship. The style aligns with a premium 'Doctor' precision brand, using subtle neutral tones and crisp whites against the classic stone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM9eTjJunvKSNWnEcRCtgv8TpBxp3_uE--ZEESx4DC026ruYHGbYMAC7I3Goav9BevUG7hScP6N3jvOlxmy1kaXZTuTPOmDmtUH7PL402CWeyTl5G_BfZ81sjRLp8SnsFvGtIcdrsiHnN4a38kGsx5dvWM1lCkpr75uMl0CyzbrrAq7pwQf5H3Bynr9LigPWDr_G4htJ3_GhfbE-2j_TKBiBtY4wd1fi-uWAU9ry-RsqEdk5O3v_eM">
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline font-headline-sm text-primary mb-2">Bucknell</h3>
+<p class="font-body text-body-md text-on-surface-variant mb-4 flex-grow">
+                            Specialized heritage and modern installations serving the local Bucknell community with care and precision.
+                        </p>
+<a class="text-secondary font-label-bold text-label-bold flex items-center gap-1 group-hover:gap-2 transition-all mt-auto" href="#">
+                            Explore Bucknell <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Wider Oxfordshire -->
+<div class="md:col-span-12 bg-primary rounded-[16px] p-8 md:p-12 mt-4 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<!-- Abstract grid pattern for structural feel -->
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="40" id="grid" patternUnits="userSpaceOnUse" width="40">
+<path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect class="text-white" fill="url(#grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative z-10 w-full md:w-2/3 mb-6 md:mb-0">
+<h3 class="font-headline font-headline-md text-on-primary mb-3">Wider Oxfordshire Region</h3>
+<p class="font-body text-body-md text-inverse-on-surface max-w-xl">
+                            Beyond our immediate base, our mobile fleet provides structural assessments, FENSA-certified installations, and energy-efficient upgrades throughout Oxfordshire.
+                        </p>
+</div>
+<div class="relative z-10 w-full md:w-auto">
+<a class="bg-secondary text-primary font-label-bold text-label-bold py-4 px-8 rounded-[16px] hover:opacity-90 transition-opacity w-full block text-center active:scale-95 transition-transform duration-100" href="#">
+                            Check Postcode
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Map Area -->
+<section class="w-full bg-surface-container-highest border-y border-outline-variant py-12">
+<div class="max-w-[1280px] mx-auto px-margin-mobile flex flex-col items-center">
+<div class="text-center mb-8">
+<span class="material-symbols-outlined text-primary text-4xl mb-2" data-icon="map">map</span>
+<h2 class="font-headline font-headline-sm text-primary">Operating Radius</h2>
+<p class="font-body text-body-sm text-on-surface-variant mt-2">We typically operate within a 20-mile radius of Bicester for standard call-outs.</p>
+</div>
+<div class="w-full max-w-3xl h-64 bg-surface-dim rounded-[16px] border border-outline-variant overflow-hidden relative shadow-sm">
+<!-- Conceptual Map Placeholder using an image injected via prompt -->
+<img class="w-full h-full object-cover" data-alt="A stylized, clean architectural map graphic focused on Bicester, Bucknell, and Oxfordshire. The map uses a minimalist color palette of deep navy blues, crisp whites, and light slate grays. Important service zones are subtly highlighted with geometric circular overlays and pinpoint markers. The design is highly legible, structurally precise, and looks like a professional blueprint or technical diagram suited for a premium corporate service website." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5FvHmiwQouTHdEYjuZH5X5rmHqmvMBPHsIMlHP6X2G-VdCVhHq5J0aLM_73Pz5_bHsKEq-oLk_83xpeP875E78Jktl3GvvgXITMQnmzW01ALqCIphlEtG8ilvJFJchCEtpwazsicNC3Qxma9GcbHqBIOk5SjY94xEGKY303reCfxrw_PmQ--OFpRYDNtYdERhqbkZXHya8X3v2YUHov3EGO3LVo7SvLz-JppICu91AHA_MNbLfHiz">
+<!-- Overlay UI on Map -->
+<div class="absolute bottom-4 left-4 bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant p-3 rounded-[16px] flex flex-col gap-2 shadow-sm">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<span class="font-label-bold text-xs text-primary">Primary Zone</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary/30"></div>
+<span class="font-label-bold text-xs text-primary">Extended Zone</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 md:py-section-gap max-w-[1280px] mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4 mb-8 md:mb-0 md:col-span-1">
+<div class="font-headline font-headline-sm font-bold text-primary">
+                    The Window Doctor
+                </div>
+<p class="font-body text-body-sm text-on-surface-variant">
+                    Expertise, Reliability, and Longevity since 1983.
+                </p>
+<div class="flex gap-4 mt-2">
+<!-- Social Placeholders -->
+<div class="w-8 h-8 rounded-[16px] bg-surface-dim border border-outline-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<!-- Links Column -->
+<div class="flex flex-col gap-3 md:col-span-1">
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-2">Navigation</h4>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">Home</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200 text-primary font-bold" href="#">Service Areas</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+<!-- Trust Column -->
+<div class="flex flex-col gap-3 md:col-span-1">
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-2">Accreditations</h4>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">FENSA Certified</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">British Standards</a>
+</div>
+<!-- Contact Column -->
+<div class="flex flex-col gap-3 md:col-span-1">
+<h4 class="font-label-bold text-label-bold text-primary uppercase mb-2">Contact</h4>
+<span class="font-body text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="call">call</span> 01869 572206
+                </span>
+<span class="font-body text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span> info@windowdoctor.co.uk
+                </span>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant py-6 text-center px-margin-mobile">
+<p class="font-body text-body-sm text-on-surface-variant">
+                © 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.
+            </p>
+</div>
+</footer>
+
+
+</body></html>

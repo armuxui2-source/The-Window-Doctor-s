@@ -1,0 +1,310 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>About Us &amp; Heritage - The Window Doctor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-container": "#0a1f44",
+                "tertiary-fixed-dim": "#c5c7c8",
+                "primary-fixed-dim": "#b4c6f4",
+                "tertiary-fixed": "#e1e3e4",
+                "on-surface": "#121c2c",
+                "surface-bright": "#f9f9ff",
+                "primary-fixed": "#d9e2ff",
+                "on-primary-fixed": "#041a3f",
+                "primary": "#00081e",
+                "surface-tint": "#4c5e86",
+                "on-tertiary-fixed": "#191c1d",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#44464e",
+                "surface-container": "#e7eeff",
+                "on-primary-fixed-variant": "#34466d",
+                "tertiary": "#070a0a",
+                "outline-variant": "#c5c6cf",
+                "on-background": "#121c2c",
+                "inverse-on-surface": "#ebf1ff",
+                "surface-dim": "#d0daf0",
+                "on-tertiary": "#ffffff",
+                "surface-container-low": "#f0f3ff",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "surface-variant": "#d9e3f9",
+                "background": "#f9f9ff",
+                "secondary-fixed-dim": "#e9c176",
+                "inverse-surface": "#273141",
+                "on-primary-container": "#7687b2",
+                "on-secondary": "#ffffff",
+                "secondary-container": "#fed488",
+                "surface": "#f9f9ff",
+                "inverse-primary": "#b4c6f4",
+                "on-error-container": "#93000a",
+                "on-secondary-container": "#785a1a",
+                "on-primary": "#ffffff",
+                "secondary": "#775a19",
+                "on-secondary-fixed": "#261900",
+                "on-secondary-fixed-variant": "#5d4201",
+                "tertiary-container": "#1e2122",
+                "surface-container-highest": "#d9e3f9",
+                "surface-container-high": "#dee8ff",
+                "secondary-fixed": "#ffdea5",
+                "on-tertiary-container": "#868889",
+                "on-tertiary-fixed-variant": "#454748",
+                "error-container": "#ffdad6",
+                "outline": "#75777f"
+        },
+        "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "base": "8px",
+                "section-gap": "120px",
+                "margin-desktop": "80px"
+        },
+        "fontFamily": {
+                "headline-sm": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg": [
+                        "Hanken Grotesk"
+                ],
+                "label-bold": [
+                        "Work Sans"
+                ],
+                "body-lg": [
+                        "Work Sans"
+                ],
+                "headline-xl": [
+                        "Hanken Grotesk"
+                ],
+                "body-md": [
+                        "Work Sans"
+                ],
+                "headline-md": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg-mobile": [
+                        "Hanken Grotesk"
+                ],
+                "headline": [
+                        "Hanken Grotesk"
+                ],
+                "display": [
+                        "Hanken Grotesk"
+                ],
+                "body": [
+                        "Work Sans"
+                ],
+                "label": [
+                        "Work Sans"
+                ]
+        },
+        "fontSize": {
+                "headline-sm": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-bold": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest border-b border-outline-variant w-full sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">
+                The Window Doctor
+            </div>
+<div class="hidden md:flex space-x-gutter items-center">
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Windows</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Doors</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Glass Repairs</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Projects</a>
+<a class="font-label-bold text-label-bold text-primary font-bold border-b-2 border-secondary opacity-80 transition-opacity hover:text-secondary transition-colors" href="#">About</a>
+<a class="font-label-bold text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Contact</a>
+</div>
+<div class="hidden md:flex items-center space-x-base">
+<span class="font-body-md text-body-md text-on-surface-variant">01869 572206</span>
+<button class="bg-secondary text-on-secondary font-label-bold text-label-bold py-2 px-4 rounded-full hover:border-2 hover:border-secondary hover:bg-surface-container-lowest hover:text-primary transition-all hover:opacity-90 active:scale-95">Get a Quote</button>
+</div>
+<!-- Mobile Menu Button (Placeholder functionality) -->
+<button class="md:hidden p-2 text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="py-section-gap px-margin-desktop md:px-margin-desktop max-w-[1280px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 space-y-6">
+<h1 class="font-headline-xl text-headline-xl md:hidden font-headline-lg-mobile text-headline-lg-mobile text-primary">Heritage Precision: Over 40 Years of Excellence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Since 1983, The Window Doctor has been a cornerstone of quality craftsmanship in Oxfordshire. As a multi-generational family business, we blend traditional reliability with modern engineering standards to deliver lasting solutions for your home.
+                    </p>
+<div class="flex items-center gap-4 pt-4">
+<span class="material-symbols-outlined text-secondary" style="font-size: 32px;">verified</span>
+<span class="font-label-bold text-label-bold text-primary">FENSA Registered Company</span>
+</div>
+</div>
+<div class="md:col-span-6 rounded-lg overflow-hidden border border-outline-variant relative h-[400px]">
+<img class="object-cover w-full h-full" data-alt="A bright, modern light-mode photograph of a professional team standing in front of a recently installed, high-quality architectural window system. The team wears crisp, clean uniforms. The setting is a bright, airy workshop or modern home exterior. The overall aesthetic is clean, professional, and trustworthy, with a focus on structural precision and high-contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyhY17vwUxfX5NEW7gJ00Wqv_k4GqZEsJ-6LuTmiwO_vOn8pmb1xz9oX-Yeu48DaPtDXzlYwu7eg4ziCrrOQDz9ilImpsIBst3_6DOTIBK1puD-6CRrhpU0ZgShTYSmvpKUQqHeg6n12iG3LJ0cXxpiOpNpZ1X3lYI3q548Th3KawHhcIiyc0Q0iwT4ca1g9wLw8B64TUGsUjCEzQ1QeOTNB9ib-qpIFHwww8jsfP0rE92p85I1raW">
+<div class="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm p-4 rounded-DEFAULT border border-outline-variant">
+<p class="font-label-bold text-label-bold text-primary">Est. 1983 - Bicester, Oxfordshire</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Milestones Section (Bento Grid) -->
+<section class="bg-surface-container-low py-section-gap px-margin-desktop md:px-margin-desktop">
+<div class="max-w-[1280px] mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary">Our Journey</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Built on generations of expertise.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Milestone 1 -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant p-6 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">foundation</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">1983: The Foundation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Founded with a simple mission: to provide honest, reliable window repairs and installations to the local community.</p>
+</div>
+<!-- Milestone 2 (Spans 2 columns on desktop) -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-DEFAULT border border-outline-variant p-6 flex flex-col md:flex-row gap-6 items-center">
+<div class="flex-1 space-y-4">
+<div class="w-12 h-12 bg-primary rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">engineering</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Adapting to Modern Standards</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">As architectural standards evolved, so did we. We embraced modern energy-efficient materials while maintaining our core family values, becoming fully FENSA certified.</p>
+</div>
+<div class="w-full md:w-1/2 h-48 rounded-DEFAULT overflow-hidden border border-outline-variant relative">
+<img class="object-cover w-full h-full" data-alt="A detailed, bright photograph showcasing a close-up of precise engineering on a modern window frame. The image highlights the clean lines, modern materials, and structural integrity of the installation. The lighting is crisp and architectural, emphasizing the high-quality finish and professional craftsmanship in a light-mode setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdynX2zcp8Ayv8JSTzzsWokYzAWuVIuw9FwfqPgBP6_-1Uhl_GvGhFCCb7ttZ0bZqUosaCU1PBWBcusb2Dn49yUxRbabY89i-fRRvcJVJzp2zO6EiKLU3fcYj0oUuk-JOSFbLRp7HnMWohxgV7J5vCh9Y0RyhNTZ_YaR0CDL396HKl0Kz4v1nB23jn4-3GaPsELnqANB-svFlQQRvwevb-0sx7_x1TgbFhftob-RTvyAd_YUHEIiTo">
+</div>
+</div>
+<!-- Milestone 3 -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant p-6 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">groups</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Family Run, Always</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Now in its second generation, the business continues to prioritize the personal touch that only a family-run enterprise can offer.</p>
+</div>
+<!-- Milestone 4 -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant p-6 flex flex-col gap-4">
+<div class="w-12 h-12 bg-primary rounded-DEFAULT flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">shield</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary">British Standards</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Unwavering commitment to quality, ensuring all our installations meet or exceed rigorous British Standards for safety and performance.</p>
+</div>
+<!-- Milestone 5 -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border border-outline-variant p-6 flex flex-col gap-4 justify-center items-center text-center">
+<h3 class="font-headline-md text-headline-md text-primary">Looking Ahead</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuing our legacy of excellence for the next 40 years.</p>
+<button class="mt-4 bg-primary text-on-primary font-label-bold text-label-bold py-2 px-6 rounded-full hover:bg-secondary transition-colors hover:opacity-90 active:scale-95 transition-all">View Our Services</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">The Window Doctor</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    © 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.
+                </p>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">Home</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">Service Areas</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">FENSA Certified</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">British Standards</a>
+</div>
+<div class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary hover:underline decoration-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

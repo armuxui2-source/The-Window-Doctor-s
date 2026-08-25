@@ -1,0 +1,245 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Window Doctor | Bicester &amp; Bucknell</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#4c5e86",
+                        "secondary-container": "#fed488",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "surface-container-highest": "#d9e3f9",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#dee8ff",
+                        "on-tertiary-container": "#868889",
+                        "surface-container": "#e7eeff",
+                        "on-surface": "#121c2c",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary-container": "#785a1a",
+                        "on-background": "#121c2c",
+                        "outline-variant": "#c5c6cf",
+                        "surface": "#f9f9ff",
+                        "on-primary-fixed-variant": "#34466d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed-dim": "#b4c6f4",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#d9e2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00081e",
+                        "surface-variant": "#d9e3f9",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "outline": "#75777f",
+                        "tertiary-container": "#1e2122",
+                        "secondary": "#775a19",
+                        "primary-container": "#0a1f44",
+                        "on-surface-variant": "#44464e",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#d0daf0",
+                        "inverse-primary": "#b4c6f4",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#041a3f",
+                        "secondary-fixed-dim": "#e9c176",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-container": "#7687b2",
+                        "tertiary-fixed": "#e1e3e4",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#070a0a",
+                        "inverse-surface": "#273141",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "sm": "0.5rem",
+                        "md": "1.5rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px"
+                    },
+                    fontFamily: {
+                        "headline": ["Hanken Grotesk"],
+                        "body": ["Work Sans"],
+                        "label": ["Work Sans"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest full-width top-0 border-b border-outline-variant sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<!-- Brand -->
+<a class="font-headline-md font-bold text-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="home_repair_service" style="font-variation-settings: 'FILL' 1;">home_repair_service</span>
+                The Window Doctor
+            </a>
+<!-- Mobile Menu Toggle (Visible only on mobile) -->
+<button aria-label="Open menu" class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Desktop Nav (Hidden on mobile as per requirement, but structure kept from JSON) -->
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-primary font-bold border-b-2 border-secondary font-label-bold" href="#">Windows</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-bold" href="#">Doors</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-bold" href="#">Glass Repairs</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-bold" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-bold" href="#">About</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-200 font-label-bold" href="#">Contact</a>
+</nav>
+<!-- Desktop Actions -->
+<div class="hidden md:flex items-center gap-4">
+<a class="font-label-bold text-primary flex items-center gap-2 active:scale-95 transition-transform duration-100" href="tel:01869572206">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                    01869 572206
+                </a>
+<a class="bg-secondary text-primary font-label-bold px-6 py-3 rounded-[16px] hover:bg-secondary-container transition-colors" href="#">
+                    Get a Quote
+                </a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="px-margin-mobile py-8 md:py-16">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-full w-max border border-outline-variant">
+<span class="material-symbols-outlined text-secondary" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-bold text-primary">Est. 1983 • 40+ Years Experience</span>
+</div>
+<h1 class="font-headline text-headline-lg-mobile text-primary">
+                    Replace the glass, <br>
+<span class="text-surface-tint">not the frame.</span>
+</h1>
+<p class="font-body-md text-on-surface-variant">
+                    Expert double glazing repairs, window installations, and door replacements in Bicester. Save money by repairing what you have before replacing it.
+                </p>
+<div class="flex flex-col gap-4 mt-2">
+<button class="w-full bg-primary text-on-primary font-label-bold py-4 rounded-[16px] flex justify-center items-center gap-2 hover:bg-primary-container transition-colors shadow-[0_2px_0_rgba(0,8,30,0.2)] active:scale-95 transition-transform duration-100">
+                        Get a Free Quote
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<a class="w-full bg-surface-container-lowest text-primary border border-outline font-label-bold py-4 rounded-[16px] flex justify-center items-center gap-2 active:scale-95 transition-transform duration-100" href="tel:01869572206">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                        Call 01869 572206
+                    </a>
+</div>
+</div>
+<!-- Hero Image / Trust Badges -->
+<div class="mt-8 relative rounded-[16px] overflow-hidden border border-outline-variant">
+<div class="aspect-[4/3] bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="A modern, high-quality photograph showing a cleanly installed, pristine white uPVC window frame with crystal clear glass. The setting is a residential home exterior, bathed in soft, natural daylight. The overall aesthetic is professional, architectural, and clean, featuring a color palette dominated by bright whites, deep navy trim details on the house, and subtle heritage gold sunlight accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm_-AwzwWbuFjzR8yuuK2_8C0RHKyKe62KbriDyHZ6sGL2pXoV3-4pi3Nu6KjI01Cm8IHoIulLVYahkKXBOzPqTFHVTRoEWEcSjH2jYEGsSK6s1vMZYaxUVWarKQD73UTbLYYLz7qyS-L6FhuIzFuob5rBhO1OxoXt9xxThF_emOGxMX4n7W4M6NI0usBTrIlLjESx8i1p9mYgfTYJYa6QuYPYfGbpogQweH9fZJ9uq3BCEYVGShDK">
+<!-- Floating FENSA Badge -->
+<div class="absolute bottom-4 right-4 bg-surface-container-lowest/95 backdrop-blur px-4 py-2 rounded-[16px] border border-outline-variant flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-bold text-primary">FENSA Certified</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid (Mobile Stack) -->
+<section class="px-margin-mobile py-8 bg-surface-container-low rounded-t-[2rem]">
+<h2 class="font-headline text-headline-sm text-primary mb-6">Our Specialities</h2>
+<div class="flex flex-col gap-4">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-[16px] border border-outline-variant flex flex-col gap-4">
+<div class="w-12 h-12 rounded-[16px] bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="grid_view" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-primary mb-2">Misted Glass Repair</h3>
+<p class="font-body-md text-on-surface-variant">Don't replace the whole window. We swap out the condensation-filled double glazing unit, saving you hundreds.</p>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-[16px] border border-outline-variant flex flex-col gap-4">
+<div class="w-12 h-12 rounded-[16px] bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="door_front" style="font-variation-settings: 'FILL' 1;">door_front</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-primary mb-2">Door Alignments</h3>
+<p class="font-body-md text-on-surface-variant">Sticking uPVC or composite doors? We adjust hinges, replace faulty locks, and restore perfect operation.</p>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-[16px] border border-outline-variant flex flex-col gap-4">
+<div class="w-12 h-12 rounded-[16px] bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary" data-icon="window" style="font-variation-settings: 'FILL' 1;">window</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-primary mb-2">New Installations</h3>
+<p class="font-body-md text-on-surface-variant">A-rated energy efficient windows and high-security doors when replacements are truly necessary.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant full-width bottom-0">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile py-8 md:px-margin-desktop md:py-section-gap max-w-[1280px] mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4 mb-6 md:mb-0">
+<div class="font-headline-sm font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="home_repair_service">home_repair_service</span>
+                    The Window Doctor
+                </div>
+<p class="font-body-md text-on-surface-variant">
+                    Bicester, Bucknell, Oxfordshire.
+                </p>
+</div>
+<!-- Links -->
+<div class="flex flex-col gap-3">
+<a class="font-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary active:bg-surface-container-low" href="#">Home</a>
+<a class="font-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary active:bg-surface-container-low" href="#">Service Areas</a>
+<a class="font-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary active:bg-surface-container-low" href="#">FENSA Certified</a>
+<a class="font-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary active:bg-surface-container-low" href="#">British Standards</a>
+<a class="font-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200 hover:underline decoration-secondary active:bg-surface-container-low" href="#">Privacy Policy</a>
+</div>
+<div class="mt-8 md:mt-0 md:col-span-4 border-t border-outline-variant pt-6">
+<p class="font-body-md text-on-surface-variant text-center md:text-left">
+                    © 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.
+                </p>
+</div>
+</div>
+</footer>
+
+
+</body></html>

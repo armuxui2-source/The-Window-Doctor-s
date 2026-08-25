@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Recent Projects &amp; Portfolio | The Window Doctor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#4c5e86",
+                        "secondary-container": "#fed488",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "surface-container-highest": "#d9e3f9",
+                        "secondary-fixed": "#ffdea5",
+                        "surface-container-high": "#dee8ff",
+                        "on-tertiary-container": "#868889",
+                        "surface-container": "#e7eeff",
+                        "on-surface": "#121c2c",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-secondary-container": "#785a1a",
+                        "on-background": "#121c2c",
+                        "outline-variant": "#c5c6cf",
+                        "surface": "#f9f9ff",
+                        "on-primary-fixed-variant": "#34466d",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f0f3ff",
+                        "primary-fixed-dim": "#b4c6f4",
+                        "on-secondary-fixed": "#261900",
+                        "primary-fixed": "#d9e2ff",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#00081e",
+                        "surface-variant": "#d9e3f9",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "outline": "#75777f",
+                        "tertiary-container": "#1e2122",
+                        "secondary": "#775a19",
+                        "primary-container": "#0a1f44",
+                        "on-surface-variant": "#44464e",
+                        "background": "#f9f9ff",
+                        "surface-dim": "#d0daf0",
+                        "inverse-primary": "#b4c6f4",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#041a3f",
+                        "secondary-fixed-dim": "#e9c176",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#5d4201",
+                        "on-primary-container": "#7687b2",
+                        "tertiary-fixed": "#e1e3e4",
+                        "inverse-on-surface": "#ebf1ff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#070a0a",
+                        "inverse-surface": "#273141",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "80px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Hanken Grotesk"],
+                        "display": ["Hanken Grotesk"],
+                        "body": ["Work Sans"],
+                        "label": ["Work Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Modern Scrollbar for mobile filters */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Glassmorphism utility for project overlay */
+        .glass-overlay {
+            background: rgba(0, 8, 30, 0.9);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- Top Navigation Shell -->
+<header class="bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-50 transition-shadow w-full hidden md:flex" id="desktop-nav">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<a class="font-headline font-bold text-headline-md text-primary tracking-tight" href="#">The Window Doctor</a>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-label text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Windows</a>
+<a class="font-label text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Doors</a>
+<a class="font-label text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Glass Repairs</a>
+<!-- Active State -->
+<a class="font-label text-label-bold text-primary font-bold border-b-2 border-secondary pb-[2px] opacity-80 transition-opacity" href="#">Projects</a>
+<a class="font-label text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="font-label text-label-bold text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Contact</a>
+</nav>
+<div class="hidden md:flex items-center gap-4">
+<a class="font-label text-label-bold text-primary hover:text-secondary transition-colors" href="tel:01869572206">01869 572206</a>
+<button class="bg-secondary text-primary font-label text-label-bold px-6 py-3 rounded-full hover:bg-secondary-container transition-colors shadow-[0_2px_0_rgba(0,8,30,0.2)] active:scale-95 transition-transform duration-100">Get a Quote</button>
+</div>
+</div>
+</header>
+<!-- Mobile Top Header (Non-Nav) -->
+<header class="md:hidden bg-surface-container-lowest sticky top-0 z-50 border-b border-outline-variant px-margin-mobile py-4 flex justify-between items-center w-full">
+<a class="font-headline font-bold text-headline-sm text-primary tracking-tight" href="#">The Window Doctor</a>
+<button class="bg-secondary text-primary font-label text-label-bold px-4 py-2 rounded-full text-sm active:scale-95 transition-transform duration-100">Quote</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-16 min-h-[80vh] flex flex-col gap-8 md:gap-16 pb-32 md:pb-16">
+<!-- Section Header -->
+<section class="flex flex-col gap-4 text-center md:text-left">
+<p class="font-label text-label-bold text-surface-tint uppercase tracking-wider">Portfolio</p>
+<h1 class="font-headline text-headline-lg-mobile md:text-headline-xl text-primary">Recent Projects</h1>
+<p class="font-body text-body-md text-on-surface-variant max-w-2xl mx-auto md:mx-0">
+                Explore our recent structural and cosmetic installations across Oxfordshire. Demonstrating over 40 years of precision craftsmanship and energy-efficient engineering.
+            </p>
+</section>
+<!-- Mobile Optimized Filters (Horizontal Scroll) -->
+<section class="w-full -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0 overflow-x-auto hide-scrollbar flex gap-3 pb-2 snap-x">
+<button class="snap-start shrink-0 bg-primary text-on-primary font-label text-label-bold px-5 py-2.5 rounded-full border-2 border-primary active:scale-95 transition-transform duration-100">All Projects</button>
+<button class="snap-start shrink-0 bg-surface-container-lowest text-primary font-label text-label-bold px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary transition-colors active:scale-95 transition-transform duration-100">Windows</button>
+<button class="snap-start shrink-0 bg-surface-container-lowest text-primary font-label text-label-bold px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary transition-colors active:scale-95 transition-transform duration-100">Doors</button>
+<button class="snap-start shrink-0 bg-surface-container-lowest text-primary font-label text-label-bold px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary transition-colors active:scale-95 transition-transform duration-100">Conservatories</button>
+<button class="snap-start shrink-0 bg-surface-container-lowest text-primary font-label text-label-bold px-5 py-2.5 rounded-full border border-outline-variant hover:border-primary transition-colors active:scale-95 transition-transform duration-100">Repairs</button>
+</section>
+<!-- Bento Grid Portfolio (Mobile: Stacked, Desktop: Grid) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+<!-- Project Card 1 (Large - spans full on mobile, 8 cols on desktop) -->
+<article class="col-span-1 md:col-span-8 group relative rounded-DEFAULT overflow-hidden border border-outline-variant bg-surface-container-lowest aspect-square md:aspect-auto md:h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A modern residential property in Oxfordshire featuring newly installed, energy-efficient anthracite grey aluminium bifold doors opening onto a patio. The photo is taken during a bright, sunny day, highlighting the clean structural lines and deep navy and heritage gold brand aesthetic implicitly through the premium finish and professional lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIPRTRxsA8X1-NPiAffQKIG28Kq8oN4gBbzoGsvYqZfKvTdwV6gBLhbFIupy1sT4rM3ppb3_adTbymXJLT_KQgqkECalk2Oe6EPV0wYbBB_KzpssmC5XVioGg9B9Eovzgpk2YvY4JxvxlWOpWdXf4gj-wB_M5kSBZ7suaiLF1lvabE9ajzep_DPMEPcpxFN-EaSSOmLv48Z29xFbkh2fYCch3CYdBDuKHZWaypOnKZaWbLAaKrlmGo">
+<!-- Glass Overlay Info -->
+<div class="absolute inset-x-0 bottom-0 p-4 md:p-6 glass-overlay translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 md:block hidden">
+<h3 class="font-headline text-headline-sm text-on-primary">Bicester Heritage Home</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">Aluminium Bifold Installation</p>
+</div>
+<!-- Always visible on mobile -->
+<div class="absolute inset-x-0 bottom-0 p-4 glass-overlay md:hidden">
+<h3 class="font-headline text-headline-sm text-on-primary">Bicester Heritage Home</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">Aluminium Bifold Installation</p>
+</div>
+</article>
+<!-- Project Card 2 (Small - spans full on mobile, 4 cols on desktop) -->
+<article class="col-span-1 md:col-span-4 group relative rounded-DEFAULT overflow-hidden border border-outline-variant bg-surface-container-lowest aspect-[4/3] md:aspect-auto md:h-[400px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up architectural shot of a newly installed, white uPVC sash window on a traditional brick home. The image focuses on the pristine white framing against the textured red brick, shot in soft natural light, emphasizing structural precision and longevity suitable for a professional corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmhDb4hsB4gO5g5DsMi0G9aE7HK32EcA5AfV6UzsTfsvwluQeNSt0DWhDXe8flUkaFbWSOTbvgIzSoWuyN3o7VKZO2_sQ67ELdoLSN9ZkX-U_DWdU4BcmNHTXcsgqQ4YGF44Ta8e6EljB1UqoIpF7g1pl0ySUZE5jRU0s5atcZBvF6sMZL0YvhvGhzJiaG3pKqEHZF1LLCeghKMzJqK0EQa3Pwtz5HrM-Xxo6gX1f_ZbFCb7zKW8IQ">
+<div class="absolute inset-x-0 bottom-0 p-4 md:p-6 glass-overlay translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 md:block hidden">
+<h3 class="font-headline text-headline-sm text-on-primary">Oxford Townhouse</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">uPVC Sash Restoration</p>
+</div>
+<div class="absolute inset-x-0 bottom-0 p-4 glass-overlay md:hidden">
+<h3 class="font-headline text-headline-sm text-on-primary">Oxford Townhouse</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">uPVC Sash Restoration</p>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="col-span-1 md:col-span-4 group relative rounded-DEFAULT overflow-hidden border border-outline-variant bg-surface-container-lowest aspect-[4/3] md:aspect-auto md:h-[300px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking composite front door in deep navy blue, installed on a modern suburban home. The door features sleek, brushed steel hardware. The lighting is crisp and inviting, highlighting the secure, structural feel of the product. The color palette naturally integrates the brand's deep navy and heritage tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqh2vK1bErUQky2Ko8UaxnIZaBc5TYjGkjGsbwYaR4lFwgI3UdJHV_d2Oq37B3L57-MlV3CNUpbllcmLT9X_mqtn3v8Sm7rOLQwMWSL61Sz1EwCB_eVI7fOTqYdMBVpEPCjUGLE2W_w5_4bdvTW1HCUUdCi_syUyg7eY3lIP1Alabnyu__QsGZyEQehvNfBA8YyZuxDwkflFOtsblHjT_nTJ-6Cp6YhWPH121DRUSdERdXfuv8Fqyc">
+<div class="absolute inset-x-0 bottom-0 p-4 glass-overlay md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<h3 class="font-headline text-headline-sm text-on-primary">Bucknell Extension</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">Composite Front Door</p>
+</div>
+</article>
+<!-- Project Card 4 -->
+<article class="col-span-1 md:col-span-4 group relative rounded-DEFAULT overflow-hidden border border-outline-variant bg-surface-container-lowest aspect-[4/3] md:aspect-auto md:h-[300px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Interior view of a bright, newly constructed conservatory with large energy-efficient double-glazed panels. The room is flooded with natural daylight. The structural framing is clean and minimal, reflecting modern architectural standards and precise engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRffVlywBi-56DUXTPLsF7oZBd-XEDjwFXOLv4E3FYgmWU3MtTPyaz0JKcnMCjlKNkZHtZberwxUyOMfPj0HCWoYnPviZOAUQR7Zep5-9fx7jfO8NwJV6siOb02ADUY1iV1XiC2kVxSoYw2XCA-luii9TT3vG0qZxRTsnIvncAYjsKpsUBEVlcrBv5sUl9DrGMHhk5asg9O9gaVDrR4YbNo2M2huw37xOcQyJ6iFrqaYthZOjYnwkz">
+<div class="absolute inset-x-0 bottom-0 p-4 glass-overlay md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<h3 class="font-headline text-headline-sm text-on-primary">Kidlington Sunroom</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">A+ Rated Glazing</p>
+</div>
+</article>
+<!-- Project Card 5 -->
+<article class="col-span-1 md:col-span-4 group relative rounded-DEFAULT overflow-hidden border border-outline-variant bg-surface-container-lowest aspect-[4/3] md:aspect-auto md:h-[300px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed shot showing the before-and-after contrast of a structural glass repair on a commercial shopfront. The image highlights the clean, secure finish of the new glass pane. The setting is urban and professional, reinforcing themes of reliability and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiIOfwoYrKGqeJgdGKXnJcVkihrEgi_gz8QIfSOBhqaqUmYI1Yuxjz9_d0dPGdohKVn0Ieq15EDhQTZw6aaMdiBW65_OpNLA58ci_nftZ_qm9NDXhtMpcNXhh-yjrYbtxAg3xt_I02foZiDFyRjlSPOs-SHAuFGTcLKywSH5RHFfY56yFNGkbMmugiPwcwlh0FEZyBnUqhwOwcY16y_hqahaHTS3fwlF7wQbYlY5z-96nMpwITOCY5">
+<div class="absolute inset-x-0 bottom-0 p-4 glass-overlay md:translate-y-4 md:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+<h3 class="font-headline text-headline-sm text-on-primary">Commercial Refit</h3>
+<p class="font-body text-body-md text-on-primary-container mt-1">Emergency Glass Replacement</p>
+</div>
+</article>
+</section>
+<!-- Load More Action -->
+<div class="w-full flex justify-center pt-8">
+<button class="bg-surface-container-lowest text-primary border-2 border-primary font-label text-label-bold px-8 py-4 rounded-full hover:bg-surface-container transition-colors flex items-center gap-2 active:scale-95 transition-transform duration-100">
+                Load More Projects
+                <span class="material-symbols-outlined text-[20px]" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Mobile Bottom Navigation (Visible only on mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container-lowest border-t border-outline-variant z-50 px-4 py-2 flex justify-between items-center shadow-[0_-4px_16px_rgba(0,0,0,0.05)] pb-safe">
+<a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-[10px] mt-1 font-semibold">Home</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="window">window</span>
+<span class="font-label text-[10px] mt-1 font-semibold">Services</span>
+</a>
+<!-- Active Tab -->
+<a class="flex flex-col items-center p-2 text-primary font-bold" href="#">
+<div class="bg-primary-container text-on-primary-container p-1 rounded-full px-4 mb-1">
+<span class="material-symbols-outlined" data-icon="photo_library" data-weight="fill" style="font-variation-settings: 'FILL' 1;">photo_library</span>
+</div>
+<span class="font-label text-[10px] font-semibold">Projects</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span class="font-label text-[10px] mt-1 font-semibold">About</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full hidden md:block">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-[1280px] mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<h2 class="font-headline text-headline-sm font-bold text-primary">The Window Doctor</h2>
+<p class="font-body text-body-md text-on-surface">Est. 1983. Expertise, Reliability, and Longevity in Oxfordshire.</p>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<p class="font-label text-label-bold text-primary mb-2">Links</p>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Home</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Service Areas</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<p class="font-label text-label-bold text-primary mb-2">Trust &amp; Safety</p>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">FENSA Certified</a>
+<a class="font-body text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">British Standards</a>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<p class="font-label text-label-bold text-primary mb-2">Contact</p>
+<p class="font-body text-body-md text-on-surface-variant">Bicester, Bucknell, Oxfordshire.</p>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant">
+<p class="font-body text-body-sm text-on-surface-variant">© 1983-2024 The Window Doctor. All rights reserved. Bicester, Bucknell, Oxfordshire.</p>
+</div>
+</div>
+</footer>
+
+
+</body></html>

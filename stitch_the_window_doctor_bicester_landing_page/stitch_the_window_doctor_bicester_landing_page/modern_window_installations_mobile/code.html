@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Window Doctor - Modern Window Installations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#4c5e86",
+                      "secondary-container": "#fed488",
+                      "tertiary-fixed-dim": "#c5c7c8",
+                      "surface-container-highest": "#d9e3f9",
+                      "secondary-fixed": "#ffdea5",
+                      "surface-container-high": "#dee8ff",
+                      "on-tertiary-container": "#868889",
+                      "surface-container": "#e7eeff",
+                      "on-surface": "#121c2c",
+                      "on-tertiary-fixed": "#191c1d",
+                      "on-secondary-container": "#785a1a",
+                      "on-background": "#121c2c",
+                      "outline-variant": "#c5c6cf",
+                      "surface": "#f9f9ff",
+                      "on-primary-fixed-variant": "#34466d",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f0f3ff",
+                      "primary-fixed-dim": "#b4c6f4",
+                      "on-secondary-fixed": "#261900",
+                      "primary-fixed": "#d9e2ff",
+                      "on-tertiary": "#ffffff",
+                      "primary": "#00081e",
+                      "surface-variant": "#d9e3f9",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed-variant": "#454748",
+                      "outline": "#75777f",
+                      "tertiary-container": "#1e2122",
+                      "secondary": "#775a19",
+                      "primary-container": "#0a1f44",
+                      "on-surface-variant": "#44464e",
+                      "background": "#f9f9ff",
+                      "surface-dim": "#d0daf0",
+                      "inverse-primary": "#b4c6f4",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#f9f9ff",
+                      "on-primary-fixed": "#041a3f",
+                      "secondary-fixed-dim": "#e9c176",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#5d4201",
+                      "on-primary-container": "#7687b2",
+                      "tertiary-fixed": "#e1e3e4",
+                      "inverse-on-surface": "#ebf1ff",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#070a0a",
+                      "inverse-surface": "#273141",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                  "base": "8px",
+                  "gutter": "24px",
+                  "margin-mobile": "16px",
+                  "margin-desktop": "80px",
+                  "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "headline": [
+                              "Hanken Grotesk"
+                      ],
+                      "display": [
+                              "Hanken Grotesk"
+                      ],
+                      "body": [
+                              "Work Sans"
+                      ],
+                      "label": [
+                              "Work Sans"
+                      ]
+              },
+              "fontSize": {}
+      },
+          },
+        }
+      </script>
+<style>
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Hanken Grotesk', sans-serif; }
+        
+        /* Mobile specific adjustments to ensure no horizontal scrolling */
+        html, body { overflow-x: hidden; width: 100%; }
+        
+        /* Glass effect for overlays */
+        .glass-panel {
+            background: rgba(0, 8, 30, 0.9);
+            backdrop-filter: blur(4px);
+        }
+      </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Web Hidden on Mobile, but structure kept for consistency if scaled) -->
+<header class="bg-surface-container-lowest dark:bg-primary sticky top-0 z-50 w-full border-b border-outline-variant shadow-sm hidden md:block">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-[1280px] mx-auto">
+<div class="font-headline text-[24px] leading-[32px] font-bold text-primary dark:text-primary-fixed tracking-tight">
+                The Window Doctor
+            </div>
+<nav class="hidden md:flex gap-gutter">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-secondary pb-1 text-[14px] leading-[20px] tracking-[0.05em]" href="#">Windows</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-[14px] leading-[20px] tracking-[0.05em]" href="#">Doors</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-[14px] leading-[20px] tracking-[0.05em]" href="#">Glass Repairs</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-[14px] leading-[20px] tracking-[0.05em]" href="#">Projects</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-[14px] leading-[20px] tracking-[0.05em]" href="#">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200 text-[14px] leading-[20px] tracking-[0.05em]" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4 hidden md:flex">
+<span class="text-on-surface font-semibold text-[16px]">01869 572206</span>
+<button class="bg-secondary text-primary font-bold px-6 py-2 rounded-full hover:shadow-[2px_2px_0px_rgba(0,8,30,0.2)] transition-all">Get a Quote</button>
+</div>
+</div>
+</header>
+<!-- Mobile Header (Visible only on mobile) -->
+<header class="bg-surface-container-lowest sticky top-0 z-50 w-full border-b border-outline-variant flex justify-between items-center px-margin-mobile py-4 md:hidden">
+<div class="font-headline text-[20px] leading-[28px] font-bold text-primary tracking-tight">
+            The Window Doctor
+        </div>
+<button aria-label="Menu" class="p-2 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="relative w-full min-h-[70vh] flex flex-col justify-end pb-8">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full" data-alt="A modern, high-quality photograph of newly installed uPVC windows on a contemporary British home exterior. The lighting is bright and clear, highlighting the crisp white frames against the brickwork. The style is professional architectural photography, emphasizing clean lines and pristine finishes. Deep navy accents in the surrounding elements complement the modern corporate style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAD0C0B7S7MlrADma0eC_HpMXY6OnEF944AeyPcDnCptwbJbCHpUyXnZAXgJvVTQbXsLePDf6yZsp9Nu2h2XRqRrf0ReS-gVp6R7-P2Lpm1yteZGzfauhZd0pJvv59vKaZXdpJVqBZfff4Yf08r7ZmXXtpx8qGgYgAjPC0PcM4m8VMHoX5hQ3bUs7dxHGV1vEO73HS0RYsJ3tiWnupB5MDR9n2wYFo4PDQHfsX9oxO6aJ7FeUhkeGr_')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile w-full text-center">
+<span class="inline-block bg-[#0f5132] text-white px-4 py-1 rounded-full text-[12px] font-bold tracking-wider mb-4 border border-[#198754]">ENERGY EFFICIENT</span>
+<h1 class="font-headline text-[32px] leading-[40px] font-bold text-white mb-4 tracking-tight">Modern uPVC Windows</h1>
+<p class="font-body text-[16px] leading-[24px] text-surface-container mb-8 max-w-[280px] mx-auto">Expert installation of A-rated energy efficient windows for lasting comfort.</p>
+<div class="flex flex-col gap-4 w-full">
+<button class="w-full bg-secondary text-primary font-bold text-[16px] py-4 rounded-full shadow-[2px_2px_0px_rgba(0,8,30,0.2)] active:translate-y-1 active:shadow-none transition-all active:scale-95 transition-transform duration-100">Get a Quote</button>
+<button class="w-full bg-white/10 backdrop-blur-sm text-white font-bold text-[16px] py-4 rounded-full border border-white/30 active:scale-95 transition-transform duration-100">View Projects</button>
+</div>
+</div>
+</section>
+<!-- Trust Badges (Mobile Stacked) -->
+<section class="bg-surface-container-low py-6 px-margin-mobile border-b border-outline-variant">
+<div class="flex flex-wrap justify-center gap-6 items-center opacity-80">
+<div class="flex items-center gap-2 text-primary font-bold text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="">FENSA Certified</span>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="">Est. 1983</span>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold text-[14px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="">A-Rated Energy</span>
+</div>
+</div>
+</section>
+<!-- Why Choose uPVC -->
+<section class="py-12 px-margin-mobile bg-white">
+<div class="max-w-[1280px] mx-auto">
+<h2 class="font-headline text-[28px] leading-[36px] font-bold text-primary mb-8 text-center">Engineered for Comfort</h2>
+<div class="flex flex-col gap-6">
+<!-- Feature Card 1 -->
+<div class="bg-surface-container p-6 rounded-[16px] border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-4 -mt-4"></div>
+<div class="w-12 h-12 bg-primary rounded-[16px] flex items-center justify-center mb-4 shadow-sm text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">thermostat</span>
+</div>
+<h3 class="font-headline text-[20px] leading-[28px] font-bold text-primary mb-2">Thermal Efficiency</h3>
+<p class="font-body text-[16px] leading-[24px] text-on-surface-variant">Multi-chambered profiles trap air, significantly reducing heat loss and lowering your energy bills year-round.</p>
+</div>
+<!-- Feature Card 2 -->
+<div class="bg-surface-container p-6 rounded-[16px] border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-4 -mt-4"></div>
+<div class="w-12 h-12 bg-primary rounded-[16px] flex items-center justify-center mb-4 shadow-sm text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shield</span>
+</div>
+<h3 class="font-headline text-[20px] leading-[28px] font-bold text-primary mb-2">Maximum Security</h3>
+<p class="font-body text-[16px] leading-[24px] text-on-surface-variant">Internally glazed with high-security multi-point locking systems as standard, exceeding British security requirements.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary text-white py-16 px-margin-mobile text-center">
+<h2 class="font-headline text-[28px] leading-[36px] font-bold mb-4">Ready to Upgrade?</h2>
+<p class="font-body text-[16px] leading-[24px] text-surface-container-high mb-8">Book a free consultation with our experts.</p>
+<button class="w-full max-w-sm bg-secondary text-primary font-bold text-[16px] py-4 rounded-full shadow-[2px_2px_0px_rgba(255,255,255,0.2)] active:translate-y-1 active:shadow-none transition-all mx-auto block active:scale-95 transition-transform duration-100">Contact Us Today</button>
+</section>
+</main>
+<!-- Bottom Nav Bar (Mobile Only) -->
+<nav class="bg-surface-container-lowest border-t border-outline-variant fixed bottom-0 w-full z-50 md:hidden flex justify-around items-center py-2 pb-safe">
+<a class="flex flex-col items-center p-2 text-primary" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label text-[10px] font-bold">Windows</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 0;">door_front</span>
+<span class="font-label text-[10px] font-bold">Doors</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 0;">build</span>
+<span class="font-label text-[10px] font-bold">Repairs</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 0;">call</span>
+<span class="font-label text-[10px] font-bold">Contact</span>
+</a>
+</nav>
+<!-- Add safe area padding for mobile bottom nav -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+        main { padding-bottom: calc(60px + env(safe-area-inset-bottom, 16px)); }
+    </style>
+
+
+</body></html>
