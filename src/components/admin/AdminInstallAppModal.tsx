@@ -90,7 +90,7 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in font-body">
-      <div className="bg-white rounded-3xl max-w-sm w-full p-6 sm:p-7 shadow-2xl border border-slate-200/90 text-center relative overflow-hidden space-y-5 animate-scale-in">
+      <div className="bg-white rounded-2xl max-w-sm w-full p-6 sm:p-7 shadow-2xl border border-slate-200/90 text-center relative overflow-hidden space-y-5 animate-scale-in">
         
         {/* Close Button */}
         <button

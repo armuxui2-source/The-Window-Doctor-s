@@ -306,7 +306,7 @@ export default function LiveTrafficCommandCenter() {
     <div className="space-y-6 font-body text-slate-800 animate-fade-in">
       
       {/* 1. TOP TELEMETRY CONTROL HEADER (Minimalist Dark Slate) */}
-      <div className="bg-slate-900 rounded-2xl p-6 text-white shadow-sm relative overflow-hidden border border-slate-800">
+      <div className="bg-slate-900 rounded-xl p-6 text-white shadow-sm relative overflow-hidden border border-slate-800">
         
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2">
@@ -433,16 +433,16 @@ export default function LiveTrafficCommandCenter() {
         {/* LEFT COLUMN: LIVE EVENT STREAM & MARKETING EVENT MONITOR (7 Cols) */}
         <div className="lg:col-span-7 space-y-6">
           
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div className="bg-white rounded-xl p-6 shadow-2xs border border-slate-200/80 space-y-4">
             
             {/* Header & Filter Controls */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-primary text-secondary flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center">
                   <Activity className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-headline font-extrabold text-sm sm:text-base text-primary whitespace-nowrap">
+                  <h3 className="font-headline font-bold text-sm sm:text-base text-slate-900 whitespace-nowrap">
                     Live Event Stream & Marketing Triggers
                   </h3>
                   <span className="text-[11px] text-slate-500 font-label">
@@ -452,13 +452,13 @@ export default function LiveTrafficCommandCenter() {
               </div>
 
               {/* Event Filter Pills */}
-              <div className="flex items-center bg-slate-100 p-1 rounded-xl gap-1 self-start sm:self-auto">
+              <div className="flex items-center bg-slate-100 p-1 rounded-lg gap-1 self-start sm:self-auto">
                 <button
                   type="button"
                   onClick={() => setSelectedFilter("all")}
                   className={cn(
-                    "px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all whitespace-nowrap",
-                    selectedFilter === "all" ? "bg-white text-primary shadow-xs" : "text-slate-500 hover:text-slate-800"
+                    "px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all whitespace-nowrap",
+                    selectedFilter === "all" ? "bg-white text-slate-900 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-800"
                   )}
                 >
                   All Events
@@ -467,8 +467,8 @@ export default function LiveTrafficCommandCenter() {
                   type="button"
                   onClick={() => setSelectedFilter("quote")}
                   className={cn(
-                    "px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all whitespace-nowrap",
-                    selectedFilter === "quote" ? "bg-white text-primary shadow-xs" : "text-slate-500 hover:text-slate-800"
+                    "px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all whitespace-nowrap",
+                    selectedFilter === "quote" ? "bg-white text-slate-900 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-800"
                   )}
                 >
                   Quotes
@@ -477,8 +477,8 @@ export default function LiveTrafficCommandCenter() {
                   type="button"
                   onClick={() => setSelectedFilter("marketing")}
                   className={cn(
-                    "px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all whitespace-nowrap",
-                    selectedFilter === "marketing" ? "bg-white text-primary shadow-xs" : "text-slate-500 hover:text-slate-800"
+                    "px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all whitespace-nowrap",
+                    selectedFilter === "marketing" ? "bg-white text-slate-900 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-800"
                   )}
                 >
                   Pixels & APIs
@@ -487,8 +487,8 @@ export default function LiveTrafficCommandCenter() {
                   type="button"
                   onClick={() => setSelectedFilter("leads")}
                   className={cn(
-                    "px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all whitespace-nowrap",
-                    selectedFilter === "leads" ? "bg-white text-primary shadow-xs" : "text-slate-500 hover:text-slate-800"
+                    "px-2.5 py-1 rounded-md font-semibold text-[11px] transition-all whitespace-nowrap",
+                    selectedFilter === "leads" ? "bg-white text-slate-900 shadow-2xs font-bold" : "text-slate-500 hover:text-slate-800"
                   )}
                 >
                   Hotlines & Leads
@@ -506,10 +506,10 @@ export default function LiveTrafficCommandCenter() {
                 filteredEvents.map((evt) => (
                   <div
                     key={evt.id}
-                    className="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 transition-all flex items-start justify-between gap-3 font-label text-xs shadow-xs animate-slide-in"
+                    className="p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 transition-all flex items-start justify-between gap-3 font-label text-xs shadow-2xs animate-slide-in"
                   >
                     <div className="flex items-start gap-3 min-w-0">
-                      <div className="w-8 h-8 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-center shrink-0 mt-0.5">
+                      <div className="w-8 h-8 rounded-lg bg-white border border-slate-200 shadow-2xs flex items-center justify-center shrink-0 mt-0.5">
                         {getPlatformIcon(evt.platform)}
                       </div>
                       <div className="space-y-1 min-w-0">
@@ -538,9 +538,9 @@ export default function LiveTrafficCommandCenter() {
           </div>
 
           {/* Connected Marketing Pixel Status Radar */}
-          <div className="bg-slate-900 rounded-3xl p-6 text-white border border-slate-800 shadow-sm space-y-4 font-label">
+          <div className="bg-slate-900 rounded-xl p-6 text-white border border-slate-800 shadow-sm space-y-4 font-label">
             <div className="flex items-center justify-between">
-              <span className="font-headline font-bold text-sm text-secondary flex items-center gap-2 whitespace-nowrap">
+              <span className="font-headline font-bold text-sm text-slate-200 flex items-center gap-2 whitespace-nowrap">
                 <Radio className="w-4 h-4 text-emerald-400 animate-pulse" />
                 <span>Connected Marketing Pixel Health Monitor</span>
               </span>
@@ -548,7 +548,7 @@ export default function LiveTrafficCommandCenter() {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700/60 space-y-2">
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <GoogleAnalyticsLogo className="w-4 h-4 shrink-0" />
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -557,7 +557,7 @@ export default function LiveTrafficCommandCenter() {
                 <div className="text-[10px] text-slate-400 font-mono">G-WNDWDR83</div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700/60 space-y-2">
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <MetaLogo className="w-4 h-4 shrink-0" />
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -566,7 +566,7 @@ export default function LiveTrafficCommandCenter() {
                 <div className="text-[10px] text-slate-400 font-mono">Pixel #829410</div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700/60 space-y-2">
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <LineLogo className="w-4 h-4 shrink-0" />
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -575,7 +575,7 @@ export default function LiveTrafficCommandCenter() {
                 <div className="text-[10px] text-slate-400 font-mono">@windowdoc</div>
               </div>
 
-              <div className="p-3 rounded-2xl bg-slate-800/80 border border-slate-700/60 space-y-2">
+              <div className="p-3 rounded-xl bg-slate-800/80 border border-slate-700/60 space-y-2">
                 <div className="flex items-center justify-between">
                   <SupabaseLogo className="w-4 h-4 shrink-0" />
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -592,14 +592,14 @@ export default function LiveTrafficCommandCenter() {
         <div className="lg:col-span-5 space-y-6">
           
           {/* Active Live Visitors Feed */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div className="bg-white rounded-xl p-6 shadow-2xs border border-slate-200/80 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-primary text-secondary flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 text-amber-400 flex items-center justify-center">
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-headline font-extrabold text-sm sm:text-base text-primary whitespace-nowrap">
+                  <h3 className="font-headline font-bold text-sm sm:text-base text-slate-900 whitespace-nowrap">
                     Active Online Visitors ({visitors.length})
                   </h3>
                   <span className="text-[11px] text-slate-500 font-label">
@@ -617,13 +617,13 @@ export default function LiveTrafficCommandCenter() {
               {visitors.map((vis) => (
                 <div
                   key={vis.id}
-                  className="p-3.5 rounded-2xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 transition-all space-y-2 font-label text-xs"
+                  className="p-3.5 rounded-xl bg-slate-50 hover:bg-slate-100/80 border border-slate-200/80 transition-all space-y-2 font-label text-xs shadow-2xs"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                       <span className="font-bold text-slate-900 flex items-center gap-1.5 whitespace-nowrap">
-                        <MapPin className="w-3 h-3 text-secondary shrink-0" />
+                        <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
                         <span>{vis.town}</span>
                         <span className="text-slate-400 font-mono font-normal">({vis.postcode})</span>
                       </span>
@@ -636,7 +636,7 @@ export default function LiveTrafficCommandCenter() {
                   </div>
 
                   <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1 border-t border-slate-200/60">
-                    <span className="font-mono text-primary font-bold truncate max-w-[180px]">
+                    <span className="font-mono text-slate-900 font-bold truncate max-w-[180px]">
                       {vis.page}
                     </span>
                     <span className="px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-600 text-[10px] whitespace-nowrap font-mono">
@@ -649,7 +649,7 @@ export default function LiveTrafficCommandCenter() {
           </div>
 
           {/* Regional Oxfordshire Heat Distribution */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200 space-y-4 font-label">
+          <div className="bg-white rounded-xl p-6 shadow-2xs border border-slate-200/80 space-y-4 font-label">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <span className="font-headline font-bold text-sm text-primary flex items-center gap-2 whitespace-nowrap">
                 <Compass className="w-4 h-4 text-secondary shrink-0" />

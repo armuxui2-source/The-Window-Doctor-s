@@ -1056,7 +1056,7 @@ export default function EnterpriseAdminSuite() {
               
               {/* Top 4 Minimalist KPI Metric Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Weekly Traffic</span>
                     <div className="p-1.5 rounded-lg bg-blue-50 text-blue-600">
@@ -1070,7 +1070,7 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Quotes Received</span>
                     <div className="p-1.5 rounded-lg bg-amber-50 text-amber-600">
@@ -1084,7 +1084,7 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Active Revenue Pipeline</span>
                     <div className="p-1.5 rounded-lg bg-emerald-50 text-emerald-600">
@@ -1099,7 +1099,7 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Google SEO Score</span>
                     <div className="p-1.5 rounded-lg bg-purple-50 text-purple-600">
@@ -1114,9 +1114,9 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Live Telemetry Radar Minimalist Dark Banner */}
-              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-xl text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
                     <Radio className="w-5 h-5 animate-pulse" />
                   </div>
                   <div className="space-y-0.5">
@@ -1137,7 +1137,7 @@ export default function EnterpriseAdminSuite() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("live-traffic")}
-                  className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-2 px-3.5 rounded-xl text-xs whitespace-nowrap flex items-center gap-1.5 shadow-2xs shrink-0 self-start md:self-auto transition-all active:scale-95 font-label"
+                  className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-2 px-3.5 rounded-lg text-xs whitespace-nowrap flex items-center gap-1.5 shadow-2xs shrink-0 self-start md:self-auto transition-all active:scale-95 font-label"
                 >
                   <span>Open Live Monitor</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -1145,16 +1145,16 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* 7-Day Traffic Graph & Channel Distribution */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 
                 {/* Traffic Graph */}
-                <div className="lg:col-span-8 bg-white p-6 sm:p-8 rounded-[24px] border border-slate-200 shadow-sm space-y-6">
+                <div className="lg:col-span-8 bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="font-headline font-bold text-lg text-primary">Weekly Traffic & Quote Inquiries (Oxfordshire)</h3>
+                      <h3 className="font-headline font-bold text-base text-slate-900">Weekly Traffic & Quote Inquiries (Oxfordshire)</h3>
                       <p className="text-xs text-slate-500 font-label">Daily visitors across Bicester, Oxford, and Banbury</p>
                     </div>
-                    <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-label">
                       🟢 Live Telemetry
                     </span>
                   </div>
@@ -1171,14 +1171,14 @@ export default function EnterpriseAdminSuite() {
                       { day: "Tue (Today)", views: 208, height: "74%" },
                     ].map((d, i) => (
                       <div key={i} className="flex flex-col items-center gap-2 h-full justify-end group">
-                        <div className="text-[11px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity font-mono">
+                        <div className="text-[11px] font-bold text-slate-900 opacity-0 group-hover:opacity-100 transition-opacity font-mono">
                           {d.views}
                         </div>
                         <div
-                          className="w-full max-w-[42px] bg-gradient-to-t from-primary to-secondary rounded-t-xl transition-all duration-500 group-hover:brightness-110 shadow-sm"
+                          className="w-full max-w-[42px] bg-slate-900 hover:bg-slate-800 rounded-t-md transition-all duration-300 shadow-2xs"
                           style={{ height: d.height }}
                         />
-                        <span className="text-[11px] font-bold text-slate-500 font-label mt-1">
+                        <span className="text-[11px] font-medium text-slate-500 font-label mt-1">
                           {d.day}
                         </span>
                       </div>
@@ -1188,21 +1188,21 @@ export default function EnterpriseAdminSuite() {
                   <div className="flex items-center justify-between text-xs text-slate-500 font-label">
                     <div className="flex items-center gap-4">
                       <span className="flex items-center gap-1.5">
-                        <span className="w-3 h-3 rounded-md bg-primary" /> Organic Searches
+                        <span className="w-2.5 h-2.5 rounded-sm bg-slate-900" /> Organic Searches
                       </span>
                       <span className="flex items-center gap-1.5">
-                        <span className="w-3 h-3 rounded-md bg-secondary" /> Paid Ads Traffic
+                        <span className="w-2.5 h-2.5 rounded-sm bg-amber-500" /> Paid Ads Traffic
                       </span>
                     </div>
-                    <span>Data synced with GA4 & Supabase</span>
+                    <span className="font-mono text-[11px]">Synced: GA4 & Supabase</span>
                   </div>
                 </div>
 
                 {/* Lead Acquisition Channels */}
-                <div className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-[24px] border border-slate-200 shadow-sm space-y-6">
-                  <h3 className="font-headline font-bold text-lg text-primary">Lead Acquisition Sources</h3>
+                <div className="lg:col-span-4 bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-5">
+                  <h3 className="font-headline font-bold text-base text-slate-900">Lead Acquisition Sources</h3>
                   
-                  <div className="space-y-4 text-xs font-label">
+                  <div className="space-y-3.5 text-xs font-label">
                     {[
                       { name: "Google Organic (SEO)", share: "52%", count: "20 Leads", color: "bg-emerald-500" },
                       { name: "Google Ads (PPC)", share: "26%", count: "10 Leads", color: "bg-blue-500" },
@@ -1210,11 +1210,11 @@ export default function EnterpriseAdminSuite() {
                       { name: "Direct Word-of-Mouth", share: "8%", count: "3 Leads", color: "bg-amber-400" },
                     ].map((ch, idx) => (
                       <div key={idx} className="space-y-1.5">
-                        <div className="flex items-center justify-between text-slate-700 font-semibold">
+                        <div className="flex items-center justify-between text-slate-700 font-medium">
                           <span>{ch.name}</span>
-                          <span className="font-mono text-primary font-bold">{ch.share}</span>
+                          <span className="font-mono text-slate-900 font-bold">{ch.share}</span>
                         </div>
-                        <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                           <div className={cn("h-full rounded-full", ch.color)} style={{ width: ch.share }} />
                         </div>
                       </div>
@@ -1222,12 +1222,12 @@ export default function EnterpriseAdminSuite() {
                   </div>
 
                   {/* Regional Postcode Demand */}
-                  <div className="pt-4 border-t border-slate-100 space-y-2">
-                    <span className="text-xs font-bold text-primary font-headline block whitespace-nowrap">Top Inquiring Towns</span>
+                  <div className="pt-3 border-t border-slate-100 space-y-2">
+                    <span className="text-xs font-bold text-slate-800 font-label block whitespace-nowrap">Top Inquiring Towns</span>
                     <div className="flex flex-wrap gap-1.5">
                       {["OX26 Bicester (42%)", "OX2 Oxford (28%)", "OX15 Banbury (18%)", "OX5 Kidlington (12%)"].map((p) => (
-                        <span key={p} className="px-2.5 py-1 rounded-lg bg-slate-100 text-[11px] font-bold text-slate-700 flex items-center gap-1 whitespace-nowrap">
-                          <MapPin className="w-3 h-3 text-secondary shrink-0" />
+                        <span key={p} className="px-2 py-0.5 rounded-md bg-slate-50 border border-slate-200/70 text-[11px] font-medium text-slate-700 flex items-center gap-1 whitespace-nowrap font-mono">
+                          <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
                           <span>{p}</span>
                         </span>
                       ))}
@@ -1238,11 +1238,11 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Connected Marketing Platforms & Plugins Overview */}
-              <div className="bg-white p-6 sm:p-8 rounded-[24px] border border-slate-200 shadow-sm space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
-                  <div className="space-y-1">
-                    <h3 className="font-headline font-bold text-base sm:text-lg text-primary flex items-center gap-2 whitespace-nowrap">
-                      <Sparkles className="w-4 h-4 text-secondary shrink-0" />
+              <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                  <div className="space-y-0.5">
+                    <h3 className="font-headline font-bold text-base text-slate-900 flex items-center gap-2 whitespace-nowrap">
+                      <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
                       <span>Connected Marketing Platforms & Cloud Services</span>
                     </h3>
                     <p className="text-xs text-slate-500 font-label">
@@ -1251,34 +1251,34 @@ export default function EnterpriseAdminSuite() {
                   </div>
                   <button
                     onClick={() => setActiveTab("integrations")}
-                    className="text-xs font-bold text-secondary hover:text-primary flex items-center gap-1 font-label self-start sm:self-auto whitespace-nowrap"
+                    className="text-xs font-semibold text-slate-700 hover:text-slate-900 flex items-center gap-1 font-label self-start sm:self-auto whitespace-nowrap"
                   >
-                    <span>Manage All Keys & Tags</span>
+                    <span>Manage Keys & Tags</span>
                     <ChevronRight className="w-3.5 h-3.5 shrink-0" />
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {[
-                    { name: "Google Analytics 4", status: "Active Tracking", color: "text-amber-700 bg-amber-50 border-amber-200", icon: <GoogleAnalyticsLogo className="w-5 h-5" /> },
-                    { name: "Google Tag Manager", status: "Container Ready", color: "text-blue-700 bg-blue-50 border-blue-200", icon: <GoogleTagManagerLogo className="w-5 h-5" /> },
-                    { name: "Google Search Console", status: "Sitemap Verified", color: "text-indigo-700 bg-indigo-50 border-indigo-200", icon: <GoogleSearchConsoleLogo className="w-5 h-5" /> },
-                    { name: "Google Ads CAPI", status: "Conversion Pixel", color: "text-emerald-700 bg-emerald-50 border-emerald-200", icon: <GoogleAdsLogo className="w-5 h-5" /> },
-                    { name: "Meta Pixel & CAPI", status: "Pixel Active", color: "text-blue-700 bg-blue-50 border-blue-200", icon: <MetaLogo className="w-5 h-5" /> },
-                    { name: "LINE Messaging API", status: "Webhook Ready", color: "text-green-700 bg-green-50 border-green-200", icon: <LineLogo className="w-5 h-5" /> },
-                    { name: "Google Maps Platform", status: "Bicester Geo Pin", color: "text-red-700 bg-red-50 border-red-200", icon: <GoogleMapsLogo className="w-5 h-5" /> },
-                    { name: "Supabase PostgreSQL", status: "Cloud Live Sync", color: "text-emerald-700 bg-emerald-50 border-emerald-300", icon: <SupabaseLogo className="w-5 h-5" /> },
+                    { name: "Google Analytics 4", status: "Active Tracking", color: "text-amber-700 bg-amber-50 border-amber-200", icon: <GoogleAnalyticsLogo className="w-4 h-4" /> },
+                    { name: "Google Tag Manager", status: "Container Ready", color: "text-blue-700 bg-blue-50 border-blue-200", icon: <GoogleTagManagerLogo className="w-4 h-4" /> },
+                    { name: "Google Search Console", status: "Sitemap Verified", color: "text-indigo-700 bg-indigo-50 border-indigo-200", icon: <GoogleSearchConsoleLogo className="w-4 h-4" /> },
+                    { name: "Google Ads CAPI", status: "Conversion Pixel", color: "text-emerald-700 bg-emerald-50 border-emerald-200", icon: <GoogleAdsLogo className="w-4 h-4" /> },
+                    { name: "Meta Pixel & CAPI", status: "Pixel Active", color: "text-blue-700 bg-blue-50 border-blue-200", icon: <MetaLogo className="w-4 h-4" /> },
+                    { name: "LINE Messaging API", status: "Webhook Ready", color: "text-green-700 bg-green-50 border-green-200", icon: <LineLogo className="w-4 h-4" /> },
+                    { name: "Google Maps Platform", status: "Bicester Geo Pin", color: "text-red-700 bg-red-50 border-red-200", icon: <GoogleMapsLogo className="w-4 h-4" /> },
+                    { name: "Supabase PostgreSQL", status: "Cloud Live Sync", color: "text-emerald-700 bg-emerald-50 border-emerald-300", icon: <SupabaseLogo className="w-4 h-4" /> },
                   ].map((p, i) => (
-                    <div key={i} className="p-4 rounded-2xl border border-slate-200 bg-white hover:border-secondary/60 hover:shadow-sm transition-all space-y-3">
+                    <div key={i} className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition-all space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5 shrink-0 shadow-xs">
+                        <div className="w-7 h-7 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-1 shrink-0 shadow-2xs">
                           {p.icon}
                         </div>
                         <span className={cn("text-[9px] font-bold px-2 py-0.5 rounded-full border font-mono whitespace-nowrap", p.color)}>
                           {p.status}
                         </span>
                       </div>
-                      <div className="font-headline font-bold text-xs text-primary truncate">
+                      <div className="font-headline font-semibold text-xs text-slate-900 truncate">
                         {p.name}
                       </div>
                     </div>
@@ -1319,9 +1319,9 @@ export default function EnterpriseAdminSuite() {
                       key={f}
                       onClick={() => setSelectedStatusFilter(f)}
                       className={cn(
-                        "px-3.5 py-2 rounded-xl text-xs font-bold font-label transition-all whitespace-nowrap",
+                        "px-3 py-1.5 rounded-lg text-xs font-semibold font-label transition-all whitespace-nowrap",
                         selectedStatusFilter === f
-                          ? "bg-primary text-secondary-container shadow-sm font-extrabold"
+                          ? "bg-slate-900 text-white shadow-2xs font-bold"
                           : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200"
                       )}
                     >
@@ -1332,19 +1332,19 @@ export default function EnterpriseAdminSuite() {
 
                 <div className="flex items-center gap-3">
                   <div className="relative w-full sm:w-72">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search customer, postcode..."
-                      className="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 bg-white text-xs font-label text-slate-800 focus:outline-none focus:border-secondary"
+                      className="w-full pl-9 pr-3.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-label text-slate-800 focus:outline-none focus:border-slate-400"
                     />
                   </div>
 
                   <button
                     onClick={() => setLeadModal({ isOpen: true, mode: "create", data: {} })}
-                    className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                   >
                     <PlusCircle className="w-3.5 h-3.5" />
                     <span>Add Quote Lead</span>
@@ -1353,7 +1353,7 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Leads Table */}
-              <div className="bg-white rounded-[22px] border border-slate-200 overflow-hidden shadow-sm">
+              <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs font-label">
                     <thead className="bg-slate-50 border-b border-slate-200 text-slate-500">
@@ -1369,24 +1369,24 @@ export default function EnterpriseAdminSuite() {
                     <tbody className="divide-y divide-slate-100 text-slate-800">
                       {filteredLeads.map((lead) => (
                         <tr key={lead.id} className="hover:bg-slate-50 transition-colors">
-                          <td className="py-3.5 px-4">
-                            <div className="font-bold text-primary font-headline text-sm">{lead.customer_name}</div>
+                          <td className="py-3 px-4">
+                            <div className="font-bold text-slate-900 font-headline text-sm">{lead.customer_name}</div>
                             <div className="text-[11px] text-slate-400 font-mono">{lead.reference_no} • {lead.created_at}</div>
                           </td>
-                          <td className="py-3.5 px-4">
-                            <div className="font-semibold text-slate-900">{lead.service_type}</div>
+                          <td className="py-3 px-4">
+                            <div className="font-medium text-slate-800">{lead.service_type}</div>
                             <div className="text-[11px] text-slate-500">{lead.units} units requested</div>
                           </td>
-                          <td className="py-3.5 px-4 font-medium text-slate-700">{lead.postcode}</td>
-                          <td className="py-3.5 px-4 font-extrabold text-primary font-headline text-sm">
+                          <td className="py-3 px-4 font-medium text-slate-700">{lead.postcode}</td>
+                          <td className="py-3 px-4 font-bold text-slate-900 font-headline text-sm">
                             {formatCurrency(lead.estimated_cost)}
                           </td>
-                          <td className="py-3.5 px-4">
+                          <td className="py-3 px-4">
                             <select
                               value={lead.status}
                               onChange={(e) => updateLeadStatus(lead.id, e.target.value as QuoteLead["status"])}
                               className={cn(
-                                "px-2.5 py-1 rounded-lg text-xs font-bold border font-label focus:outline-none bg-white",
+                                "px-2.5 py-1 rounded-md text-xs font-semibold border font-label focus:outline-none bg-white",
                                 lead.status === "PENDING" ? "text-amber-700 border-amber-200 bg-amber-50" :
                                 lead.status === "SURVEY_SCHEDULED" ? "text-blue-700 border-blue-200 bg-blue-50" :
                                 lead.status === "QUOTED" ? "text-purple-700 border-purple-200 bg-purple-50" :
@@ -1399,11 +1399,11 @@ export default function EnterpriseAdminSuite() {
                               <option value="COMPLETED">COMPLETED</option>
                             </select>
                           </td>
-                          <td className="py-3.5 px-4 text-right">
+                          <td className="py-3 px-4 text-right">
                             <div className="flex items-center justify-end gap-1.5">
                               <a
                                 href={`tel:${lead.phone}`}
-                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"
+                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                                 title="Call Customer"
                               >
                                 <Phone className="w-3.5 h-3.5" />
@@ -1440,50 +1440,50 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Services & Pricing Catalog</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Services & Pricing Catalog</h2>
                   <p className="text-xs text-slate-500 font-label">Manage fenestration services, warranty terms, and pricing estimates</p>
                 </div>
                 <button
                   onClick={() => setServiceModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Service</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {services.map((srv) => (
-                  <div key={srv.id} className="bg-white p-6 rounded-[22px] border border-slate-200 space-y-4 shadow-sm flex flex-col justify-between">
+                  <div key={srv.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="px-2.5 py-0.5 rounded-md bg-secondary-container text-primary font-bold text-[11px] font-label">
+                        <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-semibold text-[11px] font-label">
                           {srv.warranty_years}-Yr Warranty
                         </span>
-                        <span className="text-emerald-700 text-xs font-bold font-label">🟢 Active in DB</span>
+                        <span className="text-emerald-700 text-xs font-semibold font-label">🟢 Active</span>
                       </div>
-                      <h3 className="font-headline font-bold text-base text-primary">{srv.title}</h3>
-                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">{srv.short_description}</p>
+                      <h3 className="font-headline font-bold text-sm sm:text-base text-slate-900">{srv.title}</h3>
+                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed font-label">{srv.short_description}</p>
                     </div>
 
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                       <div>
                         <span className="text-[10px] text-slate-400 font-label block">Base Estimate</span>
-                        <span className="font-headline font-bold text-lg text-primary">
+                        <span className="font-headline font-bold text-base text-slate-900">
                           £{srv.base_price_estimate} <span className="text-xs font-normal text-slate-500">/ unit</span>
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setServiceModal({ isOpen: true, mode: "edit", data: srv })}
-                          className="p-2 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Service"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteService(srv.id)}
-                          className="p-2 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Service"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -1503,43 +1503,43 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Projects & Case Studies Manager</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Projects & Case Studies Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage Before & After galleries across Oxfordshire</p>
                 </div>
                 <button
                   onClick={() => setProjectModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>New Case Study</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {projects.map((proj) => (
-                  <div key={proj.id} className="bg-white p-6 rounded-[22px] border border-slate-200 space-y-4 shadow-sm flex flex-col justify-between">
+                  <div key={proj.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-xs font-label">
-                        <span className="text-secondary font-bold">📍 {proj.location_city}</span>
+                        <span className="text-slate-700 font-semibold font-mono">📍 {proj.location_city}</span>
                         <span className="text-slate-400 font-medium">{proj.completion_year}</span>
                       </div>
-                      <h3 className="font-headline font-bold text-base text-primary">{proj.title}</h3>
-                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">{proj.summary}</p>
+                      <h3 className="font-headline font-bold text-sm sm:text-base text-slate-900">{proj.title}</h3>
+                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed font-label">{proj.summary}</p>
                     </div>
 
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-xs text-emerald-700 font-bold font-label">✓ Active on Frontend</span>
-                      <div className="flex items-center gap-2">
+                      <span className="text-xs text-emerald-700 font-semibold font-label">✓ Active on Frontend</span>
+                      <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setProjectModal({ isOpen: true, mode: "edit", data: proj })}
-                          className="p-2 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Case Study"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteProject(proj.id)}
-                          className="p-2 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Case Study"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -1559,21 +1559,21 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Verified Reviews & Ratings</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Verified Reviews & Ratings</h2>
                   <p className="text-xs text-slate-500 font-label">Customer feedback synchronized with Google Maps</p>
                 </div>
                 <button
                   onClick={() => setReviewModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Review</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {reviews.map((rev) => (
-                  <div key={rev.id} className="bg-white p-6 rounded-[22px] border border-slate-200 space-y-3 shadow-sm flex flex-col justify-between">
+                  <div key={rev.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1 text-amber-500">
@@ -1583,23 +1583,23 @@ export default function EnterpriseAdminSuite() {
                         </div>
                         <span className="text-[11px] text-slate-400 font-label">{rev.time_ago}</span>
                       </div>
-                      <h4 className="font-headline font-bold text-sm text-primary">{rev.review_title}</h4>
-                      <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">{rev.review_text}</p>
+                      <h4 className="font-headline font-bold text-sm text-slate-900">{rev.review_title}</h4>
+                      <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed font-label">{rev.review_text}</p>
                     </div>
 
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-label">
-                      <span className="font-bold text-primary">{rev.customer_name} ({rev.customer_location})</span>
-                      <div className="flex items-center gap-2">
+                      <span className="font-bold text-slate-800">{rev.customer_name} ({rev.customer_location})</span>
+                      <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setReviewModal({ isOpen: true, mode: "edit", data: rev })}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Review"
                         >
                           <Edit2 className="w-3 h-3" />
                         </button>
                         <button
                           onClick={() => handleDeleteReview(rev.id)}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Review"
                         >
                           <Trash2 className="w-3 h-3" />
@@ -1619,46 +1619,46 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Oxfordshire Coverage & Response SLA</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Oxfordshire Coverage & Response SLA</h2>
                   <p className="text-xs text-slate-500 font-label">Postcode validation rules and guaranteed attendance times</p>
                 </div>
                 <button
                   onClick={() => setAreaModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Postcode Area</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {areas.map((area) => (
-                  <div key={area.id} className="bg-white p-5 rounded-[20px] border border-slate-200 space-y-3 shadow-sm flex flex-col justify-between">
+                  <div key={area.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="font-headline font-bold text-sm text-primary">📍 {area.town_name}</span>
-                        <span className="text-xs font-bold text-secondary bg-secondary-container/20 px-2 py-0.5 rounded-md font-label">
+                        <span className="font-headline font-bold text-sm text-slate-900">📍 {area.town_name}</span>
+                        <span className="text-xs font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md font-label">
                           &lt; {area.response_time_hours}h SLA
                         </span>
                       </div>
                       <div className="text-xs text-slate-600 space-y-1 font-label">
-                        <div>County/Code: <strong>{area.county}</strong></div>
+                        <div>County/Code: <strong className="font-mono text-slate-800">{area.county}</strong></div>
                         <div>Emergency Service: <strong className="text-emerald-700">{area.emergency_available ? "Available" : "No"}</strong></div>
                         <div>Free Home Survey: <strong className="text-emerald-700">Yes (100% Free)</strong></div>
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-2">
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-1.5">
                       <button
                         onClick={() => setAreaModal({ isOpen: true, mode: "edit", data: area })}
-                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                         title="Edit Area"
                       >
                         <Edit2 className="w-3 h-3" />
                       </button>
                       <button
                         onClick={() => handleDeleteArea(area.id)}
-                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
+                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                         title="Delete Area"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -2023,38 +2023,33 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Hero Slider & Banner Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage homepage hero slides — images, headlines, CTAs, and stat badges</p>
                 </div>
-                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
-                  <PlusCircle className="w-3.5 h-3.5" /><span>Add Hero Slide</span>
-                </button>
-              </div>
-
-              <div className="space-y-5">
+                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label              <div className="space-y-4">
                 {heroSlides.map((slide, idx) => (
-                  <div key={slide.id} className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-4">
+                  <div key={slide.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-3.5">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 space-y-2">
                         <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded-md bg-primary text-white text-[10px] font-bold font-mono">Slide {idx + 1}</span>
+                          <span className="px-2 py-0.5 rounded-md bg-slate-900 text-white text-[10px] font-bold font-mono">Slide {idx + 1}</span>
                           <span className="text-[11px] text-slate-400 font-label">{slide.tag}</span>
                         </div>
-                        <h3 className="font-headline font-bold text-lg text-primary">{slide.title}</h3>
-                        <p className="text-xs text-secondary font-bold">{slide.highlightText}</p>
-                        <p className="text-xs text-slate-600 line-clamp-2">{slide.description}</p>
+                        <h3 className="font-headline font-bold text-base text-slate-900">{slide.title}</h3>
+                        <p className="text-xs text-amber-600 font-semibold">{slide.highlightText}</p>
+                        <p className="text-xs text-slate-600 line-clamp-2 font-label">{slide.description}</p>
                       </div>
                       {slide.imageUrl && (
-                        <div className="w-32 h-20 rounded-xl overflow-hidden bg-slate-100 flex-shrink-0">
+                        <div className="w-32 h-20 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
                           <img src={slide.imageUrl} alt={slide.title} className="w-full h-full object-cover" />
                         </div>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 text-[11px] font-label text-slate-500">
-                      <span className="bg-slate-100 px-2 py-0.5 rounded">CTA: {slide.primaryCtaText}</span>
-                      <span className="bg-slate-100 px-2 py-0.5 rounded">Badge: {slide.badgeText}</span>
-                      {slide.stats.map((s, i) => <span key={i} className="bg-amber-50 text-amber-800 px-2 py-0.5 rounded">{s.label}: {s.value}</span>)}
+                    <div className="flex items-center gap-2 text-[11px] font-label text-slate-500 flex-wrap">
+                      <span className="bg-slate-100 px-2 py-0.5 rounded-md font-mono">CTA: {slide.primaryCtaText}</span>
+                      <span className="bg-slate-100 px-2 py-0.5 rounded-md">Badge: {slide.badgeText}</span>
+                      {slide.stats.map((s, i) => <span key={i} className="bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md font-medium">{s.label}: {s.value}</span>)}
                     </div>
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-2">
-                      <button onClick={() => setHeroModal({ isOpen: true, mode: "edit", data: slide })} className="p-2 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors" title="Edit Slide"><Edit2 className="w-3.5 h-3.5" /></button>
-                      <button onClick={() => handleDeleteHero(slide.id)} className="p-2 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors" title="Delete Slide"><Trash2 className="w-3.5 h-3.5" /></button>
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-1.5">
+                      <button onClick={() => setHeroModal({ isOpen: true, mode: "edit", data: slide })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors" title="Edit Slide"><Edit2 className="w-3.5 h-3.5" /></button>
+                      <button onClick={() => handleDeleteHero(slide.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors" title="Delete Slide"><Trash2 className="w-3.5 h-3.5" /></button>
                     </div>
                   </div>
                 ))}
@@ -2069,28 +2064,28 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">FAQ & SEO Schema Manager</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">FAQ & SEO Schema Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage FAQ questions — auto-generates JSON-LD FAQPage schema for Google rich snippets</p>
                 </div>
-                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
+                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add FAQ</span>
                 </button>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {faqs.map((faq, idx) => (
-                  <div key={faq.id} className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-3">
+                  <div key={faq.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-start justify-between gap-3">
-                      <div className="flex-1 space-y-2">
+                      <div className="flex-1 space-y-1.5">
                         <div className="flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-full bg-primary text-white text-[10px] font-bold flex items-center justify-center">{idx + 1}</span>
-                          <h4 className="font-headline font-bold text-sm text-primary flex-1">{faq.question}</h4>
+                          <span className="w-5 h-5 rounded-full bg-slate-900 text-white text-[10px] font-bold flex items-center justify-center font-mono">{idx + 1}</span>
+                          <h4 className="font-headline font-bold text-sm text-slate-900 flex-1">{faq.question}</h4>
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed pl-8">{faq.answer}</p>
+                        <p className="text-xs text-slate-600 leading-relaxed pl-7 font-label">{faq.answer}</p>
                       </div>
                       <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <button onClick={() => setFaqModal({ isOpen: true, mode: "edit", data: faq })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                        <button onClick={() => handleDeleteFaq(faq.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                        <button onClick={() => setFaqModal({ isOpen: true, mode: "edit", data: faq })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                        <button onClick={() => handleDeleteFaq(faq.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                       </div>
                     </div>
                   </div>
@@ -2110,15 +2105,15 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Comparison Matrix Editor</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Comparison Matrix Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Edit the "Why Replace The Whole Window?" comparison table on the homepage</p>
                 </div>
-                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
+                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Row</span>
                 </button>
               </div>
 
-              <div className="bg-white rounded-[22px] border border-slate-200 overflow-hidden shadow-sm">
+              <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs">
                 <table className="w-full text-left text-xs font-label">
                   <thead className="bg-slate-50 border-b border-slate-200 text-slate-500">
                     <tr>
@@ -2131,13 +2126,13 @@ export default function EnterpriseAdminSuite() {
                   <tbody className="divide-y divide-slate-100 text-slate-800">
                     {comparisonRows.map((row) => (
                       <tr key={row.id} className="hover:bg-slate-50">
-                        <td className="py-3 px-4 font-bold text-primary">{row.feature}</td>
+                        <td className="py-3 px-4 font-bold text-slate-900">{row.feature}</td>
                         <td className="py-3 px-4 text-emerald-800 font-medium">{row.windowDoctor}</td>
                         <td className="py-3 px-4 text-red-700">{row.nationalGuys}</td>
                         <td className="py-3 px-4 text-right">
                           <div className="flex items-center justify-end gap-1.5">
-                            <button onClick={() => setCompModal({ isOpen: true, mode: "edit", data: row })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                            <button onClick={() => handleDeleteComp(row.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                            <button onClick={() => setCompModal({ isOpen: true, mode: "edit", data: row })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                            <button onClick={() => handleDeleteComp(row.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                           </div>
                         </td>
                       </tr>
@@ -2155,31 +2150,31 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">4-Stage Process Journey Editor</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">4-Stage Process Journey Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Manage the "Our Seamless 4-Stage Precision Process" section on the homepage</p>
                 </div>
-                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label">
+                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Step</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {processSteps.map((step) => (
-                  <div key={step.id} className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-3">
+                  <div key={step.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="w-10 h-10 rounded-xl bg-primary text-white font-headline font-extrabold text-base flex items-center justify-center">{step.num}</span>
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-8 h-8 rounded-lg bg-slate-900 text-white font-headline font-bold text-sm flex items-center justify-center font-mono">{step.num}</span>
                         <div>
-                          <h4 className="font-headline font-bold text-sm text-primary">{step.title}</h4>
-                          <span className="text-[11px] text-secondary font-bold font-label">{step.timing}</span>
+                          <h4 className="font-headline font-bold text-sm text-slate-900">{step.title}</h4>
+                          <span className="text-[11px] text-amber-600 font-semibold font-label">{step.timing}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-primary hover:text-white text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                       </div>
                     </div>
-                    <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
+                    <p className="text-xs text-slate-600 leading-relaxed font-label">{step.description}</p>
                   </div>
                 ))}
               </div>
@@ -2190,90 +2185,90 @@ export default function EnterpriseAdminSuite() {
           {/* TAB 13: SITE SETTINGS (GLOBAL BUSINESS INFO)                           */}
           {/* ======================================================================= */}
           {activeTab === "siteSettings" && (
-            <div className="space-y-8 animate-fade-in">
+            <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary">Global Site Settings</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900">Global Site Settings</h2>
                   <p className="text-xs text-slate-500 font-label">Business contact info, address, FENSA number, opening hours — used across Navbar, Footer, Schema, and all pages</p>
                 </div>
-                <button onClick={handleSaveSettings} className={cn("text-xs py-2 px-4 rounded-xl flex items-center gap-1.5 font-bold shadow-xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-secondary hover:bg-secondary/90 text-primary font-extrabold border border-secondary/40")}>
+                <button onClick={handleSaveSettings} className={cn("text-xs py-1.5 px-3.5 rounded-lg flex items-center gap-1.5 font-semibold shadow-2xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-slate-900 hover:bg-slate-800 text-white")}>
                   {settingsSaved ? <><Check className="w-3.5 h-3.5" /><span>Saved & Synced!</span></> : <><Save className="w-3.5 h-3.5" /><span>Save All Settings</span></>}
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Business Identity */}
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-5">
-                  <h3 className="font-headline font-bold text-base text-primary border-b border-slate-100 pb-3">🏢 Business Identity</h3>
-                  <div className="space-y-4 text-xs font-label">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+                  <h3 className="font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">🏢 Business Identity</h3>
+                  <div className="space-y-3.5 text-xs font-label">
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">Business Name</label>
-                      <input type="text" value={siteSettings.businessName} onChange={(e) => setSiteSettings({ ...siteSettings, businessName: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1">Business Name</label>
+                      <input type="text" value={siteSettings.businessName} onChange={(e) => setSiteSettings({ ...siteSettings, businessName: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">Brand Tagline</label>
-                      <input type="text" value={siteSettings.tagline} onChange={(e) => setSiteSettings({ ...siteSettings, tagline: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1">Brand Tagline</label>
+                      <input type="text" value={siteSettings.tagline} onChange={(e) => setSiteSettings({ ...siteSettings, tagline: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">FENSA Registration Number</label>
-                      <input type="text" value={siteSettings.fensaNumber} onChange={(e) => setSiteSettings({ ...siteSettings, fensaNumber: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" />
+                      <label className="block text-slate-700 font-medium mb-1">FENSA Registration Number</label>
+                      <input type="text" value={siteSettings.fensaNumber} onChange={(e) => setSiteSettings({ ...siteSettings, fensaNumber: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">Opening Hours</label>
-                      <input type="text" value={siteSettings.openingHours} onChange={(e) => setSiteSettings({ ...siteSettings, openingHours: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1">Opening Hours</label>
+                      <input type="text" value={siteSettings.openingHours} onChange={(e) => setSiteSettings({ ...siteSettings, openingHours: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                   </div>
                 </div>
 
                 {/* Contact & Location */}
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-5">
-                  <h3 className="font-headline font-bold text-base text-primary border-b border-slate-100 pb-3">📍 Contact & Location</h3>
-                  <div className="space-y-4 text-xs font-label">
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+                  <h3 className="font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">📍 Contact & Location</h3>
+                  <div className="space-y-3.5 text-xs font-label">
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-slate-700 font-bold mb-1">Phone Number</label>
-                        <input type="text" value={siteSettings.phone} onChange={(e) => setSiteSettings({ ...siteSettings, phone: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" />
+                        <label className="block text-slate-700 font-medium mb-1">Phone Number</label>
+                        <input type="text" value={siteSettings.phone} onChange={(e) => setSiteSettings({ ...siteSettings, phone: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                       </div>
                       <div>
-                        <label className="block text-slate-700 font-bold mb-1">Email Address</label>
-                        <input type="text" value={siteSettings.email} onChange={(e) => setSiteSettings({ ...siteSettings, email: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                        <label className="block text-slate-700 font-medium mb-1">Email Address</label>
+                        <input type="text" value={siteSettings.email} onChange={(e) => setSiteSettings({ ...siteSettings, email: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">Street Address</label>
-                      <input type="text" value={siteSettings.address} onChange={(e) => setSiteSettings({ ...siteSettings, address: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1">Street Address</label>
+                      <input type="text" value={siteSettings.address} onChange={(e) => setSiteSettings({ ...siteSettings, address: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-slate-700 font-bold mb-1">City / Town</label>
-                        <input type="text" value={siteSettings.city} onChange={(e) => setSiteSettings({ ...siteSettings, city: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                        <label className="block text-slate-700 font-medium mb-1">City / Town</label>
+                        <input type="text" value={siteSettings.city} onChange={(e) => setSiteSettings({ ...siteSettings, city: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                       </div>
                       <div>
-                        <label className="block text-slate-700 font-bold mb-1">Postcode</label>
-                        <input type="text" value={siteSettings.postcode} onChange={(e) => setSiteSettings({ ...siteSettings, postcode: e.target.value })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" />
+                        <label className="block text-slate-700 font-medium mb-1">Postcode</label>
+                        <input type="text" value={siteSettings.postcode} onChange={(e) => setSiteSettings({ ...siteSettings, postcode: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1">Google Maps Place ID (optional)</label>
-                      <input type="text" value={siteSettings.googleMapsPlaceId} onChange={(e) => setSiteSettings({ ...siteSettings, googleMapsPlaceId: e.target.value })} placeholder="ChIJ..." className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" />
+                      <label className="block text-slate-700 font-medium mb-1">Google Maps Place ID (optional)</label>
+                      <input type="text" value={siteSettings.googleMapsPlaceId} onChange={(e) => setSiteSettings({ ...siteSettings, googleMapsPlaceId: e.target.value })} placeholder="ChIJ..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                     </div>
                   </div>
                 </div>
 
                 {/* Social Media */}
-                <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-5 lg:col-span-2">
-                  <div className="flex items-center gap-2 font-headline font-bold text-base text-primary border-b border-slate-100 pb-3">
-                    <Globe className="w-4 h-4 text-secondary shrink-0" />
+                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4 lg:col-span-2">
+                  <div className="flex items-center gap-2 font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">
+                    <Globe className="w-4 h-4 text-slate-500 shrink-0" />
                     <span>Social Media & External Links</span>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-label">
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Facebook Page URL</label>
-                      <input type="url" value={siteSettings.facebookUrl} onChange={(e) => setSiteSettings({ ...siteSettings, facebookUrl: e.target.value })} placeholder="https://facebook.com/..." className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1 whitespace-nowrap">Facebook Page URL</label>
+                      <input type="url" value={siteSettings.facebookUrl} onChange={(e) => setSiteSettings({ ...siteSettings, facebookUrl: e.target.value })} placeholder="https://facebook.com/..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
-                      <label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Instagram Profile URL</label>
-                      <input type="url" value={siteSettings.instagramUrl} onChange={(e) => setSiteSettings({ ...siteSettings, instagramUrl: e.target.value })} placeholder="https://instagram.com/..." className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" />
+                      <label className="block text-slate-700 font-medium mb-1 whitespace-nowrap">Instagram Profile URL</label>
+                      <input type="url" value={siteSettings.instagramUrl} onChange={(e) => setSiteSettings({ ...siteSettings, instagramUrl: e.target.value })} placeholder="https://instagram.com/..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                   </div>
                 </div>
@@ -2288,21 +2283,21 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary whitespace-nowrap">Trust Pillars & Heritage Badges</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900 whitespace-nowrap">Trust Pillars & Heritage Badges</h2>
                   <p className="text-xs text-slate-500 font-label">Manage 40-year heritage credentials, FENSA assurance, and 10-year insurance guarantees.</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {trustPillars.map((pillar) => (
-                  <div key={pillar.id} className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
-                    <div className="space-y-3">
-                      <div className="w-10 h-10 rounded-2xl bg-amber-50 text-secondary border border-amber-200 flex items-center justify-center font-bold">
-                        <ShieldCheck className="w-5 h-5" />
+                  <div key={pillar.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3.5">
+                    <div className="space-y-2.5">
+                      <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center font-bold">
+                        <ShieldCheck className="w-4 h-4" />
                       </div>
                       <div>
-                        <h3 className="font-headline font-bold text-base text-primary">{pillar.title}</h3>
-                        <span className="text-xs text-secondary font-bold font-label block mt-0.5">{pillar.subtitle}</span>
+                        <h3 className="font-headline font-bold text-sm text-slate-900">{pillar.title}</h3>
+                        <span className="text-xs text-amber-700 font-medium font-label block mt-0.5">{pillar.subtitle}</span>
                       </div>
                       <p className="text-xs text-slate-600 leading-relaxed font-label">{pillar.description}</p>
                     </div>
@@ -2319,28 +2314,28 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary whitespace-nowrap">Frame Colors & Texture Customizer</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900 whitespace-nowrap">Frame Colors & Texture Customizer</h2>
                   <p className="text-xs text-slate-500 font-label">Manage 8 RAL architectural colors, textured foils, and woodgrain finishes available for windows & doors.</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {frameColors.map((color) => (
-                  <div key={color.id} className="bg-white p-5 rounded-[22px] border border-slate-200 shadow-sm space-y-4">
+                  <div key={color.id} className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-2xs space-y-3">
                     <div className="flex items-center gap-3">
                       <div 
-                        className="w-12 h-12 rounded-2xl border border-slate-300 shadow-xs shrink-0" 
+                        className="w-10 h-10 rounded-lg border border-slate-300 shadow-2xs shrink-0" 
                         style={{ backgroundColor: color.hex_color }} 
                       />
                       <div className="min-w-0 flex-1">
-                        <h3 className="font-headline font-bold text-sm text-primary truncate">{color.name}</h3>
-                        <span className="text-xs font-mono text-slate-400 font-bold block">{color.ral_code}</span>
+                        <h3 className="font-headline font-bold text-xs text-slate-900 truncate">{color.name}</h3>
+                        <span className="text-[11px] font-mono text-slate-400 font-medium block">{color.ral_code}</span>
                       </div>
                     </div>
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-label">
                       <span className="text-slate-500">{color.finish}</span>
                       {color.is_popular && (
-                        <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-bold text-[10px] whitespace-nowrap">
+                        <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-semibold text-[10px] whitespace-nowrap">
                           Popular
                         </span>
                       )}
@@ -2358,19 +2353,19 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-6 animate-fade-in">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="font-headline font-bold text-xl text-primary whitespace-nowrap">Energy Rates & ROI Multipliers</h2>
+                  <h2 className="font-headline font-bold text-lg text-slate-900 whitespace-nowrap">Energy Rates & ROI Multipliers</h2>
                   <p className="text-xs text-slate-500 font-label">Manage annual savings constants, U-value retention formulas, and CO2 reduction metrics.</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {energyRates.map((rate) => (
-                  <div key={rate.id} className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-3">
+                  <div key={rate.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-center justify-between text-slate-500 text-xs font-label">
-                      <span className="truncate">{rate.label}</span>
-                      <Zap className="w-4 h-4 text-secondary shrink-0" />
+                      <span className="truncate font-medium">{rate.label}</span>
+                      <Zap className="w-4 h-4 text-amber-500 shrink-0" />
                     </div>
-                    <div className="font-headline font-extrabold text-2xl text-primary">
+                    <div className="font-headline font-bold text-2xl text-slate-900">
                       {rate.rate_value} <span className="text-xs font-normal text-slate-400 font-label">{rate.unit}</span>
                     </div>
                     <div className="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 truncate">
@@ -2390,7 +2385,7 @@ export default function EnterpriseAdminSuite() {
       {/* GLOBAL TOAST NOTIFICATION                                                 */}
       {/* ========================================================================= */}
       {actionToast && (
-        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-2xl bg-slate-900 text-white shadow-2xl border border-slate-700 flex items-center gap-3 animate-slide-in-right text-xs font-label">
+        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-xl bg-slate-900 text-white shadow-2xl border border-slate-700 flex items-center gap-3 animate-slide-in-right text-xs font-label">
           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{actionToast.message}</span>
           <button onClick={() => setActionToast(null)} className="text-slate-400 hover:text-white shrink-0 ml-2">

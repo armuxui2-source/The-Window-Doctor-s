@@ -431,7 +431,7 @@ export default function IntegrationManager() {
     <div className="space-y-8 animate-fade-in">
       
       {/* 1. Header Banner & Security Guarantee */}
-      <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary p-6 sm:p-8 rounded-[24px] text-white shadow-md border border-slate-800 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary p-6 sm:p-8 rounded-xl text-white shadow-md border border-slate-800 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary text-xs font-bold uppercase tracking-wider font-label">
             <Zap className="w-3.5 h-3.5" />
@@ -448,15 +448,15 @@ export default function IntegrationManager() {
 
         {/* Security Feature Highlights Pill Grid */}
         <div className="relative z-10 pt-4 flex flex-wrap items-center gap-3 text-xs font-label text-slate-200">
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
             <Lock className="w-3.5 h-3.5 text-secondary" />
             <span>Server-side Secret Masking (AES-256)</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span>GDPR & Google Consent Mode Ready</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-xl backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
             <Radio className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
             <span>Real-time Live Script Injection</span>
           </div>
@@ -506,16 +506,16 @@ export default function IntegrationManager() {
             <div
               key={item.provider}
               className={cn(
-                "p-6 rounded-[22px] border transition-all duration-300 flex flex-col justify-between space-y-5 bg-white shadow-sm",
+                "p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between space-y-5 bg-white shadow-2xs",
                 item.is_active 
                   ? "border-secondary/60 ring-1 ring-secondary/20" 
-                  : "border-slate-200 hover:border-slate-300"
+                  : "border-slate-200/80 hover:border-slate-300"
               )}
             >
               {/* Card Header: Name, Status & Toggle */}
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-slate-50 border border-slate-200 shadow-xs flex items-center justify-center p-2 flex-shrink-0">
+                  <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs flex items-center justify-center p-2 flex-shrink-0">
                     <ProviderIcon provider={item.provider} />
                   </div>
                   <div>
@@ -709,7 +709,7 @@ export default function IntegrationManager() {
       </div>
 
       {/* 4. Audit Trail Log Table */}
-      <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-4">
+      <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <History className="w-4 h-4 text-secondary" />

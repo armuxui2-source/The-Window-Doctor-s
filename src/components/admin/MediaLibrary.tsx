@@ -167,8 +167,9 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
     <div className="space-y-6">
       
       {/* Toast Alert */}
+      {/* Toast Alert */}
       {toast && (
-        <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-label flex items-center justify-between shadow-sm animate-fade-in">
+        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-label flex items-center justify-between shadow-2xs animate-fade-in">
           <div className="flex items-center gap-2 font-bold whitespace-nowrap">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>{toast.message}</span>
@@ -180,7 +181,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
       )}
 
       {/* Top Controls Header */}
-      <div className="bg-white p-6 rounded-[22px] border border-slate-200 shadow-sm space-y-4">
+      <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <h2 className="font-headline font-extrabold text-lg text-primary flex items-center gap-2 whitespace-nowrap">
@@ -220,7 +221,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
 
         {/* Add New Image Form Panel */}
         {showAddForm && (
-          <form onSubmit={handleAddAsset} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 animate-fade-in">
+          <form onSubmit={handleAddAsset} className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-4 animate-fade-in">
             <h3 className="font-headline font-bold text-xs uppercase tracking-wider text-primary whitespace-nowrap">
               Register New Image Asset
             </h3>
@@ -329,7 +330,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
           return (
             <div
               key={asset.id}
-              className="bg-white rounded-[20px] border border-slate-200 shadow-sm overflow-hidden flex flex-col justify-between group hover:border-secondary/50 transition-all"
+              className="bg-white rounded-xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between group hover:border-secondary/50 transition-all"
             >
               {/* Thumbnail Container */}
               <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
@@ -426,7 +427,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
           onClick={() => setPreviewAsset(null)}
         >
           <div
-            className="bg-white rounded-[24px] overflow-hidden max-w-3xl w-full shadow-2xl space-y-4 p-6"
+            className="bg-white rounded-2xl overflow-hidden max-w-3xl w-full shadow-2xl space-y-4 p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
