@@ -19,7 +19,7 @@ export default function FloatingMobileNav() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <div className="lg:hidden fixed bottom-4 left-0 right-0 z-50 px-4 pointer-events-none">
+    <div className="lg:hidden fixed bottom-4 left-0 right-0 z-30 px-4 pointer-events-none">
       <div className="max-w-md mx-auto pointer-events-auto">
         <nav className="bg-primary/95 text-white rounded-full px-4 py-2.5 shadow-2xl border border-secondary-container/20 flex items-center justify-around gap-1 backdrop-blur-xl">
           

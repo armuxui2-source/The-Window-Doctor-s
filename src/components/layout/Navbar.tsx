@@ -226,7 +226,7 @@ export default function Navbar() {
       {/* Mobile Drawer Backdrop & Overlay */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden animate-fade-in"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md z-[80] lg:hidden animate-fade-in"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
@@ -234,7 +234,7 @@ export default function Navbar() {
       {/* Mobile Slide-Out Drawer Menu (Hamburger Menu) */}
       <div 
         className={cn(
-          "fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-surface-container-lowest z-50 lg:hidden shadow-2xl border-l border-outline-variant flex flex-col justify-between transition-transform duration-300 ease-out transform",
+          "fixed top-0 right-0 bottom-0 w-[88%] max-w-sm bg-surface-container-lowest z-[85] lg:hidden shadow-2xl border-l border-outline-variant flex flex-col justify-between transition-transform duration-300 ease-out transform",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
