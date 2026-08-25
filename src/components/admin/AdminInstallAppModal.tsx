@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -90,12 +90,12 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in font-body">
-      <div className="bg-white rounded-2xl max-w-sm w-full p-6 sm:p-7 shadow-2xl border border-slate-200/90 text-center relative overflow-hidden space-y-5 animate-scale-in">
+      <div className="bg-white rounded-md max-w-sm w-full p-6 sm:p-7 shadow-2xl border border-slate-200/90 text-center relative overflow-hidden space-y-5 animate-scale-in">
         
         {/* Close Button */}
         <button
           onClick={() => handleClose(false)}
-          className="absolute top-4 right-4 p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+          className="absolute top-4 right-4 p-1.5 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
           title="Close"
         >
           <X className="w-4 h-4" />
@@ -103,8 +103,8 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
 
         {/* Minimal App Icon */}
         <div className="flex justify-center pt-2">
-          <div className="relative w-20 h-20 rounded-2xl overflow-hidden border-2 border-slate-100 shadow-md bg-white p-1.5 flex items-center justify-center">
-            <div className="relative w-full h-full rounded-xl overflow-hidden">
+          <div className="relative w-20 h-20 rounded-md overflow-hidden border-2 border-slate-100 shadow-md bg-white p-1.5 flex items-center justify-center">
+            <div className="relative w-full h-full rounded-md overflow-hidden">
               <Image
                 src="/images/logo.png"
                 alt="The Window Doctor App Icon"
@@ -143,7 +143,7 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
         {/* Action Buttons */}
         <div className="space-y-2 pt-1 font-label">
           {installedSuccess ? (
-            <div className="w-full py-2.5 px-4 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-2">
+            <div className="w-full py-2.5 px-4 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold flex items-center justify-center gap-2">
               <Check className="w-4 h-4 text-emerald-600" />
               <span>Installed Successfully!</span>
             </div>
@@ -151,7 +151,7 @@ export function AdminInstallAppModal({ forceOpen = false, onClose }: AdminInstal
             <button
               type="button"
               onClick={handleInstallClick}
-              className="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-all shadow-xs flex items-center justify-center gap-2 active:scale-98"
+              className="w-full py-2.5 px-4 rounded-md bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition-all shadow-xs flex items-center justify-center gap-2 active:scale-98"
             >
               <Download className="w-4 h-4" />
               <span>Install App</span>

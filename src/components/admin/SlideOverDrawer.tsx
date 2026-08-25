@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect } from "react";
 import { X } from "lucide-react";
@@ -81,7 +81,7 @@ export default function SlideOverDrawer({
             <button
               type="button"
               onClick={onClose}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-200/70 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-secondary/40"
+              className="p-2 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-200/70 transition-colors shrink-0 focus:outline-none focus:ring-2 focus:ring-secondary/40"
               title="Close panel (Esc)"
               aria-label="Close panel"
             >

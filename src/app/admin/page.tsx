@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -757,7 +757,7 @@ export default function EnterpriseAdminSuite() {
           sidebarCollapsed && "px-3 justify-center"
         )}>
           <div className="flex items-center gap-3 overflow-hidden">
-            <Link href="/admin" className="relative w-9 h-9 rounded-xl overflow-hidden border border-slate-200/90 flex-shrink-0 bg-white shadow-2xs hover:opacity-90 transition-opacity">
+            <Link href="/admin" className="relative w-9 h-9 rounded-md overflow-hidden border border-slate-200/90 flex-shrink-0 bg-white shadow-2xs hover:opacity-90 transition-opacity">
               <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
             </Link>
             {!sidebarCollapsed && (
@@ -777,7 +777,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setSidebarCollapsed(true)}
-              className="hidden md:flex p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+              className="hidden md:flex p-1.5 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
               title="Collapse sidebar"
             >
               <PanelLeftClose className="w-4 h-4" />
@@ -788,7 +788,7 @@ export default function EnterpriseAdminSuite() {
           <button
             type="button"
             onClick={() => setSidebarOpen(false)}
-            className="md:hidden p-1.5 rounded-lg text-slate-400 hover:text-slate-700"
+            className="md:hidden p-1.5 rounded text-slate-400 hover:text-slate-700"
           >
             <X className="w-5 h-5" />
           </button>
@@ -800,7 +800,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setSidebarCollapsed(false)}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shadow-2xs"
+              className="p-2 rounded-md text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shadow-2xs"
               title="Expand sidebar (Full Menu)"
             >
               <PanelLeftOpen className="w-4 h-4" />
@@ -836,7 +836,7 @@ export default function EnterpriseAdminSuite() {
                         setSidebarOpen(false);
                       }}
                       className={cn(
-                        "w-11 h-10 mx-auto rounded-xl flex items-center justify-center relative group transition-all",
+                        "w-11 h-10 mx-auto rounded-md flex items-center justify-center relative group transition-all",
                         isActive
                           ? "bg-slate-900 text-white shadow-sm font-bold"
                           : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"
@@ -846,7 +846,7 @@ export default function EnterpriseAdminSuite() {
                       <Icon className={cn("w-4 h-4", isActive ? "text-white" : "text-slate-500 group-hover:text-slate-800")} />
                       
                       {/* Hover Flyout Floating Tooltip */}
-                      <div className="absolute left-full ml-3 px-2.5 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-lg shadow-xl opacity-0 group-hover:opacity-100 group-hover:visible pointer-events-none transition-all duration-150 z-50 whitespace-nowrap flex items-center gap-2 border border-slate-700">
+                      <div className="absolute left-full ml-3 px-2.5 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded shadow-xl opacity-0 group-hover:opacity-100 group-hover:visible pointer-events-none transition-all duration-150 z-50 whitespace-nowrap flex items-center gap-2 border border-slate-700">
                         <span>{item.label}</span>
                         {item.badge && (
                           <span className="text-[10px] px-1.5 py-0.2 rounded bg-white/20 text-white font-mono">
@@ -866,7 +866,7 @@ export default function EnterpriseAdminSuite() {
                       setSidebarOpen(false);
                     }}
                     className={cn(
-                      "w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all text-left group",
+                      "w-full flex items-center justify-between px-3 py-2 rounded-md text-xs font-medium transition-all text-left group",
                       isActive
                         ? "bg-slate-900 text-white font-bold shadow-xs"
                         : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
@@ -898,9 +898,9 @@ export default function EnterpriseAdminSuite() {
         )}>
           {!sidebarCollapsed ? (
             <>
-              <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 flex items-center justify-between text-xs shadow-2xs">
+              <div className="p-2.5 rounded-md bg-white border border-slate-200/80 flex items-center justify-between text-xs shadow-2xs">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="w-2 h-2 rounded bg-emerald-500 animate-pulse" />
                   <span className="text-slate-600 text-[11px] font-medium">Supabase Cloud</span>
                 </div>
                 <span className="text-[10px] text-emerald-700 font-bold font-mono">ONLINE</span>
@@ -913,7 +913,7 @@ export default function EnterpriseAdminSuite() {
                     setShowInstallModal(true);
                     setSidebarOpen(false);
                   }}
-                  className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
+                  className="w-full flex items-center justify-center gap-1.5 py-1.5 px-2 rounded text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
                   title="Install Desktop PWA"
                 >
                   <Download className="w-3.5 h-3.5 text-slate-500" />
@@ -923,7 +923,7 @@ export default function EnterpriseAdminSuite() {
                 <Link
                   href="/"
                   target="_blank"
-                  className="w-full flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
+                  className="w-full flex items-center justify-center gap-1 py-1.5 px-2 rounded text-[11px] font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 transition-colors shadow-2xs"
                   title="View Public Website"
                 >
                   <span>Website</span>
@@ -936,7 +936,7 @@ export default function EnterpriseAdminSuite() {
               <button
                 type="button"
                 onClick={() => setShowInstallModal(true)}
-                className="w-10 h-10 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
+                className="w-10 h-10 rounded-md bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
                 title="Install Desktop PWA"
               >
                 <Download className="w-4 h-4 text-slate-600" />
@@ -948,7 +948,7 @@ export default function EnterpriseAdminSuite() {
               <Link
                 href="/"
                 target="_blank"
-                className="w-10 h-10 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
+                className="w-10 h-10 rounded-md bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 flex items-center justify-center transition-colors relative group"
                 title="View Public Website"
               >
                 <ExternalLink className="w-4 h-4 text-slate-600" />
@@ -979,7 +979,7 @@ export default function EnterpriseAdminSuite() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="md:hidden p-2 rounded-xl bg-slate-100 text-slate-700"
+              className="md:hidden p-2 rounded-md bg-slate-100 text-slate-700"
             >
               <Menu className="w-4 h-4" />
             </button>
@@ -988,7 +988,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-              className="hidden md:flex p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
+              className="hidden md:flex p-1.5 rounded text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
               title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
             >
               {sidebarCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
@@ -1007,7 +1007,7 @@ export default function EnterpriseAdminSuite() {
             <button
               onClick={handleSyncToSupabase}
               disabled={isSeeding}
-              className="flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold transition-all shadow-2xs disabled:opacity-50 text-xs"
+              className="flex items-center gap-1.5 h-8.5 px-3 rounded bg-slate-900 hover:bg-slate-800 text-white font-semibold transition-all shadow-2xs disabled:opacity-50 text-xs"
               title="Push 100% real website content to Supabase database"
             >
               <RefreshCw className={cn("w-3 h-3", isSeeding && "animate-spin text-amber-300")} />
@@ -1015,12 +1015,12 @@ export default function EnterpriseAdminSuite() {
               <span className="sm:hidden">Sync</span>
             </button>
 
-            <div className="hidden md:flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-600 font-medium">
+            <div className="hidden md:flex items-center gap-1.5 h-8.5 px-3 rounded bg-slate-50 border border-slate-200/80 text-slate-600 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>FENSA #28491</span>
             </div>
 
-            <div className="hidden lg:flex items-center gap-1.5 h-8.5 px-3 rounded-lg bg-slate-50 border border-slate-200/80 text-slate-800 font-bold font-mono">
+            <div className="hidden lg:flex items-center gap-1.5 h-8.5 px-3 rounded bg-slate-50 border border-slate-200/80 text-slate-800 font-bold font-mono">
               <Sparkles className="w-3.5 h-3.5 text-amber-500" />
               <span>Pipeline: {formatCurrency(totalPipelineRevenue)}</span>
             </div>
@@ -1030,7 +1030,7 @@ export default function EnterpriseAdminSuite() {
         {/* Sync Feedback Toast Alert */}
         {seedResult && (
           <div className={cn(
-            "mx-4 sm:mx-8 mt-4 p-3.5 rounded-xl border text-xs font-label flex items-center justify-between animate-fade-in shadow-xs",
+            "mx-4 sm:mx-8 mt-4 p-3.5 rounded-md border text-xs font-label flex items-center justify-between animate-fade-in shadow-xs",
             seedResult.type === "success" 
               ? "bg-emerald-50 border-emerald-200 text-emerald-800"
               : "bg-blue-50 border-blue-200 text-blue-800"
@@ -1056,10 +1056,10 @@ export default function EnterpriseAdminSuite() {
               
               {/* Top 4 Minimalist KPI Metric Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Weekly Traffic</span>
-                    <div className="p-1.5 rounded-lg bg-blue-50 text-blue-600">
+                    <div className="p-1.5 rounded bg-blue-50 text-blue-600">
                       <Users className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -1070,10 +1070,10 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Quotes Received</span>
-                    <div className="p-1.5 rounded-lg bg-amber-50 text-amber-600">
+                    <div className="p-1.5 rounded bg-amber-50 text-amber-600">
                       <FileText className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -1084,10 +1084,10 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Active Revenue Pipeline</span>
-                    <div className="p-1.5 rounded-lg bg-emerald-50 text-emerald-600">
+                    <div className="p-1.5 rounded bg-emerald-50 text-emerald-600">
                       <DollarSign className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -1099,10 +1099,10 @@ export default function EnterpriseAdminSuite() {
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2 hover:border-slate-300 transition-all">
                   <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                     <span className="font-medium">Google SEO Score</span>
-                    <div className="p-1.5 rounded-lg bg-purple-50 text-purple-600">
+                    <div className="p-1.5 rounded bg-purple-50 text-purple-600">
                       <Target className="w-3.5 h-3.5" />
                     </div>
                   </div>
@@ -1114,9 +1114,9 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Live Telemetry Radar Minimalist Dark Banner */}
-              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-xl text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-md text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="flex items-center gap-3.5">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                  <div className="w-10 h-10 rounded bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
                     <Radio className="w-5 h-5 animate-pulse" />
                   </div>
                   <div className="space-y-0.5">
@@ -1124,7 +1124,7 @@ export default function EnterpriseAdminSuite() {
                       <span className="font-headline font-bold text-sm sm:text-base text-white">
                         Real-Time Live Traffic & Telemetry Monitor
                       </span>
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 text-[10px] font-mono font-semibold whitespace-nowrap">
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/20 text-[10px] font-mono font-semibold whitespace-nowrap">
                         14 Visitors Online
                       </span>
                     </div>
@@ -1137,7 +1137,7 @@ export default function EnterpriseAdminSuite() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("live-traffic")}
-                  className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-2 px-3.5 rounded-lg text-xs whitespace-nowrap flex items-center gap-1.5 shadow-2xs shrink-0 self-start md:self-auto transition-all active:scale-95 font-label"
+                  className="bg-white hover:bg-slate-100 text-slate-900 font-semibold py-2 px-3.5 rounded text-xs whitespace-nowrap flex items-center gap-1.5 shadow-2xs shrink-0 self-start md:self-auto transition-all active:scale-95 font-label"
                 >
                   <span>Open Live Monitor</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
@@ -1148,13 +1148,13 @@ export default function EnterpriseAdminSuite() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 
                 {/* Traffic Graph */}
-                <div className="lg:col-span-8 bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-6">
+                <div className="lg:col-span-8 bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-headline font-bold text-base text-slate-900">Weekly Traffic & Quote Inquiries (Oxfordshire)</h3>
                       <p className="text-xs text-slate-500 font-label">Daily visitors across Bicester, Oxford, and Banbury</p>
                     </div>
-                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-label">
+                    <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 font-label">
                       🟢 Live Telemetry
                     </span>
                   </div>
@@ -1199,7 +1199,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
 
                 {/* Lead Acquisition Channels */}
-                <div className="lg:col-span-4 bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-5">
+                <div className="lg:col-span-4 bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-5">
                   <h3 className="font-headline font-bold text-base text-slate-900">Lead Acquisition Sources</h3>
                   
                   <div className="space-y-3.5 text-xs font-label">
@@ -1214,8 +1214,8 @@ export default function EnterpriseAdminSuite() {
                           <span>{ch.name}</span>
                           <span className="font-mono text-slate-900 font-bold">{ch.share}</span>
                         </div>
-                        <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                          <div className={cn("h-full rounded-full", ch.color)} style={{ width: ch.share }} />
+                        <div className="w-full bg-slate-100 h-1.5 rounded overflow-hidden">
+                          <div className={cn("h-full rounded", ch.color)} style={{ width: ch.share }} />
                         </div>
                       </div>
                     ))}
@@ -1238,7 +1238,7 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Connected Marketing Platforms & Plugins Overview */}
-              <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-5">
+              <div className="bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
                   <div className="space-y-0.5">
                     <h3 className="font-headline font-bold text-base text-slate-900 flex items-center gap-2 whitespace-nowrap">
@@ -1269,12 +1269,12 @@ export default function EnterpriseAdminSuite() {
                     { name: "Google Maps Platform", status: "Bicester Geo Pin", color: "text-red-700 bg-red-50 border-red-200", icon: <GoogleMapsLogo className="w-4 h-4" /> },
                     { name: "Supabase PostgreSQL", status: "Cloud Live Sync", color: "text-emerald-700 bg-emerald-50 border-emerald-300", icon: <SupabaseLogo className="w-4 h-4" /> },
                   ].map((p, i) => (
-                    <div key={i} className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition-all space-y-2.5">
+                    <div key={i} className="p-3.5 rounded-md border border-slate-200/80 bg-white hover:border-slate-300 transition-all space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <div className="w-7 h-7 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center p-1 shrink-0 shadow-2xs">
+                        <div className="w-7 h-7 rounded bg-slate-50 border border-slate-100 flex items-center justify-center p-1 shrink-0 shadow-2xs">
                           {p.icon}
                         </div>
-                        <span className={cn("text-[9px] font-bold px-2 py-0.5 rounded-full border font-mono whitespace-nowrap", p.color)}>
+                        <span className={cn("text-[9px] font-bold px-2 py-0.5 rounded border font-mono whitespace-nowrap", p.color)}>
                           {p.status}
                         </span>
                       </div>
@@ -1319,7 +1319,7 @@ export default function EnterpriseAdminSuite() {
                       key={f}
                       onClick={() => setSelectedStatusFilter(f)}
                       className={cn(
-                        "px-3 py-1.5 rounded-lg text-xs font-semibold font-label transition-all whitespace-nowrap",
+                        "px-3 py-1.5 rounded text-xs font-semibold font-label transition-all whitespace-nowrap",
                         selectedStatusFilter === f
                           ? "bg-slate-900 text-white shadow-2xs font-bold"
                           : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200"
@@ -1338,13 +1338,13 @@ export default function EnterpriseAdminSuite() {
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       placeholder="Search customer, postcode..."
-                      className="w-full pl-9 pr-3.5 py-1.5 rounded-lg border border-slate-200 bg-white text-xs font-label text-slate-800 focus:outline-none focus:border-slate-400"
+                      className="w-full pl-9 pr-3.5 py-1.5 rounded border border-slate-200 bg-white text-xs font-label text-slate-800 focus:outline-none focus:border-slate-400"
                     />
                   </div>
 
                   <button
                     onClick={() => setLeadModal({ isOpen: true, mode: "create", data: {} })}
-                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                   >
                     <PlusCircle className="w-3.5 h-3.5" />
                     <span>Add Quote Lead</span>
@@ -1353,7 +1353,7 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* Leads Table */}
-              <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs">
+              <div className="bg-white rounded-md border border-slate-200/80 overflow-hidden shadow-2xs">
                 <div className="overflow-x-auto">
                   <table className="w-full text-left text-xs font-label">
                     <thead className="bg-slate-50 border-b border-slate-200 text-slate-500">
@@ -1403,21 +1403,21 @@ export default function EnterpriseAdminSuite() {
                             <div className="flex items-center justify-end gap-1.5">
                               <a
                                 href={`tel:${lead.phone}`}
-                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                                className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                                 title="Call Customer"
                               >
                                 <Phone className="w-3.5 h-3.5" />
                               </a>
                               <button
                                 onClick={() => setLeadModal({ isOpen: true, mode: "edit", data: lead })}
-                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 transition-colors"
+                                className="p-1.5 rounded bg-slate-100 hover:bg-blue-600 hover:text-white text-slate-700 transition-colors"
                                 title="Edit Lead"
                               >
                                 <Edit2 className="w-3.5 h-3.5" />
                               </button>
                               <button
                                 onClick={() => handleDeleteLead(lead.id)}
-                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
+                                className="p-1.5 rounded bg-slate-100 hover:bg-red-600 hover:text-white text-slate-700 transition-colors"
                                 title="Delete Lead"
                               >
                                 <Trash2 className="w-3.5 h-3.5" />
@@ -1445,7 +1445,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setServiceModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Service</span>
@@ -1454,7 +1454,7 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {services.map((srv) => (
-                  <div key={srv.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
+                  <div key={srv.id} className="bg-white p-5 rounded-md border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-semibold text-[11px] font-label">
@@ -1476,14 +1476,14 @@ export default function EnterpriseAdminSuite() {
                       <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setServiceModal({ isOpen: true, mode: "edit", data: srv })}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Service"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteService(srv.id)}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Service"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -1508,7 +1508,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setProjectModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>New Case Study</span>
@@ -1517,7 +1517,7 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {projects.map((proj) => (
-                  <div key={proj.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
+                  <div key={proj.id} className="bg-white p-5 rounded-md border border-slate-200/80 space-y-3.5 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-xs font-label">
                         <span className="text-slate-700 font-semibold font-mono">📍 {proj.location_city}</span>
@@ -1532,14 +1532,14 @@ export default function EnterpriseAdminSuite() {
                       <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setProjectModal({ isOpen: true, mode: "edit", data: proj })}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Case Study"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteProject(proj.id)}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Case Study"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -1564,7 +1564,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setReviewModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Review</span>
@@ -1573,7 +1573,7 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {reviews.map((rev) => (
-                  <div key={rev.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
+                  <div key={rev.id} className="bg-white p-5 rounded-md border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1 text-amber-500">
@@ -1592,14 +1592,14 @@ export default function EnterpriseAdminSuite() {
                       <div className="flex items-center gap-1.5">
                         <button
                           onClick={() => setReviewModal({ isOpen: true, mode: "edit", data: rev })}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Review"
                         >
                           <Edit2 className="w-3 h-3" />
                         </button>
                         <button
                           onClick={() => handleDeleteReview(rev.id)}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Review"
                         >
                           <Trash2 className="w-3 h-3" />
@@ -1624,7 +1624,7 @@ export default function EnterpriseAdminSuite() {
                 </div>
                 <button
                   onClick={() => setAreaModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
                 >
                   <PlusCircle className="w-3.5 h-3.5" />
                   <span>Add Postcode Area</span>
@@ -1633,7 +1633,7 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {areas.map((area) => (
-                  <div key={area.id} className="bg-white p-5 rounded-xl border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
+                  <div key={area.id} className="bg-white p-5 rounded-md border border-slate-200/80 space-y-3 shadow-2xs hover:border-slate-300 transition-all flex flex-col justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="font-headline font-bold text-sm text-slate-900">📍 {area.town_name}</span>
@@ -1651,14 +1651,14 @@ export default function EnterpriseAdminSuite() {
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-1.5">
                       <button
                         onClick={() => setAreaModal({ isOpen: true, mode: "edit", data: area })}
-                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                        className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                         title="Edit Area"
                       >
                         <Edit2 className="w-3 h-3" />
                       </button>
                       <button
                         onClick={() => handleDeleteArea(area.id)}
-                        className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                        className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                         title="Delete Area"
                       >
                         <Trash2 className="w-3 h-3" />
@@ -1677,10 +1677,10 @@ export default function EnterpriseAdminSuite() {
             <div className="space-y-8 animate-fade-in">
               
               {/* 1. SEO Header & Page 1 Dominance Banner */}
-              <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-2xl text-white shadow-sm space-y-4">
+              <div className="bg-slate-900 border border-slate-800 p-6 sm:p-8 rounded-md text-white shadow-sm space-y-4">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="space-y-2">
-                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold text-xs uppercase font-label">
+                    <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 font-bold text-xs uppercase font-label">
                       <Target className="w-3.5 h-3.5" />
                       <span>Google Page 1 Ranking Intelligence Engine</span>
                     </div>
@@ -1693,8 +1693,8 @@ export default function EnterpriseAdminSuite() {
                   </div>
 
                   {/* Page 1 Ranking Probability Score Card */}
-                  <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex items-center gap-4 shrink-0 backdrop-blur-xs">
-                    <div className="relative w-16 h-16 rounded-full bg-slate-800 flex items-center justify-center border-4 border-emerald-500/80 shadow-xs">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-md flex items-center gap-4 shrink-0 backdrop-blur-xs">
+                    <div className="relative w-16 h-16 rounded bg-slate-800 flex items-center justify-center border-4 border-emerald-500/80 shadow-xs">
                       <span className="font-headline font-bold text-lg text-emerald-400">94%</span>
                     </div>
                     <div className="space-y-0.5">
@@ -1710,57 +1710,57 @@ export default function EnterpriseAdminSuite() {
 
                 {/* 5 Core Ranking Factor Progress Bars */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-4 border-t border-white/10 text-xs font-label">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/10 space-y-1.5">
                     <div className="flex justify-between text-slate-300">
                       <span>Technical Schema</span>
                       <strong className="text-emerald-400 font-mono">100%</strong>
                     </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full rounded-full w-full" />
+                    <div className="w-full bg-white/10 h-1.5 rounded overflow-hidden">
+                      <div className="bg-emerald-500 h-full rounded w-full" />
                     </div>
                     <span className="text-[10px] text-slate-400 block truncate">JSON-LD LocalBusiness</span>
                   </div>
 
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/10 space-y-1.5">
                     <div className="flex justify-between text-slate-300">
                       <span>Core Web Vitals</span>
                       <strong className="text-emerald-400 font-mono">96%</strong>
                     </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full rounded-full w-[96%]" />
+                    <div className="w-full bg-white/10 h-1.5 rounded overflow-hidden">
+                      <div className="bg-emerald-500 h-full rounded w-[96%]" />
                     </div>
                     <span className="text-[10px] text-slate-400 block truncate">LCP &lt; 0.8s • Fast Next.js</span>
                   </div>
 
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/10 space-y-1.5">
                     <div className="flex justify-between text-slate-300">
                       <span>Local Postcodes</span>
                       <strong className="text-emerald-400 font-mono">92%</strong>
                     </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full rounded-full w-[92%]" />
+                    <div className="w-full bg-white/10 h-1.5 rounded overflow-hidden">
+                      <div className="bg-emerald-500 h-full rounded w-[92%]" />
                     </div>
                     <span className="text-[10px] text-slate-400 block truncate">OX26, OX1, OX16, OX5</span>
                   </div>
 
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/10 space-y-1.5">
                     <div className="flex justify-between text-slate-300">
                       <span>Search Intent</span>
                       <strong className="text-emerald-400 font-mono">94%</strong>
                     </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full rounded-full w-[94%]" />
+                    <div className="w-full bg-white/10 h-1.5 rounded overflow-hidden">
+                      <div className="bg-emerald-500 h-full rounded w-[94%]" />
                     </div>
                     <span className="text-[10px] text-slate-400 block truncate">High-intent Glazing Terms</span>
                   </div>
 
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1.5">
+                  <div className="bg-white/5 p-3 rounded-md border border-white/10 space-y-1.5">
                     <div className="flex justify-between text-slate-300">
                       <span>Authority & Trust</span>
                       <strong className="text-emerald-400 font-mono">90%</strong>
                     </div>
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full rounded-full w-[90%]" />
+                    <div className="w-full bg-white/10 h-1.5 rounded overflow-hidden">
+                      <div className="bg-emerald-500 h-full rounded w-[90%]" />
                     </div>
                     <span className="text-[10px] text-slate-400 block truncate">40-Yr Heritage + 128 Reviews</span>
                   </div>
@@ -1768,7 +1768,7 @@ export default function EnterpriseAdminSuite() {
               </div>
 
               {/* 2. SEO Growth Quests & Master Playbook (ระบบทำเควส & ไกด์ไลน์ดันอันดับ) */}
-              <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs space-y-4">
+              <div className="bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
                   <div>
                     <h3 className="font-headline font-bold text-base text-slate-900 flex items-center gap-2">
@@ -1779,7 +1779,7 @@ export default function EnterpriseAdminSuite() {
                       Follow these actionable quest guidelines to secure and lock in #1 rankings on Google Search.
                     </p>
                   </div>
-                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-label self-start sm:self-auto">
+                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200 font-label self-start sm:self-auto">
                     3/5 Quests Completed (60%)
                   </span>
                 </div>
@@ -1840,7 +1840,7 @@ export default function EnterpriseAdminSuite() {
                     <div
                       key={quest.id}
                       className={cn(
-                        "p-4 rounded-xl border transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4",
+                        "p-4 rounded-md border transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-4",
                         quest.status === "completed"
                           ? "bg-slate-50/70 border-slate-200/80"
                           : quest.status === "in_progress"
@@ -1855,7 +1855,7 @@ export default function EnterpriseAdminSuite() {
                           </h4>
                           <span
                             className={cn(
-                              "text-[10px] font-bold px-2 py-0.5 rounded-full font-label",
+                              "text-[10px] font-bold px-2 py-0.5 rounded font-label",
                               quest.status === "completed"
                                 ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                                 : quest.status === "in_progress"
@@ -1880,7 +1880,7 @@ export default function EnterpriseAdminSuite() {
                           href={quest.actionUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-all shrink-0 font-label shadow-2xs self-start md:self-auto"
+                          className="px-3 py-1.5 rounded text-xs font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-all shrink-0 font-label shadow-2xs self-start md:self-auto"
                         >
                           <span>{quest.actionText}</span>
                           <ExternalLink className="w-3 h-3 text-slate-400" />
@@ -1889,7 +1889,7 @@ export default function EnterpriseAdminSuite() {
                         <button
                           type="button"
                           onClick={() => quest.actionTab && setActiveTab(quest.actionTab as any)}
-                          className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white flex items-center gap-1.5 transition-all shrink-0 font-label shadow-2xs self-start md:self-auto"
+                          className="px-3 py-1.5 rounded text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white flex items-center gap-1.5 transition-all shrink-0 font-label shadow-2xs self-start md:self-auto"
                         >
                           <span>{quest.actionText}</span>
                           <ChevronRight className="w-3 h-3 text-slate-300" />
@@ -1902,25 +1902,25 @@ export default function EnterpriseAdminSuite() {
 
               {/* 3. Keyword Ranking Cards */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2">
                   <div className="text-xs text-slate-400 font-label font-medium">Top Priority Keyword</div>
                   <h4 className="font-headline font-bold text-base text-slate-900">"misted double glazing bicester"</h4>
                   <div className="text-emerald-700 font-semibold text-xs font-label flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded bg-emerald-500 animate-pulse" />
                     <span>Rank: Position #1 on Google (Oxfordshire)</span>
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2">
                   <div className="text-xs text-slate-400 font-label font-medium">Secondary High-Value Term</div>
                   <h4 className="font-headline font-bold text-base text-slate-900">"window repair oxford"</h4>
                   <div className="text-emerald-700 font-semibold text-xs font-label flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded bg-emerald-500 animate-pulse" />
                     <span>Rank: Position #2 on Google</span>
                   </div>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-2xs space-y-2">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2">
                   <div className="text-xs text-slate-400 font-label font-medium">Sitemap & Indexing Health</div>
                   <h4 className="font-headline font-bold text-base text-slate-900">/sitemap.xml</h4>
                   <div className="text-emerald-700 font-semibold text-xs font-label flex items-center gap-1">
@@ -1940,7 +1940,7 @@ export default function EnterpriseAdminSuite() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => setBlogModal({ isOpen: true, mode: "create", data: {} })}
-                      className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
+                      className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-md flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label"
                     >
                       <PlusCircle className="w-3.5 h-3.5" />
                       <span>Add Article</span>
@@ -1948,7 +1948,7 @@ export default function EnterpriseAdminSuite() {
                     <Link
                       href="/blog"
                       target="_blank"
-                      className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1 shadow-2xs"
+                      className="px-3 py-1.5 rounded-md text-xs font-semibold bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1 shadow-2xs"
                     >
                       <span>Public Guides</span>
                       <ExternalLink className="w-3 h-3 text-slate-400" />
@@ -1958,7 +1958,7 @@ export default function EnterpriseAdminSuite() {
 
                 <div className="space-y-3">
                   {blogs.map((b) => (
-                    <div key={b.slug} className="bg-white p-5 rounded-2xl border border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs hover:border-slate-300 transition-all">
+                    <div key={b.slug} className="bg-white p-5 rounded-md border border-slate-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs hover:border-slate-300 transition-all">
                       <div className="space-y-1.5 max-w-2xl">
                         <div className="flex items-center gap-2">
                           <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[10px] font-bold font-mono border border-emerald-200">
@@ -1978,21 +1978,21 @@ export default function EnterpriseAdminSuite() {
                         <Link
                           href={`/blog/${b.slug}`}
                           target="_blank"
-                          className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors flex items-center gap-1 font-label"
+                          className="px-3 py-1.5 rounded text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors flex items-center gap-1 font-label"
                         >
                           <span>Preview</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
                         </Link>
                         <button
                           onClick={() => setBlogModal({ isOpen: true, mode: "edit", data: b })}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
                           title="Edit Article"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDeleteBlog(b.slug)}
-                          className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
                           title="Delete Article"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -2023,9 +2023,9 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Hero Slider & Banner Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage homepage hero slides — images, headlines, CTAs, and stat badges</p>
                 </div>
-                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-xl flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label              <div className="space-y-4">
+                <button onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })} className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-2 px-3.5 rounded-md flex items-center gap-1.5 whitespace-nowrap shadow-xs transition-all active:scale-95 border border-secondary/40 font-label              <div className="space-y-4">
                 {heroSlides.map((slide, idx) => (
-                  <div key={slide.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-3.5">
+                  <div key={slide.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-3.5">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 space-y-2">
                         <div className="flex items-center gap-2">
@@ -2037,7 +2037,7 @@ export default function EnterpriseAdminSuite() {
                         <p className="text-xs text-slate-600 line-clamp-2 font-label">{slide.description}</p>
                       </div>
                       {slide.imageUrl && (
-                        <div className="w-32 h-20 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
+                        <div className="w-32 h-20 rounded overflow-hidden bg-slate-100 flex-shrink-0">
                           <img src={slide.imageUrl} alt={slide.title} className="w-full h-full object-cover" />
                         </div>
                       )}
@@ -2048,8 +2048,8 @@ export default function EnterpriseAdminSuite() {
                       {slide.stats.map((s, i) => <span key={i} className="bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md font-medium">{s.label}: {s.value}</span>)}
                     </div>
                     <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-1.5">
-                      <button onClick={() => setHeroModal({ isOpen: true, mode: "edit", data: slide })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors" title="Edit Slide"><Edit2 className="w-3.5 h-3.5" /></button>
-                      <button onClick={() => handleDeleteHero(slide.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors" title="Delete Slide"><Trash2 className="w-3.5 h-3.5" /></button>
+                      <button onClick={() => setHeroModal({ isOpen: true, mode: "edit", data: slide })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors" title="Edit Slide"><Edit2 className="w-3.5 h-3.5" /></button>
+                      <button onClick={() => handleDeleteHero(slide.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors" title="Delete Slide"><Trash2 className="w-3.5 h-3.5" /></button>
                     </div>
                   </div>
                 ))}
@@ -2067,32 +2067,32 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">FAQ & SEO Schema Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage FAQ questions — auto-generates JSON-LD FAQPage schema for Google rich snippets</p>
                 </div>
-                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add FAQ</span>
                 </button>
               </div>
 
               <div className="space-y-3">
                 {faqs.map((faq, idx) => (
-                  <div key={faq.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
+                  <div key={faq.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 space-y-1.5">
                         <div className="flex items-center gap-2">
-                          <span className="w-5 h-5 rounded-full bg-slate-900 text-white text-[10px] font-bold flex items-center justify-center font-mono">{idx + 1}</span>
+                          <span className="w-5 h-5 rounded bg-slate-900 text-white text-[10px] font-bold flex items-center justify-center font-mono">{idx + 1}</span>
                           <h4 className="font-headline font-bold text-sm text-slate-900 flex-1">{faq.question}</h4>
                         </div>
                         <p className="text-xs text-slate-600 leading-relaxed pl-7 font-label">{faq.answer}</p>
                       </div>
                       <div className="flex items-center gap-1.5 flex-shrink-0">
-                        <button onClick={() => setFaqModal({ isOpen: true, mode: "edit", data: faq })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                        <button onClick={() => handleDeleteFaq(faq.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                        <button onClick={() => setFaqModal({ isOpen: true, mode: "edit", data: faq })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                        <button onClick={() => handleDeleteFaq(faq.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-xs text-emerald-800 font-label">
+              <div className="bg-emerald-50 p-4 rounded-md border border-emerald-200 text-xs text-emerald-800 font-label">
                 <strong>SEO Impact:</strong> {faqs.length} FAQs will auto-generate a JSON-LD FAQPage schema for Google rich snippet eligibility. Changes sync to /sitemap.xml automatically.
               </div>
             </div>
@@ -2108,12 +2108,12 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Comparison Matrix Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Edit the "Why Replace The Whole Window?" comparison table on the homepage</p>
                 </div>
-                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Row</span>
                 </button>
               </div>
 
-              <div className="bg-white rounded-xl border border-slate-200/80 overflow-hidden shadow-2xs">
+              <div className="bg-white rounded-md border border-slate-200/80 overflow-hidden shadow-2xs">
                 <table className="w-full text-left text-xs font-label">
                   <thead className="bg-slate-50 border-b border-slate-200 text-slate-500">
                     <tr>
@@ -2131,8 +2131,8 @@ export default function EnterpriseAdminSuite() {
                         <td className="py-3 px-4 text-red-700">{row.nationalGuys}</td>
                         <td className="py-3 px-4 text-right">
                           <div className="flex items-center justify-end gap-1.5">
-                            <button onClick={() => setCompModal({ isOpen: true, mode: "edit", data: row })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                            <button onClick={() => handleDeleteComp(row.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                            <button onClick={() => setCompModal({ isOpen: true, mode: "edit", data: row })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                            <button onClick={() => handleDeleteComp(row.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                           </div>
                         </td>
                       </tr>
@@ -2153,25 +2153,25 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">4-Stage Process Journey Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Manage the "Our Seamless 4-Stage Precision Process" section on the homepage</p>
                 </div>
-                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded-lg flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
                   <PlusCircle className="w-3.5 h-3.5" /><span>Add Step</span>
                 </button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {processSteps.map((step) => (
-                  <div key={step.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
+                  <div key={step.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
-                        <span className="w-8 h-8 rounded-lg bg-slate-900 text-white font-headline font-bold text-sm flex items-center justify-center font-mono">{step.num}</span>
+                        <span className="w-8 h-8 rounded bg-slate-900 text-white font-headline font-bold text-sm flex items-center justify-center font-mono">{step.num}</span>
                         <div>
                           <h4 className="font-headline font-bold text-sm text-slate-900">{step.title}</h4>
                           <span className="text-[11px] text-amber-600 font-semibold font-label">{step.timing}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
+                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
                       </div>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed font-label">{step.description}</p>
@@ -2191,72 +2191,72 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Global Site Settings</h2>
                   <p className="text-xs text-slate-500 font-label">Business contact info, address, FENSA number, opening hours — used across Navbar, Footer, Schema, and all pages</p>
                 </div>
-                <button onClick={handleSaveSettings} className={cn("text-xs py-1.5 px-3.5 rounded-lg flex items-center gap-1.5 font-semibold shadow-2xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-slate-900 hover:bg-slate-800 text-white")}>
+                <button onClick={handleSaveSettings} className={cn("text-xs py-1.5 px-3.5 rounded flex items-center gap-1.5 font-semibold shadow-2xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-slate-900 hover:bg-slate-800 text-white")}>
                   {settingsSaved ? <><Check className="w-3.5 h-3.5" /><span>Saved & Synced!</span></> : <><Save className="w-3.5 h-3.5" /><span>Save All Settings</span></>}
                 </button>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Business Identity */}
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-4">
                   <h3 className="font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">🏢 Business Identity</h3>
                   <div className="space-y-3.5 text-xs font-label">
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">Business Name</label>
-                      <input type="text" value={siteSettings.businessName} onChange={(e) => setSiteSettings({ ...siteSettings, businessName: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="text" value={siteSettings.businessName} onChange={(e) => setSiteSettings({ ...siteSettings, businessName: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">Brand Tagline</label>
-                      <input type="text" value={siteSettings.tagline} onChange={(e) => setSiteSettings({ ...siteSettings, tagline: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="text" value={siteSettings.tagline} onChange={(e) => setSiteSettings({ ...siteSettings, tagline: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">FENSA Registration Number</label>
-                      <input type="text" value={siteSettings.fensaNumber} onChange={(e) => setSiteSettings({ ...siteSettings, fensaNumber: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
+                      <input type="text" value={siteSettings.fensaNumber} onChange={(e) => setSiteSettings({ ...siteSettings, fensaNumber: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">Opening Hours</label>
-                      <input type="text" value={siteSettings.openingHours} onChange={(e) => setSiteSettings({ ...siteSettings, openingHours: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="text" value={siteSettings.openingHours} onChange={(e) => setSiteSettings({ ...siteSettings, openingHours: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                   </div>
                 </div>
 
                 {/* Contact & Location */}
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-4">
                   <h3 className="font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">📍 Contact & Location</h3>
                   <div className="space-y-3.5 text-xs font-label">
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-slate-700 font-medium mb-1">Phone Number</label>
-                        <input type="text" value={siteSettings.phone} onChange={(e) => setSiteSettings({ ...siteSettings, phone: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
+                        <input type="text" value={siteSettings.phone} onChange={(e) => setSiteSettings({ ...siteSettings, phone: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                       </div>
                       <div>
                         <label className="block text-slate-700 font-medium mb-1">Email Address</label>
-                        <input type="text" value={siteSettings.email} onChange={(e) => setSiteSettings({ ...siteSettings, email: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                        <input type="text" value={siteSettings.email} onChange={(e) => setSiteSettings({ ...siteSettings, email: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">Street Address</label>
-                      <input type="text" value={siteSettings.address} onChange={(e) => setSiteSettings({ ...siteSettings, address: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="text" value={siteSettings.address} onChange={(e) => setSiteSettings({ ...siteSettings, address: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-slate-700 font-medium mb-1">City / Town</label>
-                        <input type="text" value={siteSettings.city} onChange={(e) => setSiteSettings({ ...siteSettings, city: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                        <input type="text" value={siteSettings.city} onChange={(e) => setSiteSettings({ ...siteSettings, city: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                       </div>
                       <div>
                         <label className="block text-slate-700 font-medium mb-1">Postcode</label>
-                        <input type="text" value={siteSettings.postcode} onChange={(e) => setSiteSettings({ ...siteSettings, postcode: e.target.value })} className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
+                        <input type="text" value={siteSettings.postcode} onChange={(e) => setSiteSettings({ ...siteSettings, postcode: e.target.value })} className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1">Google Maps Place ID (optional)</label>
-                      <input type="text" value={siteSettings.googleMapsPlaceId} onChange={(e) => setSiteSettings({ ...siteSettings, googleMapsPlaceId: e.target.value })} placeholder="ChIJ..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
+                      <input type="text" value={siteSettings.googleMapsPlaceId} onChange={(e) => setSiteSettings({ ...siteSettings, googleMapsPlaceId: e.target.value })} placeholder="ChIJ..." className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none font-mono" />
                     </div>
                   </div>
                 </div>
 
                 {/* Social Media */}
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-4 lg:col-span-2">
+                <div className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-4 lg:col-span-2">
                   <div className="flex items-center gap-2 font-headline font-bold text-sm text-slate-900 border-b border-slate-100 pb-2.5">
                     <Globe className="w-4 h-4 text-slate-500 shrink-0" />
                     <span>Social Media & External Links</span>
@@ -2264,11 +2264,11 @@ export default function EnterpriseAdminSuite() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-label">
                     <div>
                       <label className="block text-slate-700 font-medium mb-1 whitespace-nowrap">Facebook Page URL</label>
-                      <input type="url" value={siteSettings.facebookUrl} onChange={(e) => setSiteSettings({ ...siteSettings, facebookUrl: e.target.value })} placeholder="https://facebook.com/..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="url" value={siteSettings.facebookUrl} onChange={(e) => setSiteSettings({ ...siteSettings, facebookUrl: e.target.value })} placeholder="https://facebook.com/..." className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                     <div>
                       <label className="block text-slate-700 font-medium mb-1 whitespace-nowrap">Instagram Profile URL</label>
-                      <input type="url" value={siteSettings.instagramUrl} onChange={(e) => setSiteSettings({ ...siteSettings, instagramUrl: e.target.value })} placeholder="https://instagram.com/..." className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
+                      <input type="url" value={siteSettings.instagramUrl} onChange={(e) => setSiteSettings({ ...siteSettings, instagramUrl: e.target.value })} placeholder="https://instagram.com/..." className="w-full px-3 py-2 rounded border border-slate-200 bg-slate-50 focus:bg-white focus:border-slate-400 focus:outline-none" />
                     </div>
                   </div>
                 </div>
@@ -2290,9 +2290,9 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {trustPillars.map((pillar) => (
-                  <div key={pillar.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3.5">
+                  <div key={pillar.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs flex flex-col justify-between space-y-3.5">
                     <div className="space-y-2.5">
-                      <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center font-bold">
+                      <div className="w-9 h-9 rounded bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center font-bold">
                         <ShieldCheck className="w-4 h-4" />
                       </div>
                       <div>
@@ -2321,10 +2321,10 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {frameColors.map((color) => (
-                  <div key={color.id} className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-2xs space-y-3">
+                  <div key={color.id} className="bg-white p-4 rounded-md border border-slate-200/80 shadow-2xs space-y-3">
                     <div className="flex items-center gap-3">
                       <div 
-                        className="w-10 h-10 rounded-lg border border-slate-300 shadow-2xs shrink-0" 
+                        className="w-10 h-10 rounded border border-slate-300 shadow-2xs shrink-0" 
                         style={{ backgroundColor: color.hex_color }} 
                       />
                       <div className="min-w-0 flex-1">
@@ -2360,7 +2360,7 @@ export default function EnterpriseAdminSuite() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {energyRates.map((rate) => (
-                  <div key={rate.id} className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-2xs space-y-2.5">
+                  <div key={rate.id} className="bg-white p-5 rounded-md border border-slate-200/80 shadow-2xs space-y-2.5">
                     <div className="flex items-center justify-between text-slate-500 text-xs font-label">
                       <span className="truncate font-medium">{rate.label}</span>
                       <Zap className="w-4 h-4 text-amber-500 shrink-0" />
@@ -2385,7 +2385,7 @@ export default function EnterpriseAdminSuite() {
       {/* GLOBAL TOAST NOTIFICATION                                                 */}
       {/* ========================================================================= */}
       {actionToast && (
-        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-xl bg-slate-900 text-white shadow-2xl border border-slate-700 flex items-center gap-3 animate-slide-in-right text-xs font-label">
+        <div className="fixed bottom-6 right-6 z-50 p-4 rounded-md bg-slate-900 text-white shadow-2xl border border-slate-700 flex items-center gap-3 animate-slide-in-right text-xs font-label">
           <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{actionToast.message}</span>
           <button onClick={() => setActionToast(null)} className="text-slate-400 hover:text-white shrink-0 ml-2">
@@ -2407,7 +2407,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setLeadModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2417,7 +2417,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveLead(e as any);
                 triggerToast("Customer lead updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {leadModal.mode === "create" ? "Create Lead" : "Save Changes"}
             </button>
@@ -2433,7 +2433,7 @@ export default function EnterpriseAdminSuite() {
               value={leadModal.data?.customer_name || ""}
               onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, customer_name: e.target.value } })}
               placeholder="e.g. Mrs. Eleanor Vance"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2446,7 +2446,7 @@ export default function EnterpriseAdminSuite() {
                 value={leadModal.data?.phone || ""}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, phone: e.target.value } })}
                 placeholder="07891 234567"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2457,7 +2457,7 @@ export default function EnterpriseAdminSuite() {
                 value={leadModal.data?.email || ""}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, email: e.target.value } })}
                 placeholder="customer@example.com"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2471,7 +2471,7 @@ export default function EnterpriseAdminSuite() {
                 value={leadModal.data?.postcode || ""}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, postcode: e.target.value } })}
                 placeholder="OX26 (Bicester)"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2482,7 +2482,7 @@ export default function EnterpriseAdminSuite() {
                 value={leadModal.data?.service_type || ""}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, service_type: e.target.value } })}
                 placeholder="Misted Glass Repair"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2494,7 +2494,7 @@ export default function EnterpriseAdminSuite() {
                 type="number"
                 value={leadModal.data?.units || 1}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, units: Number(e.target.value) } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2503,7 +2503,7 @@ export default function EnterpriseAdminSuite() {
                 type="number"
                 value={leadModal.data?.estimated_cost || 95}
                 onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, estimated_cost: Number(e.target.value) } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2515,7 +2515,7 @@ export default function EnterpriseAdminSuite() {
               value={leadModal.data?.notes || ""}
               onChange={(e) => setLeadModal({ ...leadModal, data: { ...leadModal.data, notes: e.target.value } })}
               placeholder="Notes from customer phone call or site survey..."
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
         </form>
@@ -2534,7 +2534,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setServiceModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2544,7 +2544,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveService(e as any);
                 triggerToast("Service catalog updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {serviceModal.mode === "create" ? "Create Service" : "Save Changes"}
             </button>
@@ -2560,7 +2560,7 @@ export default function EnterpriseAdminSuite() {
               value={serviceModal.data?.title || ""}
               onChange={(e) => setServiceModal({ ...serviceModal, data: { ...serviceModal.data, title: e.target.value } })}
               placeholder="e.g. Misted Glass & Seal Failure Repair"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2572,7 +2572,7 @@ export default function EnterpriseAdminSuite() {
               value={serviceModal.data?.short_description || ""}
               onChange={(e) => setServiceModal({ ...serviceModal, data: { ...serviceModal.data, short_description: e.target.value } })}
               placeholder="Brief description for homepage and catalog..."
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2584,7 +2584,7 @@ export default function EnterpriseAdminSuite() {
                 required
                 value={serviceModal.data?.base_price_estimate || 95}
                 onChange={(e) => setServiceModal({ ...serviceModal, data: { ...serviceModal.data, base_price_estimate: Number(e.target.value) } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2594,7 +2594,7 @@ export default function EnterpriseAdminSuite() {
                 required
                 value={serviceModal.data?.warranty_years || 10}
                 onChange={(e) => setServiceModal({ ...serviceModal, data: { ...serviceModal.data, warranty_years: Number(e.target.value) } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2626,7 +2626,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setProjectModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2636,7 +2636,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveProject(e as any);
                 triggerToast("Case study updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {projectModal.mode === "create" ? "Add Case Study" : "Save Changes"}
             </button>
@@ -2652,7 +2652,7 @@ export default function EnterpriseAdminSuite() {
               value={projectModal.data?.title || ""}
               onChange={(e) => setProjectModal({ ...projectModal, data: { ...projectModal.data, title: e.target.value } })}
               placeholder="e.g. Complete Misted Double Glazing Restoration"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2665,7 +2665,7 @@ export default function EnterpriseAdminSuite() {
                 value={projectModal.data?.location_city || ""}
                 onChange={(e) => setProjectModal({ ...projectModal, data: { ...projectModal.data, location_city: e.target.value } })}
                 placeholder="Kingsmere, Bicester"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2675,7 +2675,7 @@ export default function EnterpriseAdminSuite() {
                 required
                 value={projectModal.data?.completion_year || "2026"}
                 onChange={(e) => setProjectModal({ ...projectModal, data: { ...projectModal.data, completion_year: e.target.value } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2688,7 +2688,7 @@ export default function EnterpriseAdminSuite() {
               value={projectModal.data?.summary || ""}
               onChange={(e) => setProjectModal({ ...projectModal, data: { ...projectModal.data, summary: e.target.value } })}
               placeholder="Details of the job, challenge, and savings achieved..."
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2724,7 +2724,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setReviewModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2734,7 +2734,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveReview(e as any);
                 triggerToast("Customer review updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {reviewModal.mode === "create" ? "Add Review" : "Save Changes"}
             </button>
@@ -2751,7 +2751,7 @@ export default function EnterpriseAdminSuite() {
                 value={reviewModal.data?.customer_name || ""}
                 onChange={(e) => setReviewModal({ ...reviewModal, data: { ...reviewModal.data, customer_name: e.target.value } })}
                 placeholder="e.g. Katie Hawkins"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2762,7 +2762,7 @@ export default function EnterpriseAdminSuite() {
                 value={reviewModal.data?.customer_location || ""}
                 onChange={(e) => setReviewModal({ ...reviewModal, data: { ...reviewModal.data, customer_location: e.target.value } })}
                 placeholder="Bicester & Oxfordshire"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2775,7 +2775,7 @@ export default function EnterpriseAdminSuite() {
               value={reviewModal.data?.review_title || ""}
               onChange={(e) => setReviewModal({ ...reviewModal, data: { ...reviewModal.data, review_title: e.target.value } })}
               placeholder="e.g. Really polite and understood what we wanted"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2787,7 +2787,7 @@ export default function EnterpriseAdminSuite() {
               value={reviewModal.data?.review_text || ""}
               onChange={(e) => setReviewModal({ ...reviewModal, data: { ...reviewModal.data, review_text: e.target.value } })}
               placeholder="Customer feedback..."
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
         </form>
@@ -2806,7 +2806,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setAreaModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2816,7 +2816,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveArea(e as any);
                 triggerToast("Service area coverage updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {areaModal.mode === "create" ? "Add Area" : "Save Changes"}
             </button>
@@ -2832,7 +2832,7 @@ export default function EnterpriseAdminSuite() {
               value={areaModal.data?.town_name || ""}
               onChange={(e) => setAreaModal({ ...areaModal, data: { ...areaModal.data, town_name: e.target.value } })}
               placeholder="e.g. Bicester & Kingsmere"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2845,7 +2845,7 @@ export default function EnterpriseAdminSuite() {
                 value={areaModal.data?.county || ""}
                 onChange={(e) => setAreaModal({ ...areaModal, data: { ...areaModal.data, county: e.target.value } })}
                 placeholder="Oxfordshire (OX26)"
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
             <div>
@@ -2855,7 +2855,7 @@ export default function EnterpriseAdminSuite() {
                 required
                 value={areaModal.data?.response_time_hours || 24}
                 onChange={(e) => setAreaModal({ ...areaModal, data: { ...areaModal.data, response_time_hours: Number(e.target.value) } })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+                className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
               />
             </div>
           </div>
@@ -2875,7 +2875,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setBlogModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2885,7 +2885,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveBlog(e as any);
                 triggerToast("SEO article saved successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {blogModal.mode === "create" ? "Add Article" : "Save Changes"}
             </button>
@@ -2901,7 +2901,7 @@ export default function EnterpriseAdminSuite() {
               value={blogModal.data?.title || ""}
               onChange={(e) => setBlogModal({ ...blogModal, data: { ...blogModal.data, title: e.target.value } })}
               placeholder="e.g. Why Does Double Glazing Mist Up? The Oxfordshire Guide"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
 
@@ -2912,7 +2912,7 @@ export default function EnterpriseAdminSuite() {
               value={blogModal.data?.keywords?.join(", ") || ""}
               onChange={(e) => setBlogModal({ ...blogModal, data: { ...blogModal.data, keywords: e.target.value.split(",").map(s => s.trim()) } })}
               placeholder="misted double glazing bicester, window repair oxford"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
+              className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none"
             />
           </div>
         </form>
@@ -2931,7 +2931,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setHeroModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2941,7 +2941,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveHero(e as any);
                 triggerToast("Hero slide banner updated successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {heroModal.mode === "create" ? "Add Slide" : "Save Changes"}
             </button>
@@ -2949,10 +2949,10 @@ export default function EnterpriseAdminSuite() {
         }
       >
         <form onSubmit={handleSaveHero} className="space-y-4 text-xs font-label">
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Slide Title (Main Headline)</label><input type="text" required value={heroModal.data?.title || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, title: e.target.value } })} placeholder="e.g. Master Glazing & Window Engineering" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Highlight Text (Gold Accent)</label><input type="text" value={heroModal.data?.highlightText || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, highlightText: e.target.value } })} placeholder="e.g. Replace Glass, Not The Frame" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Description</label><textarea rows={2} value={heroModal.data?.description || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, description: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Tag Line (Top Badge)</label><input type="text" value={heroModal.data?.tag || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, tag: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Slide Title (Main Headline)</label><input type="text" required value={heroModal.data?.title || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, title: e.target.value } })} placeholder="e.g. Master Glazing & Window Engineering" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Highlight Text (Gold Accent)</label><input type="text" value={heroModal.data?.highlightText || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, highlightText: e.target.value } })} placeholder="e.g. Replace Glass, Not The Frame" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Description</label><textarea rows={2} value={heroModal.data?.description || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, description: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Tag Line (Top Badge)</label><input type="text" value={heroModal.data?.tag || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, tag: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
           
           <ImageUploadField
             label="Background Banner Image"
@@ -2967,8 +2967,8 @@ export default function EnterpriseAdminSuite() {
           />
 
           <div className="grid grid-cols-2 gap-3">
-            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Primary CTA Text</label><input type="text" value={heroModal.data?.primaryCtaText || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, primaryCtaText: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Primary CTA Link</label><input type="text" value={heroModal.data?.primaryCtaLink || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, primaryCtaLink: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" /></div>
+            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Primary CTA Text</label><input type="text" value={heroModal.data?.primaryCtaText || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, primaryCtaText: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Primary CTA Link</label><input type="text" value={heroModal.data?.primaryCtaLink || ""} onChange={(e) => setHeroModal({ ...heroModal, data: { ...heroModal.data, primaryCtaLink: e.target.value } })} className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" /></div>
           </div>
         </form>
       </SlideOverDrawer>
@@ -2986,7 +2986,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setFaqModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -2996,7 +2996,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveFaq(e as any);
                 triggerToast("FAQ question & answer saved successfully!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {faqModal.mode === "create" ? "Add FAQ" : "Save Changes"}
             </button>
@@ -3004,8 +3004,8 @@ export default function EnterpriseAdminSuite() {
         }
       >
         <form onSubmit={handleSaveFaq} className="space-y-4 text-xs font-label">
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Question</label><input type="text" required value={faqModal.data?.question || ""} onChange={(e) => setFaqModal({ ...faqModal, data: { ...faqModal.data, question: e.target.value } })} placeholder="e.g. Do I need to replace my whole window frame?" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Answer</label><textarea rows={4} required value={faqModal.data?.answer || ""} onChange={(e) => setFaqModal({ ...faqModal, data: { ...faqModal.data, answer: e.target.value } })} placeholder="Detailed answer..." className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Question</label><input type="text" required value={faqModal.data?.question || ""} onChange={(e) => setFaqModal({ ...faqModal, data: { ...faqModal.data, question: e.target.value } })} placeholder="e.g. Do I need to replace my whole window frame?" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Answer</label><textarea rows={4} required value={faqModal.data?.answer || ""} onChange={(e) => setFaqModal({ ...faqModal, data: { ...faqModal.data, answer: e.target.value } })} placeholder="Detailed answer..." className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
         </form>
       </SlideOverDrawer>
 
@@ -3022,7 +3022,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setCompModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -3032,7 +3032,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveComp(e as any);
                 triggerToast("Comparison matrix row saved!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {compModal.mode === "create" ? "Add Row" : "Save Changes"}
             </button>
@@ -3040,9 +3040,9 @@ export default function EnterpriseAdminSuite() {
         }
       >
         <form onSubmit={handleSaveComp} className="space-y-4 text-xs font-label">
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Feature / Category Name</label><input type="text" required value={compModal.data?.feature || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, feature: e.target.value } })} placeholder="e.g. Cost for 8 Windows" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-emerald-700 font-bold mb-1 whitespace-nowrap">✓ The Window Doctor (Our Advantage)</label><input type="text" required value={compModal.data?.windowDoctor || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, windowDoctor: e.target.value } })} placeholder="e.g. £760 - £1,100 (Glass Unit Replacement)" className="w-full px-3.5 py-2.5 rounded-xl border border-emerald-200 bg-emerald-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-red-600 font-bold mb-1 whitespace-nowrap">✗ National Window Sales (Competitor)</label><input type="text" required value={compModal.data?.nationalGuys || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, nationalGuys: e.target.value } })} placeholder="e.g. £6,500 - £9,800 (Full Tear-Out)" className="w-full px-3.5 py-2.5 rounded-xl border border-red-200 bg-red-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Feature / Category Name</label><input type="text" required value={compModal.data?.feature || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, feature: e.target.value } })} placeholder="e.g. Cost for 8 Windows" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-emerald-700 font-bold mb-1 whitespace-nowrap">✓ The Window Doctor (Our Advantage)</label><input type="text" required value={compModal.data?.windowDoctor || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, windowDoctor: e.target.value } })} placeholder="e.g. £760 - £1,100 (Glass Unit Replacement)" className="w-full px-3.5 py-2.5 rounded-md border border-emerald-200 bg-emerald-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-red-600 font-bold mb-1 whitespace-nowrap">✗ National Window Sales (Competitor)</label><input type="text" required value={compModal.data?.nationalGuys || ""} onChange={(e) => setCompModal({ ...compModal, data: { ...compModal.data, nationalGuys: e.target.value } })} placeholder="e.g. £6,500 - £9,800 (Full Tear-Out)" className="w-full px-3.5 py-2.5 rounded-md border border-red-200 bg-red-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
         </form>
       </SlideOverDrawer>
 
@@ -3059,7 +3059,7 @@ export default function EnterpriseAdminSuite() {
             <button
               type="button"
               onClick={() => setStepModal({ isOpen: false, mode: "create", data: null })}
-              className="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
+              className="px-4 py-2 rounded-md text-slate-600 hover:bg-slate-100 font-bold whitespace-nowrap text-xs font-label"
             >
               Cancel
             </button>
@@ -3069,7 +3069,7 @@ export default function EnterpriseAdminSuite() {
                 handleSaveStep(e as any);
                 triggerToast("Process step updated!");
               }}
-              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-xl font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
+              className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold py-2 px-4 rounded-md font-bold shadow-xs whitespace-nowrap text-xs font-label transition-all active:scale-95 border border-secondary/40"
             >
               {stepModal.mode === "create" ? "Add Step" : "Save Changes"}
             </button>
@@ -3078,11 +3078,11 @@ export default function EnterpriseAdminSuite() {
       >
         <form onSubmit={handleSaveStep} className="space-y-4 text-xs font-label">
           <div className="grid grid-cols-2 gap-3">
-            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Step Number</label><input type="text" value={stepModal.data?.num || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, num: e.target.value } })} placeholder="e.g. 01" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" /></div>
-            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Timing Label</label><input type="text" value={stepModal.data?.timing || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, timing: e.target.value } })} placeholder="e.g. Free • 30 Mins" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Step Number</label><input type="text" value={stepModal.data?.num || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, num: e.target.value } })} placeholder="e.g. 01" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none font-mono" /></div>
+            <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Timing Label</label><input type="text" value={stepModal.data?.timing || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, timing: e.target.value } })} placeholder="e.g. Free • 30 Mins" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
           </div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Step Title</label><input type="text" required value={stepModal.data?.title || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, title: e.target.value } })} placeholder="e.g. Laser Precision Survey" className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
-          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Description</label><textarea rows={3} required value={stepModal.data?.description || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, description: e.target.value } })} placeholder="Detailed step description..." className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Step Title</label><input type="text" required value={stepModal.data?.title || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, title: e.target.value } })} placeholder="e.g. Laser Precision Survey" className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
+          <div><label className="block text-slate-700 font-bold mb-1 whitespace-nowrap">Description</label><textarea rows={3} required value={stepModal.data?.description || ""} onChange={(e) => setStepModal({ ...stepModal, data: { ...stepModal.data, description: e.target.value } })} placeholder="Detailed step description..." className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:outline-none" /></div>
         </form>
       </SlideOverDrawer>
 

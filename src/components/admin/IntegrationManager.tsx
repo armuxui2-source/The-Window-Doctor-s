@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import { 
@@ -431,9 +431,9 @@ export default function IntegrationManager() {
     <div className="space-y-8 animate-fade-in">
       
       {/* 1. Header Banner & Security Guarantee */}
-      <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary p-6 sm:p-8 rounded-xl text-white shadow-md border border-slate-800 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-primary via-[#0E1A38] to-primary p-6 sm:p-8 rounded-md text-white shadow-md border border-slate-800 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary text-xs font-bold uppercase tracking-wider font-label">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary/20 border border-secondary/40 text-secondary text-xs font-bold uppercase tracking-wider font-label">
             <Zap className="w-3.5 h-3.5" />
             <span>Turn-Key Integration Manager</span>
           </div>
@@ -448,15 +448,15 @@ export default function IntegrationManager() {
 
         {/* Security Feature Highlights Pill Grid */}
         <div className="relative z-10 pt-4 flex flex-wrap items-center gap-3 text-xs font-label text-slate-200">
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded backdrop-blur-md border border-white/10">
             <Lock className="w-3.5 h-3.5 text-secondary" />
             <span>Server-side Secret Masking (AES-256)</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded backdrop-blur-md border border-white/10">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span>GDPR & Google Consent Mode Ready</span>
           </div>
-          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md border border-white/10">
+          <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded backdrop-blur-md border border-white/10">
             <Radio className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
             <span>Real-time Live Script Injection</span>
           </div>
@@ -477,7 +477,7 @@ export default function IntegrationManager() {
               key={tab.id}
               onClick={() => setFilterCategory(tab.id)}
               className={cn(
-                "px-3.5 py-2 rounded-xl text-xs font-bold font-label transition-all whitespace-nowrap",
+                "px-3.5 py-2 rounded-md text-xs font-bold font-label transition-all whitespace-nowrap",
                 filterCategory === tab.id
                   ? "bg-primary text-secondary-container shadow-sm font-extrabold"
                   : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200"
@@ -506,7 +506,7 @@ export default function IntegrationManager() {
             <div
               key={item.provider}
               className={cn(
-                "p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between space-y-5 bg-white shadow-2xs",
+                "p-6 rounded-md border transition-all duration-300 flex flex-col justify-between space-y-5 bg-white shadow-2xs",
                 item.is_active 
                   ? "border-secondary/60 ring-1 ring-secondary/20" 
                   : "border-slate-200/80 hover:border-slate-300"
@@ -515,7 +515,7 @@ export default function IntegrationManager() {
               {/* Card Header: Name, Status & Toggle */}
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs flex items-center justify-center p-2 flex-shrink-0">
+                  <div className="w-11 h-11 rounded-md bg-slate-50 border border-slate-200 shadow-2xs flex items-center justify-center p-2 flex-shrink-0">
                     <ProviderIcon provider={item.provider} />
                   </div>
                   <div>
@@ -545,7 +545,7 @@ export default function IntegrationManager() {
                 <div className="flex items-center gap-2.5">
                   <div
                     className={cn(
-                      "px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 font-label",
+                      "px-2.5 py-1 rounded text-[11px] font-bold flex items-center gap-1.5 font-label",
                       status === "connected"
                         ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                         : status === "error"
@@ -555,7 +555,7 @@ export default function IntegrationManager() {
                   >
                     <span
                       className={cn(
-                        "w-2 h-2 rounded-full",
+                        "w-2 h-2 rounded",
                         status === "connected" ? "bg-emerald-500 animate-pulse" : status === "error" ? "bg-red-500" : "bg-slate-400"
                       )}
                     />
@@ -569,13 +569,13 @@ export default function IntegrationManager() {
                     onClick={() => handleToggleActive(item.provider)}
                     title={form.is_active ? "Click to deactivate" : "Click to activate"}
                     className={cn(
-                      "w-11 h-6 rounded-full transition-colors relative flex items-center p-0.5 focus:outline-none focus:ring-2 focus:ring-secondary/40",
+                      "w-11 h-6 rounded transition-colors relative flex items-center p-0.5 focus:outline-none focus:ring-2 focus:ring-secondary/40",
                       form.is_active ? "bg-emerald-600" : "bg-slate-300"
                     )}
                   >
                     <span
                       className={cn(
-                        "w-5 h-5 rounded-full bg-white shadow-md transform transition-transform",
+                        "w-5 h-5 rounded bg-white shadow-md transform transition-transform",
                         form.is_active ? "translate-x-5" : "translate-x-0"
                       )}
                     />
@@ -619,7 +619,7 @@ export default function IntegrationManager() {
                     value={form.public_id || ""}
                     onChange={(e) => handleInputChange(item.provider, "public_id", e.target.value)}
                     placeholder={item.placeholder}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:ring-1 focus:ring-secondary text-slate-800 font-mono text-xs transition-all shadow-xs"
+                    className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:ring-1 focus:ring-secondary text-slate-800 font-mono text-xs transition-all shadow-xs"
                   />
                   <span className="text-[10px] text-slate-400 mt-1 block">
                     {item.format_hint}
@@ -648,7 +648,7 @@ export default function IntegrationManager() {
                       value={form.secret_value || ""}
                       onChange={(e) => handleInputChange(item.provider, "secret_value", e.target.value)}
                       placeholder={item.secret_placeholder}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:ring-1 focus:ring-secondary text-slate-800 font-mono text-xs transition-all shadow-xs"
+                      className="w-full px-3.5 py-2.5 rounded-md border border-slate-200 bg-slate-50 focus:bg-white focus:border-secondary focus:ring-1 focus:ring-secondary text-slate-800 font-mono text-xs transition-all shadow-xs"
                     />
                     <span className="text-[10px] text-slate-400 mt-1 block">
                       Stored in secure vault. Never transferred to client browsers.
@@ -660,7 +660,7 @@ export default function IntegrationManager() {
                 {statusMessage && statusMessage.provider === item.provider && (
                   <div
                     className={cn(
-                      "p-3 rounded-xl text-xs flex items-center gap-2 animate-fade-in font-label",
+                      "p-3 rounded-md text-xs flex items-center gap-2 animate-fade-in font-label",
                       statusMessage.type === "success"
                         ? "bg-emerald-50 text-emerald-800 border border-emerald-200"
                         : "bg-red-50 text-red-800 border border-red-200"
@@ -686,7 +686,7 @@ export default function IntegrationManager() {
                   <button
                     onClick={() => handleTestConnection(item.provider)}
                     disabled={isTesting}
-                    className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-all disabled:opacity-50 font-label"
+                    className="px-3 py-1.5 rounded-md text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-all disabled:opacity-50 font-label"
                   >
                     <RefreshCw className={cn("w-3.5 h-3.5", isTesting ? "animate-spin text-secondary" : "")} />
                     <span>{isTesting ? "Testing..." : "Test Connection"}</span>
@@ -695,7 +695,7 @@ export default function IntegrationManager() {
                   <button
                     onClick={() => handleSave(item.provider)}
                     disabled={isSaving}
-                    className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-1.5 px-3.5 rounded-xl flex items-center gap-1.5 font-bold shadow-xs disabled:opacity-50 font-label transition-all active:scale-95 border border-secondary/40"
+                    className="bg-secondary hover:bg-secondary/90 text-primary font-extrabold text-xs py-1.5 px-3.5 rounded-md flex items-center gap-1.5 font-bold shadow-xs disabled:opacity-50 font-label transition-all active:scale-95 border border-secondary/40"
                   >
                     <Save className="w-3.5 h-3.5" />
                     <span>{isSaving ? "Saving..." : "Save & Activate"}</span>
@@ -709,7 +709,7 @@ export default function IntegrationManager() {
       </div>
 
       {/* 4. Audit Trail Log Table */}
-      <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+      <div className="bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <History className="w-4 h-4 text-secondary" />

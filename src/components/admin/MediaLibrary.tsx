@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
@@ -169,7 +169,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
       {/* Toast Alert */}
       {/* Toast Alert */}
       {toast && (
-        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-label flex items-center justify-between shadow-2xs animate-fade-in">
+        <div className="p-4 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-label flex items-center justify-between shadow-2xs animate-fade-in">
           <div className="flex items-center gap-2 font-bold whitespace-nowrap">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>{toast.message}</span>
@@ -181,7 +181,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
       )}
 
       {/* Top Controls Header */}
-      <div className="bg-white p-6 rounded-xl border border-slate-200/80 shadow-2xs space-y-4">
+      <div className="bg-white p-6 rounded-md border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
             <h2 className="font-headline font-extrabold text-lg text-primary flex items-center gap-2 whitespace-nowrap">
@@ -196,7 +196,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-secondary text-primary hover:bg-secondary/90 font-bold text-xs shadow-sm transition-all font-label whitespace-nowrap"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-md bg-secondary text-primary hover:bg-secondary/90 font-bold text-xs shadow-sm transition-all font-label whitespace-nowrap"
             >
               <Upload className="w-3.5 h-3.5 shrink-0" />
               <span>Upload from PC</span>
@@ -211,7 +211,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
 
             <button
               onClick={() => setShowAddForm(!showAddForm)}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary text-secondary-container hover:bg-primary/90 font-bold text-xs shadow-sm transition-all font-label whitespace-nowrap"
+              className="flex items-center gap-1.5 px-4 py-2.5 rounded-md bg-primary text-secondary-container hover:bg-primary/90 font-bold text-xs shadow-sm transition-all font-label whitespace-nowrap"
             >
               <Plus className="w-3.5 h-3.5 shrink-0" />
               <span>{showAddForm ? "Close Form" : "Add Image URL"}</span>
@@ -221,7 +221,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
 
         {/* Add New Image Form Panel */}
         {showAddForm && (
-          <form onSubmit={handleAddAsset} className="p-5 rounded-xl bg-slate-50 border border-slate-200 space-y-4 animate-fade-in">
+          <form onSubmit={handleAddAsset} className="p-5 rounded-md bg-slate-50 border border-slate-200 space-y-4 animate-fade-in">
             <h3 className="font-headline font-bold text-xs uppercase tracking-wider text-primary whitespace-nowrap">
               Register New Image Asset
             </h3>
@@ -234,7 +234,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                   placeholder="e.g. Modern Anthracite Bi-Fold Doors"
                   value={newTitleInput}
                   onChange={(e) => setNewTitleInput(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
                 />
               </div>
 
@@ -243,7 +243,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                 <select
                   value={newCatInput}
                   onChange={(e) => setNewCatInput(e.target.value as any)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
                 >
                   <option value="hero">Hero Slider Banners</option>
                   <option value="services">Services & Pricing</option>
@@ -261,7 +261,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                   placeholder="https://..."
                   value={newUrlInput}
                   onChange={(e) => setNewUrlInput(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary"
                 />
               </div>
             </div>
@@ -270,13 +270,13 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
               <button
                 type="button"
                 onClick={() => setShowAddForm(false)}
-                className="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold font-label hover:bg-slate-100 whitespace-nowrap"
+                className="px-4 py-2 rounded-md border border-slate-200 text-slate-600 text-xs font-bold font-label hover:bg-slate-100 whitespace-nowrap"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-xl bg-primary text-secondary-container font-bold text-xs font-label shadow-sm hover:bg-primary/90 whitespace-nowrap"
+                className="px-5 py-2 rounded-md bg-primary text-secondary-container font-bold text-xs font-label shadow-sm hover:bg-primary/90 whitespace-nowrap"
               >
                 Save Image Asset
               </button>
@@ -299,7 +299,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                 key={tab.id}
                 onClick={() => setSelectedCategory(tab.id)}
                 className={cn(
-                  "px-3 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap shrink-0",
+                  "px-3 py-1.5 rounded-md text-xs font-bold transition-all whitespace-nowrap shrink-0",
                   selectedCategory === tab.id
                     ? "bg-primary text-secondary-container shadow-xs"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -317,7 +317,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
               placeholder="Search images..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary font-label"
+              className="w-full pl-8 pr-3 py-1.5 rounded-md border border-slate-200 text-xs bg-white focus:outline-hidden focus:border-secondary font-label"
             />
           </div>
         </div>
@@ -330,7 +330,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
           return (
             <div
               key={asset.id}
-              className="bg-white rounded-xl border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between group hover:border-secondary/50 transition-all"
+              className="bg-white rounded-md border border-slate-200/80 shadow-2xs overflow-hidden flex flex-col justify-between group hover:border-secondary/50 transition-all"
             >
               {/* Thumbnail Container */}
               <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
@@ -351,7 +351,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                   {onSelectImage ? (
                     <button
                       onClick={() => onSelectImage(asset.url)}
-                      className="px-3 py-1.5 rounded-xl bg-secondary text-primary font-bold text-xs shadow-md hover:scale-105 transition-transform font-label whitespace-nowrap"
+                      className="px-3 py-1.5 rounded-md bg-secondary text-primary font-bold text-xs shadow-md hover:scale-105 transition-transform font-label whitespace-nowrap"
                     >
                       Use This Image
                     </button>
@@ -359,14 +359,14 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
                     <>
                       <button
                         onClick={() => setPreviewAsset(asset)}
-                        className="p-2 rounded-xl bg-white/90 text-primary hover:bg-white shadow-md transition-all shrink-0"
+                        className="p-2 rounded-md bg-white/90 text-primary hover:bg-white shadow-md transition-all shrink-0"
                         title="Preview Large"
                       >
                         <Eye className="w-4 h-4" />
                       </button>
                       <button
                         onClick={() => handleCopyUrl(asset.id, asset.url)}
-                        className="p-2 rounded-xl bg-white/90 text-primary hover:bg-white shadow-md transition-all shrink-0"
+                        className="p-2 rounded-md bg-white/90 text-primary hover:bg-white shadow-md transition-all shrink-0"
                         title="Copy Image URL"
                       >
                         {isCopied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -427,7 +427,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
           onClick={() => setPreviewAsset(null)}
         >
           <div
-            className="bg-white rounded-2xl overflow-hidden max-w-3xl w-full shadow-2xl space-y-4 p-6"
+            className="bg-white rounded-md overflow-hidden max-w-3xl w-full shadow-2xl space-y-4 p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-2 border-b border-slate-100">
@@ -437,7 +437,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
               </button>
             </div>
 
-            <div className="relative h-96 w-full rounded-2xl overflow-hidden bg-slate-100">
+            <div className="relative h-96 w-full rounded-md overflow-hidden bg-slate-100">
               <Image src={previewAsset.url} alt={previewAsset.title} fill className="object-contain" />
             </div>
 
@@ -445,7 +445,7 @@ export default function MediaLibrary({ onSelectImage }: MediaLibraryProps) {
               <span className="text-xs text-slate-500 font-label font-mono break-all">{previewAsset.url}</span>
               <button
                 onClick={() => handleCopyUrl(previewAsset.id, previewAsset.url)}
-                className="px-4 py-2 rounded-xl bg-primary text-secondary-container font-bold text-xs font-label shadow-sm flex items-center gap-1.5 shrink-0 ml-4 whitespace-nowrap"
+                className="px-4 py-2 rounded-md bg-primary text-secondary-container font-bold text-xs font-label shadow-sm flex items-center gap-1.5 shrink-0 ml-4 whitespace-nowrap"
               >
                 <Copy className="w-3.5 h-3.5 shrink-0" />
                 <span>Copy URL</span>
