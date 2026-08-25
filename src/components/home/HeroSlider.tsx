@@ -179,13 +179,13 @@ export default function HeroSlider() {
             </div>
 
             {/* Slide Specific Metrics / Key Stats */}
-            <div className="pt-4 grid grid-cols-3 gap-2.5 sm:gap-6 max-w-lg">
+            <div className="pt-4 grid grid-cols-3 gap-2.5 sm:gap-4 max-w-xl">
               {activeSlide.stats.map((stat, i) => (
-                <div key={i} className="glass-card-dark rounded-[14px] p-2.5 sm:p-4 text-left border border-white/10">
+                <div key={i} className="glass-card-dark rounded-[14px] px-3 py-3 sm:px-4 sm:py-3.5 text-left border border-white/10 flex flex-col justify-center">
                   <div className="font-headline font-extrabold text-base sm:text-xl md:text-2xl text-secondary-container leading-tight whitespace-nowrap">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-300 font-medium font-label mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
+                  <div className="text-[11px] sm:text-xs text-slate-300 font-medium font-label mt-0.5 whitespace-nowrap">
                     {stat.label}
                   </div>
                 </div>

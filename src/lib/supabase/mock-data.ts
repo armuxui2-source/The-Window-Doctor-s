@@ -256,9 +256,9 @@ export const HERO_SLIDES: HeroSlide[] = [
     secondaryCtaLink: "tel:01869572206",
     imageUrl: "https://lh3.googleusercontent.com/aida-public/AB6AXuB9Fjn6wLLJZk7YeTa18NvqtxVCAuCLsPnhE3EOon6a9RSl8DqWeJ6DGpPN3B6yXvnBbK_8OP57skrmnRE00KFwtYNY4-Po01ZpW2IZL8dhW-KTZEIwNqYHLH2ZMj0dT9_rIRZNzmVr41RmOTyB57SKAxZYM20vaj7zwWoJac6g65mlm_vIk0VGIAHhRm2i2Cl3os08pjvua_ekNlYnUBydzWripfsDHkuMnFFqvYRAnr3YkGB7oUYnD2ugQDdU-jkp1w",
     stats: [
-      { label: "Average Cost Saving", value: "70%" },
-      { label: "Install Time Per Pane", value: "<45 Mins" },
-      { label: "Insurance Guarantee", value: "10 Years" },
+      { label: "Cost Savings", value: "Up to 70%" },
+      { label: "Install Time", value: "< 45 Mins" },
+      { label: "Guarantee", value: "10 Years" },
     ],
   },
   {
