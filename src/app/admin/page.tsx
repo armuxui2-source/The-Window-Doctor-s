@@ -873,7 +873,7 @@ export default function EnterpriseAdminSuite() {
             </div>
             <div className="hidden xl:flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-900 px-3 py-1.5 rounded-xl font-bold">
               <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>Pipeline: £42,850</span>
+              <span>Pipeline: {formatCurrency(totalPipelineRevenue)}</span>
             </div>
           </div>
         </header>
