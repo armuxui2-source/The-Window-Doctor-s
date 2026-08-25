@@ -126,45 +126,55 @@
 </head>
 <body class="antialiased">
 
-  <!-- TOP MULTI-PAGE SELECTOR BAR (แถบสลับหน้าดูแบบสมบูรณ์) -->
-  <div class="bg-primary text-white border-b border-white/10 py-2.5 px-4 sticky top-0 z-[60] shadow-lg">
+  <!-- TOP MULTI-PAGE SELECTOR BAR (แถบสลับหน้าดูแบบสมบูรณ์ - สามารถกดปิด/ซ่อนได้) -->
+  <div id="dev-switcher-bar" class="bg-primary text-white border-b border-white/10 py-2 px-4 sticky top-0 z-[60] shadow-lg transition-all duration-300">
     <div class="max-w-[1280px] mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-xs font-bold uppercase tracking-wider text-secondary-container">Interactive Page Switcher:</span>
-        <span class="text-[11px] text-slate-300 hidden sm:inline">(คลิกเพื่อสลับดูทุกหน้าของโปรเจกต์)</span>
+        <span class="text-xs font-bold uppercase tracking-wider text-secondary-container">Dev Switcher:</span>
+        <span class="text-[11px] text-slate-300 hidden sm:inline">(สลับดูทุกหน้าของโปรเจกต์)</span>
       </div>
-      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 flex-1 justify-center sm:justify-start">
         <button onclick="navigateTo('page-home')" id="nav-btn-home" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-bold bg-secondary-container text-primary shadow-sm whitespace-nowrap">
           🏠 Home
         </button>
         <button onclick="navigateTo('page-services')" id="nav-btn-services" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          🛠️ Services Catalog
+          🛠️ Services
         </button>
         <button onclick="navigateTo('page-service-detail')" id="nav-btn-service-detail" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          🔍 Service Detail (Misted Glass)
+          🔍 Misted Glass
         </button>
         <button onclick="navigateTo('page-projects')" id="nav-btn-projects" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          📁 Case Studies & Projects
+          📁 Case Studies
         </button>
         <button onclick="navigateTo('page-service-areas')" id="nav-btn-service-areas" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          📍 Service Areas & Postcodes
+          📍 Areas
         </button>
         <button onclick="navigateTo('page-about')" id="nav-btn-about" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          📖 About Us (40+ Yrs)
+          📖 About Us
         </button>
         <button onclick="navigateTo('page-quote')" id="nav-btn-quote" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          📋 Instant Quote Wizard
+          📋 Quote Wizard
         </button>
         <button onclick="navigateTo('page-admin')" id="nav-btn-admin" class="page-nav-btn px-3 py-1 rounded-lg text-xs font-semibold bg-white/10 text-slate-200 hover:bg-white/20 whitespace-nowrap">
-          ⚙️ Staff Admin HUD
+          ⚙️ Admin HUD
+        </button>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="toggleSwitcherBar()" title="ซ่อนแถบนี้เพื่อให้เห็นหน้าเว็บจริง 100%" class="px-2.5 py-1 text-xs bg-white/10 hover:bg-red-500/80 rounded-md text-white transition-colors flex items-center gap-1">
+          <span>✕ ซ่อนแถบนี้</span>
         </button>
       </div>
     </div>
   </div>
 
+  <!-- FLOATING BUTTON TO RE-OPEN SWITCHER IF NEEDED -->
+  <button id="floating-switcher-toggle" onclick="toggleSwitcherBar()" class="fixed bottom-4 right-4 z-50 hidden bg-primary/90 hover:bg-primary text-secondary-container px-3.5 py-2 rounded-full shadow-2xl border border-secondary-container/30 text-xs font-bold backdrop-blur-md transition-all hover:scale-105">
+    ⚡ เมนูสลับหน้า (Dev Mode)
+  </button>
+
   <!-- MAIN HEADER / NAVBAR (WITH OFFICIAL LOGO + SINGLE-LINE NAV) -->
-  <header class="sticky top-[45px] z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+  <header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
     <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between">
       
       <!-- Brand Logo -->
@@ -1913,6 +1923,18 @@
 
     function resumeGoogleReviews() {
       startGoogleReviewsTimer();
+    }
+
+    function toggleSwitcherBar() {
+      const bar = document.getElementById('dev-switcher-bar');
+      const floatBtn = document.getElementById('floating-switcher-toggle');
+      if (bar.classList.contains('hidden')) {
+        bar.classList.remove('hidden');
+        floatBtn.classList.add('hidden');
+      } else {
+        bar.classList.add('hidden');
+        floatBtn.classList.remove('hidden');
+      }
     }
 
     // Initial render
