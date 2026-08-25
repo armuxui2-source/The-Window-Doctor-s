@@ -75,11 +75,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        headline: ["var(--font-hanken)", "var(--font-prompt)", "sans-serif"],
-        display: ["var(--font-hanken)", "var(--font-prompt)", "sans-serif"],
-        body: ["var(--font-work-sans)", "var(--font-prompt)", "sans-serif"],
-        label: ["var(--font-work-sans)", "var(--font-prompt)", "sans-serif"],
+        headline: ["var(--font-inter)", "var(--font-hanken)", "var(--font-prompt)", "sans-serif"],
+        display: ["var(--font-inter)", "var(--font-hanken)", "var(--font-prompt)", "sans-serif"],
+        body: ["var(--font-inter)", "var(--font-work-sans)", "var(--font-prompt)", "sans-serif"],
+        label: ["var(--font-inter)", "var(--font-work-sans)", "var(--font-prompt)", "sans-serif"],
         prompt: ["var(--font-prompt)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
       },
       fontSize: {
         "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
@@ -90,14 +91,6 @@ const config: Config = {
         "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
         "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
         "label-bold": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "600" }],
-      },
-      borderRadius: {
-        sm: "0.5rem",
-        DEFAULT: "1rem",
-        md: "1.5rem",
-        lg: "2rem",
-        xl: "3rem",
-        full: "9999px",
       },
       spacing: {
         base: "8px",
