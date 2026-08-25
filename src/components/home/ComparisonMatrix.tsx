@@ -29,12 +29,6 @@ export default function ComparisonMatrix() {
       isSuperior: true,
     },
     {
-      feature: "Warranty Protection",
-      windowDoctor: "10-Year Insurance-Backed Anti-Fog Guarantee",
-      nationalGuys: "Varies / Often complex exclusions",
-      isSuperior: true,
-    },
-    {
       feature: "Sales Approach",
       windowDoctor: "Honest Master Glazier Survey (No Pressure)",
       nationalGuys: "High-Pressure Commissioned Sales Reps",
