@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Sparkles
 } from "lucide-react";
+import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export const metadata = {
   title: "About Us & 40+ Years Heritage (Est. 1983) | The Window Doctor",
@@ -19,6 +20,7 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  const site = DEFAULT_SITE_SETTINGS;
   const milestones = [
     { year: "1983", title: "Founded in Bicester", desc: "Started as a dedicated local family glazing repair service in Bucknell, Bicester." },
     { year: "1995", title: "FENSA Registration", desc: "Among the earliest regional companies to secure full FENSA accreditation and British Standards compliance." },
@@ -39,7 +41,7 @@ export default function AboutPage() {
           A Legacy of Honest Craftsmanship
         </h1>
         <p className="font-body text-base sm:text-body-lg text-on-surface-variant">
-          The Window Doctor has been trusted by thousands of homeowners and businesses throughout Oxfordshire for over four decades.
+          {site.businessName} has been trusted by thousands of homeowners and businesses throughout Oxfordshire for over four decades.
         </p>
       </div>
 
@@ -50,7 +52,7 @@ export default function AboutPage() {
             Local Family Values, Global Engineering Standards
           </h2>
           <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
-            When we established The Window Doctor in 1983, our mission was simple: provide local homeowners with honest, top-tier fenestration solutions without the high-pressure sales tactics common in the double glazing industry.
+            When we established {site.businessName} in 1983, our mission was simple: provide local homeowners with honest, top-tier fenestration solutions without the high-pressure sales tactics common in the double glazing industry.
           </p>
           <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
             Our master glaziers take genuine pride in diagnosing whether your windows truly need full replacement or if a precise glass seal repair will restore their original thermal performance at a fraction of the cost.
@@ -110,8 +112,8 @@ export default function AboutPage() {
             <span>Request Free Quote</span>
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
-          <a href="tel:01869572206" className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
-            01869 572206
+          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
+            {site.phone}
           </a>
         </div>
       </div>

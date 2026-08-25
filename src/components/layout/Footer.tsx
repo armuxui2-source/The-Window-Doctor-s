@@ -13,8 +13,11 @@ import {
   ArrowRight,
   ExternalLink
 } from "lucide-react";
+import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export default function Footer() {
+  const site = DEFAULT_SITE_SETTINGS;
+
   return (
     <footer className="bg-primary border-t border-white/10 text-slate-300 pt-16 pb-24 lg:pb-12 mt-20">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -27,7 +30,7 @@ export default function Footer() {
             </div>
             <div className="flex flex-col">
               <span className="text-xs font-bold text-white uppercase tracking-wider font-label">FENSA Certified</span>
-              <span className="text-[11px] text-slate-400">Reg. No. 28491</span>
+              <span className="text-[11px] text-slate-400">Reg. No. {site.fensaNumber}</span>
             </div>
           </div>
 
@@ -174,18 +177,18 @@ export default function Footer() {
             <div className="space-y-3 text-xs sm:text-sm font-body">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-secondary-container flex-shrink-0 mt-0.5" />
-                <span className="text-slate-300">Home Farm, Bainton Road, Bucknell, Bicester, OX27 7LT</span>
+                <span className="text-slate-300">{site.address}, {site.city}, {site.postcode}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-secondary-container flex-shrink-0" />
-                <a href="tel:01869572206" className="text-white hover:text-secondary-container font-bold transition-colors">
-                  01869 572206
+                <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="text-white hover:text-secondary-container font-bold transition-colors">
+                  {site.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-secondary-container flex-shrink-0" />
-                <a href="mailto:info@thewindowdoctors.co.uk" className="text-slate-300 hover:text-secondary-container transition-colors text-xs">
-                  info@thewindowdoctors.co.uk
+                <a href={`mailto:${site.email}`} className="text-slate-300 hover:text-secondary-container transition-colors text-xs">
+                  {site.email}
                 </a>
               </div>
             </div>
@@ -210,9 +213,9 @@ export default function Footer() {
 
         {/* Bottom Legal Copyright */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4 font-label">
-          <p>© 1983 - 2026 The Window Doctor’s. All rights reserved. Bicester & Oxfordshire.</p>
+          <p>© 1983 - 2026 {site.businessName}’s. All rights reserved. Bicester & Oxfordshire.</p>
           <div className="flex items-center gap-6">
-            <Link href="/about" className="hover:text-slate-300 transition-colors">FENSA Reg. 28491</Link>
+            <Link href="/about" className="hover:text-slate-300 transition-colors">FENSA Reg. {site.fensaNumber}</Link>
             <Link href="/service-areas" className="hover:text-slate-300 transition-colors">Oxfordshire Coverage</Link>
             <Link href="/admin" className="hover:text-secondary-container transition-colors flex items-center gap-1">
               <FileText className="w-3 h-3" /> Staff Portal

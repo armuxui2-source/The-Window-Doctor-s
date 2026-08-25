@@ -24,9 +24,12 @@ import EnergySavingsCalculator from "@/components/home/EnergySavingsCalculator";
 import ProcessJourney from "@/components/home/ProcessJourney";
 import QuoteWizard from "@/components/quote/QuoteWizard";
 import PostcodeChecker from "@/components/areas/PostcodeChecker";
-import { MOCK_REVIEWS } from "@/lib/supabase/mock-data";
+import { MOCK_REVIEWS, DEFAULT_FAQS, DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export default function HomePage() {
+  const site = DEFAULT_SITE_SETTINGS;
+  const faqs = DEFAULT_FAQS.map((f) => ({ q: f.question, a: f.answer }));
+
   // Structured JSON-LD Schema for SEO & Rich Snippets
   const jsonLd = {
     "@context": "https://schema.org",
@@ -34,17 +37,17 @@ export default function HomePage() {
       {
         "@type": "LocalBusiness",
         "@id": "https://thewindowdoctors.co.uk/#business",
-        "name": "The Window Doctor",
+        "name": site.businessName,
         "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuB4PgLGqLJswj_yOE9Fp-h7Bh-0gB3SEGKW6wM__fhYsI1vcAZwqvKhgzpVL7CPX7XDHfvLEFLucGEy4uNrBRgE-6Ygcy_HksxKYiVtZxOFrjkRG5UiALFDyTnqEFSdiMMHVQtQIoDIgwDQLyuJAjYBogUwBNPAh0jSMBy_zkHmL9gRXfOW6qtVeyd7XAcVNUXYynC-N2W5g5e1oWBK8e7f5qY9lqco1Xmr5MekrfBHfzcqTU0EIh2I",
-        "telephone": "+441869572206",
-        "email": "info@thewindowdoctors.co.uk",
+        "telephone": `+44${site.phone.replace(/[^0-9]/g, "").replace(/^0/, "")}`,
+        "email": site.email,
         "url": "https://thewindowdoctors.co.uk",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Home Farm, Bainton Road",
-          "addressLocality": "Bucknell, Bicester",
+          "streetAddress": site.address,
+          "addressLocality": site.city,
           "addressRegion": "Oxfordshire",
-          "postalCode": "OX27 7LT",
+          "postalCode": site.postcode,
           "addressCountry": "GB"
         },
         "geo": {
@@ -68,66 +71,17 @@ export default function HomePage() {
       {
         "@type": "FAQPage",
         "@id": "https://thewindowdoctors.co.uk/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Do I need to replace my whole window frame if the glass is misted?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No! In over 95% of cases, you only need to replace the failed double-glazed sealed unit. Your existing uPVC, timber, or aluminium frames remain completely intact, saving you up to 70% compared to new windows."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does a misted double glazing unit replacement take?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Our master glazier typically completes each window pane replacement in 30 to 45 minutes with zero mess and no damage to your internal plaster or wallpaper."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are your window installations and repairs FENSA certified?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, The Window Doctor is fully FENSA certified (Registration No. 28491). All new installations come with full Building Regulations compliance certificates and a 10-Year Insurance-Backed Guarantee."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which areas in Oxfordshire do you cover?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "We cover Bicester, Bucknell, Oxford, Banbury, Kidlington, Brackley, Witney, Woodstock, Abingdon, and surrounding Oxfordshire villages with free survey and measurement visits."
-            }
+        "mainEntity": DEFAULT_FAQS.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
           }
-        ]
+        }))
       }
     ]
   };
-
-  const faqs = [
-    {
-      q: "Do I need to replace my whole window frame if the glass is misted?",
-      a: "No! In over 95% of cases, you only need to replace the failed double-glazed sealed unit. Your existing frames remain completely intact, saving you up to 70% compared to full replacements."
-    },
-    {
-      q: "How long does a misted glass replacement take?",
-      a: "Our master technicians typically complete each window pane replacement in under 45 minutes with zero mess and zero disturbance to your internal decor or plaster."
-    },
-    {
-      q: "Are your window installations FENSA certified and insured?",
-      a: "Yes. We are fully FENSA registered (No. 28491). All new window and door installations include Building Regulations compliance certification and a 10-Year Insurance-Backed Guarantee."
-    },
-    {
-      q: "Can you install cat flaps into double glazed glass doors?",
-      a: "Yes. We manufacture custom toughened double glazed glass units with pre-cut factory sealed apertures designed specifically for SureFlap microchip and manual cat flaps."
-    },
-    {
-      q: "Do you charge for home surveys and quotes in Oxfordshire?",
-      a: "No. All our initial on-site inspections, measurements, and formal written quotations are 100% free with absolutely no high-pressure sales obligation."
-    }
-  ];
 
   return (
     <div className="pb-24">
@@ -385,11 +339,11 @@ export default function HomePage() {
               <ArrowRight className="w-4 h-4 ml-1.5 inline" />
             </Link>
             <a
-              href="tel:01869572206"
+              href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
               className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
             >
               <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
-              <span>01869 572206</span>
+              <span>{site.phone}</span>
             </a>
           </div>
         </div>

@@ -23,7 +23,12 @@ import {
 import { HERO_SLIDES, HeroSlide } from "@/lib/supabase/mock-data";
 import { cn } from "@/lib/utils";
 
-export default function HeroSlider() {
+interface HeroSliderProps {
+  slides?: HeroSlide[];
+}
+
+export default function HeroSlider({ slides = HERO_SLIDES }: HeroSliderProps) {
+  const slidesData = slides && slides.length > 0 ? slides : HERO_SLIDES;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -33,12 +38,12 @@ export default function HeroSlider() {
   const SLIDE_DURATION = 6000; // 6 seconds per slide
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-  }, []);
+    setCurrentSlide((prev) => (prev + 1) % slidesData.length);
+  }, [slidesData.length]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
-  }, []);
+    setCurrentSlide((prev) => (prev - 1 + slidesData.length) % slidesData.length);
+  }, [slidesData.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -81,7 +86,7 @@ export default function HeroSlider() {
     setTouchEnd(null);
   };
 
-  const activeSlide: HeroSlide = HERO_SLIDES[currentSlide];
+  const activeSlide: HeroSlide = slidesData[currentSlide] || slidesData[0];
 
   return (
     <section 
@@ -94,7 +99,7 @@ export default function HeroSlider() {
     >
       {/* 1. Full-bleed Background Images with Smooth Cross-fade */}
       <div className="absolute inset-0 z-0">
-        {HERO_SLIDES.map((slide, idx) => (
+        {slidesData.map((slide, idx) => (
           <div
             key={slide.id}
             className={cn(
@@ -248,7 +253,7 @@ export default function HeroSlider() {
             </button>
 
             <div className="flex items-center gap-2">
-              {HERO_SLIDES.map((slide, index) => (
+              {slidesData.map((slide, index) => (
                 <button
                   key={slide.id}
                   onClick={() => goToSlide(index)}
@@ -272,13 +277,13 @@ export default function HeroSlider() {
             </button>
 
             <span className="text-xs font-mono text-slate-300 ml-2">
-              0{currentSlide + 1} / 0{HERO_SLIDES.length}
+              0{currentSlide + 1} / 0{slidesData.length}
             </span>
           </div>
 
           {/* Quick Slide Selector Tabs (Desktop) */}
           <div className="hidden md:flex items-center gap-2 overflow-x-auto max-w-xl">
-            {HERO_SLIDES.map((slide, idx) => (
+            {slidesData.map((slide, idx) => (
               <button
                 key={slide.id}
                 onClick={() => goToSlide(idx)}
@@ -293,11 +298,8 @@ export default function HeroSlider() {
                 {idx === 1 && <DoorClosed className="w-3 h-3" />}
                 {idx === 2 && <Home className="w-3 h-3" />}
                 {idx === 3 && <Grid className="w-3 h-3" />}
-                <span>
-                  {idx === 0 && "Misted Glass Repair"}
-                  {idx === 1 && "Doors Collection"}
-                  {idx === 2 && "Warm Roofs"}
-                  {idx === 3 && "Modern Windows"}
+                <span className="max-w-[140px] truncate">
+                  {slide.highlightText || slide.title}
                 </span>
               </button>
             ))}

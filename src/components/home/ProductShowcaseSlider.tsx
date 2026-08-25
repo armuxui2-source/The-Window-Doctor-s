@@ -20,7 +20,12 @@ import {
 import { MOCK_SERVICES, Service } from "@/lib/supabase/mock-data";
 import { cn } from "@/lib/utils";
 
-export default function ProductShowcaseSlider() {
+interface ProductShowcaseSliderProps {
+  services?: Service[];
+}
+
+export default function ProductShowcaseSlider({ services = MOCK_SERVICES }: ProductShowcaseSliderProps) {
+  const activeServices = services && services.length > 0 ? services : MOCK_SERVICES;
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -34,8 +39,8 @@ export default function ProductShowcaseSlider() {
   ];
 
   const filteredServices = activeCategory === "all"
-    ? MOCK_SERVICES
-    : MOCK_SERVICES.filter((s) => s.slug === activeCategory);
+    ? activeServices
+    : activeServices.filter((s) => s.slug === activeCategory);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -158,7 +163,7 @@ export default function ProductShowcaseSlider() {
 
               {/* Key Features List */}
               <div className="space-y-2 pt-2 border-t border-outline-variant">
-                {service.features.slice(0, 3).map((feat, i) => (
+                {(Array.isArray(service.features) ? (service.features as string[]) : []).slice(0, 3).map((feat, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs text-on-surface font-medium">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span className="line-clamp-1">{feat}</span>

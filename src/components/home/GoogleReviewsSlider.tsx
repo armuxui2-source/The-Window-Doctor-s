@@ -18,14 +18,19 @@ import { GOOGLE_REVIEWS, GoogleReviewItem } from "@/lib/supabase/mock-data";
 
 const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/The+Window+Doctor/@51.93132,-1.193252,17z/data=!3m1!4b1!4m6!3m5!1s0x4876de7802f8af15:0x7b9ae6b36c259cb3!8m2!3d51.93132!4d-1.193252!16s%2Fg%2F11g889g7ww!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D";
 
-export default function GoogleReviewsSlider() {
+interface GoogleReviewsSliderProps {
+  reviews?: GoogleReviewItem[];
+}
+
+export default function GoogleReviewsSlider({ reviews = GOOGLE_REVIEWS }: GoogleReviewsSliderProps) {
+  const activeReviews = reviews && reviews.length > 0 ? reviews : GOOGLE_REVIEWS;
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [cardsPerPage, setCardsPerPage] = useState<number>(3);
 
   // Filter reviews by selected category
-  const filteredReviews = GOOGLE_REVIEWS.filter((item) => {
+  const filteredReviews = activeReviews.filter((item) => {
     if (selectedCategory === "all") return true;
     return item.category_key === selectedCategory;
   });

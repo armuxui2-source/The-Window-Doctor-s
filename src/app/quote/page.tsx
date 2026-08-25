@@ -1,6 +1,7 @@
 import React from "react";
 import QuoteWizard from "@/components/quote/QuoteWizard";
 import { Calculator, ShieldCheck, Clock, CheckCircle, Phone, MapPin, Mail, Sparkles } from "lucide-react";
+import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export const metadata = {
   title: "Get a Free Survey & Indicative Quote | The Window Doctor’s",
@@ -8,6 +9,7 @@ export const metadata = {
 };
 
 export default function QuotePage() {
+  const site = DEFAULT_SITE_SETTINGS;
   return (
     <div className="space-y-[80px] lg:space-y-[120px] pb-24 pt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -43,7 +45,7 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <strong className="text-primary block text-xs uppercase tracking-wider font-label">Workshop Location</strong>
-                  <span className="text-on-surface-variant text-xs">Home Farm, Bainton Road, Bucknell, Bicester, OX27 7LT</span>
+                  <span className="text-on-surface-variant text-xs">{site.address}, {site.city}, {site.postcode}</span>
                 </div>
               </div>
 
@@ -53,8 +55,8 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <strong className="text-primary block text-xs uppercase tracking-wider font-label">Telephone</strong>
-                  <a href="tel:01869572206" className="text-secondary hover:underline font-bold text-sm">
-                    01869 572206
+                  <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="text-secondary hover:underline font-bold text-sm">
+                    {site.phone}
                   </a>
                 </div>
               </div>
@@ -65,8 +67,8 @@ export default function QuotePage() {
                 </div>
                 <div>
                   <strong className="text-primary block text-xs uppercase tracking-wider font-label">Email Inquiry</strong>
-                  <a href="mailto:info@thewindowdoctors.co.uk" className="text-on-surface-variant hover:text-secondary text-xs break-all">
-                    info@thewindowdoctors.co.uk
+                  <a href={`mailto:${site.email}`} className="text-on-surface-variant hover:text-secondary text-xs break-all">
+                    {site.email}
                   </a>
                 </div>
               </div>

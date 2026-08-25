@@ -16,10 +16,15 @@ import BeforeAfterSlider from "@/components/ui/BeforeAfterSlider";
 import { MOCK_PROJECTS, Project } from "@/lib/supabase/mock-data";
 import { cn } from "@/lib/utils";
 
-export default function ProjectsShowcase() {
-  const [selectedProjectId, setSelectedProjectId] = useState<string>(MOCK_PROJECTS[0].id);
+interface ProjectsShowcaseProps {
+  projects?: Project[];
+}
 
-  const currentProject = MOCK_PROJECTS.find((p) => p.id === selectedProjectId) || MOCK_PROJECTS[0];
+export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsShowcaseProps) {
+  const activeList = projects && projects.length > 0 ? projects : MOCK_PROJECTS;
+  const [selectedProjectId, setSelectedProjectId] = useState<string>(activeList[0]?.id || "proj-1");
+
+  const currentProject = activeList.find((p) => p.id === selectedProjectId) || activeList[0];
 
   return (
     <section className="bg-surface-container-low rounded-[28px] p-6 sm:p-10 lg:p-12 border border-outline-variant relative overflow-hidden shadow-card">
@@ -51,7 +56,7 @@ export default function ProjectsShowcase() {
 
         {/* Project Selector Pills / Tabs */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-          {MOCK_PROJECTS.map((proj: Project, index: number) => {
+          {activeList.map((proj: Project, index: number) => {
             const isSelected = proj.id === selectedProjectId;
             return (
               <button

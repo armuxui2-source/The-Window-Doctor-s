@@ -1,6 +1,6 @@
 ---
 name: supabase
-description: Supabase database, authentication, real-time, storage, and serverless edge functions specialist for The Window Doctor project.
+description: Official Supabase database, authentication, real-time, storage, and serverless edge functions specialist for The Window Doctor project.
 ---
 
 # 🚀 Supabase Specialist Skill: The Window Doctor (Bicester & Oxfordshire)
@@ -17,6 +17,7 @@ This skill equips the AI agent with deep domain-specific knowledge, architecture
 | **Project Ref** | `qamagzdnnislphuauzco` |
 | **Supabase Project URL** | `https://qamagzdnnislphuauzco.supabase.co` |
 | **Direct Postgres URI** | `postgresql://postgres:[YOUR-PASSWORD]@db.qamagzdnnislphuauzco.supabase.co:5432/postgres` |
+| **MCP Server URL** | `https://mcp.supabase.com/mcp?project_ref=qamagzdnnislphuauzco&features=docs%2Caccount%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions%2Cbranching%2Cstorage` |
 | **Environment File** | `.env.local` |
 | **Public Anon Key Env** | `NEXT_PUBLIC_SUPABASE_ANON_KEY` |
 | **Service Role Secret Env** | `SUPABASE_SERVICE_ROLE_KEY` |
@@ -98,4 +99,3 @@ To execute or re-seed:
 1. Open [Supabase SQL Editor](https://supabase.com/dashboard/project/qamagzdnnislphuauzco/sql/new)
 2. Paste the contents of `supabase/full_schema_and_seed.sql`
 3. Click **Run**
-

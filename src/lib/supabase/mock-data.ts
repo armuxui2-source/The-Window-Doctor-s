@@ -809,3 +809,240 @@ export const MOCK_POSTCODES: Postcode[] = [
   { id: "pc-14", area_id: "area-5", postcode_prefix: "NN13", region_name: "Brackley, Croughton, Evenley, Turweston", created_at: new Date().toISOString() },
   { id: "pc-15", area_id: "area-5", postcode_prefix: "MK18", region_name: "Buckingham, Tingewick, Gawcott", created_at: new Date().toISOString() },
 ];
+
+export interface SiteSettingsData {
+  businessName: string;
+  phone: string;
+  email: string;
+  address: string;
+  city: string;
+  postcode: string;
+  fensaNumber: string;
+  openingHours: string;
+  googleMapsPlaceId: string;
+  facebookUrl: string;
+  instagramUrl: string;
+  tagline: string;
+}
+
+export const DEFAULT_SITE_SETTINGS: SiteSettingsData = {
+  businessName: "The Window Doctor",
+  phone: "01869 572206",
+  email: "info@thewindowdoctors.co.uk",
+  address: "Home Farm, Bainton Road",
+  city: "Bucknell, Bicester",
+  postcode: "OX27 7LT",
+  fensaNumber: "28491",
+  openingHours: "Mon-Sat 08:00-18:00",
+  googleMapsPlaceId: "ChIJbV02x3gSdkgREr28n_7eJQI",
+  facebookUrl: "https://facebook.com/thewindowdoctorsoxfordshire",
+  instagramUrl: "https://instagram.com/thewindowdoctors_uk",
+  tagline: "Oxfordshire Glazing Specialists Since 1983",
+};
+
+export interface ComparisonItem {
+  id: string;
+  feature: string;
+  windowDoctor: string;
+  nationalGuys: string;
+  isSuperior?: boolean;
+}
+
+export const DEFAULT_COMPARISON_ROWS: ComparisonItem[] = [
+  {
+    id: "comp-1",
+    feature: "Cost for 8 Windows",
+    windowDoctor: "£760 - £1,100 (Glass Unit Replacement)",
+    nationalGuys: "£6,500 - £9,800 (Full Tear-Out)",
+    isSuperior: true,
+  },
+  {
+    id: "comp-2",
+    feature: "Installation Time",
+    windowDoctor: "2 to 3 Hours (30-45 mins per unit)",
+    nationalGuys: "2 to 3 Days with Heavy Disruption",
+    isSuperior: true,
+  },
+  {
+    id: "comp-3",
+    feature: "Damage to Interior Walls & Plaster",
+    windowDoctor: "Zero Damage — Existing frames stay untouched",
+    nationalGuys: "High — Plastering & re-decorating required",
+    isSuperior: true,
+  },
+  {
+    id: "comp-4",
+    feature: "Thermal Insulation (Low-E Argon)",
+    windowDoctor: "A+ Rating (1.1 W/m²K Pilkington Glass)",
+    nationalGuys: "Standard Double Glazing",
+    isSuperior: true,
+  },
+  {
+    id: "comp-5",
+    feature: "Sales Approach",
+    windowDoctor: "Honest Master Glazier Survey (No Pressure)",
+    nationalGuys: "High-Pressure Commissioned Sales Reps",
+    isSuperior: true,
+  },
+];
+
+export interface ProcessStepItem {
+  id: string;
+  num: string;
+  title: string;
+  timing: string;
+  description: string;
+}
+
+export const DEFAULT_PROCESS_STEPS: ProcessStepItem[] = [
+  {
+    id: "step-1",
+    num: "01",
+    title: "Laser Precision Survey",
+    timing: "Free • 30 Mins",
+    description: "Our master glazier visits your home with digital laser gauges to measure exact unit dimensions, glass thickness, and spacer specs.",
+  },
+  {
+    id: "step-2",
+    num: "02",
+    title: "Bespoke UK Glazing",
+    timing: "2-4 Working Days",
+    description: "Your replacement units are hermetically sealed with Swissspacer warm edge bars and 90% pure Argon thermal gas in our regional workshop.",
+  },
+  {
+    id: "step-3",
+    num: "03",
+    title: "Clean Master Installation",
+    timing: "30-45 Mins / Pane",
+    description: "Beads are carefully unclipped, the failed unit is removed, and the new crystal unit is seated with zero mess and zero plaster damage.",
+  },
+  {
+    id: "step-4",
+    num: "04",
+    title: "10-Year Certificate",
+    timing: "Instant Handover",
+    description: "We test all handles, lubricate hinges, and issue your official 10-Year Insurance-Backed Anti-Fog Guarantee and FENSA documentation.",
+  },
+];
+
+export interface FAQItemData {
+  id: string;
+  question: string;
+  answer: string;
+  sort_order: number;
+}
+
+export const DEFAULT_FAQS: FAQItemData[] = [
+  {
+    id: "faq-1",
+    question: "Do I need to replace my whole window frame if the glass is misted?",
+    answer: "No! In over 95% of cases, you only need to replace the failed double-glazed sealed unit. Your existing frames remain completely intact, saving you up to 70% compared to full replacements.",
+    sort_order: 1,
+  },
+  {
+    id: "faq-2",
+    question: "How long does a misted glass replacement take?",
+    answer: "Our master technicians typically complete each window pane replacement in under 45 minutes with zero mess and zero disturbance to your internal decor or plaster.",
+    sort_order: 2,
+  },
+  {
+    id: "faq-3",
+    question: "Are your window installations FENSA certified and insured?",
+    answer: "Yes. We are fully FENSA registered (No. 28491). All new window and door installations include Building Regulations compliance certification and a 10-Year Insurance-Backed Guarantee.",
+    sort_order: 3,
+  },
+  {
+    id: "faq-4",
+    question: "Can you install cat flaps into double glazed glass doors?",
+    answer: "Yes. We manufacture custom toughened double glazed glass units with pre-cut factory sealed apertures designed specifically for SureFlap microchip and manual cat flaps.",
+    sort_order: 4,
+  },
+  {
+    id: "faq-5",
+    question: "Do you charge for home surveys and quotes in Oxfordshire?",
+    answer: "No. All our initial on-site inspections, measurements, and formal written quotations are 100% free with absolutely no high-pressure sales obligation.",
+    sort_order: 5,
+  },
+];
+
+export interface TrustPillarItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon_name: string;
+  sort_order: number;
+}
+
+export const DEFAULT_TRUST_PILLARS: TrustPillarItem[] = [
+  {
+    id: "pillar-1",
+    title: "Est. 1983 Heritage",
+    subtitle: "40+ Years Local Experience",
+    description: "Four decades of uninterrupted service to Bicester, Oxford, and surrounding Cotswold communities.",
+    icon_name: "Clock",
+    sort_order: 1,
+  },
+  {
+    id: "pillar-2",
+    title: "FENSA Certified",
+    subtitle: "Reg. No. 28491",
+    description: "All replacement windows and doors comply fully with UK Building Regulations with official certification.",
+    icon_name: "ShieldCheck",
+    sort_order: 2,
+  },
+  {
+    id: "pillar-3",
+    title: "10-Year Guarantee",
+    subtitle: "Insurance-Backed Security",
+    description: "Enjoy long-term peace of mind on all sealed double glazed units and modern frame installations.",
+    icon_name: "Award",
+    sort_order: 3,
+  },
+  {
+    id: "pillar-4",
+    title: "No High-Pressure Sales",
+    subtitle: "Honest Master Glazier Advice",
+    description: "Direct communication with seasoned fenestration engineers without sales intermediaries.",
+    icon_name: "CheckCircle",
+    sort_order: 4,
+  },
+];
+
+export interface FrameColorItem {
+  id: string;
+  name: string;
+  ral_code: string;
+  hex_color: string;
+  finish: string;
+  price_surcharge_percent: number;
+  is_popular: boolean;
+  sort_order: number;
+}
+
+export const DEFAULT_FRAME_COLORS: FrameColorItem[] = [
+  { id: "col-1", name: "Anthracite Grey", ral_code: "RAL 7016", hex_color: "#383E42", finish: "Textured Matt Foil", price_surcharge_percent: 0, is_popular: true, sort_order: 1 },
+  { id: "col-2", name: "Chartwell Green", ral_code: "BS 14 C 35", hex_color: "#8BA896", finish: "Heritage Woodgrain", price_surcharge_percent: 0, is_popular: true, sort_order: 2 },
+  { id: "col-3", name: "Agate Grey", ral_code: "RAL 7038", hex_color: "#B5B8B1", finish: "Smooth Silk", price_surcharge_percent: 0, is_popular: true, sort_order: 3 },
+  { id: "col-4", name: "Classic Brilliant White", ral_code: "RAL 9016", hex_color: "#F4F4F4", finish: "High-Gloss Smooth", price_surcharge_percent: 0, is_popular: true, sort_order: 4 },
+  { id: "col-5", name: "Golden Oak", ral_code: "Woodgrain", hex_color: "#A87139", finish: "Natural Timber Texture", price_surcharge_percent: 5, is_popular: false, sort_order: 5 },
+  { id: "col-6", name: "Rosewood", ral_code: "Woodgrain", hex_color: "#522A1E", finish: "Deep Timber Texture", price_surcharge_percent: 5, is_popular: false, sort_order: 6 },
+  { id: "col-7", name: "Slate Grey", ral_code: "RAL 7015", hex_color: "#4C5155", finish: "Matt Foil", price_surcharge_percent: 0, is_popular: false, sort_order: 7 },
+  { id: "col-8", name: "Black Ash", ral_code: "RAL 9005", hex_color: "#1F2022", finish: "Architectural Grain", price_surcharge_percent: 0, is_popular: false, sort_order: 8 },
+];
+
+export interface EnergyRateItem {
+  id: string;
+  key: string;
+  label: string;
+  rate_value: number;
+  unit: string;
+}
+
+export const DEFAULT_ENERGY_RATES: EnergyRateItem[] = [
+  { id: "rate-1", key: "single_to_a_plus_savings", label: "Single to A++ Glazing Annual Savings", rate_value: 195.0, unit: "£ / year" },
+  { id: "rate-2", key: "old_double_to_argon_savings", label: "Old 90s Double to Argon Low-E Savings", rate_value: 145.0, unit: "£ / year" },
+  { id: "rate-3", key: "co2_reduction_kg", label: "Average Annual Carbon Reduction", rate_value: 420.0, unit: "kg CO2 / year" },
+  { id: "rate-4", key: "u_value_improvement_percent", label: "Thermal Retention Improvement", rate_value: 64.0, unit: "% retention" },
+];
+

@@ -1,40 +1,14 @@
 import React from "react";
 import { Check, X, ShieldCheck, TrendingDown, Clock, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { DEFAULT_COMPARISON_ROWS, ComparisonItem } from "@/lib/supabase/mock-data";
 
-export default function ComparisonMatrix() {
-  const comparisonData = [
-    {
-      feature: "Cost for 8 Windows",
-      windowDoctor: "£760 - £1,100 (Glass Unit Replacement)",
-      nationalGuys: "£6,500 - £9,800 (Full Tear-Out)",
-      isSuperior: true,
-    },
-    {
-      feature: "Installation Time",
-      windowDoctor: "2 to 3 Hours (30-45 mins per unit)",
-      nationalGuys: "2 to 3 Days with Heavy Disruption",
-      isSuperior: true,
-    },
-    {
-      feature: "Damage to Interior Walls & Plaster",
-      windowDoctor: "Zero Damage — Existing frames stay untouched",
-      nationalGuys: "High — Plastering & re-decorating required",
-      isSuperior: true,
-    },
-    {
-      feature: "Thermal Insulation (Low-E Argon)",
-      windowDoctor: "A+ Rating (1.1 W/m²K Pilkington Glass)",
-      nationalGuys: "Standard Double Glazing",
-      isSuperior: true,
-    },
-    {
-      feature: "Sales Approach",
-      windowDoctor: "Honest Master Glazier Survey (No Pressure)",
-      nationalGuys: "High-Pressure Commissioned Sales Reps",
-      isSuperior: true,
-    },
-  ];
+interface ComparisonMatrixProps {
+  rows?: ComparisonItem[];
+}
+
+export default function ComparisonMatrix({ rows = DEFAULT_COMPARISON_ROWS }: ComparisonMatrixProps) {
+  const comparisonData = rows;
 
   return (
     <div className="space-y-8">

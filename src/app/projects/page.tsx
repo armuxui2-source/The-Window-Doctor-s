@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import ProjectGallery from "@/components/portfolio/ProjectGallery";
 import { Layers, ArrowRight, Phone } from "lucide-react";
+import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export const metadata = {
   title: "Recent Projects & Case Studies | The Window Doctor",
@@ -9,6 +10,7 @@ export const metadata = {
 };
 
 export default function ProjectsPage() {
+  const site = DEFAULT_SITE_SETTINGS;
   return (
     <div className="space-y-[80px] lg:space-y-[120px] pb-24 pt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -48,11 +50,11 @@ export default function ProjectsPage() {
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
           <a
-            href="tel:01869572206"
+            href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
             className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
           >
             <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
-            <span>01869 572206</span>
+            <span>{site.phone}</span>
           </a>
         </div>
       </div>

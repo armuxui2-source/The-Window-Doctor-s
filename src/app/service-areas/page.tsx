@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import PostcodeChecker from "@/components/areas/PostcodeChecker";
-import { MOCK_SERVICE_AREAS, MOCK_POSTCODES } from "@/lib/supabase/mock-data";
+import { MOCK_SERVICE_AREAS, MOCK_POSTCODES, DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 import { MapPin, Clock, CheckCircle2, Phone, ArrowRight } from "lucide-react";
 
 export const metadata = {
@@ -10,6 +10,7 @@ export const metadata = {
 };
 
 export default function ServiceAreasPage() {
+  const site = DEFAULT_SITE_SETTINGS;
   return (
     <div className="space-y-[80px] lg:space-y-[120px] pb-24 pt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -23,7 +24,7 @@ export default function ServiceAreasPage() {
           Where We Provide Our Glazing Services
         </h1>
         <p className="font-body text-base sm:text-body-lg text-on-surface-variant">
-          Our headquarters is based in Bucknell, Bicester. Our fully equipped mobile engineering vans operate throughout Oxfordshire and neighboring borders.
+          Our headquarters is based in {site.city}. Our fully equipped mobile engineering vans operate throughout Oxfordshire and neighboring borders.
         </p>
       </div>
 
@@ -48,25 +49,28 @@ export default function ServiceAreasPage() {
                 className="card-structural p-6 space-y-4 shadow-card hover:border-secondary transition-colors"
               >
                 <div className="flex items-start justify-between">
-                  <div>
+                  <div className="space-y-1">
                     <h3 className="font-headline font-bold text-lg text-primary">{area.town_name}</h3>
-                    <span className="text-xs text-secondary font-bold font-label">{area.county}</span>
+                    <span className="text-xs text-secondary font-bold font-label flex items-center gap-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{area.response_time_hours}-Hour Max Response</span>
+                    </span>
                   </div>
-                  <div className="px-2.5 py-1 rounded-[12px] bg-surface-container-low border border-outline-variant text-[11px] text-on-surface-variant flex items-center gap-1 font-label">
-                    <Clock className="w-3 h-3 text-secondary" />
-                    <span>~{area.response_time_hours}h</span>
-                  </div>
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 font-label">
+                    {area.county}
+                  </span>
                 </div>
 
                 <div className="space-y-2 pt-2 border-t border-outline-variant">
-                  <span className="text-[11px] font-bold text-on-surface-variant block uppercase tracking-wider font-label">
+                  <span className="text-[11px] font-bold uppercase text-on-surface-variant block font-label">
                     Postcodes Covered:
                   </span>
                   <div className="flex flex-wrap gap-1.5">
                     {areaPostcodes.map((pc) => (
                       <span
                         key={pc.id}
-                        className="px-2 py-0.5 rounded-[8px] bg-surface-container-low border border-outline-variant text-xs font-mono text-primary font-bold"
+                        className="px-2 py-0.5 rounded-[8px] bg-surface-container-low text-primary text-xs font-mono font-bold border border-outline-variant"
+                        title={pc.region_name}
                       >
                         {pc.postcode_prefix}
                       </span>
@@ -74,9 +78,18 @@ export default function ServiceAreasPage() {
                   </div>
                 </div>
 
-                <div className="pt-2 flex items-center gap-2 text-xs text-emerald-700 font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Free Survey & Measurement</span>
+                <div className="pt-2 flex items-center justify-between text-xs font-label">
+                  <span className="text-emerald-700 font-bold flex items-center gap-1">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>Free Home Surveys</span>
+                  </span>
+                  <Link
+                    href={`/quote?area=${encodeURIComponent(area.town_name)}`}
+                    className="text-secondary hover:underline font-bold flex items-center gap-0.5"
+                  >
+                    <span>Book Survey</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
               </div>
             );
@@ -91,11 +104,11 @@ export default function ServiceAreasPage() {
           <p className="font-body text-xs text-slate-300">Our emergency glazing line is available for immediate assistance.</p>
         </div>
         <a
-          href="tel:01869572206"
+          href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
           className="btn-cta text-sm py-3 px-6 rounded-[16px] whitespace-nowrap"
         >
           <Phone className="w-4 h-4 mr-1.5 inline" />
-          <span>01869 572206</span>
+          <span>{site.phone}</span>
         </a>
       </div>
 

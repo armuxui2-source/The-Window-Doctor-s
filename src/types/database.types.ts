@@ -346,6 +346,206 @@ export interface Database {
         };
         Update: Partial<Database['public']['Tables']['site_analytics']['Insert']>;
       };
+      site_settings: {
+        Row: {
+          id: string;
+          business_name: string;
+          phone: string;
+          email: string;
+          address: string;
+          city: string;
+          postcode: string;
+          fensa_number: string;
+          opening_hours: string;
+          google_maps_place_id: string | null;
+          facebook_url: string | null;
+          instagram_url: string | null;
+          tagline: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          business_name?: string;
+          phone?: string;
+          email?: string;
+          address?: string;
+          city?: string;
+          postcode?: string;
+          fensa_number?: string;
+          opening_hours?: string;
+          google_maps_place_id?: string | null;
+          facebook_url?: string | null;
+          instagram_url?: string | null;
+          tagline?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['site_settings']['Insert']>;
+      };
+      hero_slides: {
+        Row: {
+          id: string;
+          tag: string;
+          badge_text: string;
+          title: string;
+          highlight_text: string;
+          description: string;
+          primary_cta_text: string;
+          primary_cta_link: string;
+          secondary_cta_text: string;
+          secondary_cta_link: string;
+          image_url: string;
+          stats: Json;
+          sort_order: number;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          tag: string;
+          badge_text: string;
+          title: string;
+          highlight_text: string;
+          description: string;
+          primary_cta_text?: string;
+          primary_cta_link?: string;
+          secondary_cta_text?: string;
+          secondary_cta_link?: string;
+          image_url: string;
+          stats?: Json;
+          sort_order?: number;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['hero_slides']['Insert']>;
+      };
+      faqs: {
+        Row: {
+          id: string;
+          question: string;
+          answer: string;
+          category: string;
+          sort_order: number;
+          is_active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          question: string;
+          answer: string;
+          category?: string;
+          sort_order?: number;
+          is_active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['faqs']['Insert']>;
+      };
+      comparison_matrix: {
+        Row: {
+          id: string;
+          feature: string;
+          window_doctor: string;
+          national_guys: string;
+          is_superior: boolean;
+          sort_order: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          feature: string;
+          window_doctor: string;
+          national_guys: string;
+          is_superior?: boolean;
+          sort_order?: number;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['comparison_matrix']['Insert']>;
+      };
+      process_steps: {
+        Row: {
+          id: string;
+          num: string;
+          title: string;
+          timing: string;
+          description: string;
+          sort_order: number;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          num: string;
+          title: string;
+          timing: string;
+          description: string;
+          sort_order?: number;
+          created_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['process_steps']['Insert']>;
+      };
+      trust_pillars: {
+        Row: {
+          id: string;
+          title: string;
+          subtitle: string | null;
+          description: string;
+          icon_name: string;
+          sort_order: number;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          subtitle?: string | null;
+          description: string;
+          icon_name?: string;
+          sort_order?: number;
+        };
+        Update: Partial<Database['public']['Tables']['trust_pillars']['Insert']>;
+      };
+      frame_colors: {
+        Row: {
+          id: string;
+          name: string;
+          ral_code: string;
+          hex_color: string;
+          finish: string;
+          price_surcharge_percent: number;
+          is_popular: boolean;
+          sort_order: number;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          ral_code: string;
+          hex_color: string;
+          finish?: string;
+          price_surcharge_percent?: number;
+          is_popular?: boolean;
+          sort_order?: number;
+        };
+        Update: Partial<Database['public']['Tables']['frame_colors']['Insert']>;
+      };
+      energy_rates: {
+        Row: {
+          id: string;
+          key: string;
+          label: string;
+          rate_value: number;
+          unit: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          key: string;
+          label: string;
+          rate_value: number;
+          unit?: string;
+          updated_at?: string;
+        };
+        Update: Partial<Database['public']['Tables']['energy_rates']['Insert']>;
+      };
     };
   };
 }

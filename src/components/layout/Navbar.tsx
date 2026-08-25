@@ -22,8 +22,10 @@ import {
   Calendar
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export default function Navbar() {
+  const site = DEFAULT_SITE_SETTINGS;
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -194,11 +196,11 @@ export default function Navbar() {
           {/* Right Call & Quote Actions */}
           <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
             <a
-              href="tel:01869572206"
+              href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
               className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-[14px] text-xs font-bold text-primary bg-surface-container-low hover:bg-surface-container border border-outline-variant transition-colors whitespace-nowrap font-label"
             >
               <Phone className="w-3.5 h-3.5 text-secondary" />
-              <span>01869 572206</span>
+              <span>{site.phone}</span>
             </a>
 
             <Link
@@ -354,7 +356,7 @@ export default function Navbar() {
           <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant space-y-2 text-xs">
             <div className="flex items-center gap-1.5 text-secondary font-bold">
               <ShieldCheck className="w-4 h-4" />
-              <span>FENSA Registered No. 28491</span>
+              <span>FENSA Registered No. {site.fensaNumber}</span>
             </div>
             <div className="flex items-center gap-1.5 text-emerald-700 font-medium">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
@@ -367,11 +369,11 @@ export default function Navbar() {
         {/* Drawer Bottom Actions */}
         <div className="p-4 border-t border-outline-variant bg-surface-container-low space-y-2 font-label">
           <a
-            href="tel:01869572206"
+            href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
             className="w-full btn-secondary text-xs py-3 rounded-xl flex items-center justify-center gap-2 font-bold"
           >
             <Phone className="w-4 h-4 text-secondary" />
-            <span>Call: 01869 572206</span>
+            <span>Call: {site.phone}</span>
           </a>
 
           <Link

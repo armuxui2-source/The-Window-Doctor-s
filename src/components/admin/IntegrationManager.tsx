@@ -21,7 +21,40 @@ import {
   Check,
   X
 } from "lucide-react";
+import { 
+  GoogleAnalyticsLogo,
+  GoogleTagManagerLogo,
+  GoogleSearchConsoleLogo,
+  GoogleAdsLogo,
+  MetaLogo,
+  LineLogo,
+  GoogleMapsLogo,
+  SupabaseLogo
+} from "./PlatformLogos";
 import { cn } from "@/lib/utils";
+
+function ProviderIcon({ provider, className = "w-6 h-6" }: { provider: string; className?: string }) {
+  switch (provider) {
+    case "ga4":
+      return <GoogleAnalyticsLogo className={className} />;
+    case "gtm":
+      return <GoogleTagManagerLogo className={className} />;
+    case "gsc":
+      return <GoogleSearchConsoleLogo className={className} />;
+    case "gads":
+      return <GoogleAdsLogo className={className} />;
+    case "meta":
+      return <MetaLogo className={className} />;
+    case "line":
+      return <LineLogo className={className} />;
+    case "maps":
+      return <GoogleMapsLogo className={className} />;
+    case "supabase":
+      return <SupabaseLogo className={className} />;
+    default:
+      return <Activity className={className} />;
+  }
+}
 
 interface IntegrationItem {
   provider: string;
@@ -36,6 +69,8 @@ interface IntegrationItem {
   placeholder: string;
   secret_placeholder?: string;
   help_url: string;
+  console_url?: string;
+  get_key_url?: string;
   format_hint: string;
   icon_name: string;
 }
@@ -51,7 +86,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "G-XXXXXXXXXX",
-    help_url: "https://analytics.google.com",
+    help_url: "https://support.google.com/analytics/answer/9304153",
+    console_url: "https://analytics.google.com/analytics/web/",
+    get_key_url: "https://analytics.google.com/analytics/web/#/admin",
     format_hint: "Starts with 'G-' followed by 8-12 alphanumeric characters.",
     icon_name: "GA4"
   },
@@ -65,7 +102,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "GTM-XXXXXXX",
-    help_url: "https://tagmanager.google.com",
+    help_url: "https://support.google.com/tagmanager/answer/6103696",
+    console_url: "https://tagmanager.google.com/",
+    get_key_url: "https://tagmanager.google.com/#/admin",
     format_hint: "Starts with 'GTM-' followed by 6-8 characters.",
     icon_name: "GTM"
   },
@@ -79,7 +118,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "google-site-verification token or code",
-    help_url: "https://search.google.com/search-console",
+    help_url: "https://support.google.com/webmasters/answer/9008080",
+    console_url: "https://search.google.com/search-console",
+    get_key_url: "https://search.google.com/search-console/settings/ownership",
     format_hint: "Verification meta tag content string (e.g. abcd1234efgh5678).",
     icon_name: "GSC"
   },
@@ -93,7 +134,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "AW-XXXXXXXXXX",
-    help_url: "https://ads.google.com",
+    help_url: "https://support.google.com/google-ads/answer/12212999",
+    console_url: "https://ads.google.com/",
+    get_key_url: "https://ads.google.com/aw/conversions",
     format_hint: "Starts with 'AW-' followed by numeric Conversion ID.",
     icon_name: "GADS"
   },
@@ -107,7 +150,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "123456789012345",
-    help_url: "https://business.facebook.com/events_manager",
+    help_url: "https://www.facebook.com/business/help/742478679120153",
+    console_url: "https://business.facebook.com/events_manager2/",
+    get_key_url: "https://business.facebook.com/events_manager2/overview",
     format_hint: "12 to 18 numeric digits.",
     icon_name: "META"
   },
@@ -123,6 +168,8 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     placeholder: "Pixel ID (Public)",
     secret_placeholder: "Server-side Access Token (EAA...)",
     help_url: "https://developers.facebook.com/docs/marketing-api/conversions-api",
+    console_url: "https://developers.facebook.com/apps/",
+    get_key_url: "https://business.facebook.com/events_manager2/list/dataset",
     format_hint: "Encrypted server token. Never exposed to frontend.",
     icon_name: "CAPI"
   },
@@ -137,7 +184,9 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     last_tested_at: null,
     placeholder: "LINE Channel ID",
     secret_placeholder: "Channel Secret / Access Token",
-    help_url: "https://developers.line.biz",
+    help_url: "https://developers.line.biz/en/docs/messaging-api/overview/",
+    console_url: "https://developers.line.biz/console/",
+    get_key_url: "https://developers.line.biz/console/channel/",
     format_hint: "Used for instant staff quote alerts & automated customer notifications.",
     icon_name: "LINE"
   },
@@ -151,11 +200,14 @@ const DEFAULT_PROVIDERS: IntegrationItem[] = [
     test_status: "untested",
     last_tested_at: null,
     placeholder: "AIzaSy...",
-    help_url: "https://console.cloud.google.com/google/maps-apis",
+    help_url: "https://developers.google.com/maps/documentation/javascript",
+    console_url: "https://console.cloud.google.com/google/maps-apis",
+    get_key_url: "https://console.cloud.google.com/google/maps-apis/credentials",
     format_hint: "Used for Oxfordshire postcode auto-completion & distance calculations.",
     icon_name: "MAPS"
   }
 ];
+
 
 interface AuditEntry {
   id: string;
@@ -451,25 +503,29 @@ export default function IntegrationManager() {
               {/* Card Header: Name, Status & Toggle */}
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-primary text-secondary-container font-extrabold text-xs flex items-center justify-center shadow-sm">
-                    {item.icon_name}
+                  <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center p-2 flex-shrink-0">
+                    <ProviderIcon provider={item.provider} />
                   </div>
                   <div>
                     <h3 className="font-headline font-bold text-base text-primary flex items-center gap-2">
                       <span>{item.display_name}</span>
-                      <a
-                        href={item.help_url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-on-surface-variant hover:text-primary transition-colors"
-                        title="Open Documentation"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
                     </h3>
-                    <span className="text-[11px] text-on-surface-variant font-label">
-                      {item.category.toUpperCase()}
-                    </span>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-[10px] text-on-surface-variant font-label font-bold px-1.5 py-0.5 rounded-md bg-slate-100 uppercase">
+                        {item.category}
+                      </span>
+                      {item.console_url && (
+                        <a
+                          href={item.console_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[11px] text-secondary font-bold hover:underline inline-flex items-center gap-1"
+                        >
+                          <span>Open Console</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
 
@@ -519,9 +575,33 @@ export default function IntegrationManager() {
               <div className="space-y-3.5 text-xs font-label">
                 {/* 1. Public ID Field */}
                 <div>
-                  <label className="block text-on-surface font-bold mb-1">
-                    {item.provider === "gsc" ? "Verification Token / Tag" : "Tracking / Container / Public ID"}
-                  </label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="text-on-surface font-bold">
+                      {item.provider === "gsc" ? "Verification Token / Tag" : "Tracking / Container / Public ID"}
+                    </label>
+                    <div className="flex items-center gap-2">
+                      {item.get_key_url && (
+                        <a
+                          href={item.get_key_url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-[10px] text-secondary font-bold hover:underline inline-flex items-center gap-0.5"
+                        >
+                          <span>Get Key / ID</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                      <a
+                        href={item.help_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[10px] text-slate-500 hover:text-primary transition-colors inline-flex items-center gap-0.5"
+                      >
+                        <span>Docs</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    </div>
+                  </div>
                   <input
                     type="text"
                     value={form.public_id || ""}

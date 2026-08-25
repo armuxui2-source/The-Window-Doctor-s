@@ -14,7 +14,7 @@ import {
   Wrench,
   Award
 } from "lucide-react";
-import { MOCK_SERVICES } from "@/lib/supabase/mock-data";
+import { MOCK_SERVICES, DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
 export const metadata = {
   title: "Glazing & Window Services Catalog | The Window Doctor Bicester",
@@ -22,6 +22,7 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
+  const site = DEFAULT_SITE_SETTINGS;
   return (
     <div className="space-y-[80px] lg:space-y-[120px] pb-24 pt-8 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -48,45 +49,37 @@ export default function ServicesPage() {
           >
             <div>
               {/* Image Container (16:9 Aspect Ratio) */}
-              <div className="relative h-52 w-full overflow-hidden bg-surface-container-low">
+              <div className="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100">
                 <Image
-                  src={srv.hero_image_url || ""}
+                  src={srv.hero_image_url || "/window-hero.jpg"}
                   alt={srv.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-[12px] bg-primary/90 text-secondary-container text-xs font-bold font-label backdrop-blur-md">
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-[12px] bg-primary/80 backdrop-blur-md text-white text-[11px] font-bold font-label">
                   From £{srv.base_price_estimate} {srv.price_unit}
                 </div>
               </div>
 
-              {/* Content Body */}
+              {/* Content */}
               <div className="p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-[12px] bg-primary text-secondary-container flex items-center justify-center flex-shrink-0">
-                    {srv.slug === "misted-glass-repair" && <Sparkles className="w-5 h-5" />}
-                    {srv.slug === "modern-windows" && <Grid className="w-5 h-5" />}
-                    {srv.slug === "stylish-doors" && <DoorClosed className="w-5 h-5" />}
-                    {srv.slug === "warm-roof-conservatories" && <Home className="w-5 h-5" />}
-                    {srv.slug === "glass-balustrades" && <Shield className="w-5 h-5" />}
-                  </div>
-                  <div>
-                    <h3 className="font-headline font-bold text-lg text-primary group-hover:text-secondary transition-colors">
-                      {srv.title}
-                    </h3>
-                    <span className="text-xs text-secondary font-bold font-label block -mt-0.5">
-                      {srv.headline}
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <span className="text-[11px] uppercase tracking-wider text-secondary font-bold font-label">
+                    10-Year Insurance Guarantee
+                  </span>
+                  <h3 className="font-headline font-bold text-xl text-primary">
+                    {srv.title}
+                  </h3>
                 </div>
 
-                <p className="font-body text-xs text-on-surface-variant leading-relaxed">
+                <p className="font-body text-body-sm text-on-surface-variant line-clamp-3">
                   {srv.short_description}
                 </p>
 
-                <ul className="space-y-2 pt-3 border-t border-outline-variant">
-                  {srv.features.slice(0, 3).map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-xs text-on-surface font-medium">
+                {/* Key Features List */}
+                <ul className="space-y-2 pt-2 border-t border-outline-variant text-xs text-on-surface-variant font-label">
+                  {srv.features?.slice(0, 3).map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
                       <CheckCircle className="w-3.5 h-3.5 text-secondary flex-shrink-0" />
                       <span className="truncate">{feat}</span>
                     </li>
@@ -120,9 +113,9 @@ export default function ServicesPage() {
             <span>Book Free On-Site Survey</span>
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
-          <a href="tel:01869572206" className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
+          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
             <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
-            <span>01869 572206</span>
+            <span>{site.phone}</span>
           </a>
         </div>
       </div>
