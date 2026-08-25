@@ -124,15 +124,15 @@ export default function HeroSlider() {
         
         {/* Top Heritage Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase tracking-wider font-label animate-fade-in shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse" />
-            <span>{activeSlide.tag}</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-secondary-container/30 text-secondary-container text-xs font-bold uppercase tracking-wider font-label animate-fade-in shadow-sm whitespace-nowrap">
+            <span className="w-2 h-2 rounded-full bg-secondary-container animate-pulse flex-shrink-0" />
+            <span className="whitespace-nowrap">{activeSlide.tag}</span>
           </div>
 
           {/* Slide Pill Value Proposition Badge */}
-          <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/80 backdrop-blur-md border border-secondary/30 text-xs font-semibold text-slate-200">
-            <Sparkles className="w-3.5 h-3.5 text-secondary-container" />
-            <span>{activeSlide.badgeText}</span>
+          <div className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/80 backdrop-blur-md border border-secondary/30 text-xs font-semibold text-slate-200 whitespace-nowrap">
+            <Sparkles className="w-3.5 h-3.5 text-secondary-container flex-shrink-0" />
+            <span className="whitespace-nowrap">{activeSlide.badgeText}</span>
           </div>
         </div>
 
@@ -143,11 +143,11 @@ export default function HeroSlider() {
             
             {/* Animated Headline */}
             <div className="space-y-3">
-              <span className="text-secondary-container text-xs sm:text-sm font-bold uppercase tracking-widest font-label block">
+              <span className="text-secondary-container text-xs sm:text-sm font-bold uppercase tracking-widest font-label block whitespace-nowrap">
                 {activeSlide.badgeText}
               </span>
-              <h1 className="font-headline font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white leading-[1.12] tracking-tight">
-                {activeSlide.title} <br />
+              <h1 className="font-headline font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-[52px] text-white leading-[1.15] tracking-tight">
+                {activeSlide.title} <br className="hidden sm:inline" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-container via-amber-200 to-secondary-fixed">
                   {activeSlide.highlightText}
                 </span>
@@ -155,37 +155,37 @@ export default function HeroSlider() {
             </div>
 
             {/* Description Text */}
-            <p className="font-body text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed">
+            <p className="font-body text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed">
               {activeSlide.description}
             </p>
 
             {/* Hero Dual CTA Actions */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 href={activeSlide.primaryCtaLink}
-                className="btn-cta text-sm sm:text-base py-3.5 px-8 rounded-[16px] shadow-gold-glow flex items-center justify-center gap-2 group transition-all duration-300"
+                className="btn-cta text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-[16px] shadow-gold-glow flex items-center justify-center gap-2 group transition-all duration-300 whitespace-nowrap"
               >
-                <span>{activeSlide.primaryCtaText}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <span className="whitespace-nowrap font-bold">{activeSlide.primaryCtaText}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Link>
 
               <a
                 href={activeSlide.secondaryCtaLink}
-                className="btn-secondary text-sm sm:text-base py-3.5 px-8 rounded-[16px] bg-white/10 text-white hover:bg-white/20 border-white/20 backdrop-blur-md flex items-center justify-center gap-2 transition-all duration-300"
+                className="btn-secondary text-sm sm:text-base py-3.5 px-6 sm:px-8 rounded-[16px] bg-white/10 text-white hover:bg-white/20 border-white/20 backdrop-blur-md flex items-center justify-center gap-2 transition-all duration-300 whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 text-secondary-container" />
-                <span>{activeSlide.secondaryCtaText}</span>
+                <Phone className="w-4 h-4 text-secondary-container flex-shrink-0" />
+                <span className="whitespace-nowrap font-bold">{activeSlide.secondaryCtaText}</span>
               </a>
             </div>
 
             {/* Slide Specific Metrics / Key Stats */}
-            <div className="pt-4 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
+            <div className="pt-4 grid grid-cols-3 gap-2.5 sm:gap-6 max-w-lg">
               {activeSlide.stats.map((stat, i) => (
-                <div key={i} className="glass-card-dark rounded-[14px] p-3 sm:p-4 text-left border border-white/10">
-                  <div className="font-headline font-extrabold text-lg sm:text-2xl text-secondary-container leading-tight">
+                <div key={i} className="glass-card-dark rounded-[14px] p-2.5 sm:p-4 text-left border border-white/10">
+                  <div className="font-headline font-extrabold text-base sm:text-xl md:text-2xl text-secondary-container leading-tight whitespace-nowrap">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] sm:text-xs text-slate-300 font-medium font-label mt-0.5">
+                  <div className="text-[10px] sm:text-xs text-slate-300 font-medium font-label mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
                     {stat.label}
                   </div>
                 </div>

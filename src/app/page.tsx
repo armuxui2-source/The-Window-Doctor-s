@@ -130,7 +130,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-[80px] lg:space-y-[120px] pb-24">
+    <div className="pb-24">
       
       {/* Embedded SEO JSON-LD */}
       <script
@@ -138,13 +138,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* 1. DYNAMIC HERO SHOWCASE SLIDER */}
+      {/* 1. DYNAMIC HERO SHOWCASE SLIDER - Seamlessly connected to header with 0px gap */}
       <HeroSlider />
 
-      {/* 2. REAL OXFORDSHIRE CASE STUDIES & BEFORE/AFTER INTERACTIVE SLIDER */}
-      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <ProjectsShowcase />
-      </section>
+      <div className="space-y-[80px] lg:space-y-[120px] pt-16 lg:pt-24">
+        {/* 2. REAL OXFORDSHIRE CASE STUDIES & BEFORE/AFTER INTERACTIVE SLIDER */}
+        <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          <ProjectsShowcase />
+        </section>
 
       {/* 2.5 VERIFIED GOOGLE MAPS REVIEWS SLIDER */}
       <GoogleReviewsSlider />
@@ -394,6 +395,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      </div>
     </div>
   );
 }
