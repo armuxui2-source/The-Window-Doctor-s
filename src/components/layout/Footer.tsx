@@ -215,6 +215,9 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4 font-label">
           <p>© 1983 - 2026 {site.businessName}’s. All rights reserved. Bicester & Oxfordshire.</p>
           <div className="flex items-center gap-6">
+            <Link href="/showcase" className="hover:text-amber-300 text-secondary-container transition-colors flex items-center gap-1 font-semibold">
+              <Sparkles className="w-3 h-3" /> Project Showcase
+            </Link>
             <Link href="/about" className="hover:text-slate-300 transition-colors">FENSA Reg. {site.fensaNumber}</Link>
             <Link href="/service-areas" className="hover:text-slate-300 transition-colors">Oxfordshire Coverage</Link>
             <Link href="/admin" className="hover:text-secondary-container transition-colors flex items-center gap-1">
