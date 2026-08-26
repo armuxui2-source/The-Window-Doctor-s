@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import PostcodeChecker from "@/components/areas/PostcodeChecker";
 import { MOCK_SERVICE_AREAS, MOCK_POSTCODES, DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
@@ -16,7 +16,7 @@ export default function ServiceAreasPage() {
       
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <MapPin className="w-3.5 h-3.5" />
           <span>Local Rapid Response Coverage</span>
         </div>
@@ -56,7 +56,7 @@ export default function ServiceAreasPage() {
                       <span>{area.response_time_hours}-Hour Max Response</span>
                     </span>
                   </div>
-                  <span className="px-2.5 py-1 rounded text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 font-label">
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 font-label">
                     {area.county}
                   </span>
                 </div>
@@ -69,7 +69,7 @@ export default function ServiceAreasPage() {
                     {areaPostcodes.map((pc) => (
                       <span
                         key={pc.id}
-                        className="px-2 py-0.5 rounded bg-surface-container-low text-primary text-xs font-mono font-bold border border-outline-variant"
+                        className="px-2 py-0.5 rounded-[8px] bg-surface-container-low text-primary text-xs font-mono font-bold border border-outline-variant"
                         title={pc.region_name}
                       >
                         {pc.postcode_prefix}
@@ -98,14 +98,14 @@ export default function ServiceAreasPage() {
       </div>
 
       {/* Emergency On-Call Strip */}
-      <div className="bg-primary text-white rounded-lg p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
+      <div className="bg-primary text-white rounded-[24px] p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-lg">
         <div className="space-y-1 text-center sm:text-left">
           <h3 className="font-headline font-bold text-lg sm:text-xl text-white">Need Urgent Glazing or Boarding in Oxfordshire?</h3>
           <p className="font-body text-xs text-slate-300">Our emergency glazing line is available for immediate assistance.</p>
         </div>
         <a
           href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
-          className="btn-cta text-sm py-3 px-6 rounded-md whitespace-nowrap"
+          className="btn-cta text-sm py-3 px-6 rounded-[16px] whitespace-nowrap"
         >
           <Phone className="w-4 h-4 mr-1.5 inline" />
           <span>{site.phone}</span>

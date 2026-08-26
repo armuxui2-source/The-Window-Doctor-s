@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import ProjectGallery from "@/components/portfolio/ProjectGallery";
 import { Layers, ArrowRight, Phone } from "lucide-react";
@@ -16,7 +16,7 @@ export default function ProjectsPage() {
       
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <Layers className="w-3.5 h-3.5" />
           <span>Real Projects Across Oxfordshire</span>
         </div>
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       <ProjectGallery />
 
       {/* Bottom CTA */}
-      <div className="bg-primary text-white rounded-lg p-8 sm:p-12 text-center space-y-6 shadow-lg">
+      <div className="bg-primary text-white rounded-[24px] p-8 sm:p-12 text-center space-y-6 shadow-lg">
         <div className="space-y-2 max-w-xl mx-auto">
           <h2 className="font-headline font-bold text-2xl sm:text-headline-lg text-white">
             Have a Similar Project in Mind?
@@ -44,14 +44,14 @@ export default function ProjectsPage() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/quote"
-            className="btn-cta text-sm py-3.5 px-8 rounded-md w-full sm:w-auto"
+            className="btn-cta text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
           >
             <span>Book Your Free Survey</span>
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
           <a
             href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
-            className="btn-secondary text-sm py-3.5 px-8 rounded-md w-full sm:w-auto"
+            className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto"
           >
             <Phone className="w-4 h-4 text-secondary mr-1.5 inline" />
             <span>{site.phone}</span>

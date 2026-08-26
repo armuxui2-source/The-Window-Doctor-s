@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Work_Sans, Prompt, Inter } from "next/font/google";
+import { Hanken_Grotesk, Work_Sans, Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FloatingMobileNav from "@/components/layout/FloatingMobileNav";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
@@ -96,7 +89,7 @@ export default function RootLayout({
   return (
     <html 
       lang="en" 
-      className={`${inter.variable} ${hankenGrotesk.variable} ${workSans.variable} ${promptFont.variable} scroll-smooth`}
+      className={`${hankenGrotesk.variable} ${workSans.variable} ${promptFont.variable} scroll-smooth`}
     >
       <head>
         <DynamicIntegrationsLoader />

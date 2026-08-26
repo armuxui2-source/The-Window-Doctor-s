@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -96,7 +96,7 @@ export default function Navbar() {
             <Link 
               href="/" 
               className={cn(
-                "px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                "px-3 py-2 rounded-[14px] text-sm font-semibold transition-all duration-200 whitespace-nowrap",
                 pathname === "/" 
                   ? "text-primary bg-surface-container font-bold" 
                   : "text-on-surface hover:text-primary hover:bg-surface-container-low"
@@ -114,7 +114,7 @@ export default function Navbar() {
               <button
                 onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                 className={cn(
-                  "px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 flex items-center gap-1 whitespace-nowrap",
+                  "px-3 py-2 rounded-[14px] text-sm font-semibold transition-all duration-200 flex items-center gap-1 whitespace-nowrap",
                   pathname?.startsWith("/services") 
                     ? "text-primary bg-surface-container font-bold" 
                     : "text-on-surface hover:text-primary hover:bg-surface-container-low"
@@ -126,7 +126,7 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 w-80 bg-surface-container-lowest border border-outline-variant rounded-md shadow-2xl p-2.5 z-50 animate-fade-in space-y-1">
+                <div className="absolute top-full left-0 w-80 bg-surface-container-lowest border border-outline-variant rounded-[18px] shadow-2xl p-2.5 z-50 animate-fade-in space-y-1">
                   <div className="px-3 py-1.5 border-b border-outline-variant/60">
                     <span className="text-[11px] font-bold text-secondary uppercase font-label">Our Glazing Services</span>
                   </div>
@@ -136,7 +136,7 @@ export default function Navbar() {
                       <Link
                         key={srv.href}
                         href={srv.href}
-                        className="flex items-start gap-3 p-2.5 rounded-md hover:bg-surface-container transition-colors group/item"
+                        className="flex items-start gap-3 p-2.5 rounded-[12px] hover:bg-surface-container transition-colors group/item"
                       >
                         <div className="w-8 h-8 rounded-lg bg-primary/5 text-primary flex items-center justify-center flex-shrink-0 group-hover/item:bg-primary group-hover/item:text-secondary-container transition-colors">
                           <Icon className="w-4 h-4" />
@@ -159,7 +159,7 @@ export default function Navbar() {
             <Link 
               href="/projects" 
               className={cn(
-                "px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                "px-3 py-2 rounded-[14px] text-sm font-semibold transition-all duration-200 whitespace-nowrap",
                 pathname === "/projects" 
                   ? "text-primary bg-surface-container font-bold" 
                   : "text-on-surface hover:text-primary hover:bg-surface-container-low"
@@ -171,7 +171,7 @@ export default function Navbar() {
             <Link 
               href="/service-areas" 
               className={cn(
-                "px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                "px-3 py-2 rounded-[14px] text-sm font-semibold transition-all duration-200 whitespace-nowrap",
                 pathname === "/service-areas" 
                   ? "text-primary bg-surface-container font-bold" 
                   : "text-on-surface hover:text-primary hover:bg-surface-container-low"
@@ -183,7 +183,7 @@ export default function Navbar() {
             <Link 
               href="/about" 
               className={cn(
-                "px-3 py-2 rounded-md text-sm font-semibold transition-all duration-200 whitespace-nowrap",
+                "px-3 py-2 rounded-[14px] text-sm font-semibold transition-all duration-200 whitespace-nowrap",
                 pathname === "/about" 
                   ? "text-primary bg-surface-container font-bold" 
                   : "text-on-surface hover:text-primary hover:bg-surface-container-low"
@@ -197,7 +197,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
             <a
               href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
-              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-md text-xs font-bold text-primary bg-surface-container-low hover:bg-surface-container border border-outline-variant transition-colors whitespace-nowrap font-label"
+              className="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded-[14px] text-xs font-bold text-primary bg-surface-container-low hover:bg-surface-container border border-outline-variant transition-colors whitespace-nowrap font-label"
             >
               <Phone className="w-3.5 h-3.5 text-secondary" />
               <span>{site.phone}</span>
@@ -205,7 +205,7 @@ export default function Navbar() {
 
             <Link
               href="/quote"
-              className="btn-cta text-xs sm:text-sm py-2.5 px-4 sm:px-5 rounded-md flex items-center gap-1.5 whitespace-nowrap shadow-sm"
+              className="btn-cta text-xs sm:text-sm py-2.5 px-4 sm:px-5 rounded-[14px] flex items-center gap-1.5 whitespace-nowrap shadow-sm"
             >
               <span>Free Survey</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -216,7 +216,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
               id="mobile-menu-btn"
-              className="lg:hidden p-2.5 rounded-md bg-surface-container hover:bg-surface-container-high text-primary focus:outline-none transition-colors border border-outline-variant"
+              className="lg:hidden p-2.5 rounded-[14px] bg-surface-container hover:bg-surface-container-high text-primary focus:outline-none transition-colors border border-outline-variant"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-primary" /> : <Menu className="w-5 h-5 text-primary" />}
             </button>
@@ -260,7 +260,7 @@ export default function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close menu"
-            className="p-2 rounded-md bg-surface-container hover:bg-surface-container-high text-primary"
+            className="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-primary"
           >
             <X className="w-5 h-5" />
           </button>
@@ -274,7 +274,7 @@ export default function Navbar() {
               href="/"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center gap-2 px-3.5 py-2.5 rounded-md text-sm font-bold transition-colors",
+                "flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors",
                 pathname === "/" ? "bg-primary text-secondary-container" : "text-primary hover:bg-surface-container"
               )}
             >
@@ -286,7 +286,7 @@ export default function Navbar() {
             <div className="space-y-1 pt-1">
               <button
                 onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
-                className="w-full flex items-center justify-between px-3.5 py-2 rounded-md text-xs font-bold text-secondary uppercase bg-surface-container-low border border-outline-variant"
+                className="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-secondary uppercase bg-surface-container-low border border-outline-variant"
               >
                 <span>Glazing Services</span>
                 <ChevronDown className={cn("w-4 h-4 transition-transform", mobileServicesExpanded ? "rotate-180" : "")} />
@@ -319,7 +319,7 @@ export default function Navbar() {
               href="/projects"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center gap-2 px-3.5 py-2.5 rounded-md text-sm font-bold transition-colors",
+                "flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors",
                 pathname === "/projects" ? "bg-primary text-secondary-container" : "text-primary hover:bg-surface-container"
               )}
             >
@@ -331,7 +331,7 @@ export default function Navbar() {
               href="/service-areas"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center gap-2 px-3.5 py-2.5 rounded-md text-sm font-bold transition-colors",
+                "flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors",
                 pathname === "/service-areas" ? "bg-primary text-secondary-container" : "text-primary hover:bg-surface-container"
               )}
             >
@@ -343,7 +343,7 @@ export default function Navbar() {
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
               className={cn(
-                "flex items-center gap-2 px-3.5 py-2.5 rounded-md text-sm font-bold transition-colors",
+                "flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-sm font-bold transition-colors",
                 pathname === "/about" ? "bg-primary text-secondary-container" : "text-primary hover:bg-surface-container"
               )}
             >
@@ -353,7 +353,7 @@ export default function Navbar() {
           </div>
 
           {/* Trust Highlights Box */}
-          <div className="p-3.5 rounded-md bg-surface-container-low border border-outline-variant space-y-2 text-xs">
+          <div className="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant space-y-2 text-xs">
             <div className="flex items-center gap-1.5 text-secondary font-bold">
               <ShieldCheck className="w-4 h-4" />
               <span>FENSA Registered No. {site.fensaNumber}</span>
@@ -370,7 +370,7 @@ export default function Navbar() {
         <div className="p-4 border-t border-outline-variant bg-surface-container-low space-y-2 font-label">
           <a
             href={`tel:${site.phone.replace(/[^0-9]/g, "")}`}
-            className="w-full btn-secondary text-xs py-3 rounded-md flex items-center justify-center gap-2 font-bold"
+            className="w-full btn-secondary text-xs py-3 rounded-xl flex items-center justify-center gap-2 font-bold"
           >
             <Phone className="w-4 h-4 text-secondary" />
             <span>Call: {site.phone}</span>
@@ -379,7 +379,7 @@ export default function Navbar() {
           <Link
             href="/quote"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full btn-cta text-xs py-3 rounded-md flex items-center justify-center gap-2 font-bold shadow-md"
+            className="w-full btn-cta text-xs py-3 rounded-xl flex items-center justify-center gap-2 font-bold shadow-md"
           >
             <Calendar className="w-4 h-4" />
             <span>Instant Quote & Survey</span>

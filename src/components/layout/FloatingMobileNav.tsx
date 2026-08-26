@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -52,7 +52,7 @@ export default function FloatingMobileNav() {
           {/* Center Quote CTA Capsule */}
           <Link
             href="/quote"
-            className="flex items-center gap-1.5 px-4 py-2 rounded bg-secondary-container text-primary font-bold text-xs shadow-sm active:scale-95 transition-transform"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-secondary-container text-primary font-bold text-xs shadow-sm active:scale-95 transition-transform"
             aria-label="Get a Quote"
           >
             <Calculator className="w-4 h-4" />

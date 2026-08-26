@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -27,13 +27,13 @@ export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsS
   const currentProject = activeList.find((p) => p.id === selectedProjectId) || activeList[0];
 
   return (
-    <section className="bg-surface-container-low rounded-lg p-6 sm:p-10 lg:p-12 border border-outline-variant relative overflow-hidden shadow-card">
+    <section className="bg-surface-container-low rounded-[28px] p-6 sm:p-10 lg:p-12 border border-outline-variant relative overflow-hidden shadow-card">
       <div className="space-y-8">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-outline-variant pb-6">
           <div className="space-y-2 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-secondary-container/30 border border-secondary/20 text-secondary text-xs font-bold uppercase font-label">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[16px] bg-secondary-container/30 border border-secondary/20 text-secondary text-xs font-bold uppercase font-label">
               <TrendingDown className="w-3.5 h-3.5" />
               <span>Real Oxfordshire Case Studies</span>
             </div>
@@ -63,7 +63,7 @@ export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsS
                 key={proj.id}
                 onClick={() => setSelectedProjectId(proj.id)}
                 className={cn(
-                  "px-4 py-2.5 rounded text-xs font-bold font-label transition-all duration-200 whitespace-nowrap flex items-center gap-2 border",
+                  "px-4 py-2.5 rounded-full text-xs font-bold font-label transition-all duration-200 whitespace-nowrap flex items-center gap-2 border",
                   isSelected
                     ? "bg-primary text-secondary-container border-primary shadow-md"
                     : "bg-surface-container-lowest text-on-surface hover:bg-surface-container border-outline-variant"
@@ -89,15 +89,15 @@ export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsS
             
             {/* Meta Tags */}
             <div className="flex flex-wrap items-center gap-3 text-xs font-label">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-lowest border border-outline-variant text-primary font-bold">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-primary font-bold">
                 <MapPin className="w-3.5 h-3.5 text-secondary" />
                 <span>{currentProject.location_city}</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-medium">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-medium">
                 <Calendar className="w-3.5 h-3.5 text-secondary" />
                 <span>Completed {currentProject.completion_year}</span>
               </div>
-              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">
+              <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-bold">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                 <span>FENSA Certified</span>
               </div>
@@ -115,13 +115,13 @@ export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsS
 
             {/* Challenge & Solution Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <div className="p-3.5 rounded-md bg-surface-container-lowest border border-outline-variant space-y-1">
+              <div className="p-3.5 rounded-[16px] bg-surface-container-lowest border border-outline-variant space-y-1">
                 <span className="text-[11px] font-bold text-error uppercase font-label block">Client Challenge</span>
                 <p className="text-xs text-on-surface-variant leading-relaxed line-clamp-3">
                   {currentProject.challenge_description}
                 </p>
               </div>
-              <div className="p-3.5 rounded-md bg-surface-container-lowest border border-outline-variant space-y-1">
+              <div className="p-3.5 rounded-[16px] bg-surface-container-lowest border border-outline-variant space-y-1">
                 <span className="text-[11px] font-bold text-emerald-700 uppercase font-label block">Doctor's Solution</span>
                 <p className="text-xs text-on-surface-variant leading-relaxed line-clamp-3">
                   {currentProject.solution_description}
@@ -148,7 +148,7 @@ export default function ProjectsShowcase({ projects = MOCK_PROJECTS }: ProjectsS
             <div className="pt-2 flex items-center gap-4">
               <Link
                 href="/quote"
-                className="btn-cta text-xs py-3 px-6 rounded-md flex items-center gap-2 font-bold shadow-sm"
+                className="btn-cta text-xs py-3 px-6 rounded-[14px] flex items-center gap-2 font-bold shadow-sm"
               >
                 <span>Request Similar Survey</span>
                 <ArrowRight className="w-3.5 h-3.5" />

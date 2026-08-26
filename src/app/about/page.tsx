@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { 
@@ -33,7 +33,7 @@ export default function AboutPage() {
       
       {/* Header */}
       <div className="text-center space-y-4 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-[16px] bg-surface-container border border-outline-variant text-secondary text-xs font-bold uppercase font-label">
           <Clock className="w-3.5 h-3.5" />
           <span>Established 1983 • 40+ Years Heritage</span>
         </div>
@@ -59,18 +59,18 @@ export default function AboutPage() {
           </p>
 
           <div className="grid grid-cols-2 gap-4 pt-2">
-            <div className="p-4.5 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
+            <div className="p-4.5 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
               <span className="font-headline text-3xl font-extrabold text-secondary">40+</span>
               <span className="text-xs text-on-surface-variant block font-label">Years in Business</span>
             </div>
-            <div className="p-4.5 rounded-md bg-surface-container-low border border-outline-variant space-y-1">
+            <div className="p-4.5 rounded-[16px] bg-surface-container-low border border-outline-variant space-y-1">
               <span className="font-headline text-3xl font-extrabold text-emerald-700">25,000+</span>
               <span className="text-xs text-on-surface-variant block font-label">Units Installed</span>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-lg overflow-hidden border border-outline-variant shadow-card">
+        <div className="lg:col-span-6 relative h-80 sm:h-96 rounded-[24px] overflow-hidden border border-outline-variant shadow-card">
           <Image
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4PgLGqLJswj_yOE9Fp-h7Bh-0gB3SEGKW6wM__fhYsI1vcAZwqvKhgzpVL7CPX7XDHfvLEFLucGEy4uNrBRgE-6Ygcy_HksxKYiVtZxOFrjkRG5UiALFDyTnqEFSdiMMHVQtQIoDIgwDQLyuJAjYBogUwBNPAh0jSMBy_zkHmL9gRXfOW6qtVeyd7XAcVNUXYynC-N2W5g5e1oWBK8e7f5qY9lqco1Xmr5MekrfBHfzcqTU0EIh2I"
             alt="The Window Doctor Master Glaziers"
@@ -102,17 +102,17 @@ export default function AboutPage() {
       </div>
 
       {/* CTA Bottom Banner */}
-      <div className="bg-primary text-white rounded-lg p-8 sm:p-12 text-center space-y-6 shadow-lg">
+      <div className="bg-primary text-white rounded-[24px] p-8 sm:p-12 text-center space-y-6 shadow-lg">
         <h2 className="font-headline font-bold text-2xl sm:text-headline-lg text-white">Experience 40+ Years of Glazing Mastery</h2>
         <p className="font-body text-body-md text-slate-300 max-w-xl mx-auto">
           Contact our local team in Bicester for honest advice and a no-obligation quote today.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/quote" className="btn-cta text-sm py-3.5 px-8 rounded-md w-full sm:w-auto">
+          <Link href="/quote" className="btn-cta text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
             <span>Request Free Quote</span>
             <ArrowRight className="w-4 h-4 ml-1.5 inline" />
           </Link>
-          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-md w-full sm:w-auto">
+          <a href={`tel:${site.phone.replace(/[^0-9]/g, "")}`} className="btn-secondary text-sm py-3.5 px-8 rounded-[16px] w-full sm:w-auto">
             {site.phone}
           </a>
         </div>

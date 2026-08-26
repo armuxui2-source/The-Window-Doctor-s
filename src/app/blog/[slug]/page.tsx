@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -215,7 +215,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Header Typography */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded bg-surface-container text-secondary text-xs font-bold font-label">
+            <span className="px-3 py-1 rounded-full bg-surface-container text-secondary text-xs font-bold font-label">
               {article.category}
             </span>
             <span className="text-xs text-on-surface-variant font-label">
@@ -247,7 +247,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Hero Featured Image */}
-        <div className="relative h-[340px] sm:h-[460px] w-full rounded-lg overflow-hidden shadow-xl border border-outline-variant">
+        <div className="relative h-[340px] sm:h-[460px] w-full rounded-[24px] overflow-hidden shadow-xl border border-outline-variant">
           <Image
             src={article.imageUrl}
             alt={article.title}
@@ -260,7 +260,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Main Article Content */}
         <div className="space-y-8 text-on-surface font-body leading-relaxed text-base sm:text-lg">
           
-          <p className="font-headline font-semibold text-xl text-primary leading-relaxed bg-surface-container-low p-6 rounded-md border-l-4 border-secondary">
+          <p className="font-headline font-semibold text-xl text-primary leading-relaxed bg-surface-container-low p-6 rounded-2xl border-l-4 border-secondary">
             {article.content.intro}
           </p>
 
@@ -275,7 +275,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </p>
               ))}
               {sec.keyTakeaway && (
-                <div className="p-4 rounded-md bg-secondary-container/15 border border-secondary/30 text-primary text-sm font-semibold flex items-start gap-2.5">
+                <div className="p-4 rounded-xl bg-secondary-container/15 border border-secondary/30 text-primary text-sm font-semibold flex items-start gap-2.5">
                   <Sparkles className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                   <span><strong>Key Takeaway:</strong> {sec.keyTakeaway}</span>
                 </div>
@@ -291,7 +291,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </h3>
               <div className="space-y-3">
                 {article.content.faqs.map((faq, fIdx) => (
-                  <div key={fIdx} className="p-5 rounded-md bg-surface-container border border-outline-variant space-y-2">
+                  <div key={fIdx} className="p-5 rounded-2xl bg-surface-container border border-outline-variant space-y-2">
                     <h4 className="font-headline font-bold text-base text-primary">
                       {faq.q}
                     </h4>
@@ -307,7 +307,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Instant Quote Callout Card */}
-        <div className="glass-card p-8 sm:p-10 rounded-lg border-2 border-secondary/30 bg-gradient-to-br from-primary to-primary-container text-white space-y-6 shadow-2xl">
+        <div className="glass-card p-8 sm:p-10 rounded-[24px] border-2 border-secondary/30 bg-gradient-to-br from-primary to-primary-container text-white space-y-6 shadow-2xl">
           <div className="space-y-2">
             <span className="text-secondary-container font-bold text-xs uppercase font-label">
               Free On-Site Diagnostic Survey
@@ -323,13 +323,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/quote"
-              className="btn-cta py-3.5 px-8 rounded-md text-sm font-bold w-full sm:w-auto text-center"
+              className="btn-cta py-3.5 px-8 rounded-xl text-sm font-bold w-full sm:w-auto text-center"
             >
               Instant Price Calculator
             </Link>
             <a
               href="tel:01869572206"
-              className="btn-secondary py-3.5 px-8 rounded-md text-sm font-bold w-full sm:w-auto text-center bg-white/10 hover:bg-white/20 text-white border-white/20"
+              className="btn-secondary py-3.5 px-8 rounded-xl text-sm font-bold w-full sm:w-auto text-center bg-white/10 hover:bg-white/20 text-white border-white/20"
             >
               <Phone className="w-4 h-4 inline mr-2 text-secondary-container" />
               Call 01869 572206
