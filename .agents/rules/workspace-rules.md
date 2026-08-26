@@ -1,7 +1,6 @@
 # Workspace Rules for The Window Doctor Project
 
-1. Always consult `SYSTEM_MANUAL.md`, `DESIGN.md`, and `AGENTS.md` before making architectural or design modifications.
-2. The Public Website design is original and protected. Do not alter its visual theme or structure.
-3. The Admin Suite (`/admin`) uses Deep Heritage Navy `#00081E`, Gold Accent `#FED488`, and standard `12px` (`rounded-lg`) cards with `8px` (`rounded-md`) buttons.
-4. All hyperlinks from the Admin Suite must point to real public routes with `target="_blank"`.
-5. Keep database types, mock data, and Supabase schemas in sync.
+1. **Design DNA Constitution**: All UI designs, portfolio showcases, and client interfaces must inherit the **ARM PREMIUM PRODUCT DESIGN DNA** (Premium Soft SaaS + Editorial Bento + Product Visualization + Soft Gradient + Minimal UI + Business-first UX) documented in `AGENTS.md`.
+2. **Client System Integrity**: The Public Website (`/`, `/quote`, `/services`, etc.) and Admin Suite (`/admin`) belong strictly to the client. Keep them intact.
+3. **Developer Showcase Isolation (`/showcase`)**: The `/showcase` route is a private, isolated developer portfolio page with zero database write operations (100% demo/simulation sandbox). It must not be linked from the client's public footer.
+4. **Code Quality & Type Safety**: Zero dead code, clean TypeScript type definitions (`tsc --noEmit`), and strict Git commit hygiene.
