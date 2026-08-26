@@ -12,9 +12,15 @@ interface SiteLayoutWrapperProps {
 
 export default function SiteLayoutWrapper({ children }: SiteLayoutWrapperProps) {
   const pathname = usePathname();
-  const isAdmin = pathname === "/admin" || pathname?.startsWith("/admin/");
+  
+  // Standalone routes that have their own dedicated canvases (Zero client navbar/footer clutter)
+  const isStandalone = 
+    pathname === "/admin" || 
+    pathname?.startsWith("/admin/") ||
+    pathname === "/showcase" || 
+    pathname?.startsWith("/showcase/");
 
-  if (isAdmin) {
+  if (isStandalone) {
     return (
       <div className="min-h-screen w-full bg-slate-50 antialiased font-body">
         {children}

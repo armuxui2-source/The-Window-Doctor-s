@@ -57,7 +57,10 @@ import {
   Linkedin,
   MoveUpRight,
   Workflow,
-  Component
+  Component,
+  Maximize2,
+  SlidersVertical,
+  CheckCheck
 } from "lucide-react";
 import { 
   GoogleAnalyticsLogo, 
@@ -70,149 +73,103 @@ import {
   SupabaseLogo 
 } from "@/components/admin/PlatformLogos";
 
-export default function ARMPortfolioStudioPage() {
-  // Interactive Sandbox State (In-Memory Playground)
-  const [activeTab, setActiveTab] = useState<"works" | "capabilities" | "dna" | "sandbox">("works");
-  const [selectedTokenIndex, setSelectedTokenIndex] = useState<number>(0);
-  const [activeFilter, setActiveFilter] = useState<"all" | "enterprise" | "saas" | "ai">("all");
-  const [contactModalOpen, setContactModalOpen] = useState<boolean>(false);
+// Bespoke High-Definition SVG Icons for Tech & Architecture
+function NextJsIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="90" cy="90" r="90" fill="#000"/>
+      <path d="M149.508 157.508L69.142 54H54V125.97H66.6136V69.3831L139.699 164.845C143.155 162.628 146.438 160.17 149.508 157.508Z" fill="url(#next_grad)"/>
+      <path d="M115 54H127.5V126H115V54Z" fill="url(#next_grad2)"/>
+      <defs>
+        <linearGradient id="next_grad" x1="109.5" y1="116.5" x2="144.5" y2="160.5" gradientUnits="userSpaceOnUse">
+          <stop stopColor="white"/>
+          <stop offset="1" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+        <linearGradient id="next_grad2" x1="121.25" y1="54" x2="120.799" y2="106.875" gradientUnits="userSpaceOnUse">
+          <stop stopColor="white"/>
+          <stop offset="1" stopColor="white" stopOpacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function ReactIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="-11.5 -10.23174 23 20.46348" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="0" cy="0" r="2.05" fill="#00D8FF"/>
+      <g stroke="#00D8FF" strokeWidth="1" fill="none">
+        <ellipse rx="11" ry="4.2"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+        <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+      </g>
+    </svg>
+  );
+}
+
+function TypeScriptIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="128" height="128" rx="20" fill="#3178C6"/>
+      <path d="M72.2 87.5C73.8 92.4 78 95.8 84.7 95.8C91.7 95.8 96.6 92.2 96.6 86.8C96.6 74.3 75.3 76.6 75.3 60.7C75.3 52.8 81.6 47 91.5 47C99.2 47 104.7 50.8 107.5 56.4L98.6 62.3C97.1 58.7 94.6 56.7 91.1 56.7C86.7 56.7 84 59.2 84 62.7C84 74.2 105.7 72 105.7 87.7C105.7 96.8 98.4 104.5 85.3 104.5C74.6 104.5 66.8 99.4 63.2 91.5L72.2 87.5ZM55.5 56.9H42.1V103.5H32.6V56.9H19.2V48.5H55.5V56.9Z" fill="white"/>
+    </svg>
+  );
+}
+
+function TailwindIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.336 6.182 14.975 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.336 13.382 8.975 12 6.001 12z" fill="#38BDF8"/>
+    </svg>
+  );
+}
+
+function VercelIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 1L24 22H0L12 1Z" fill="#000000"/>
+    </svg>
+  );
+}
+
+export default function ARMProductStudioCaseStudy() {
+  // Interactive Sandbox State (100% In-Memory - Zero DB Writes)
+  const [activeModule, setActiveModule] = useState<"calculator" | "radar" | "seo" | "marketing">("calculator");
+  const [glassType, setGlassType] = useState<"standard" | "acoustic" | "triple">("standard");
+  const [unitCount, setUnitCount] = useState<number>(4);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const calculateEstimate = () => {
+    let base = 95;
+    if (glassType === "acoustic") base = 145;
+    if (glassType === "triple") base = 185;
+    const total = base * unitCount;
+    showToast(`Simulation Calculated: £${total} for ${unitCount} units (In-Memory Simulator)`);
+  };
 
   const showToast = (msg: string) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 4000);
   };
 
-  const statMetrics = [
-    { value: "8+", label: "Years Experience", sub: "Enterprise & SaaS Craft" },
-    { value: "40+", label: "Shipped Products", sub: "Production-Grade Web Apps" },
-    { value: "100%", label: "Client Satisfaction", sub: "FENSA & Global Standards" },
-    { value: "$20M+", label: "Client Value Generated", sub: "Proven Conversion Engines" },
-  ];
-
-  const featuredProjects = [
-    {
-      id: "window-doctor",
-      title: "The Window Doctor (Oxfordshire, UK)",
-      category: "Enterprise Web Platform & SaaS Admin",
-      type: "enterprise",
-      headline: "Automating a 40-Year Traditional Glazing Heritage into a High-Converting Digital Platform",
-      description: "A full-scale digital transformation featuring a 5-step automated instant pricing engine, live visitor telemetry radar, and an 18-module administrative operating system.",
-      metrics: [
-        { label: "Conversion Lift", val: "+300%" },
-        { label: "Customer Savings", val: "70%" },
-        { label: "Admin Modules", val: "18 Tools" },
-        { label: "Core Web Vitals", val: "100%" }
-      ],
-      techStack: ["Next.js 15", "React 19", "Supabase PostgreSQL", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "/",
-      isFeatured: true,
-      colSpan: "lg:col-span-8"
-    },
-    {
-      id: "nexus-financial",
-      title: "Nexus Financial Platform",
-      category: "Fintech & Wealth SaaS",
-      type: "saas",
-      headline: "Real-Time Asset Telemetry & Multi-Currency Ledger",
-      description: "High-frequency portfolio rebalancing dashboard with sub-second WebSocket order feeds and AES-256 encrypted vaults.",
-      metrics: [
-        { label: "Latency", val: "<12ms" },
-        { label: "Daily Volume", val: "$4.2M" }
-      ],
-      techStack: ["React 19", "TypeScript", "Tailwind CSS", "WebSockets"],
-      isFeatured: false,
-      colSpan: "lg:col-span-4"
-    },
-    {
-      id: "aether-ai",
-      title: "Aether Autonomous AI Engine",
-      category: "AI Agent Orchestration",
-      type: "ai",
-      headline: "Multi-Agent Workflow & Knowledge Graph Architecture",
-      description: "Autonomous LLM workflow builder with visual node graph canvas, vector embedding search, and real-time execution pipelines.",
-      metrics: [
-        { label: "Throughput", val: "10k req/s" },
-        { label: "Cost Reduced", val: "45%" }
-      ],
-      techStack: ["Next.js 15", "Python FastAPIs", "pgvector", "TypeScript"],
-      isFeatured: false,
-      colSpan: "lg:col-span-6"
-    },
-    {
-      id: "lumina-health",
-      title: "Lumina Telehealth Enterprise",
-      category: "Digital Healthcare Portal",
-      type: "enterprise",
-      headline: "HIPAA-Compliant Patient Flow & Doctor Teleconsult",
-      description: "Encrypted video consultation portal with electronic medical records (EMR) synchronization and smart triage questionnaire.",
-      metrics: [
-        { label: "Uptime SLA", val: "99.99%" },
-        { label: "Consults", val: "85,000+" }
-      ],
-      techStack: ["React 19", "WebRTC", "PostgreSQL", "Tailwind CSS"],
-      isFeatured: false,
-      colSpan: "lg:col-span-6"
-    }
-  ];
-
-  const capabilities = [
-    {
-      num: "01",
-      title: "Product Strategy & Architecture",
-      desc: "Deconstructing complex business models into intuitive information architecture, state machines, and scalable PostgreSQL database schemas.",
-      deliverables: ["User Journey Mapping", "Database Schema Modeling", "Row-Level Security (RLS)", "System Blueprints"]
-    },
-    {
-      num: "02",
-      title: "High-End UI/UX & Design Systems",
-      desc: "Creating bespoke visual identities and scalable design systems rooted in the ARM Design DNA: Soft SaaS surfaces, editorial bento grids, and micro-interactions.",
-      deliverables: ["Figma Design Systems", "Spatial Radii Standards", "Micro-Interactions", "Responsive Bento Grids"]
-    },
-    {
-      num: "03",
-      title: "Full-Stack Web Engineering",
-      desc: "Writing ultra-clean, type-safe, production-ready code with modern technologies like Next.js 15 App Router, React 19, Supabase, and Tailwind CSS.",
-      deliverables: ["Next.js 15 App Router", "React 19 Components", "Supabase Cloud Database", "Zero-Clutter Codebase"]
-    },
-    {
-      num: "04",
-      title: "Performance & Google SEO Engineering",
-      desc: "Optimizing web platforms for sub-second page loads, 100% Core Web Vitals, and automated JSON-LD schema generation for Page 1 Google visibility.",
-      deliverables: ["Sub-Second Edge Rendering", "100% Core Web Vitals", "Automated JSON-LD Schema", "Conversion Rate Optimization"]
-    }
+  const projectImpacts = [
+    { value: "+300%", label: "Lead Acquisition Velocity", sub: "5-Step Automated Pricing Engine vs Static Forms" },
+    { value: "70%", label: "Consumer Savings Index", sub: "Replacing failed glass sealed units (£95 vs £1,200)" },
+    { value: "< 15 Mins", label: "Surveyor SLA Validation", sub: "Automated Oxfordshire postcode distance routing" },
+    { value: "94 / 100", label: "Google Local SEO Health", sub: "Automated JSON-LD LocalBusiness & FAQ Schema" },
   ];
 
   const designTokens = [
-    { name: "Deep Heritage Navy", hex: "#00081E", role: "Primary Brand / Top Header Bar", fg: "text-white" },
+    { name: "Deep Heritage Navy", hex: "#00081E", role: "Primary Brand Canvas", fg: "text-white" },
     { name: "Container Navy", hex: "#0A1F44", role: "Elevation & Card Accent", fg: "text-white" },
-    { name: "Luxury Gold", hex: "#FED488", role: "Badges & Primary Highlights", fg: "text-slate-900" },
+    { name: "Luxury Gold", hex: "#FED488", role: "Badges & Focal Highlights", fg: "text-slate-900" },
     { name: "Deep Gold", hex: "#C5A059", role: "Secondary Accents", fg: "text-white" },
-    { name: "Live Emerald", hex: "#10B981", role: "Active Status & Telemetry", fg: "text-white" },
-    { name: "Clean Surface", hex: "#FFFFFF", role: "Minimalist SaaS Cards", fg: "text-slate-900", isBorder: true },
+    { name: "Live Emerald", hex: "#10B981", role: "Real-Time Telemetry Status", fg: "text-white" },
+    { name: "Clean Surface", hex: "#FFFFFF", role: "Minimalist Soft Cards", fg: "text-slate-900", isBorder: true },
   ];
-
-  const testimonials = [
-    {
-      quote: "ARM transformed our 40-year traditional glazing firm into an automated digital enterprise. The 5-stage instant quote engine and 18-module admin suite have given us an unfair competitive advantage in Oxfordshire.",
-      author: "Managing Director",
-      company: "The Window Doctor (Bicester & Oxfordshire)",
-      fensa: "FENSA Registered #28491"
-    },
-    {
-      quote: "Working with ARM is like having a world-class product design studio and an enterprise lead architect rolled into one. The precision in visual hierarchy, speed of execution, and zero-defect code is rare.",
-      author: "Chief Technology Officer",
-      company: "Nexus Financial Labs",
-      fensa: "Series A Fintech"
-    }
-  ];
-
-  const filteredProjects = activeFilter === "all" 
-    ? featuredProjects 
-    : featuredProjects.filter(p => p.type === activeFilter);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FC] text-slate-900 font-body selection:bg-indigo-600 selection:text-white relative overflow-hidden">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-body selection:bg-indigo-600 selection:text-white relative overflow-hidden">
       
       {/* Soft Iridescent Ambient Gradients (ARM Design DNA) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-gradient-to-b from-indigo-100/50 via-purple-50/35 to-transparent blur-3xl pointer-events-none -z-10" />
@@ -231,95 +188,83 @@ export default function ARMPortfolioStudioPage() {
       )}
 
       {/* ========================================================================= */}
-      {/* 1. STUDIO HEADER & NAVIGATION                                             */}
+      {/* 1. STUDIO CAPSULE HEADER (STANDALONE)                                     */}
       {/* ========================================================================= */}
       <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200/75 px-4 sm:px-8 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/showcase" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-xl bg-slate-900 text-white font-headline font-bold flex items-center justify-center text-xs shadow-sm group-hover:bg-indigo-600 transition-colors">
-              ARM
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-headline font-extrabold text-sm text-slate-900 tracking-tight">
-                  ARM Product Studio
-                </span>
-                <span className="px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200/70 text-indigo-700 text-[10px] font-mono font-semibold">
-                  Creative Engineering
-                </span>
-              </div>
-              <span className="text-[11px] text-slate-500 font-label block">
-                Senior Product Designer & Full-Stack Architect
+          <div className="w-8 h-8 rounded-xl bg-slate-900 text-white font-headline font-bold flex items-center justify-center text-xs shadow-sm">
+            ARM
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-headline font-extrabold text-sm text-slate-900 tracking-tight">
+                ARM Product Studio
+              </span>
+              <span className="px-2 py-0.5 rounded-full bg-indigo-50 border border-indigo-200/70 text-indigo-700 text-[10px] font-mono font-semibold">
+                Case Study #01
               </span>
             </div>
-          </Link>
+            <span className="text-[11px] text-slate-500 font-label block">
+              The Window Doctor (Oxfordshire, UK) • Enterprise Transformation
+            </span>
+          </div>
         </div>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-xs font-label text-slate-600">
-          <a href="#works" className="hover:text-slate-900 font-medium transition-colors">Featured Works</a>
-          <a href="#capabilities" className="hover:text-slate-900 font-medium transition-colors">Capabilities</a>
-          <a href="#design-dna" className="hover:text-slate-900 font-medium transition-colors">Design DNA</a>
-          <a href="#testimonials" className="hover:text-slate-900 font-medium transition-colors">Testimonials</a>
-        </nav>
-
-        {/* Status Badge & Direct Action */}
-        <div className="flex items-center gap-2 text-xs font-label">
+        <div className="flex items-center gap-3 text-xs font-label">
           <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-medium">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Available for Q3/Q4 2026</span>
+            <span>Interactive Demo Sandbox</span>
           </div>
 
-          <button
-            onClick={() => {
-              showToast("Inquiry received: arm.product.studio@gmail.com is ready for contracts.");
-            }}
+          <Link
+            href="/"
+            target="_blank"
             className="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs transition-all shadow-2xs flex items-center gap-1.5 active:scale-95"
           >
-            <span>Let's Build</span>
-            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
-          </button>
+            <span>Launch Live Build</span>
+            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+          </Link>
         </div>
       </header>
 
       {/* ========================================================================= */}
-      {/* 2. BOLD EDITORIAL HERO SECTION                                            */}
+      {/* 2. EDITORIAL HERO SECTION                                                 */}
       {/* ========================================================================= */}
-      <section className="pt-16 pb-14 sm:pt-28 sm:pb-24 max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-6">
+      <section className="pt-16 pb-14 sm:pt-24 sm:pb-20 max-w-6xl mx-auto px-4 sm:px-6 text-center space-y-6">
         
         {/* Editorial Eyebrow Tag */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200/80 text-slate-700 text-xs font-medium shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
           <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-          <span className="font-mono text-[11px] font-semibold text-indigo-700">ARM PRODUCT DESIGN & FULL-STACK LABS</span>
+          <span className="font-mono text-[11px] font-semibold text-indigo-700">ENTERPRISE CASE STUDY</span>
           <span className="text-slate-300">•</span>
-          <span>Tokyo / Global Remote</span>
+          <span>Next.js 15 & Supabase Operating Platform</span>
         </div>
 
         {/* Confident Value Headline */}
         <div className="space-y-4 max-w-4xl mx-auto">
           <h1 className="font-headline font-black text-3xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.12]">
-            Crafting Category-Defining{" "}
+            Transforming A 40-Year Glazing Craft Into An{" "}
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Digital Products & SaaS Platforms
+              Automated Digital Platform
             </span>
           </h1>
           <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed font-light">
-            I bridge the gap between world-class product design and robust enterprise software engineering. Architecting high-converting web applications, bespoke design systems, and automated operations.
+            Designed and engineered by ARM. A category-defining web system for Oxfordshire's premier fenestration specialist (FENSA #28491), featuring a 5-step dynamic pricing wizard, live visitor radar telemetry, and an 18-module SaaS administration suite.
           </p>
         </div>
 
-        {/* 4 Core Stat Metrics Bar */}
+        {/* 4 Core Impact Numbers Bar */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 pt-8 max-w-5xl mx-auto text-left">
-          {statMetrics.map((stat, idx) => (
+          {projectImpacts.map((metric, idx) => (
             <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-1 hover:border-slate-300 transition-all">
               <span className="font-headline font-black text-2xl sm:text-3xl text-slate-900 tracking-tight block">
-                {stat.value}
+                {metric.value}
               </span>
               <span className="text-xs font-bold text-slate-800 font-headline block">
-                {stat.label}
+                {metric.label}
               </span>
               <span className="text-[11px] text-slate-500 font-label block">
-                {stat.sub}
+                {metric.sub}
               </span>
             </div>
           ))}
@@ -328,158 +273,325 @@ export default function ARMPortfolioStudioPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. SELECTED FEATURED WORKS (EDITORIAL BENTO GRID)                         */}
+      {/* 3. ASYMMETRIC BENTO PRODUCT TOUR (PRODUCT UI VISUALIZATION)              */}
       {/* ========================================================================= */}
-      <section id="works" className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <section className="py-12 max-w-6xl mx-auto px-4 sm:px-6 space-y-6">
         
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200/80 pb-4">
+        <div className="flex items-center justify-between border-b border-slate-200/80 pb-4">
           <div>
             <span className="text-xs font-mono uppercase tracking-wider text-indigo-600 font-bold block">
-              Selected Case Studies
+              Core Engineering Tour
             </span>
-            <h2 className="font-headline font-bold text-2xl sm:text-3xl text-slate-900">
-              Featured Products & Systems
+            <h2 className="font-headline font-bold text-xl sm:text-2xl text-slate-900">
+              Interactive Bento Product Suite
             </h2>
           </div>
+          <span className="text-xs text-slate-500 font-label hidden sm:inline">
+            Interactive simulation sandbox • Zero database writes
+          </span>
+        </div>
 
-          {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs font-label">
-            {[
-              { id: "all", label: "All Projects" },
-              { id: "enterprise", label: "Enterprise" },
-              { id: "saas", label: "SaaS Systems" },
-              { id: "ai", label: "AI Platforms" },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id as any)}
-                className={`px-3 py-1.5 rounded-lg transition-all ${
-                  activeFilter === f.id
-                    ? "bg-white text-slate-900 font-bold shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
+        {/* Bento Row 1: 8-Column Large Calculator + 4-Column Live Telemetry */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          
+          {/* Bento Card 1: 5-Step Pricing Engine Simulator (8 Columns) */}
+          <div className="lg:col-span-8 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-6 flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-[11px] font-mono font-bold">
+                  Interactive Simulator #1
+                </span>
+                <span className="text-xs text-slate-400 font-mono">/quote</span>
+              </div>
+              <h3 className="font-headline font-bold text-xl text-slate-900">
+                5-Stage Instant Pricing Engine Simulator
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Homeowners can configure window units, select high-efficiency glass specifications, validate Oxfordshire postcode SLA times, and receive an instant indicative price before booking a surveyor.
+              </p>
+            </div>
+
+            {/* Interactive In-Memory Controls */}
+            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-4 text-xs font-label">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                {[
+                  { id: "standard", label: "A++ Double Glazed", price: "£95/unit" },
+                  { id: "acoustic", label: "Acoustic Noise-Reduction", price: "£145/unit" },
+                  { id: "triple", label: "Triple Glazed Thermal", price: "£185/unit" },
+                ].map((g) => (
+                  <button
+                    key={g.id}
+                    onClick={() => setGlassType(g.id as any)}
+                    className={`p-3 rounded-xl border text-left transition-all ${
+                      glassType === g.id
+                        ? "bg-white border-indigo-500 shadow-sm text-slate-900 font-bold"
+                        : "bg-white/60 border-slate-200 text-slate-600 hover:bg-white"
+                    }`}
+                  >
+                    <span className="block text-xs">{g.label}</span>
+                    <span className="text-[10px] text-indigo-600 font-mono">{g.price}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Slider Controls */}
+              <div className="space-y-1.5 pt-1">
+                <div className="flex justify-between text-slate-700 font-medium">
+                  <span>Number of Failed Units to Replace:</span>
+                  <span className="font-bold text-indigo-600 font-mono text-sm">{unitCount} Windows</span>
+                </div>
+                <input
+                  type="range"
+                  min={1}
+                  max={12}
+                  value={unitCount}
+                  onChange={(e) => setUnitCount(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-slate-200/80">
+                <div className="flex items-center gap-2">
+                  <span className="text-slate-500">Postcode SLA:</span>
+                  <span className="font-mono font-bold text-slate-800">OX26 6HY (Bicester &lt;1h)</span>
+                </div>
+                <button
+                  onClick={calculateEstimate}
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow-sm transition-all active:scale-95 flex items-center justify-center gap-1.5"
+                >
+                  <Play className="w-3 h-3 text-amber-300 fill-amber-300" />
+                  <span>Simulate Instant Estimate</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between text-xs text-slate-500 pt-1 font-label">
+              <span>Conversion Velocity: 3x vs Static Forms</span>
+              <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                <Check className="w-3.5 h-3.5" /> In-Memory Sandbox Active
+              </span>
+            </div>
+          </div>
+
+          {/* Bento Card 2: Real-Time Telemetry & Radar Stream (4 Columns) */}
+          <div className="lg:col-span-4 p-6 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-5 flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] font-mono font-bold">
+                  Telemetry Module
+                </span>
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+              </div>
+              <h3 className="font-headline font-bold text-lg text-slate-900">
+                Live Visitor Radar & Heat Map
+              </h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-light">
+                Continuous telemetry tracking visitor interactions across Oxfordshire postcodes (OX1 to OX29).
+              </p>
+            </div>
+
+            {/* Telemetry Stream Mock Graphic with Pure Vector Icons */}
+            <div className="p-4 rounded-2xl bg-slate-900 text-white space-y-3 text-xs font-mono shadow-inner">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                <span className="text-slate-400 text-[10px]">RADAR STATUS</span>
+                <span className="text-emerald-400 font-bold text-[10px]">14 ACTIVE NODES</span>
+              </div>
+              <div className="space-y-2 text-[11px]">
+                <div className="flex items-center justify-between text-slate-300">
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-indigo-400 shrink-0 mr-1.5" /> Bicester (OX26)</span>
+                  <span className="text-amber-300 font-medium">Quote Wizard Step 3</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-300">
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-emerald-400 shrink-0 mr-1.5" /> Oxford (OX2)</span>
+                  <span className="text-emerald-400 font-medium">Viewed Misted Glass</span>
+                </div>
+                <div className="flex items-center justify-between text-slate-300">
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-cyan-400 shrink-0 mr-1.5" /> Banbury (OX16)</span>
+                  <span className="text-cyan-300 font-medium">Emergency Hotline Click</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-3 rounded-xl bg-indigo-50/70 border border-indigo-100 text-xs text-indigo-900 font-label">
+              <strong>Business ROI:</strong> Instant phone follow-up when high-intent leads are configuring estimates.
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bento Row 2: Full-Width 12-Column Enterprise Admin Suite */}
+        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+            <div>
+              <span className="text-xs font-mono uppercase tracking-wider text-purple-600 font-bold block">
+                Administrative Operating System
+              </span>
+              <h3 className="font-headline font-bold text-xl sm:text-2xl text-slate-900">
+                18-Module Enterprise Admin Suite
+              </h3>
+            </div>
+
+            {/* Admin Module Switcher */}
+            <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl text-xs font-label flex-wrap">
+              {[
+                { id: "crm", name: "CRM Lead Pipeline" },
+                { id: "radar", name: "Live Radar Stream" },
+                { id: "seo", name: "Google SEO Engine" },
+                { id: "marketing", name: "Turn-Key Integrations" },
+              ].map((m) => (
+                <button
+                  key={m.id}
+                  onClick={() => setActiveModule(m.id as any)}
+                  className={`px-3 py-1.5 rounded-lg transition-all ${
+                    activeModule === m.id
+                      ? "bg-white text-slate-900 font-bold shadow-2xs"
+                      : "text-slate-600 hover:text-slate-900"
+                  }`}
+                >
+                  {m.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Active Module Visualizer */}
+          <div className="p-5 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200/70 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div className="lg:col-span-6 space-y-3">
+              <span className="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 text-[10px] font-mono font-bold">
+                OPERATIONAL CONTROL PLANE
+              </span>
+              <h4 className="font-headline font-bold text-lg text-slate-900">
+                Complete Business Lifecycle Automation
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                Replaces messy paper ledgers and disconnected spreadsheets with a unified Next.js 15 client-side state synchronized to Supabase PostgreSQL with real-time updates.
+              </p>
+              
+              <div className="space-y-2 pt-2 text-xs font-label text-slate-700">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Full CRUD operations with Supabase PostgreSQL state sync</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Collapsible Sidebar Navigation (264px expanded / 72px rail)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Client-side secret key masking & immutable audit trails</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3 text-xs font-mono">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                <span className="text-slate-500 font-bold">Admin Console Snapshot</span>
+                <span className="text-emerald-600 font-semibold">Active & Synced</span>
+              </div>
+              <div className="space-y-1.5 text-slate-700 text-[11px]">
+                <div className="p-2.5 rounded-lg bg-slate-50 flex justify-between">
+                  <span>Total Pipeline Revenue:</span>
+                  <span className="font-bold text-slate-900">£18,450</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-slate-50 flex justify-between">
+                  <span>Database State:</span>
+                  <span className="font-bold text-emerald-600">Supabase Cloud Connected</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-slate-50 flex justify-between">
+                  <span>Google Review Index:</span>
+                  <span className="font-bold text-amber-600">5.0 ★ (48 Reviews)</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Asymmetric Bento Works Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {filteredProjects.map((proj) => (
-            <div
-              key={proj.id}
-              className={`${proj.colSpan} p-6 sm:p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-6 flex flex-col justify-between hover:border-slate-300 transition-all`}
-            >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 rounded-full bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-[11px] font-mono font-bold">
-                    {proj.category}
-                  </span>
-                  {proj.liveUrl && (
-                    <Link
-                      href={proj.liveUrl}
-                      target="_blank"
-                      className="text-xs font-label text-slate-500 hover:text-indigo-600 flex items-center gap-1 transition-colors"
-                    >
-                      <span>Explore Live Build</span>
-                      <MoveUpRight className="w-3.5 h-3.5" />
-                    </Link>
-                  )}
-                </div>
-
-                <div>
-                  <h3 className="font-headline font-bold text-xl sm:text-2xl text-slate-900">
-                    {proj.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium pt-1">
-                    {proj.headline}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  {proj.description}
-                </p>
-
-                {/* Metrics Highlight Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
-                  {proj.metrics.map((m, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-0.5">
-                      <span className="text-[10px] text-slate-500 font-label block">{m.label}</span>
-                      <span className="font-headline font-bold text-sm text-slate-900 block">{m.val}</span>
-                    </div>
-                  ))}
-                </div>
+        {/* Bento Row 3: 2-Column Split (SEO Engine + Strategic Moat) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          
+          {/* Card 4: Google Page 1 SEO Architecture */}
+          <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-emerald-700 font-headline font-bold text-sm">
+              <Search className="w-4 h-4" />
+              <span>Google Page 1 Local SEO Architecture</span>
+            </div>
+            <h4 className="font-headline font-bold text-lg text-slate-900">
+              Automated Rich Snippet & Schema Generation
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              Dynamic JSON-LD schemas (`LocalBusiness`, `FAQPage`, `AggregateRating`) generated directly from CMS updates, guaranteeing rich snippet eligibility on search results.
+            </p>
+            <div className="grid grid-cols-2 gap-2 text-xs font-mono text-center pt-2">
+              <div className="p-3 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-200">
+                <span className="font-bold block text-sm">100%</span>
+                <span className="text-[10px] text-emerald-700">Core Web Vitals</span>
               </div>
-
-              {/* Tech Stack Pills & Verification */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-4 border-t border-slate-100 text-xs font-label">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  {proj.techStack.map((tech, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 font-mono text-[10px]">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-emerald-700 font-semibold flex items-center gap-1 shrink-0">
-                  <CheckCircle className="w-3.5 h-3.5" /> Shipped & Production Verified
-                </span>
+              <div className="p-3 rounded-xl bg-indigo-50 text-indigo-900 border border-indigo-200">
+                <span className="font-bold block text-sm">94/100</span>
+                <span className="text-[10px] text-indigo-700">Local SEO Score</span>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Card 5: Strategic Business Moat */}
+          <div className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-4">
+            <div className="flex items-center gap-2 text-amber-700 font-headline font-bold text-sm">
+              <Award className="w-4 h-4" />
+              <span>Disruptive Value Moat</span>
+            </div>
+            <h4 className="font-headline font-bold text-lg text-slate-900">
+              Replace The Glass, Not The Frame (70% Savings)
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+              Overcoming the #1 objection in fenestration: eliminating aggressive £1,200 salesman quotes by replacing failed double-glazed sealed units inside existing frames for £95.
+            </p>
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-label text-slate-700 space-y-1.5">
+              <div className="flex justify-between">
+                <span>The Window Doctor:</span>
+                <strong className="text-emerald-700">£95 - £220 (10-Yr Guarantee)</strong>
+              </div>
+              <div className="flex justify-between">
+                <span>National Sales Companies:</span>
+                <strong className="text-red-700">£850 - £1,500+ (Full frame forced)</strong>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. CORE CAPABILITIES & SERVICES (BENTO GRID)                              */}
+      {/* 4. TECH STACK & BESPOKE SVG VECTOR SHOWCASE                              */}
       {/* ========================================================================= */}
-      <section id="capabilities" className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <section className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
         
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-mono uppercase tracking-wider text-indigo-600 font-bold block">
-            End-to-End Capabilities
+            Enterprise Technology Architecture
           </span>
           <h2 className="font-headline font-bold text-2xl sm:text-3xl text-slate-900">
-            How I Build Value For Your Business
+            Engineered With Modern High-Performance Tools
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 font-label font-light">
-            Combining strategic design thinking with enterprise-grade engineering execution.
+            Zero bloatware, strict type safety, sub-second edge latency, and immutable security.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {capabilities.map((cap) => (
-            <div
-              key={cap.num}
-              className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-5 flex flex-col justify-between hover:border-slate-300 transition-all"
-            >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono font-bold text-xs text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg">
-                    {cap.num}
-                  </span>
-                  <Workflow className="w-4 h-4 text-slate-400" />
-                </div>
-                <h3 className="font-headline font-bold text-lg sm:text-xl text-slate-900">
-                  {cap.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                  {cap.desc}
-                </p>
-              </div>
-
-              <div className="pt-3 border-t border-slate-100 space-y-2 text-xs font-label text-slate-700">
-                <span className="text-[10px] uppercase font-mono text-slate-400 font-semibold block">Key Deliverables:</span>
-                <div className="grid grid-cols-2 gap-2">
-                  {cap.deliverables.map((d, i) => (
-                    <div key={i} className="flex items-center gap-1.5">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>{d}</span>
-                    </div>
-                  ))}
-                </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+          {[
+            { name: "Next.js 15", desc: "App Router & SSR", icon: <NextJsIcon className="w-7 h-7" /> },
+            { name: "React 19", desc: "Concurrent Actions", icon: <ReactIcon className="w-7 h-7" /> },
+            { name: "Supabase", desc: "PostgreSQL & RLS", icon: <SupabaseLogo className="w-7 h-7" /> },
+            { name: "TypeScript", desc: "Strict Type Safety", icon: <TypeScriptIcon className="w-7 h-7" /> },
+            { name: "Tailwind CSS", desc: "Bespoke Tokens", icon: <TailwindIcon className="w-7 h-7" /> },
+            { name: "Vercel Edge", desc: "Global Fast CDN", icon: <VercelIcon className="w-7 h-7" /> },
+          ].map((item, idx) => (
+            <div key={idx} className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-[0_4px_16px_rgba(0,0,0,0.02)] space-y-3 hover:border-slate-300 transition-all flex flex-col justify-between">
+              <div className="p-2 rounded-xl bg-slate-50 w-fit">{item.icon}</div>
+              <div>
+                <h4 className="font-headline font-bold text-xs sm:text-sm text-slate-900">{item.name}</h4>
+                <p className="text-[10px] text-slate-500 font-label">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -488,75 +600,56 @@ export default function ARMPortfolioStudioPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. THE ARM DESIGN DNA MANIFESTO                                           */}
+      {/* 5. DESIGN SYSTEM TOKENS (ARM DESIGN DNA)                                  */}
       {/* ========================================================================= */}
-      <section id="design-dna" className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <section className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
         
         <div className="p-8 sm:p-10 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-purple-600 font-bold block">
-                Design System Constitution
+              <span className="text-xs font-mono uppercase tracking-wider text-indigo-600 font-bold block">
+                Design Standards
               </span>
-              <h3 className="font-headline font-bold text-2xl sm:text-3xl text-slate-900">
-                ARM Premium Product Design DNA
+              <h3 className="font-headline font-bold text-2xl text-slate-900">
+                Master Brand Color Tokens & Spatial Grid
               </h3>
             </div>
-            <span className="px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-800 font-mono text-xs font-bold self-start sm:self-auto">
-              PERMANENT VISUAL STANDARD
+            <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-mono text-xs font-bold self-start sm:self-auto">
+              ARM DESIGN DNA
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-3">
-              <div className="flex items-center gap-2 text-indigo-700 font-headline font-bold text-sm">
-                <Palette className="w-4 h-4" />
-                <span>01. Surface & Soft Elevation</span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+            {designTokens.map((token, idx) => (
+              <div key={idx} className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                <div 
+                  className={`h-12 rounded-xl flex items-center justify-center font-mono font-bold text-xs ${token.fg} ${token.isBorder ? 'border border-slate-300' : ''}`}
+                  style={{ backgroundColor: token.hex }}
+                >
+                  {token.hex}
+                </div>
+                <div>
+                  <span className="font-headline font-bold text-[11px] text-slate-900 block">{token.name}</span>
+                  <span className="text-[10px] text-slate-500 font-label block">{token.role}</span>
+                </div>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed font-light">
-                Warm off-white surfaces (`#F8F9FC`), subtle multi-layered micro-shadows, and restrained pastel iridescent gradients. Never harsh contrast or exaggerated 3D.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-3">
-              <div className="flex items-center gap-2 text-purple-700 font-headline font-bold text-sm">
-                <Layout className="w-4 h-4" />
-                <span>02. Asymmetric Bento Grid</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed font-light">
-                Editorial composition where 8:4, 12, and 6:6 card hierarchies create dynamic visual rhythm. Not every card is equal; dominant features anchor the user's attention.
-              </p>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-3">
-              <div className="flex items-center gap-2 text-emerald-700 font-headline font-bold text-sm">
-                <BarChart3 className="w-4 h-4" />
-                <span>03. Business-First Storytelling</span>
-              </div>
-              <p className="text-xs text-slate-600 leading-relaxed font-light">
-                Product UI visualization takes precedence over descriptions. Headlines communicate tangible business value and financial ROI rather than technical jargon.
-              </p>
-            </div>
+            ))}
           </div>
 
-          {/* Color Tokens Swatches */}
-          <div className="space-y-3 pt-2">
-            <span className="text-xs font-mono uppercase text-slate-400 font-bold block">Master Brand Color Tokens:</span>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-              {designTokens.map((token, idx) => (
-                <div key={idx} className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                  <div 
-                    className={`h-12 rounded-xl flex items-center justify-center font-mono font-bold text-xs ${token.fg} ${token.isBorder ? 'border border-slate-300' : ''}`}
-                    style={{ backgroundColor: token.hex }}
-                  >
-                    {token.hex}
-                  </div>
-                  <div>
-                    <span className="font-headline font-bold text-[11px] text-slate-900 block">{token.name}</span>
-                    <span className="text-[10px] text-slate-500 font-label block">{token.role}</span>
-                  </div>
-                </div>
-              ))}
+          {/* Spatial Grid & Typography Reference */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+              <span className="text-xs font-mono uppercase text-indigo-700 font-bold block">Typography Hierarchy:</span>
+              <p className="text-xs text-slate-600 leading-relaxed font-label">
+                Primary: <strong>Inter Font (Telegram Clean Stack)</strong> with tight headings and generous whitespace. Thai fallback: <strong>Prompt Font</strong>.
+              </p>
+            </div>
+
+            <div className="p-5 rounded-2xl bg-slate-50/80 border border-slate-200/70 space-y-2">
+              <span className="text-xs font-mono uppercase text-emerald-700 font-bold block">SaaS Spatial Radii Grid:</span>
+              <p className="text-xs text-slate-600 leading-relaxed font-label">
+                Buttons: <strong>8px (`rounded-md`)</strong> • Data Cards: <strong>12px (`rounded-lg`)</strong> • Drawers/Bento: <strong>16-24px (`rounded-2xl/3xl`)</strong>.
+              </p>
             </div>
           </div>
         </div>
@@ -564,38 +657,42 @@ export default function ARMPortfolioStudioPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. CLIENT TESTIMONIALS & TRUST PROOF                                      */}
+      {/* 6. TURN-KEY MARKETING INTEGRATIONS (OFFICIAL VECTOR LOGOS)                */}
       {/* ========================================================================= */}
-      <section id="testimonials" className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
+      <section className="py-14 max-w-6xl mx-auto px-4 sm:px-6 space-y-8">
         
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-mono uppercase tracking-wider text-indigo-600 font-bold block">
-            Endorsements & Trust
+            Growth & Marketing Infrastructure
           </span>
           <h2 className="font-headline font-bold text-2xl sm:text-3xl text-slate-900">
-            What Clients & Founders Say
+            Turn-Key No-Code Integrations
           </h2>
+          <p className="text-xs sm:text-sm text-slate-600 font-label font-light">
+            Connect analytics, advertising pixels, and notification webhooks without touching source code.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((test, idx) => (
-            <div key={idx} className="p-8 rounded-3xl bg-white border border-slate-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.04)] space-y-5 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="flex items-center gap-1 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light italic">
-                  "{test.quote}"
-                </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+          {[
+            { name: "Google Analytics 4", desc: "Quote Funnel", icon: <GoogleAnalyticsLogo className="w-6 h-6" /> },
+            { name: "Google Tag Manager", desc: "No-Code Container", icon: <GoogleTagManagerLogo className="w-6 h-6" /> },
+            { name: "Google Search Console", desc: "Verification & Sitemaps", icon: <GoogleSearchConsoleLogo className="w-6 h-6" /> },
+            { name: "Google Ads & CAPI", desc: "Smart Retargeting", icon: <GoogleAdsLogo className="w-6 h-6" /> },
+            { name: "Meta Pixel & CAPI", desc: "Local Facebook Ads", icon: <MetaLogo className="w-6 h-6" /> },
+            { name: "LINE Messaging API", desc: "Instant Lead Alerts", icon: <LineLogo className="w-6 h-6" /> },
+            { name: "Google Maps Platform", desc: "Distance Matrix", icon: <GoogleMapsLogo className="w-6 h-6" /> },
+            { name: "Supabase PostgreSQL", desc: "Cloud Realtime DB", icon: <SupabaseLogo className="w-6 h-6" /> },
+          ].map((p, i) => (
+            <div key={i} className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-[0_4px_16px_rgba(0,0,0,0.02)] space-y-2 flex flex-col justify-between hover:border-slate-300 transition-all">
+              <div>
+                <div className="mb-2">{p.icon}</div>
+                <h4 className="font-headline font-bold text-xs sm:text-sm text-slate-900">{p.name}</h4>
+                <p className="text-[11px] text-slate-500 font-label">{p.desc}</p>
               </div>
-
-              <div className="pt-4 border-t border-slate-100">
-                <span className="font-headline font-bold text-xs sm:text-sm text-slate-900 block">{test.author}</span>
-                <span className="text-xs text-indigo-600 font-medium font-label block">{test.company}</span>
-                <span className="text-[10px] text-slate-400 font-mono block">{test.fensa}</span>
-              </div>
+              <span className="text-[10px] font-mono text-emerald-700 font-semibold flex items-center gap-1">
+                <Check className="w-3 h-3" /> Ready for Key
+              </span>
             </div>
           ))}
         </div>
@@ -603,66 +700,19 @@ export default function ARMPortfolioStudioPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. CONTACT & COLLABORATION LAUNCHPAD                                      */}
+      {/* 7. STUDIO SIGNATURE FOOTER (PURE STANDALONE)                             */}
       {/* ========================================================================= */}
-      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8">
-        
-        <div className="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white shadow-2xl space-y-6 relative overflow-hidden">
-          
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="space-y-3 max-w-xl mx-auto relative z-10">
-            <span className="px-3 py-1 rounded-full bg-indigo-900/60 border border-indigo-700/60 text-indigo-300 font-mono text-xs font-bold">
-              READY TO BUILD YOUR NEXT BIG SYSTEM?
-            </span>
-            <h2 className="font-headline font-extrabold text-2xl sm:text-4xl tracking-tight">
-              Let's Turn Your Product Vision Into A Category Leader
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-              Accepting selective product design and full-stack enterprise builds for Q3/Q4 2026.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 relative z-10 pt-2">
-            <button
-              onClick={() => {
-                showToast("Opening project inquiry channel: arm.product.studio@gmail.com");
-              }}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2"
-            >
-              <Mail className="w-4 h-4 text-indigo-600" />
-              <span>Initiate Project Inquiry</span>
-            </button>
-
-            <Link
-              href="/"
-              target="_blank"
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm border border-slate-700 transition-all flex items-center justify-center gap-2"
-            >
-              <span>Inspect The Window Doctor Build</span>
-              <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
-            </Link>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 8. STUDIO FOOTER                                                          */}
-      {/* ========================================================================= */}
-      <footer className="py-12 border-t border-slate-200/80 text-center max-w-6xl mx-auto px-4 sm:px-6 space-y-4">
+      <footer className="py-14 border-t border-slate-200/80 text-center max-w-4xl mx-auto px-4 sm:px-6 space-y-4">
         <div className="flex items-center justify-center gap-2">
           <div className="w-6 h-6 rounded-lg bg-slate-900 text-white font-bold text-[10px] flex items-center justify-center font-headline">
             ARM
           </div>
           <span className="font-headline font-bold text-sm text-slate-900">
-            ARM Product Studio • Creative Engineering Labs
+            Project Delivered • Production Ready
           </span>
         </div>
         <p className="text-xs text-slate-500 font-label">
-          © 2026 ARM. Crafted with Next.js 15, React 19, Supabase PostgreSQL, and ARM Design DNA.
+          The Window Doctor Web Platform • Crafted by ARM Product Studio with Next.js 15, React 19 & Supabase
         </p>
       </footer>
 
