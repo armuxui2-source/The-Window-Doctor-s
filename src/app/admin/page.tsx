@@ -1004,6 +1004,18 @@ export default function EnterpriseAdminSuite() {
 
           {/* Quick Metrics Badges & Minimal Actions */}
           <div className="flex items-center gap-2 text-xs font-label">
+            <Link
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 h-8.5 px-3 rounded bg-white hover:bg-slate-100 text-slate-700 border border-slate-200/80 font-semibold transition-all shadow-2xs text-xs font-label"
+              title="Open Public Website in new tab"
+            >
+              <Globe className="w-3.5 h-3.5 text-secondary" />
+              <span className="hidden sm:inline">View Live Website</span>
+              <ExternalLink className="w-3 h-3 text-slate-400" />
+            </Link>
+
             <button
               onClick={handleSyncToSupabase}
               disabled={isSeeding}
@@ -1342,6 +1354,17 @@ export default function EnterpriseAdminSuite() {
                     />
                   </div>
 
+                  <Link
+                    href="/quote"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="Open Live Public Quote Calculator"
+                  >
+                    <Calculator className="w-3.5 h-3.5 text-secondary" />
+                    <span>Live Calculator</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
                   <button
                     onClick={() => setLeadModal({ isOpen: true, mode: "create", data: {} })}
                     className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
@@ -1443,13 +1466,26 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Services & Pricing Catalog</h2>
                   <p className="text-xs text-slate-500 font-label">Manage fenestration services, warranty terms, and pricing estimates</p>
                 </div>
-                <button
-                  onClick={() => setServiceModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
-                >
-                  <PlusCircle className="w-3.5 h-3.5" />
-                  <span>Add Service</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/services"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="Open Public Services Catalog"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>Public Catalog</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button
+                    onClick={() => setServiceModal({ isOpen: true, mode: "create", data: {} })}
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span>Add Service</span>
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1474,6 +1510,14 @@ export default function EnterpriseAdminSuite() {
                         </span>
                       </div>
                       <div className="flex items-center gap-1.5">
+                        <Link
+                          href={`/services/${srv.slug || 'misted-glass-repair'}`}
+                          target="_blank"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          title="View Live Service Page"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </Link>
                         <button
                           onClick={() => setServiceModal({ isOpen: true, mode: "edit", data: srv })}
                           className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
@@ -1506,13 +1550,26 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Projects & Case Studies Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage Before & After galleries across Oxfordshire</p>
                 </div>
-                <button
-                  onClick={() => setProjectModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
-                >
-                  <PlusCircle className="w-3.5 h-3.5" />
-                  <span>New Case Study</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/projects"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="Open Public Projects Gallery"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>Public Gallery</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button
+                    onClick={() => setProjectModal({ isOpen: true, mode: "create", data: {} })}
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span>New Case Study</span>
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1530,6 +1587,14 @@ export default function EnterpriseAdminSuite() {
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                       <span className="text-xs text-emerald-700 font-semibold font-label">✓ Active on Frontend</span>
                       <div className="flex items-center gap-1.5">
+                        <Link
+                          href="/projects"
+                          target="_blank"
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          title="View Live in Projects Gallery"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </Link>
                         <button
                           onClick={() => setProjectModal({ isOpen: true, mode: "edit", data: proj })}
                           className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
@@ -1562,13 +1627,26 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Verified Reviews & Ratings</h2>
                   <p className="text-xs text-slate-500 font-label">Customer feedback synchronized with Google Maps</p>
                 </div>
-                <button
-                  onClick={() => setReviewModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
-                >
-                  <PlusCircle className="w-3.5 h-3.5" />
-                  <span>Add Review</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/#reviews"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Reviews Section on Live Website"
+                  >
+                    <Star className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                    <span>Public Reviews</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button
+                    onClick={() => setReviewModal({ isOpen: true, mode: "create", data: {} })}
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span>Add Review</span>
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1622,13 +1700,26 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Oxfordshire Coverage & Response SLA</h2>
                   <p className="text-xs text-slate-500 font-label">Postcode validation rules and guaranteed attendance times</p>
                 </div>
-                <button
-                  onClick={() => setAreaModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
-                >
-                  <PlusCircle className="w-3.5 h-3.5" />
-                  <span>Add Postcode Area</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/service-areas"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Oxfordshire Service Areas on Live Website"
+                  >
+                    <MapPin className="w-3.5 h-3.5 text-secondary" />
+                    <span>Public Areas</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button
+                    onClick={() => setAreaModal({ isOpen: true, mode: "create", data: {} })}
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span>Add Postcode Area</span>
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1648,21 +1739,32 @@ export default function EnterpriseAdminSuite() {
                       </div>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-1.5">
-                      <button
-                        onClick={() => setAreaModal({ isOpen: true, mode: "edit", data: area })}
-                        className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-                        title="Edit Area"
+                    <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-1.5">
+                      <Link
+                        href="/service-areas"
+                        target="_blank"
+                        className="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1 font-label"
+                        title="View on Service Areas Page"
                       >
-                        <Edit2 className="w-3 h-3" />
-                      </button>
-                      <button
-                        onClick={() => handleDeleteArea(area.id)}
-                        className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
-                        title="Delete Area"
-                      >
-                        <Trash2 className="w-3 h-3" />
-                      </button>
+                        <span>View Area</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </Link>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => setAreaModal({ isOpen: true, mode: "edit", data: area })}
+                          className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                          title="Edit Area"
+                        >
+                          <Edit2 className="w-3 h-3" />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteArea(area.id)}
+                          className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"
+                          title="Delete Area"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -2023,13 +2125,26 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-xl text-primary">Hero Slider & Banner Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage homepage hero slides — images, headlines, CTAs, and stat badges</p>
                 </div>
-                <button
-                  onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })}
-                  className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
-                >
-                  <PlusCircle className="w-3.5 h-3.5" />
-                  <span>Add New Slide</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Hero Banner on Live Website"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>View on Homepage</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button
+                    onClick={() => setHeroModal({ isOpen: true, mode: "create", data: {} })}
+                    className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label"
+                  >
+                    <PlusCircle className="w-3.5 h-3.5" />
+                    <span>Add New Slide</span>
+                  </button>
+                </div>
               </div>
 
               <div className="space-y-4">
@@ -2076,9 +2191,22 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">FAQ & SEO Schema Manager</h2>
                   <p className="text-xs text-slate-500 font-label">Manage FAQ questions — auto-generates JSON-LD FAQPage schema for Google rich snippets</p>
                 </div>
-                <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
-                  <PlusCircle className="w-3.5 h-3.5" /><span>Add FAQ</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/#faq"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View FAQ Section on Live Website"
+                  >
+                    <HelpCircle className="w-3.5 h-3.5 text-secondary" />
+                    <span>Public FAQ Section</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button onClick={() => setFaqModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                    <PlusCircle className="w-3.5 h-3.5" /><span>Add FAQ</span>
+                  </button>
+                </div>
               </div>
 
               <div className="space-y-3">
@@ -2117,9 +2245,22 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Comparison Matrix Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Edit the "Why Replace The Whole Window?" comparison table on the homepage</p>
                 </div>
-                <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
-                  <PlusCircle className="w-3.5 h-3.5" /><span>Add Row</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/services/misted-glass-repair#comparison"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Comparison Section on Live Website"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>Live Comparison</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button onClick={() => setCompModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                    <PlusCircle className="w-3.5 h-3.5" /><span>Add Row</span>
+                  </button>
+                </div>
               </div>
 
               <div className="bg-white rounded-md border border-slate-200/80 overflow-hidden shadow-2xs">
@@ -2162,9 +2303,22 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">4-Stage Process Journey Editor</h2>
                   <p className="text-xs text-slate-500 font-label">Manage the "Our Seamless 4-Stage Precision Process" section on the homepage</p>
                 </div>
-                <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
-                  <PlusCircle className="w-3.5 h-3.5" /><span>Add Step</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/#process"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Process Section on Live Website"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>View on Homepage</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button onClick={() => setStepModal({ isOpen: true, mode: "create", data: {} })} className="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all active:scale-95 font-label">
+                    <PlusCircle className="w-3.5 h-3.5" /><span>Add Step</span>
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -2179,8 +2333,8 @@ export default function EnterpriseAdminSuite() {
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3 h-3" /></button>
-                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3 h-3" /></button>
+                        <button onClick={() => setStepModal({ isOpen: true, mode: "edit", data: step })} className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"><Edit2 className="w-3.5 h-3.5" /></button>
+                        <button onClick={() => handleDeleteStep(step.id)} className="p-1.5 rounded bg-slate-100 hover:bg-red-50 text-slate-700 hover:text-red-700 transition-colors"><Trash2 className="w-3.5 h-3.5" /></button>
                       </div>
                     </div>
                     <p className="text-xs text-slate-600 leading-relaxed font-label">{step.description}</p>
@@ -2200,9 +2354,22 @@ export default function EnterpriseAdminSuite() {
                   <h2 className="font-headline font-bold text-lg text-slate-900">Global Site Settings</h2>
                   <p className="text-xs text-slate-500 font-label">Business contact info, address, FENSA number, opening hours — used across Navbar, Footer, Schema, and all pages</p>
                 </div>
-                <button onClick={handleSaveSettings} className={cn("text-xs py-1.5 px-3.5 rounded flex items-center gap-1.5 font-semibold shadow-2xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-slate-900 hover:bg-slate-800 text-white")}>
-                  {settingsSaved ? <><Check className="w-3.5 h-3.5" /><span>Saved & Synced!</span></> : <><Save className="w-3.5 h-3.5" /><span>Save All Settings</span></>}
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/"
+                    target="_blank"
+                    className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 font-semibold text-xs py-1.5 px-3 rounded flex items-center gap-1.5 whitespace-nowrap shadow-2xs transition-all font-label"
+                    title="View Live Public Website"
+                  >
+                    <Globe className="w-3.5 h-3.5 text-secondary" />
+                    <span>View Public Website</span>
+                    <ExternalLink className="w-3 h-3 text-slate-400" />
+                  </Link>
+
+                  <button onClick={handleSaveSettings} className={cn("text-xs py-1.5 px-3.5 rounded flex items-center gap-1.5 font-semibold shadow-2xs transition-all font-label whitespace-nowrap", settingsSaved ? "bg-emerald-600 text-white" : "bg-slate-900 hover:bg-slate-800 text-white")}>
+                    {settingsSaved ? <><Check className="w-3.5 h-3.5" /><span>Saved & Synced!</span></> : <><Save className="w-3.5 h-3.5" /><span>Save All Settings</span></>}
+                  </button>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
