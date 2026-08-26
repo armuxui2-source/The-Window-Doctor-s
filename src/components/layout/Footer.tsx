@@ -11,7 +11,8 @@ import {
   CheckCircle, 
   FileText,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Sparkles
 } from "lucide-react";
 import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
