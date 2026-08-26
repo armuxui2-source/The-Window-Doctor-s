@@ -9,10 +9,7 @@ import {
   Phone, 
   Mail, 
   CheckCircle, 
-  FileText,
-  ArrowRight,
-  ExternalLink,
-  Sparkles
+  FileText
 } from "lucide-react";
 import { DEFAULT_SITE_SETTINGS } from "@/lib/supabase/mock-data";
 
