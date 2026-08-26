@@ -372,18 +372,18 @@ export default function ARMDeveloperCaseStudy() {
                 <span className="text-slate-400 text-[10px]">RADAR STATUS</span>
                 <span className="text-emerald-400 font-bold text-[10px]">14 ACTIVE VISITORS</span>
               </div>
-              <div className="space-y-1.5 text-[11px]">
+              <div className="space-y-2 text-[11px]">
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>📍 Bicester (OX26)</span>
-                  <span className="text-amber-300">Quote Wizard Step 3</span>
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-indigo-400 shrink-0 mr-1.5" /> Bicester (OX26)</span>
+                  <span className="text-amber-300 font-medium">Quote Wizard Step 3</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>📍 Oxford (OX2)</span>
-                  <span className="text-emerald-400">Viewed Misted Glass</span>
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-emerald-400 shrink-0 mr-1.5" /> Oxford (OX2)</span>
+                  <span className="text-emerald-400 font-medium">Viewed Misted Glass</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span>📍 Banbury (OX16)</span>
-                  <span className="text-cyan-300">Clicked Emergency Hotline</span>
+                  <span className="flex items-center"><MapPin className="w-3 h-3 text-cyan-400 shrink-0 mr-1.5" /> Banbury (OX16)</span>
+                  <span className="text-cyan-300 font-medium">Emergency Hotline Click</span>
                 </div>
               </div>
             </div>
